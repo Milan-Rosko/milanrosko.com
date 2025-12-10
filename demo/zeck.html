@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Zeckendorf Encoding Demonstration</title>
+<link rel="stylesheet" href="https://public.codepenassets.com/css/normalize-5.0.0.min.css">
+<link rel="stylesheet" href="../style.css">
+
+<style>
+
+    /* Selected (blue) */
+    .fib-selected {
+        background: #a2cfe9 !important;
+        color: black;
+    }
+
+    /* Constrain (red) */
+    .fib-forbidden {
+        background: #fcb7b7 !important;
+        color: black;
+    }
+
+    .app-block { max-width: 500px; width: 100%; }
+    .section { margin-top: 1.5rem; }
+    .controls { gap: 1rem; margin-top: 1rem; }
+
+    /* App UI */
+    .fib-list-wrapper {
+        margin-top: 1rem;
+        border: 0px solid var(--color3);
+;
+        border-radius: 10px;
+        padding: 1rem;
+    }
+
+    .forbidden { color: red; font-weight: bold; }
+
+    #encode-output {
+        line-break: pre-wrap;
+        min-height: 1rem;
+        color: var(--color3);
+      }
+
+    #steps {
+        white-space: pre-wrap;
+        line-break: pre-wrap;
+        color: var(--color3);
+    }
+
+    #encode-btn{
+        margin-bottom: 2rem
+    }
+    #decode-btn{
+        margin-bottom: 2rem
+    }
+
+
+</style>
+</head>
+<header>
+    CLASS.ALGORITHM
+</header>
+
+<body>
+
+<div class="grid">
+
+    <div class="grid-item"><div class="nr">1</div>
+        <div class="grid-item-content">
+            <div class="boxm">
+                <ul>
+                    <li>Main site: <a href="../index.html">html</a>;</li>
+                    <li>Relevant Paper: <a href="https://arxiv.org/abs/2509.10382" target="_blank">link</a>;</li>
+                    <li>On Greedy Algorithms: <a href="https://en.wikipedia.org/wiki/Greedy_algorithm" target="_blank">link</a>.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="grid-item wide"><div class="nr">2</div>
+        <div class="grid-item-content">
+            <div class="boxs" style="margin-bottom: 4em;">
+                <p>
+                    We demonstrate (bellow) our <span class="cap">carryless pairing</span> constructed solely from <i>addition</i> and <i>bounded recursion</i>.
+                </p>
+
+                <p>
+                    First, a chosen set of Fibonacci terms is aggregated into a single numerical value. 
+                    In a second step, the selection itself is discarded, and only the resulting sum 
+                    is returned to a <span class="cap">greedy algorithm</span>.
+                </p>
+
+                <p>
+                    Remarkably, the original terms can be recovered from the sum alone. 
+                    This round-trip—from arbitrary additive input to canonical 
+                    <span class="cap">Zeckendorf Representation</span> and back—utilizes
+                    <span class="cap">Binet’s Formula</span>, 
+                    <span class="cap">Hurwitz’s Theorem</span>, and 
+                    <span class="cap">Zeckendorf’s Theorem</span> to yield a stable, reversible, 
+                    and fully bounded encoding–decoding scheme.
+                </p>
+
+                <p>
+                    The greedy structure can be used to realize an injective arithmetical pairing function:
+                </p>
+
+                <center>
+                    <img src="zeck.png" style="max-width: 350px;" alt="Carryless pairing diagram">
+                </center>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid-item row"><div class="nr">3</div>
+        <div class="grid-item-content">
+            <div class="app-block">
+                <div class="name" style="margin-top: 2em;">Carryless Numbering
+                </div>
+                <div class="boxm">
+                     Step 1: We select (at least 2) integers that our <i>javascript</i> decomposes uniquely into non-consecutive Fibonacci summands.
+                </div>
+
+                <div class="fib-list-wrapper" id="fib-list">
+                </div>
+                <div class="section">
+                    <div class="boxm">
+                        Step 2: We select (at least 2) integers that the javascript decomposes uniquely into non-consecutive Fibonacci summands.
+                    </div>
+                </div>
+                <div class="section" style="margin-bottom: 5em">
+                    <div class="controls">
+                        <button id="encode-btn">Encode</button>
+                    </div>
+                    <div id="encode-output" class="boxm">
+                    </div>
+                    <hr>
+                    <div class="controls">
+                        <button id="decode-btn">Forget and Decode</button>
+                    </div>
+                    <div id="steps" class="boxm">
+                    </div>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="legend">
+  <div class="legend-title">Legend</div>
+
+  <div class="legend-item">
+    <span class="legend-key">1</span>
+    <span class="legend-text">Navigation</span>
+  </div>
+
+  <div class="legend-item">
+    <span class="legend-key">2</span>
+    <span class="legend-text">Introduction</span>
+  </div>
+
+  <div class="legend-item">
+    <span class="legend-key">3</span>
+    <span class="legend-text">Interactive demonstration</span>
+  </div>
+
+</body>
+
+<script src="zeck.js"></script>
+
+
+</body>
+</html>
