@@ -18,14 +18,24 @@
 ;
 }
 
+header {
+  width: 100%;
+  font-size: 1rem;
+  padding: 10px 0 10px 0;
+  letter-spacing: 0.5ex;
+  color: var(--color1);
+  border-bottom: 1px solid var(--color1);
+  padding-top: 50px;
+}
+
 header:after {
   content: 'EDIT.22/10/2025';
   float: right;
 }
 
+
 body {
-  min-height: 100vh;
-  width: 100vw;
+  min-height: 100dvh;
   color: var(--color2);
   justify-content: center;
   align-items: center;
@@ -39,15 +49,7 @@ body {
   background: var(--colorbg);
 }
 
-header {
-  width: 100%;
-  font-size: 1rem;
-  padding: 10px 0 10px 0;
-  letter-spacing: 0.5ex;
-  color: var(--color1);
-  border-bottom: 1px solid var(--color1);
-  padding-top: 50px;
-}
+
 
 ul {
     padding-left: 1rem;
@@ -119,42 +121,43 @@ p{
 }
 
 .wide{
-    grid-column: span 2;
-    grid-row: span 1;
+  grid-column: span 2;
+  grid-row: span 1;
 }
 
 
 .tall {
-    grid-column: span 1;
-    grid-row: span 2;
+  grid-column: span 1;
+  grid-row: span 2;
 }
 
 .row {
-    grid-column: span 3;
-    grid-row: span 1;
+  grid-column: span 3;
+  grid-row: span 1;
 }
 
 .cap{
-text-transform: uppercase;
-font-size:smaller;
+  text-transform: uppercase;
+  font-size:smaller;
 }
 
 .grid-item-content {
   font-size: smaller;
-
   padding: 20px;
   display: flex;
   justify-content: center;
 }
 
 .boxshadow{
-    font-family: var(--fontserif);
-    max-width: 90%;
-    display: flex;
-    flex-wrap: wrap;          /* allow line breaks */
-    gap: 0.5rem;              /* optional spacing */
-    box-shadow: 0 3px 3px rgba(0,0,0,0.16), 0 2px 3px rgba(0,0,0,0.23);
+    max-width: 100%;
+    display: inline-flex;            /* matches other flex-based boxes */
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 3px 3px rgba(0,0,0,0.16),
+                0 2px 3px rgba(0,0,0,0.23);
     mix-blend-mode: multiply;
+    box-sizing: border-box;
+
 }
 
 
@@ -217,35 +220,36 @@ font-size:smaller;
 }
 
 .legend {
-  width: 90%;
-  padding: 1rem 1rem 1rem 1rem;
+  width: 80%;
   margin: 0 0 10em 0;
   letter-spacing: 0.02rem;
-  line-height: 1rem;
-  font-size: x-small;
+  line-height: 1;
+  font-size: xx-small;
+  grid-template-columns: repeat(2, 1fr);
+
+
 }
 
 .legend-title {
   margin-bottom: 1rem;
+  font-size: 0.75rem;
+
+
 }
 
 .legend-item {
   display: grid;
-  font-size: 0.65rem;
   grid-template-columns: 1rem auto;
   align-items: start;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.1rem;
+
 }
 
 .legend-key {
   opacity: 1;
-  font-size: xx-small;
 
 }
 
-.legend-text {
-
-}
 
 button {
     border: 1px solid black;
@@ -262,46 +266,78 @@ button:hover {
     background: rgba(0,0,0,0.12);
 }
 
-
-/* Optional: in wide view, make it a compact 3-column legend */
+/*
+when viewport width is greater than or equal to 1001 px.
+DESKTOP and wide-layout column-span semantics
+*/
 @media (min-width: 1001px) {
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 1px;
+    grid-row-gap: 1px;
+  }
   .legend {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 0.2rem;
-    max-width: 960px;
   }
 
   .legend-title {
     grid-column: 1 / -1;
   }
-    .grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-column-gap: 1px;
-    grid-row-gap: 1px;
-  }
+
 
 }
-
+/*
+when viewport width is less than or equal to 1000 px.
+MOBILE long column-span semantics
+*/
 @media (max-width: 1000px) {
-  .grid-item{
-  margin: 1px 1px 1px 1px;
-  }
   .grid-item {
-  width: 500px;
-  padding: 0;
+    margin: 1px 0px 1px 0px;
+    padding: 0px;
+    width: 100%;
+    max-width: 500px;
+    box-sizing: border-box;
+    margin-left: auto;
+    margin-right: auto;
   }
-  .grid{
-  margin: 0;
-  margin-top:1rem;
-  padding: 0;
-  width: 100%;
-  max-width: 960px;
+
+  .grid {
+    margin-top: 1rem;
+    padding: 0 1px 0 1px;
+    width: 80%;
+    max-width: 960px;
   }
+
+  header{
+    width: 90%;
+    font-size: small;
+  }
+  .legend {
+    max-width: 70%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    font-size: 7px;
+    line-height: 1;
+  }
+
+  .legend-item{
+    margin-bottom: 0.2rem;
+    
+
+  }
+
+  .legend-title {
+    font-size: 10px;
+    grid-column: 1 / -1;
+  }
+
+
 }
 
 .no-flex {
-    display: inline;          /* do NOT become flex children */
-    white-space: nowrap;      /* keep text together */
+    display: inline;
+    white-space: nowrap;
 }
