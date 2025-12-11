@@ -21,11 +21,10 @@
 header {
   width: 100%;
   font-size: 1rem;
-  padding: 10px 0 10px 0;
+  padding: 2em 0 0.4em 0;
   letter-spacing: 0.5ex;
   color: var(--color1);
   border-bottom: 1px solid var(--color1);
-  padding-top: 50px;
 }
 
 header:after {
@@ -81,6 +80,7 @@ a {
   font-family: inherit;
   transition: background 0.15s ease;
   padding: 1px 1ex 1px 1ex;
+  font-size: smaller;
 
 }
 
@@ -103,10 +103,12 @@ p{
 }
 
 .grid {
-  margin: 20px;
+  margin: 1em;
   padding: 1px;
   background: var(--color1);
   max-width: 960px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
 
 }
 
@@ -119,21 +121,22 @@ p{
   min-height: 250px;
   color: var(--color1);
 }
+.grid-item img{
+  max-width: 25em;
+
+}
 
 .wide{
   grid-column: span 2;
-  grid-row: span 1;
 }
 
 
 .tall {
-  grid-column: span 1;
   grid-row: span 2;
 }
 
 .row {
   grid-column: span 3;
-  grid-row: span 1;
 }
 
 .cap{
@@ -148,7 +151,16 @@ p{
   justify-content: center;
 }
 
-.boxshadow{
+.nr {
+  position: absolute;       /* new */
+  top: 0.5rem;                 /* tune as needed */
+  left: 0.5rem;                /* tune as needed */
+  pointer-events: none;
+  font-size: x-small;
+  font-family: var(--fontmono);
+}
+
+.boxphoto{
     max-width: 100%;
     display: inline-flex;            /* matches other flex-based boxes */
     justify-content: center;
@@ -157,47 +169,51 @@ p{
                 0 2px 3px rgba(0,0,0,0.23);
     mix-blend-mode: multiply;
     box-sizing: border-box;
-
 }
 
-
 .box{
-  max-width: 90%;
   display: flex;
-  flex-wrap: wrap;          /* allow line breaks */
-  gap: 0.5rem;              /* optional spacing */
 }
 
 .boxm{
   font-family: var(--fontmono);
-  padding: 10px;
-  line-height: 1.5;
+  line-height: 1.8;
+  max-width: 40em;
+  margin-bottom: 3em;
+  margin-top: 2em;
+
+
 
 }
-
-/* For longer text */
-
 .boxs{
   font-family: var(--fontserif);
   text-align: justify;
-  max-width: 80%;
   font-size: small;
-  margin: 10px 2ex 10px 10px;
   line-height: 1.5;
-
+  max-width: 30em;
+  margin-bottom: 3em;
+  margin-top: 2em;
 }
 
+.app-block {
+  font-family: var(--fontmono);
+  line-height: 1.8;
+  max-width: 40em;
+  margin-bottom: 3em;
+  margin-top: 2em;
+}
+
+
 #anim-container1 {
-  width: 300px;
-  height: 300px;
+  max-width: 25em;
+  max-height: 25em;
   position: relative; /* ensures absolute-positioned canvas fits correctly */
-  overflow: hidden;
-  padding: 30px;
 }
 
 #anim-container1 canvas {
-  width: 100% !important;
-  height: 100% !important;
+  width: 70% !important;
+  height: 70% !important;
+  padding: 15%;
 }
 
 
@@ -209,23 +225,11 @@ p{
       font-family: var(--fontmono);
 }
 
-.nr {
-  position: absolute;       /* new */
-  top: 0.5rem;                 /* tune as needed */
-  left: 0.5rem;                /* tune as needed */
-  pointer-events: none;
-  font-size: x-small;
-  font-family: var(--fontmono);
-
-}
 
 .legend {
-  width: 80%;
-  margin: 0 0 10em 0;
-  letter-spacing: 0.02rem;
+  margin: 0 auto 10em 3em;
   line-height: 1;
   font-size: xx-small;
-  grid-template-columns: repeat(2, 1fr);
 
 
 }
@@ -267,20 +271,36 @@ button:hover {
 }
 
 /*
-when viewport width is greater than or equal to 1001 px.
-DESKTOP and wide-layout column-span semantics
+DESKTOP
 */
-@media (min-width: 1001px) {
+@media (min-width: 901px) {
+
   .grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(9, 1fr);
     grid-column-gap: 1px;
     grid-row-gap: 1px;
   }
+
+  .d-w-1 { grid-column: span 1; }
+  .d-w-2 { grid-column: span 2; }
+  .d-w-3 { grid-column: span 3; }
+  .d-w-4 { grid-column: span 4; }
+  .d-w-5 { grid-column: span 5; }
+  .d-w-6 { grid-column: span 6; }
+  .d-w-7 { grid-column: span 7; }
+  .d-w-8 { grid-column: span 8; }
+  .d-w-9 { grid-column: span 9; }
+
+
+
+  .d-h-1 { grid-row: span 1; }
+  .d-h-2 { grid-row: span 2; }
+
   .legend {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-column-gap: 0.2rem;
+    grid-template-columns: repeat(3, 1fr);
+    grid-row-gap: 0.2em;
+    grid-column-gap: 4em;
   }
 
   .legend-title {
@@ -289,16 +309,38 @@ DESKTOP and wide-layout column-span semantics
 
 
 }
-/*
-when viewport width is less than or equal to 1000 px.
-MOBILE long column-span semantics
-*/
-@media (max-width: 1000px) {
+/* MOBILE */
+@media (max-width: 900px) {
+
+  body{
+        max-width: 100%;
+        margin: 0 auto;
+
+  }
+
+  .grid {
+    grid-template-columns: repeat(9, 1fr);
+    grid-column-gap: 1px;
+    grid-row-gap: 1px;
+    font-size: small;
+  }
+
+
+  .m-w-1 { grid-column: span 1; }
+  .m-w-2 { grid-column: span 2; }
+  .m-w-3 { grid-column: span 3; }
+  .m-w-4 { grid-column: span 4; }
+  .m-w-5 { grid-column: span 5; }
+  .m-w-6 { grid-column: span 6; }
+  .m-w-7 { grid-column: span 7; }
+  .m-w-8 { grid-column: span 8; }
+  .m-w-9 { grid-column: span 9; }
+
+  .m-h-1 { grid-row:1 }
+  .m-h-2 { grid-row:2 }
+
   .grid-item {
-    margin: 1px 0px 1px 0px;
-    padding: 0px;
     width: 100%;
-    max-width: 500px;
     box-sizing: border-box;
     margin-left: auto;
     margin-right: auto;
@@ -306,34 +348,31 @@ MOBILE long column-span semantics
 
   .grid {
     margin-top: 1rem;
-    padding: 0 1px 0 1px;
-    width: 80%;
-    max-width: 960px;
+    padding: 1px 1px 1px 1px;
   }
 
   header{
-    width: 80%;
+    max-width: 90%;
     font-size: small;
   }
   .legend {
-    max-width: 70%;
+    max-width: 80%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     font-size: 7px;
     line-height: 1;
+    grid-row-gap: 0.5em;
+    grid-column-gap: 3em;
+
   }
 
   .legend-item{
-    margin-bottom: 0.2rem;
-    
-
   }
 
   .legend-title {
     font-size: 10px;
     grid-column: 1 / -1;
   }
-
 
 }
 

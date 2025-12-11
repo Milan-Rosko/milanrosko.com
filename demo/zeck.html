@@ -24,17 +24,15 @@
         color: black;
     }
 
-    .app-block { max-width: 500px; width: 100%; }
     .section { margin-top: 1.5rem; }
-    .controls { gap: 1rem; margin-top: 1rem; }
+    .controls {  margin-top: 1rem; }
 
     /* App UI */
     .fib-list-wrapper {
         margin-top: 1rem;
         border: 0px solid var(--color3);
-;
         border-radius: 10px;
-        padding: 1rem;
+        padding: 2em;
     }
 
     .forbidden { color: red; font-weight: bold; }
@@ -69,7 +67,7 @@
 
 <div class="grid">
 
-    <div class="grid-item"><div class="nr">1</div>
+    <div class="grid-item d-w-3 m-w-9"><div class="nr">1</div>
         <div class="grid-item-content">
             <div class="boxm">
                 <ul>
@@ -80,9 +78,9 @@
             </div>
         </div>
     </div>
-    <div class="grid-item wide"><div class="nr">2</div>
+    <div class="grid-item d-w-6 m-w-9"><div class="nr">2</div>
         <div class="grid-item-content">
-            <div class="boxs" style="margin-bottom: 4em;">
+            <div class="boxs">
                 <p>
                     We demonstrate (bellow) our <span class="cap">carryless pairing</span> constructed solely from <i>addition</i> and <i>bounded recursion</i>.
                 </p>
@@ -108,21 +106,20 @@
                 </p>
 
                 <center>
-                    <img src="zeck.png" style="max-width: 350px;" alt="Carryless pairing diagram">
+                    <img src="zeck.png" style="margin-top:2em" alt="Carryless pairing diagram">
                 </center>
             </div>
         </div>
     </div>
 
-    <div class="grid-item row"><div class="nr">3</div>
+    <div class="grid-item d-w-9 m-w-9"><div class="nr">3</div>
         <div class="grid-item-content">
-            <div class="app-block">
-                <div class="name" style="margin-top: 2em;">Carryless Numbering
+            <div class="boxm">
+                <div class="name" style="margin-top: 1em;">Carryless Numbering
                 </div>
                 <div class="boxm">
                      Step 1: We select (at least 2) integers that our <i>javascript</i> decomposes uniquely into non-consecutive Fibonacci summands.
                 </div>
-
                 <div class="fib-list-wrapper" id="fib-list">
                 </div>
                 <div class="section">
@@ -130,7 +127,7 @@
                         Step 2: We select (at least 2) integers that the javascript decomposes uniquely into non-consecutive Fibonacci summands.
                     </div>
                 </div>
-                <div class="section" style="margin-bottom: 5em">
+                <div class="section" style="margin-bottom: 2em">
                     <div class="controls">
                         <button id="encode-btn">Encode</button>
                     </div>
