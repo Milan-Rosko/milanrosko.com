@@ -10,6 +10,7 @@
   --colorperi: #5544f2;
   --colorlink: #5544f2;
   --colorlinkhover: #ff69b4;
+  --colorshade:rgba(0,0,0,0.05);
 
   --fontmono: 'Geist Mono', monospace;
   --fontserif: 'Inria Serif';
@@ -123,20 +124,6 @@ p{
 }
 .grid-item img{
   max-width: 25em;
-
-}
-
-.wide{
-  grid-column: span 2;
-}
-
-
-.tall {
-  grid-row: span 2;
-}
-
-.row {
-  grid-column: span 3;
 }
 
 .cap{
@@ -152,9 +139,9 @@ p{
 }
 
 .nr {
-  position: absolute;       /* new */
-  top: 0.5rem;                 /* tune as needed */
-  left: 0.5rem;                /* tune as needed */
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
   pointer-events: none;
   font-size: x-small;
   font-family: var(--fontmono);
@@ -240,10 +227,9 @@ p{
 
 }
 
-
 button {
     border: 1px solid black;
-    background: rgba(0,0,0,0.05);   /* 5% grey */
+    background: var(--colorshade);
     cursor: pointer;
     margin: 2px 1px auto;
     font-family: inherit;
