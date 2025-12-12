@@ -29,7 +29,7 @@ header {
 }
 
 header:after {
-  content: 'EDIT.11/12/2025';
+  content: 'EDIT.12/DEC/2025';
   float: right;
 }
 
@@ -160,6 +160,10 @@ p{
 
 .box{
   display: flex;
+}
+
+.boxmini{
+  text-align: centered;
 }
 
 .boxm{
