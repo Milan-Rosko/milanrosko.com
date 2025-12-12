@@ -2,18 +2,17 @@
 // Configuration
 // ----------------------------------------------------
 
-let CANVAS_BG = "white"; 
+let CANVAS_BG = "white";
 // Example overrides:
 // CANVAS_BG = "#202020";
 // CANVAS_BG = "rgba(0,0,0,0.8)";
 // CANVAS_BG = "transparent";  // use CSS container background instead
 
+const CELL_COUNT     = 170;
+const CELL_SIZE      = 7;
 
-const CELL_COUNT     = 180;
-const CELL_SIZE      = 5;
-
-const TRAIL_LENGTH   = 50;
-const FADE_LENGTH    = 20;
+const TRAIL_LENGTH   = 60;
+const FADE_LENGTH    = 100;
 
 let writeRow = 0;
 
@@ -25,7 +24,15 @@ let field = [];
 let simLayer;
 let accumLayer;
 
-const INITIAL_HUE   = 0;
+const INITIAL_HUE   = 200;
+
+const MAX_STATE = 22;        // phase count
+const ANNIHILATION_T = 3;  // phase difference threshold
+const ZERO_STICKY_T = 4;   // zero hysteresis threshold
+
+const BACKGROUND_ENERGY = 1;   // very weak sustenance
+const RECOVERY_GATE    = 55;  // lower = more revival
+
 
 
 // ----------------------------------------------------
@@ -35,9 +42,9 @@ const INITIAL_HUE   = 0;
 // --- Simulation toggles ---
 let ENABLE_HUE_CYCLE            = true;    // engine modifies hue on active cells
 
-let ENABLE_BRIGHTNESS_GAIN      = false;    // brightness increases on active cells
-let ENABLE_BRIGHTNESS_DECAY     = false;    // brightness decreases on inactive cells
-let ENABLE_KILL_ON_MAX_BRIGHT   = false;    // state forced to 0 when brightness exceeds threshold
+let ENABLE_BRIGHTNESS_GAIN      = false;   // brightness increases on active cells
+let ENABLE_BRIGHTNESS_DECAY     = false;   // brightness decreases on inactive cells
+let ENABLE_KILL_ON_MAX_BRIGHT   = false;   // state forced to 0 when brightness exceeds threshold
 
 let ENABLE_TRAIL                = true;    // if false, nothing stored in trail buffer
 let ENABLE_TRAIL_FADE           = true;    // if false, alpha will not depend on age
@@ -46,7 +53,7 @@ let ENABLE_ACCUM_DECAY          = true;    // global accumulation fade-out per f
 let ENABLE_ACCUM_BLEND          = true;    // add simLayer into accumulation layer
 
 // --- Engine parameters ---
-let HUE_INCREMENT_ACTIVE        = 50;     // hue shift for active cells
+let HUE_INCREMENT_ACTIVE        = 33;      // hue shift for active cells
 let BRIGHTNESS_GAIN_ACTIVE      = 80;      // brightness gain per active event
 let BRIGHTNESS_DECAY_INACTIVE   = 50;      // brightness loss on inactive event
 let BRIGHTNESS_MAX_THRESHOLD    = 100;     // used with ENABLE_KILL_ON_MAX_BRIGHT
@@ -73,29 +80,61 @@ let CELL_RENDER_STYLE           = "circle";
 
 
 // ----------------------------------------------------
+// Stronger chaotic dynamics injection (computable)
+// OFF by default (baseline preserved)
+// ----------------------------------------------------
+
+let ENABLE_CHAOTIC_PULSES = false;
+
+// Fibonacci pulse schedule (mod 2^32, integer-only)
+let fibPulseA = 1 >>> 0;
+let fibPulseB = 1 >>> 0;
+let nextPulse = 1 >>> 0;
+
+// Weyl phase (integer-only; quasi-periodic)
+let weylPhase = 3 >>> 0;
+const WEYL_STEP = 0x9E3779B9 >>> 0;
+
+// Internal step counter for CA-steps (not frames)
+let caStepCount = 0;
+
+function tickFibonacciPulse() {
+  const n = (fibPulseA + fibPulseB) >>> 0;
+  fibPulseA = fibPulseB;
+  fibPulseB = n;
+
+  // keep pulses from getting pathological at start
+  nextPulse = (n === 0 ? 1 : n) >>> 0;
+}
+
+function tickWeyl() {
+  weylPhase = (weylPhase + WEYL_STEP) >>> 0;
+}
+
+function isPulseStep(stepCount) {
+  return (stepCount >>> 0) === (nextPulse >>> 0);
+}
+
+
+// ----------------------------------------------------
 // Setup
 // ----------------------------------------------------
-  function setup() {
+function setup() {
   let cnv = createCanvas(CELL_COUNT * CELL_SIZE, TRAIL_LENGTH * CELL_SIZE);
-  cnv.parent("ca-container");  // now canvas is inside your div
+  cnv.parent("ca-container");  // canvas inside your div
   cnv.elt.style.background = CANVAS_BG;
-  // safe: canvas exists now
 
-  colorMode(HSL, 0, 0, 0, 1); //*
+  colorMode(HSL, 360, 100, 100, 1);
   noStroke();
 
   simLayer = createGraphics(width, height);
-  simLayer.colorMode(HSL, 360, 100, 100, 1); //*
+  simLayer.colorMode(HSL, 360, 100, 100, 1);
   simLayer.noStroke();
 
   accumLayer = createGraphics(width, height);
-  accumLayer.colorMode(HSL, 360, 100, 100, 1); //*
+  accumLayer.colorMode(HSL, 360, 100, 100, 1);
   accumLayer.noStroke();
 
-  // start black
-  function draw() {
-    background(CANVAS_BG);
-  }
   // initial CA row
   for (let i = 0; i < CELL_COUNT; i++) {
     cells[i] = Math.random() < 0.5 ? 0 : 1;
@@ -121,6 +160,10 @@ let CELL_RENDER_STYLE           = "circle";
       field[r][c] = { hue: INITIAL_HUE, brightness: 50 };
     }
   }
+
+  // initialize pulse schedule deterministically
+  tickFibonacciPulse(); // nextPulse = 2
+  tickFibonacciPulse(); // nextPulse = 3
 }
 
 
@@ -139,7 +182,15 @@ function draw() {
     applyEngineToField();
     saveCurrentRow();
     ageTrail();
-    cells = nextRule30(cells);
+
+    caStepCount = (caStepCount + 1) >>> 0;
+
+    if (ENABLE_CHAOTIC_PULSES && isPulseStep(caStepCount)) {
+      cells = nextRulePulse(cells);   // one-step chaotic pulse
+      tickFibonacciPulse();           // schedule the next pulse
+    } else {
+      cells = nextRuleCore(cells);      // baseline dynamics
+    }
   }
 
   // draw the trail for the latest state
@@ -149,7 +200,8 @@ function draw() {
   // DECAY ACCUMULATION LAYER
   // ------------------------------------------------
   if (ENABLE_ACCUM_DECAY) {
-    accumLayer.fill(255, 255, 255, ACCUM_FADE_ALPHA); // HSL parameters
+    // in HSL mode: (h,s,l,a) -> white is l=100, any h/s
+    accumLayer.fill(0, 0, 100, ACCUM_FADE_ALPHA);
     accumLayer.rect(0, 0, width, height);
   }
 
@@ -284,20 +336,80 @@ function drawTrail(pg) {
   }
 }
 
-
-// ----------------------------------------------------
-// Rule 30
-// ----------------------------------------------------
-function nextRule30(row) {
+function nextRuleCore(row) {
   const out = new Array(row.length);
-  const rule30 = [0,1,1,1,1,0,0,0];
+
+  // slow global modulation
+  tickFibonacciPulse();
+  const mod = (fibPulseB % 5) + 5; // 5..9
 
   for (let i = 0; i < row.length; i++) {
-    const left   = row[(i - 1 + row.length) % row.length];
-    const center = row[i];
-    const right  = row[(i + 1) % row.length];
-    const idx    = (left << 2) | (center << 1) | right;
-    out[i]       = rule30[idx];
+    const l = row[(i - 1 + row.length) % row.length];
+    const c = row[i];
+    const r = row[(i + 1) % row.length];
+
+    // -----------------------------
+    // 1. ASYMMETRIC ANNIHILATION
+    // -----------------------------
+    const dL = Math.abs(c - l);
+    const dR = Math.abs(c - r);
+
+    if ((fibPulseB & 7) === 0 && dL > ANNIHILATION_T && dR > ANNIHILATION_T) {
+      // collapse only if center is weak
+      if (c < l || c < r) {
+        out[i] = 0;
+        continue;
+      }
+    }
+
+    // -----------------------------
+    // 2. ZERO HYSTERESIS (leaky)
+    // -----------------------------
+    if (c === 0) {
+      // rare Fibonacci-gated recovery
+      if ((fibPulseB % RECOVERY_GATE) === (i & 3)) {
+        out[i] = (l + r + fibPulseA) % (MAX_STATE + 1);
+        continue;
+      }
+      // otherwise stay zero if neighborhood is weak
+      if ((l + r) < ZERO_STICKY_T) {
+        out[i] = 0;
+        continue;
+      }
+    }
+
+    // -----------------------------
+    // 3. ENERGY COMPUTATION
+    // -----------------------------
+    let energy =
+      (c << 1) +
+      l +
+      r -
+      Math.abs(l - r);
+
+    // directional bias
+    if ((i & 1) === 0) energy += l;
+    else energy -= r;
+
+    // background sustenance (critical!)
+    energy += BACKGROUND_ENERGY;
+
+    if (energy <= 0) {
+      out[i] = 0;
+      continue;
+    }
+
+    // -----------------------------
+    // 4. PHASE TRANSPORT
+    // -----------------------------
+    let next =
+      (c +
+       ((l > r) ? l : r) +
+       fibPulseA) % mod;
+
+    if (next > MAX_STATE) next %= (MAX_STATE + 1);
+
+    out[i] = next;
   }
 
   return out;

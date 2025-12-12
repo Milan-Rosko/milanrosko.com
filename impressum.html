@@ -11,35 +11,33 @@
     <!-- Specific metadata -->
     <style>
 
-.screener{
-  position: absolute;
-  inset: 0;
-  z-index: 1;             /* must be above canvas */
-  pointer-events: none;
-  mix-blend-mode: darken; /* the actual blending */
-  background: var(--colorbg);
-}
+        .screener{
+          position: absolute;
+          inset: 0;
+          z-index: 1;
+          pointer-events: none;
+          mix-blend-mode: darken;
+          background: var(--colorbg);
+        }
 
+        #ca-container {
+          position: absolute;
+          max-width: auto;
+          max-height: auto;
+          inset: 0;
+          overflow: auto;
+          padding:  2em;
 
-#ca-container {
-  position: absolute;   /* ignore grid, ignore normal flow */
-  max-width: auto;
-  max-height: auto;
-  inset: 0;
-  overflow: auto;
-  padding:  2em;
+        }
 
-}
-
-/* optional: make the canvas fill the viewport like a background image */
-#ca-container canvas {
-    display: block-wrap;
-    max-width: 100%;
-    max-height: 100%;
-    margin: auto;
-
-}
-
+        #ca-container canvas {
+          display: block;
+          width: auto;
+          height: auto;
+          max-width: 100%;
+          max-height: 100%;
+          object-fit: contain;
+        }
 
     </style>
 </head>
@@ -110,7 +108,7 @@
   </div>
 <div class="legend-item">
     <span class="legend-key">3</span>
-    <span class="legend-text">Wolfram-type cellular automaton</span>
+    <span class="legend-text">Cellular automaton</span>
   </div>
 </body>
 </html>
