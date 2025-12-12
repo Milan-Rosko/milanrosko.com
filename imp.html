@@ -1,13 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="https://public.codepenassets.com/css/normalize-5.0.0.min.css">
-  <link rel="stylesheet" href="./style.css">
-  <!-- Canonical metadata -->
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="canonical" href="https://milanrosko.com/">
+    <link rel="stylesheet" href="https://public.codepenassets.com/css/normalize-5.0.0.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <!-- Canonical metadata -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="canonical" href="https://milanrosko.com/">
+    <!-- Specific metadata -->
+    <style>
+
+.screener{
+  position: absolute;
+  inset: 0;
+  z-index: 1;             /* must be above canvas */
+  pointer-events: none;
+  mix-blend-mode: darken; /* the actual blending */
+  background: var(--colorbg);
+}
+
+
+#ca-container {
+  position: absolute;   /* ignore grid, ignore normal flow */
+  max-width: auto;
+  max-height: auto;
+  inset: 0;
+  overflow: auto;
+  padding:  2em;
+
+}
+
+/* optional: make the canvas fill the viewport like a background image */
+#ca-container canvas {
+    display: block-wrap;
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+
+}
+
+
+    </style>
 </head>
 <body>
 
@@ -51,7 +85,16 @@
             </div>
         </div>
     </div>
-
+    <div class="grid-item d-w-9 m-w-9"><div class="nr">3</div>
+            <div class="grid-item-content">
+                <div class="boxm">
+                  <div id="ca-container"></div>
+                  <div class="screener"></div>
+                </div>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.min.js"></script>
+                <script src="./rule31.js"></script>
+            </div>
+    </div>
 </div>
 <div class="legend">
   <div class="legend-title">Legend</div>
@@ -63,8 +106,11 @@
 
   <div class="legend-item">
     <span class="legend-key">2</span>
-    <span class="legend-text">Legal Text</span>
+    <span class="legend-text">Legal text</span>
+  </div>
+<div class="legend-item">
+    <span class="legend-key">3</span>
+    <span class="legend-text">Wolfram-type cellular automaton</span>
   </div>
 </body>
-<script src="zeck.js"></script>
 </html>

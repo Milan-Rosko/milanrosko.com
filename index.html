@@ -9,8 +9,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="canonical" href="https://milanrosko.com/">
 
+
   <!-- Specific metadata -->
   <title>Milan Rosko — Logician & Designer</title>
+  <style>
+		#anim-container1 {
+		  max-width: 25em;
+		  max-height: 25em;
+		  position: relative; /* ensures absolute-positioned canvas fits correctly */
+		}
+
+		#anim-container1 canvas {
+		  width: 70% !important;
+		  height: 70% !important;
+		  padding: 15%;
+		}
+</style>
   <meta name="description"
   			content="Research in constructive and computational logic, and Information design with structural emphasis.">
   <meta name="keywords"
@@ -39,7 +53,6 @@
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/icon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png"> -->
-
 </head>
 <body>
 
@@ -67,9 +80,9 @@
 				</div>
 			</div>
 		</div>
-
 		<div class="grid-item d-w-4 m-w-9" id="anim-cell"><div class="nr">2</div>
 			<div id="anim-container1"></div>
+			<script src="poly.js"></script>
 		</div>
 
 		<div class="grid-item d-w-9 m-w-9"><div class="nr">3</div>
@@ -101,6 +114,11 @@
 					<li>ORCID, <a href="https://orcid.org/0009-0003-1363-7158" target="_blank">0009-0003-1363-7158</a>;</li>
 					<li>X, <a href="https://x.com/Milan_Rosko" target="_blank">x.com/Milan_Rosko</a>;</li>
 				</ul>
+				Contact:
+				<ul>
+					<li><a href="mailto:hiTHEATSYMBOLmilanrosko.com" target="_blank">EMail</a>.</li>
+				</ul>
+
 				</div>
 			</div>
 		</div>
@@ -143,7 +161,7 @@
 		<div class="grid-item d-w-3 m-w-5"><div class="nr">9</div>
 			<div class="grid-item-content">
 				<div class="boxm">
-		        Imprint/Impressum: <a href="./imp.html">html</a>;
+		        Imprint/Impressum: <a href="./imp.html">html</a>.
 				</div>
 			</div>
 		</div>
@@ -192,10 +210,7 @@
 	    <span class="legend-key">9</span>
 	    <span class="legend-text">Legal Ligature</span>
 	  </div>
-
-
 	</div>
-</body>
 
-<script src="gizmo.js"></script>
+</body>
 </html>

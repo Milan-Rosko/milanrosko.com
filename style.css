@@ -177,7 +177,7 @@ p{
 
 .boxm{
   font-family: var(--fontmono);
-  line-height: 1.8;
+  line-height: 1.5;
   max-width: 40em;
   margin-bottom: 3em;
   margin-top: 2em;
@@ -202,20 +202,6 @@ p{
   margin-bottom: 3em;
   margin-top: 2em;
 }
-
-
-#anim-container1 {
-  max-width: 25em;
-  max-height: 25em;
-  position: relative; /* ensures absolute-positioned canvas fits correctly */
-}
-
-#anim-container1 canvas {
-  width: 70% !important;
-  height: 70% !important;
-  padding: 15%;
-}
-
 
 .name{
       white-space: nowrap;
