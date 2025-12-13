@@ -11,6 +11,9 @@
   --colorlink: #5544f2;
   --colorlinkhover: #ff69b4;
   --colorshade:rgba(0,0,0,0.05);
+  --colorperishade: rgba(85, 68, 242,0.1);
+  --colorok: #a2cfe9;
+  --colornot: #fcb7b7;
 
   --fontmono: 'Geist Mono', monospace;
   --fontserif: 'Inria Serif';

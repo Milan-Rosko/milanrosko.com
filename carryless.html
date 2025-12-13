@@ -14,13 +14,13 @@
 
     /* Selected (blue) */
     .fib-selected {
-        background: #a2cfe9 !important;
+        background: var(--colorok) !important;
         color: black;
     }
 
     /* Constrain (red) */
     .fib-forbidden {
-        background: #fcb7b7 !important;
+        background: var(--colornot) !important;
         color: black;
     }
 
@@ -60,6 +60,124 @@
     }
 
 
+.fibowrap {
+  position: absolute;
+  inset: 0;
+
+  display: grid;
+  place-items: center;
+
+  overflow: auto;
+}
+
+.fibonacci-squares {
+  position: relative;
+  display: inline-block;
+  transform: translate(-5em, 6em);
+}
+
+
+.fibonacci-squares .square {
+  box-sizing: border-box;
+  position: absolute;
+  border: 1px solid black;
+  background-color: var(--colorperishade);
+}
+.fibonacci-squares .square.square-1 {
+  width: 12.6em;
+  height: 12.6em;
+  bottom: 0;
+      animation: rotation-0 10s infinite;
+}
+.fibonacci-squares .square.square-2 {
+  width: 7.8em;
+  height: 7.8em;
+  transform-origin: right bottom;
+  top: -7.8em;
+  right: 0;
+      animation: rotation-A 10s infinite;
+}
+.fibonacci-squares .square.square-3 {
+  width: 4.8em;
+  height: 4.8em;
+  transform-origin: top right;
+  top: 0;
+  left: -4.8em;
+      animation: rotation-B 10s infinite;
+}
+.fibonacci-squares .square.square-4 {
+  width: 3.0em;
+  height: 3.0em;
+  transform-origin: top left;
+  bottom: -3.0em;
+  left: 0;
+        animation: rotation-A 10s infinite;
+}
+.fibonacci-squares .square.square-5 {
+  width: 1.8em;
+  height: 1.8em;
+  transform-origin: bottom left;
+  bottom: 0;
+  right: -1.8em;
+        animation: rotation-B 10s infinite;
+}
+.fibonacci-squares .square.square-6 {
+  width: 1.2em;
+  height: 1.2em;
+  transform-origin: bottom right;
+  top: -1.2em;
+  right: 0;
+        animation: rotation-A 10s infinite;
+}
+.fibonacci-squares .square.square-7 {
+  width: 0.6em;
+  height: 0.6em;
+  transform-origin: top right;
+  top: 0;
+  left: -0.6em;
+        animation: rotation-B 10s infinite;
+}
+.fibonacci-squares .square.square-8 {
+  width: 0.6em;
+  height: 0.6em;
+  transform-origin: top left;
+  bottom: -0.6em;
+  left: 0;
+        animation: rotation-A 10s infinite;
+}
+
+/*
+L270 = violet
+R90 = green
+L180 = blue
+R180 = red
+ */
+
+@keyframes rotation-0 {
+    0% {transform: translate(-6em, 0) rotate(90deg); /*border-color: green;*/}
+    25% {transform: translate(3em, 0) rotate(-180deg); /*;border-color: violet;*/}
+    50% {transform: translate(12em,0) rotate(-90deg);  /*;border-color: green;*/}
+    75% {transform: translate(-6em, 0) rotate(0deg); /*;border-color: green;*/}
+    100% {transform: translate(-6em, 0) rotate(90deg); /*;border-color: green;*/}
+} 
+
+@keyframes rotation-A { 
+    0% {transform: rotate(0deg); animation-timing-function: linear;/*border-color: red;*/}
+    25% {transform: rotate(-180deg); animation-timing-function: linear;/*border-color: blue;*/}
+    50% {transform: rotate(-360deg);animation-timing-function: linear;/*border-color: blue;*/}
+    75% {transform: rotate(-540deg);animation-timing-function: linear;/*border-color: blue;*/}
+    100% {transform: rotate(-720deg);/*border-color: red;*/}
+  }
+
+@keyframes rotation-B { 
+    0% {transform: rotate(0deg);animation-timing-function: linear;/*border-color: red;*/}
+    25% {transform: rotate(-180deg);animation-timing-function: linear;/*border-color: blue;*/}
+    50% {transform: rotate(-360deg);animation-timing-function: linear;/*border-color: blue;*/}
+    75% {transform: rotate(-180deg); animation-timing-function: linear;/*border-color: red;*/}
+    100% {transform: rotate(0deg); /*border-color: red;*/}
+
+}
+
 </style>
 </head>
 <header>
@@ -85,7 +203,7 @@
         <div class="grid-item-content">
             <div class="boxs">
                 <p>
-                    We demonstrate (bellow) our <span class="cap">carryless pairing</span> constructed solely from <i>addition</i> and <i>bounded recursion</i>.
+                    We demonstrate, in the application bellow, our <span class="cap">carryless pairing</span> constructed solely from <i>addition</i> and <i>bounded recursion</i>.
                 </p>
 
                 <p>
@@ -115,7 +233,34 @@
         </div>
     </div>
 
-    <div class="grid-item d-w-9 m-w-9"><div class="nr">3</div>
+        <div class="grid-item d-w-9 m-w-9"><div class="nr">3</div>
+            <div class="grid-item-content">
+                <div class="boxm">
+                    <div class="fibowrap">
+                        <div class="fibonacci-squares">
+                            <div class="square-1 square">
+                                <div class="square-2 square">
+                                    <div class="square-3 square">
+                                        <div class="square-4 square">
+                                            <div class="square-5 square">
+                                                <div class="square-6 square">
+                                                    <div class="square-7 square">
+                                                        <div class="square-8 square">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    <div class="grid-item d-w-9 m-w-9"><div class="nr">4</div>
         <div class="grid-item-content">
             <div class="boxm">
                 <div class="name" style="margin-top: 1em;">Carryless Numbering
@@ -163,8 +308,14 @@
 
   <div class="legend-item">
     <span class="legend-key">3</span>
+    <span class="legend-text">Group Transformations</span>
+  </div>
+
+    <div class="legend-item">
+    <span class="legend-key">4</span>
     <span class="legend-text">Interactive demonstration</span>
   </div>
+
 
 </body>
 
