@@ -8,21 +8,30 @@ header:after {
 
 :root {
   --color1: black;
-  --colorbg: #e6e5d8;
   --color2: black;
   --color3: #568070;
-  --colorngrey: #e2e1e0;
-  --colorperi: #5544f2;
+  --colorbg: #e6e5d8;
+
   --colorlink: #5544f2;
   --colorlinkhover: #ff69b4;
+
   --colorshade:rgba(0,0,0,0.05);
   --colorperishade: rgba(85, 68, 242,0.1);
   --colorok: #a2cfe9;
   --colornot: #fcb7b7;
 
+
+  --colorgold: #e6e5d8;
+  --colorperi: #dcd8e6;
+  --colorblue: #d8e1e6;
+  --colorrose: #ffd6f2;
+  --colorfullcyan: #96daff;
+  --colorngrey: #e2e1e0;
+  --colorperi: #5544f2;
+  --colorlemon: #fffc96;
+
   --fontmono: 'Geist Mono', monospace;
   --fontserif: 'Inria Serif';
-  --fontmodernist:  Old Standard TT;
 }
 
 h1,h2,h3 {
@@ -47,6 +56,9 @@ li:before {
 
 hr {
   border: 0.5px solid var(--color3);
+  padding: 0px;
+  margin: 0px;
+  height: 0px;
 }
 
 a {
