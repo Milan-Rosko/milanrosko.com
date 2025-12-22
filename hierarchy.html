@@ -157,26 +157,26 @@ R180 = red
  */
 
 @keyframes rotation-0 {
-    0% {transform: translate(0rem, 0) rotate(90deg);}
-    25% {transform: translate(2rem, 0) rotate(-90deg);}
-    50% {transform: translate(2rem,0) rotate(-90deg);}
-    75% {transform: translate(0rem, 0) rotate(0deg);}
-    100% {transform: translate(0rem, 0) rotate(90deg);}
+    0% {transform: translate(-6ex, 0) rotate(90deg); /*border-color: green;*/}
+    25% {transform: translate(3ex, 0) rotate(-90deg); /*;border-color: violet;*/}
+    50% {transform: translate(3ex,0) rotate(-90deg);  /*;border-color: green;*/}
+    75% {transform: translate(-6ex, 0) rotate(0deg); /*;border-color: green;*/}
+    100% {transform: translate(-6ex, 0) rotate(90deg); /*;border-color: green;*/}
 } 
 
 @keyframes rotation-A { 
-    0% {transform: rotate(0deg); animation-timing-function: linear;}
-    25% {transform: rotate(-180deg); animation-timing-function: linear;}
-    50% {transform: rotate(-360deg);animation-timing-function: linear;}
-    75% {transform: rotate(-540deg);animation-timing-function: linear;}
+    0% {transform: rotate(0deg); animation-timing-function: linear;/*border-color: red;*/}
+    25% {transform: rotate(-180deg); animation-timing-function: linear;/*border-color: blue;*/}
+    50% {transform: rotate(-360deg);animation-timing-function: linear;/*border-color: blue;*/}
+    75% {transform: rotate(-540deg);animation-timing-function: linear;/*border-color: blue;*/}
     100% {transform: rotate(-720deg);/*border-color: red;*/}
   }
 
 @keyframes rotation-B { 
-    0% {transform: rotate(0deg);animation-timing-function: linear;}
-    25% {transform: rotate(-180deg);animation-timing-function: linear;}
-    50% {transform: rotate(-360deg);animation-timing-function: linear;}
-    75% {transform: rotate(-180deg); animation-timing-function: linear;}
+    0% {transform: rotate(0deg);animation-timing-function: linear;/*border-color: red;*/}
+    25% {transform: rotate(-180deg);animation-timing-function: linear;/*border-color: blue;*/}
+    50% {transform: rotate(-360deg);animation-timing-function: linear;/*border-color: blue;*/}
+    75% {transform: rotate(-180deg); animation-timing-function: linear;/*border-color: red;*/}
     100% {transform: rotate(0deg); /*border-color: red;*/}
 
 }
@@ -192,18 +192,20 @@ R180 = red
 
 <div class="grid">
 
-    <div class="grid-item d-w-9 m-w-9"><div class="nr">1</div>
+    <div class="grid-item d-w-3 m-w-9"><div class="nr">1</div>
         <div class="grid-item-content">
-            <div class="navi">
-                    Main site: <a href="./index.html">html</a>.</li>
+            <div class="boxm">
+                <ul>
+                    <li>Main site: <a href="./index.html">html</a>;</li>
+                    <li>Relevant Paper: <a href="https://arxiv.org/abs/2509.10382" target="_blank">link</a>;</li>
+                    <li>On Greedy Algorithms: <a href="https://en.wikipedia.org/wiki/Greedy_algorithm" target="_blank">link</a>.</li>
+                </ul>
             </div>
         </div>
     </div>
-
     <div class="grid-item d-w-6 m-w-9"><div class="nr">2</div>
         <div class="grid-item-content">
-            <div class="boxtext">
-                <h2>Carryless Pairing</h2>
+            <div class="boxs">
                 <p>
                     We demonstrate, in the application bellow, our <span class="cap">carryless pairing</span> constructed solely from <i>addition</i> and <i>bounded recursion</i>.
                 </p>
@@ -229,57 +231,15 @@ R180 = red
                 </p>
 
                 <center>
-                    <img src="./img/carryless.png" style="margin-top:1em; max-width: 23em;" alt="Carryless pairing formula">
+                    <img src="./img/carryless.png" style="margin-top:0em; max-width: 23em;" alt="Carryless pairing formula">
                 </center>
             </div>
         </div>
     </div>
 
-    <div class="grid-item d-w-3 m-w-9"><div class="nr">3</div>
-        <div class="grid-item-content">
-            <div class="boxlink">
-                <p>Relevant paper: <a href="https://arxiv.org/abs/2509.10382" target="_blank">link</a>;</p>
-                <p>On Zeckendorf's theorem: <a href="https://en.wikipedia.org/wiki/Zeckendorf%27s_theorem" target="_blank">link</a>;</p>
-                <p>On Greedy Algorithms: <a href="https://en.wikipedia.org/wiki/Greedy_algorithm" target="_blank">link</a>.</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="grid-item d-w-9 m-w-9"><div class="nr">4</div>
+    <div class="grid-item d-w-9 m-w-9"><div class="nr">3</div>
         <div class="grid-item-content">
             <div class="boxm">
-                <h2>Encoding/Decoding</h2>
-                <p>
-                     Step 1: We select (at least 2) integers that our <i>javascript</i> decomposes uniquely into non-consecutive Fibonacci summands.
-                </p>
-                <div class="fib-list-wrapper" id="fib-list">
-                </div>
-                <div class="section">
-                </div>
-                <p>
-                    Step 2: We select (at least 2) integers that the javascript decomposes uniquely into non-consecutive Fibonacci summands.
-                </p>
-                <div class="section" style="margin-bottom: 2em;">
-                    <div class="controls">
-                        <button id="encode-btn">Encode</button>
-                    </div>
-                    <div id="encode-output" class="output">
-                    </div>
-                    <hr>
-                    <div class="controls">
-                        <button id="decode-btn">Forget and Decode</button>
-                    </div>
-                    <div id="steps" class="output">
-                    </div>
-                    <hr>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="grid-item d-w-9 m-w-9"><div class="nr">5</div>
-        <div class="grid-item-content">
-            <div class="boxanim">
                 <div class="fibowrap">
                     <div class="fibonacci-squares">
                         <div class="square-1 square">
@@ -303,42 +263,71 @@ R180 = red
             </div>
         </div>
         <div class="caption">
-            Illustration: Recurrence relations are computationally expressive.
+            Recurrence relationships can be logically expressive.
         </div>
     </div>
 
+    <div class="grid-item d-w-9 m-w-9"><div class="nr">4</div>
+        <div class="grid-item-content">
+            <div class="boxm">
+                <div class="name" style="margin-top: 1em;">Carryless Numbering
+                </div>
+                <div class="boxm">
+                     Step 1: We select (at least 2) integers that our <i>javascript</i> decomposes uniquely into non-consecutive Fibonacci summands.
+                </div>
+                <div class="fib-list-wrapper" id="fib-list">
+                </div>
+                <div class="section">
+                    <div class="boxm">
+                        Step 2: We select (at least 2) integers that the javascript decomposes uniquely into non-consecutive Fibonacci summands.
+                    </div>
+                </div>
+                <div class="section" style="margin-bottom: 2em;">
+                    <div class="controls">
+                        <button id="encode-btn">Encode</button>
+                    </div>
+                    <div id="encode-output" class="boxm">
+                    </div>
+                    <hr>
+                    <div class="controls">
+                        <button id="decode-btn">Forget and Decode</button>
+                    </div>
+                    <div id="steps" class="boxm">
+                    </div>
+                    <hr>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <div class="legend">
-    <div class="legend-title">Legend</div>
+  <div class="legend-title">Legend</div>
+
+  <div class="legend-item">
+    <span class="legend-key">1</span>
+    <span class="legend-text">Navigation</span>
+  </div>
+
+  <div class="legend-item">
+    <span class="legend-key">2</span>
+    <span class="legend-text">Introduction</span>
+  </div>
+
+  <div class="legend-item">
+    <span class="legend-key">3</span>
+    <span class="legend-text">Group Transformations</span>
+  </div>
 
     <div class="legend-item">
-        <span class="legend-key">1</span>
-        <span class="legend-text">Navigation</span>
-    </div>
+    <span class="legend-key">4</span>
+    <span class="legend-text">Interactive demonstration</span>
+  </div>
 
-    <div class="legend-item">
-        <span class="legend-key">2</span>
-        <span class="legend-text">Introduction</span>
-    </div>
-
-    <div class="legend-item">
-        <span class="legend-key">3</span>
-        <span class="legend-text">Literature</span>
-    </div>
-
-    <div class="legend-item">
-        <span class="legend-key">4</span>
-        <span class="legend-text">Javascript</span>
-    </div>
-
-    <div class="legend-item">
-        <span class="legend-key">5</span>
-        <span class="legend-text">Group Transformations</span>
-    </div>
 
 </body>
 
 <script src="js/carryless.js"></script>
+
 
 </body>
 </html>
