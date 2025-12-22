@@ -25,7 +25,7 @@ header:after {
   --fontmodernist:  Old Standard TT;
 }
 
-h1,h2 {
+h1,h2,h3 {
   font-family: var(--fontmono);
   font-weight: 400;
 }
