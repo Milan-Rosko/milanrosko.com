@@ -6,24 +6,18 @@ header:after {
   content: 'EDIT.22/DEC/2025';
   float: right;
 }
-
-
-
 :root {
   --color1: black;
   --color2: black;
   --color3: #568070;
   --colorbg: #e6e5d8;
-
   --colorlink: #5544f2;
   --colorlinkhover: #ff69b4;
-
   --colorshade:rgba(0,0,0,0.05);
   --colorperishade: rgba(85, 68, 242,0.1);
+
   --colorok: #a2cfe9;
   --colornot: #fcb7b7;
-
-
   --colorgold: #e6e5d8;
   --colorperi: #dcd8e6;
   --colorblue: #d8e1e6;
@@ -41,7 +35,6 @@ h1,h2,h3 {
   font-family: var(--fontmono);
   font-weight: 400;
 }
-
 
 /* === TYPESETTING === */
 ul {
@@ -104,7 +97,6 @@ p{
 
 /* === MAIN === */
 
-
 header {
   width: 100%;
   font-size: 1rem;
@@ -113,7 +105,6 @@ header {
   color: var(--color1);
   border-bottom: 1px solid var(--color1);
 }
-
 
 body {
   min-height: 100dvh;
@@ -169,16 +160,12 @@ body {
   max-width: 100%;
 }
 
-
 .grid-item-content {
   font-size: smaller;
   padding: 1em;
 }
 
-
 /* === CONTENT BOX === */
-
-
 
 .boxanim{
   margin-bottom: 5em;
@@ -191,14 +178,12 @@ body {
   padding: 1rem;
 }
 
-
 .boxcm{
   margin: auto;
   font-family: var(--fontmono);
   padding: 1rem;
 
 }
-
 
 .boxphoto{
     max-width: 100%;
@@ -224,7 +209,6 @@ body {
 img{
   object-fit: contain;
 }
-
 
 .boxmini{
   text-align: centered;
@@ -273,10 +257,10 @@ img{
 }
 
 .name{
-      white-space: nowrap;
-      font-size: x-large;
-      font-weight: 500;
-      font-family: var(--fontmono);
+  white-space: nowrap;
+  font-size: x-large;
+  font-weight: 500;
+  font-family: var(--fontmono);
 }
 
 
@@ -337,7 +321,6 @@ button:hover {
     grid-row-gap: 1px;
     min-width: 800px;
     font-size: small;
-
   }
 
   .d-w-1 { grid-column: span 1; }
@@ -349,14 +332,10 @@ button:hover {
   .d-w-7 { grid-column: span 7; }
   .d-w-8 { grid-column: span 8; }
   .d-w-9 { grid-column: span 9; }
-
-
-
   .d-h-1 { grid-row: span 1; }
   .d-h-2 { grid-row: span 2; }
 
 }
-
 
 /* === MOBILE === */
 
@@ -380,16 +359,14 @@ button:hover {
   .m-w-2 { grid-column: span 2; }
   .m-w-3 { grid-column: span 3; }
   .m-w-4 { grid-column: span 4; }
-  .m-w-5
-
-   { grid-column: span 5; }
+  .m-w-5 { grid-column: span 5; }
   .m-w-6 { grid-column: span 6; }
   .m-w-7 { grid-column: span 7; }
   .m-w-8 { grid-column: span 8; }
   .m-w-9 { grid-column: span 9; }
 
-  .m-h-1 { grid-row:1 }
-  .m-h-2 { grid-row:2 }
+  .m-h-1 { grid-row:1; }
+  .m-h-2 { grid-row:2; }
 
   .grid-item {
     width: 100%;
