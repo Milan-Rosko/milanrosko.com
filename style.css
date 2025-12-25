@@ -218,6 +218,9 @@ body {
     box-sizing: border-box;
 }
 
+img{
+  object-fit: contain; /* maintains aspect ratio, fits inside container */
+}
 
 
 .boxmini{
