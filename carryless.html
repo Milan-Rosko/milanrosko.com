@@ -171,24 +171,16 @@
                 <div class="boxtext">
                     <h2>Carryless Pairing</h2>
                     <p>
-                        We demonstrate, in the application bellow, our <span class="cap">carryless pairing</span> constructed solely from <i>addition</i> and <i>bounded recursion</i>.
+                        <span class="cap">carryless pairing</span> is constructed solely from <i>addition</i> and <i>bounded recursion</i>. Bellow is a quick demonstration.
                     </p>
                     <p>
-                        First, a chosen set of Fibonacci terms is aggregated into a single numerical value. 
-                        In a second step, the selection itself is discarded, and only the resulting sum 
-                        is returned to a <span class="cap">greedy algorithm</span>.
+                        (i) First, a chosen set of Fibonacci terms is aggregated into a single numerical value. (ii) In a second step, the selection itself is discarded, and only the resulting sum is returned to a <span class="cap">greedy algorithm</span>. (iii) Finally, the original terms are recovered from the sum alone within a bounded number of steps.
                     </p>
                     <p>
-                        Remarkably, the original terms can be recovered from the sum alone. 
-                        This round-trip—from arbitrary additive input to canonical 
-                        <span class="cap">Zeckendorf Representation</span> and back—utilizes
-                        <span class="cap">Binet’s Formula</span>, 
-                        <span class="cap">Hurwitz’s Theorem</span>, and 
-                        <span class="cap">Zeckendorf’s Theorem</span> to yield a stable, reversible, 
-                        and fully bounded encoding–decoding scheme.
+                        This round-trip—from arbitrary additive input to canonical <span class="cap">Zeckendorf Representation</span> and back—utilizes <span class="cap">Binet’s Formula</span>, <span class="cap">Hurwitz’s Theorem</span>, and  <span class="cap">Zeckendorf’s Theorem</span> to yield a stable, reversible, and fully bounded encoding–decoding scheme.
                     </p>
                     <p>
-                        The greedy structure can be used to realize an injective arithmetical pairing function:
+                        The structure can be used to realize an injective arithmetical pairing function:
                     </p>
                     <center>
                         <img src="./img/carryless.png" style="margin-top:1em; max-width: 23em;" alt="Carryless pairing formula">
