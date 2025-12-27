@@ -90,19 +90,13 @@ a:after{
 }
 */
 p,ul,li{
-  padding: 0 0 1ex 0;
-  font-weight: 300;
 } 
-.cap{
-  text-transform: uppercase;
-  font-size:smaller;
-}
 
 /* === MAIN === */
 
 header {
   width: 100%;
-  font-size: 1rem;
+  font-size: 1.2em;
   padding: 2em 0 0.4em 0;
   letter-spacing: 0.5ex;
   color: var(--color1);
@@ -177,7 +171,7 @@ body {
 
 .boxlink{
   line-height: 1.7;
-  padding: 1rem;
+  padding: 2em;
 }
 
 .boxcm{
@@ -219,7 +213,7 @@ img{
 .boxm{
   font-family: var(--fontmono);
   line-height: 1.5;
-  padding: 2rem 1rem 0rem 1rem;
+  padding: 2em 1em 1em 1em;
   max-width: 30rem;
 }
 
@@ -246,6 +240,14 @@ img{
   margin-top: 3em;
   padding: 1em;
   font-size:1em;
+  font-weight: 400;
+}
+
+.cap{
+  text-transform: uppercase;
+  font-size:smaller;
+  font-size:1em;
+
 }
 
 /* === UI/UX === */
