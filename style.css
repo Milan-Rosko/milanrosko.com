@@ -14,9 +14,10 @@ header:after {
   --color3: #568070;
   --colorbg: #e6e5d8;
   --colorlink: #5544f2;
+  --colorlinkbg: #5544f205;
+
   --colorlinkhover: #ff69b4;
   --colorshade:rgba(0,0,0,0.05);
-  --colorperishade: rgba(85, 68, 242,0.1);
 
   --colorok: #a2cfe9;
   --colornot: #fcb7b7;
@@ -60,18 +61,56 @@ hr {
 }
 
 a {
+  display: inline-block;
+  position: relative;
+  vertical-align: baseline;
+
+  top: -1px;
+
+  padding: 0 5px 0 5px;
+
+  border: 0.5px solid var(--colorlink);
+  color: var(--colorlink);
+
+  background: var(--colorlinkbg);
+  text-decoration: none;
+  font-size: 0.5em;
+}
+
+
+a > span {
+  line-height: 1;
+  font: inherit;
+}
+
+a:hover,
+a:focus-visible {
+  transition: all 250ms linear;
+  background: #eeefef;
+  color: var(--colorlinkhover);
+  border: 0.5px solid #ff69b4;  
+}
+
+/*a {
+  cursor: pointer;
   text-decoration: none;
   white-space: nowrap;
   
-  border: 1px solid var(--colorlink);
+  display: inline-block;
+  border: 0.5px solid var(--colorlink);
   color: var(--colorlink);
   
-  cursor: pointer;
-  margin: 1px 1px auto;
   font-family: inherit;
   transition: background 0.15s ease;
-  padding: 1px 1ex 1px 1ex;
-  font-size: smaller;
+  padding: 2px 2px 0px 2px;
+
+  border-radius: 0.1rem;
+  border-color: #5555cc !important;
+  color: #5555cc !important;
+  overflow-x: auto;
+  font-family: var(--preview-link-font) !important;
+  font-size: 0.5em;
+
 
 }
 
@@ -81,6 +120,9 @@ a:hover{
   border: 1px solid #ff69b4;  
 
 }
+
+*/
+
 /*
 a:before{
   content: "[";
@@ -89,6 +131,7 @@ a:after{
   content: "]";
 }
 */
+
 p,ul,li{
 } 
 
@@ -246,8 +289,7 @@ img{
 .cap{
   text-transform: uppercase;
   font-size:smaller;
-  font-size:1em;
-
+  font-size:0.9em;
 }
 
 /* === UI/UX === */
