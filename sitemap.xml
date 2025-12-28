@@ -3,4 +3,7 @@
   <url><loc>https://milanrosko.com/</loc></url>
   <url><loc>https://milanrosko.com/carryless.html</loc></url>
   <url><loc>https://milanrosko.com/imprint.html</loc></url>
+
+  <!-- Link to BibTeX download -->
+  <url><loc>https://milanrosko.com/bibtex.txt</loc></url>
 </urlset>
