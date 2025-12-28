@@ -13,10 +13,14 @@ header:after {
   --color2: black;
   --color3: #568070;
   --colorbg: #e6e5d8;
-  --colorlink: #5544f2;
-  --colorlinkbg: #5544f205;
 
-  --colorlinkhover: #ff69b4;
+  --color-link-internal: #5544f2;
+  --color-link-internal-bg: #5544f205;
+
+  --color-link-external: #3e8a3b; 
+  --color-link-external-bg: #3e8a3b05;
+
+  --color-link-hover: #ff69b4;
   --colorshade:rgba(0,0,0,0.05);
 
   --colorok: #a2cfe9;
@@ -60,36 +64,42 @@ hr {
   height: 0px;
 }
 
-a {
-  display: inline-block;
-  position: relative;
-  vertical-align: baseline;
-
-  top: -1px;
-
-  padding: 0 5px 0 5px;
-
-  border: 0.5px solid var(--colorlink);
-  color: var(--colorlink);
-
-  background: var(--colorlinkbg);
-  text-decoration: none;
-  font-size: 0.5em;
+a:link,
+a:visited {
+    display: inline-block;
+    position: relative;
+    vertical-align: baseline;
+    top: -1px;
+    padding: 0 5px;
+    text-decoration: none;
+    font-size: 0.5em;
+    border: 0.5px solid var(--color-link-internal);
+    color: var(--color-link-internal);
+    background: var(--color-link-internal-bg);
 }
 
-
 a > span {
-  line-height: 1;
-  font: inherit;
+    line-height: 1;
+    font: inherit;
+}
+
+a:link[href^="http"],
+a:visited[href^="http"] {
+    border: 0.5px solid var(--color-link-external);
+    color: var(--color-link-external);
+    background: var(--color-link-external-bg);
 }
 
 a:hover,
-a:focus-visible {
-  transition: all 250ms linear;
-  background: #eeefef;
-  color: var(--colorlinkhover);
-  border: 0.5px solid #ff69b4;  
+a:focus-visible, a[href^="http"]:hover,
+a[href^="http"]:focus-visible {
+    transition: all 250ms linear;
+    background: #eeefef;
+    color: var(--color-link-hover);
+    border: 0.5px solid #ff69b4;
 }
+
+
 
 /*a {
   cursor: pointer;
