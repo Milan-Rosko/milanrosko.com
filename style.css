@@ -79,7 +79,7 @@ a:visited {
     position: relative;
     vertical-align: baseline;
     top: -1px;
-    padding: 0 5px;
+    padding: 0.2em 1.5em;
     text-decoration: none;
     font-size: var(--size-small);
     border: 0.5px solid var(--color-link-internal);
@@ -111,48 +111,6 @@ a[href^="http"]:focus-visible {
 .cap{
   text-transform: uppercase;
 }
-
-
-/*a {
-  cursor: pointer;
-  text-decoration: none;
-  white-space: nowrap;
-  
-  display: inline-block;
-  border: 0.5px solid var(--colorlink);
-  color: var(--colorlink);
-  
-  font-family: inherit;
-  transition: background 0.15s ease;
-  padding: 2px 2px 0px 2px;
-
-  border-radius: 0.1rem;
-  border-color: #5555cc !important;
-  color: #5555cc !important;
-  overflow-x: auto;
-  font-family: var(--preview-link-font) !important;
-  font-size: 0.5em;
-
-
-}
-
-a:hover{
-  background: #eeefef;
-  color: var(--colorlinkhover);
-  border: 1px solid #ff69b4;  
-
-}
-
-*/
-
-/*
-a:before{
-  content: "[";
-}
-a:after{
-  content: "]";
-}
-*/
 
 p,ul,li {
 }
@@ -260,22 +218,20 @@ img{
   /*background: orange;*/
   max-width: 50em;
   font-family: var(--fontmono);
-
 }
 
-.spaceybox{
-  margin: auto;
+.spaceybox {
+  margin: 0 auto;
   line-height: 1.6;
 }
 
-.monobox{
+.monobox {
   line-height: 1.2;
   padding: 1em;
   margin: auto;
-
 }
 
-.textbox{
+.textbox {
   font-family: var(--fontserif);
   text-align: justify;
   line-height: 1.5;
@@ -285,13 +241,13 @@ img{
   padding: 2em;
 }
 
-.animbox{
+.animbox {
   margin-bottom: 5em;
   margin-top: 2em;
   height: 20em;
 }
 
-.photobox{
+.photobox {
     max-width: 100%;
     margin: 1rem 0 1rem 0;
     display: inline-flex;
@@ -303,7 +259,7 @@ img{
     box-sizing: border-box;
 }
 
-.picbox{
+.picbox {
     max-width: 100%;
     margin: 1rem 0 1rem 0;
     justify-content: center;
@@ -312,13 +268,13 @@ img{
     box-sizing: border-box;
 }
 
-.appbox{
+.appbox {
   min-height: 10rem;
   margin-bottom: 3em;
   margin-top: 2em;
 }
 
-.navibox{
+.navibox {
   line-height: 1.5;
   margin: 2em;
 }
@@ -389,7 +345,7 @@ img{
 @media (max-width: 900px) {
 
   .box{
-    max-width: 25em;
+    max-width: 30em;
   }
 
   .box img{max-width: 20em !important}
@@ -405,11 +361,11 @@ img{
     grid-row-gap: 1px;
   }
 
-.legend {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  margin-bottom: 3em;
-}
+  .legend {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 3em;
+  }
 
   .m-w-1 { grid-column: span 1; }
   .m-w-2 { grid-column: span 2; }
@@ -429,8 +385,6 @@ img{
     margin-left: auto;
     margin-right: auto;
   }
-
-
 
   header{
     font-size: var(--size-small);
