@@ -85,6 +85,7 @@ a:visited {
     border: 0.5px solid var(--color-link-internal);
     color: var(--color-link-internal);
     background: var(--color-link-internal-bg);
+    line-height: 1.2;
 }
 
 a > span {
@@ -226,8 +227,8 @@ img{
 }
 
 .monobox {
-  line-height: 1.2;
-  padding: 1em;
+  line-height: 1.4;
+  padding: 1.5em;
   margin: auto;
 }
 
