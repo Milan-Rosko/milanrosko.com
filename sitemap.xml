@@ -1,0 +1,11 @@
+<!-- /sitemap.xml -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://milanrosko.com/</loc></url>
+  <url><loc>https://milanrosko.com/carryless.html</loc></url>
+  <url><loc>https://milanrosko.com/typedrepair.html</loc></url>
+
+  <url><loc>https://milanrosko.com/impressum.html</loc></url>
+
+  <!-- Link to BibTeX download -->
+  <url><loc>https://milanrosko.com/bibtex.txt</loc></url>
+</urlset>
