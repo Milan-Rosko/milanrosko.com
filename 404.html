@@ -1,0 +1,70 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
+    {% include meta.html %}
+    <style>
+        :root {
+          --color-bg: #e6d8d8;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        TYPE.FAILURE
+    </header>
+    <div class="grid">
+        <div class="grid-item d-w-9 m-w-9"><span class="nr"></span>
+            <div class="grid-item-content">
+                <div class="box navibox">
+                    Main site - <a href="./index.html">index.html</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item d-w-5 m-w-9"><span class="nr"></span>
+            <div class="grid-item-content">
+                <div class="box boxtext">
+                    <h1>Error</h1>
+                </div>
+            </div>
+        </div>
+        <div class="grid-item d-w-4 m-w-9"><span class="nr"></span>
+            <div class="grid-item-content">
+                <div class="box textbox">
+                    <h1>404</h1>
+                </div>
+            </div>
+        </div>
+        <div class="grid-item d-w-9 m-w-9"><span class="nr"></span>
+            <div class="grid-item-content">
+                <div class="box monobox">
+                    <p>
+                        The <i>HTTP 404 status code</i>, commonly referred to as “Not Found,” is a client-side response code indicating that the requested resource could not be located on the server. When a client issues a request using the Hypertext Transfer Protocol (HTTP) for a Uniform Resource Locator (URL), the server evaluates the existence and accessibility of the corresponding resource.
+                    </p>
+                    <p>
+                        The response arises under the following conditions:
+                    </p>
+                    <ul>
+                        <li>
+                            Resource Absence: The URI referenced by the client does not correspond to any file, script, or endpoint present on the server.
+                        </li>
+                        <li>
+                            Server Accessibility Constraints: While the resource may exist physically, server-side permissions or routing configurations prevent its retrieval. The <i>404 error</i> serves as a mechanism to maintain protocol integrity by differentiating between client-side request errors and server-side operational failures
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="legend">
+        <div class="legend-title">Legend</div>
+        <div class="legend-item"><span class="legend-key">1</span><span class="legend-text">Navigation</span></div>
+        <div class="legend-item"><span class="legend-key">2</span><span class="legend-text">Event</span></div>
+        <div class="legend-item"><span class="legend-key">3</span><span class="legend-text">Code</span></div>
+        <div class="legend-item"><span class="legend-key">4</span><span class="legend-text">Description</span></div>
+    </div>
+</body>
+</html>

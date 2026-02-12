@@ -1,0 +1,404 @@
+---
+title: "Typed Repair vs Gradient Descent"
+description: "Side-by-side trace comparison under a semantics-locked protocol."
+keywords: "Typed Repair, SGD, constructive logic"
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="./style.css">
+  <script src="js/mathjaxconfig.js"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+  {% include meta.html %}
+  <style>
+    #dataset{
+      width: 15em;
+      margin: 1em auto;
+      resize: none;
+    }
+    .logline.here {
+      background: #fff7cc50;
+      border-radius: 6px;
+      padding: 4px 6px;
+    }
+  </style>
+</head>
+<body>
+<header>
+  CLASS.METHOD
+</header>
+
+<div class="grid">
+
+  <div class="grid-item d-w-9 m-w-9">
+    <span class="nr"></span>
+    <div class="grid-item-content">
+      <div class="box navibox">
+        Main site - <a href="./index.html">index.html</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-item d-w-6 m-w-9">
+    <span class="nr"></span>
+    <div class="grid-item-content">
+      <div class="box textbox">
+        <p>
+          On <span class="sc">Typed Repair</span>.
+        </p>
+        <p>
+          what is presented bellow is a learning pipeline whose semantics are fixed in advance and whose
+          outputs admit independent certification. The central contribution is not rhetorical “interpretability,” nor a claim of
+          superior optimization dynamics, but a deliberately verification-shaped interface for learned evaluators: $\mathcal{L}$ eliminates hidden degrees of freedom, a family of decidable certificate predicates over explicit finite artifacts, and a specialization gate that formalizes when a learned evaluator may replace a reference one.
+        </p>
+        <hr>
+        <p>
+          We compare <span class="sc">Typed Repair</span> with <span class="sc">Gradient Descent</span> under a shared, fully explicit evaluation protocol.
+        </p>
+        <p>
+          <i>Note.</i> For a more expository account of the motivation and interpretation, see the discussion at the bottom of the page.
+        </p>
+        <p>
+          Both are implemented in JavaScript and both are judged using the same locked prediction rule $\arg\max\nolimits^{*}$, but the aim is analytical rather than competitive. We strip away what is incidental to semantics (stochasticity, ambiguous preprocessing, shifting criteria) and retain only a small, replayable object: a finite interpretation with a deterministic readout.
+        </p>
+        <p>
+          With the extensional interface fixed, we vary only the intensional update rule and run two traces over the same scan schedule:
+        </p>
+
+        <p>
+          (i) We fix the witness table, the feature schema (bias, unary facts), the number of classes, and a deterministic scan order. Each cycle therefore has an unambiguous definition and can be replayed exactly.
+        </p>
+
+        <p>
+          (ii) <span class="sc">Typed Repair</span> performs refutation-guided repairs on a sparse integer table $W$ and propagates consequences through postings into a cached score matrix $S$. <span class="sc">Gradient Descent</span> performs SGD updates on softmax cross-entropy with floating weights, while prediction is still read out by the same locked $\arg\max\nolimits^{*}$.
+        </p>
+
+        <p>
+          (iii) We report only what the traces themselves make checkable. The <span class="sc">Typed Repair</span> trace exposes additional decidable invariants
+          $$\mathsf{WF},\mathsf{CACHE.ok},\mathsf{FULL.ok}$$
+          and produces concrete witnesses when they fail. The GD trace reports loss and accuracy computed under the same locked readout.
+        </p>
+        <p>
+          <i>Result.</i> A side-by-side view of state evolution under two update rules: which properties are maintained, how violations are witnessed, and what can be verified directly from the explicit finite execution.
+        </p>
+        <p>
+          We start with linearly separable datasets, e.g. $\mathrm{NAND/OR/AND}$ where finite-table margin certificate is typically reachable. Alternatively, we can examine “harder” cases, some of which are not separable in this setting, e.g. $\textrm{XOR}$ or $\textrm{Parity-of-3}$.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-item d-w-3 m-w-9">
+    <span class="nr"></span>
+    <div class="grid-item-content">
+      <div class="box monobox">
+        <p>Key Materials:</p>
+        <ul>
+          <li>
+            Downloadable EMNIST Jupyter Notebook - <a href="https://github.com/Milan-Rosko/typedrepair" target="_blank">GitHub</a>
+          </li>
+          <li>
+            Draft Paper - <a href="./aux/typedrepair.pdf" target="_blank">.pdf</a>
+          </li>
+        </ul>
+        <p>Secondary Literature:</p>
+        <ul>
+          <li>
+            Kleene: Introduction to Metamathematics - <a href="https://doi.org/10.2307/2268620" target="_blank">DOI</a>
+          </li>
+          <li>
+            Troelstra, van Dalen:
+            Constructivism in Mathematics: An Introduction - <a href="https://www.sciencedirect.com/bookseries/studies-in-logic-and-the-foundations-of-mathemathematics/vol/121/suppl/C" target="_blank">Publisher</a>
+          </li>
+          <li>
+            On Stochastic Gradient Descent - <a href="https://en.wikipedia.org/wiki/Stochastic_gradient_descent" target="_blank">Wikipedia</a>
+          </li>
+          <li>
+            On Type Systems - <a href="https://en.wikipedia.org/wiki/Type_system" target="_blank">Wikipedia</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-item d-w-9 m-w-9">
+    <span class="nr"></span>
+    <div class="grid-item-content">
+      <div class="box monobox">
+        <p>
+          <span class="u">Step 1.</span> We select a preset:
+        </p>
+        <p>
+          <select id="preset" class="input">
+            <option value="nand">NAND (2-bit)</option>
+            <option value="or">OR (2-bit)</option>
+            <option value="and">AND (2-bit)</option>
+            <option value="xor">XOR (2-bit)</option>
+            <option value="impl">Implication (2-bit)</option>
+            <option value="xandnot">x1 ∧ ¬x2 (2-bit)</option>
+            <option value="maj3">majority-of-3 (3-bit)</option>
+            <option value="parity3">parity-of-3 (3-bit)</option>
+          </select>
+        </p>
+        <p>
+          Display (editable):<br>
+          <textarea id="dataset" class="input" style="min-height:5em"></textarea>
+        </p>
+        <p>
+          Note. Inputs are separated by spaces, then “|”, then class label. Example: 0 1|1.
+        </p>
+        <hr>
+        <p>
+          <span class="u">Step 2.</span> Optionally, we can choose the run budget and update rule parameters.
+        </p>
+        <p>
+          Shared budget (cycles C):
+          <input type="number" id="cycles" value="200" min="1" step="1" class="input" style="width: 5em;" />
+          <span id="epochsDerived"></span>.
+        </p>
+        <p>
+          Seed: <input type="number" id="seed" value="123456789" step="1" class="input" style="width: 10em;"/>
+        </p>
+        <p>
+          scan order:
+          <select id="scanOrder" class="input">
+            <option value="det">deterministic</option>
+            <option value="shuffle">shuffle</option>
+          </select>
+        </p>
+        <p>
+          For Typed Repair, Margin $\gamma$:
+          <input type="number" id="tGamma" value="1" min="0" step="1" class="input" style="width: 5em;"/>,
+          Overshoot $\Delta$:
+          <input type="number" id="tDelta" value="0" min="0" step="1" class="input" style="width: 5em;"/>.
+        </p>
+        <p>
+          For Gradient Descent, Learning rate $\eta$:
+          <input type="number" id="gLR" value="0.3" min="0.0001" step="0.01" class="input" style="width: 5em;"/>.
+        </p>
+        <hr>
+        <p>
+          <span class="u">Step 3.</span> We generate the two traces.
+        </p>
+        <p>
+          <button id="buildBtn">Generate Traces</button>
+        </p>
+        <div class="console" style="min-height: 8em;">
+          Build status:<br>
+          <div id="buildText" class="output">Not built.</div>
+        </div>
+
+        <p>
+          The “Semantics Lock” $\mathcal{L}$ is shared and records what is fixed: $K$ classes, $\mathrm{N}$ examples, $F$ features, prediction, $\arg\max\nolimits^{*}$, and the scan schedule. We hold the extensional interface fixed and vary only the intensional update rule.
+        </p>
+        <p>
+          Semantics Lock:
+        </p>
+        <div class="console">
+          <div id="lockText" class="output"></div>
+        </div>
+        <hr>
+        <p>
+          <span class="u">Step 4.</span> We analyze the results. Both traces run a scan schedule through the finite table for the requested number of epochs. A “cycle” means “one repair” or “one stochastic update” per cycle.
+        </p>
+        <center><h3>(a) Typed Repair (integer, refutation-guided, cached)</h3></center>
+        <p>
+          State:
+        </p>
+        <div class="console">
+          <span id="tWF" class="pill">WF: ?</span>
+          <span id="tFULL" class="pill">FULL.ok: ?</span>
+          <span id="tCACHE" class="pill">CACHE.ok: ?</span>
+        </div>
+        <div style="margin-bottom: 2em">
+          Cycle selection:<br>
+          <div class="sliderRow">
+            <input type="range" id="tCycle" min="0" max="0" style="display: none;"/>
+            <input type="number" id="tCycleNum" min="0" value="0" step="1" class="input"/>
+            <button id="tPlay" class="secondary" disabled>Play</button>
+            <button id="tStop" class="secondary" disabled>Stop</button>
+            <button id="tStep" class="secondary" disabled>Step +1</button>
+            <button id="tLast" class="secondary" disabled>Last</button>
+          </div>
+        </div>
+        <p>
+          Snapshot:
+        </p>
+        <div class="console">
+          <div id="tCert" class="output"></div>
+          <div id="tNote" class="output">Waiting for build.</div>
+        </div>
+        <p>
+          Event log;
+        </p>
+          <div class="console sqbound" id="tLog" style="height: 10em;">Waiting for build.</div>
+        <p>
+          Interpretation:
+        </p>
+        <div class="console">
+          <div id="tTableWrap" class="output"></div>
+          <div id="tWeightsWrap" class="output"></div>
+          <div id="tPostingsWrap" class="output"></div>
+        </div>
+        <hr>
+        <center><h3>(b) Gradient Descent (softmax cross-entropy, SGD)</h3></center>
+        <div>
+          State:<br>
+          <div class="console">
+            <span id="gAcc" class="pill">acc: ?</span>
+            <span id="gLoss" class="pill">loss: ?</span>
+          </div>
+        </div>
+        <div style="margin-bottom: 2em">
+          Cycle selection:<br>
+          <div class="sliderRow">
+            <input type="range" id="gCycle" min="0" max="0" style="display: none;"/>
+            <input type="number" id="gCycleNum" min="0" value="0" step="1" class="input"/>
+            <button id="gPlay" class="secondary" disabled>Play</button>
+            <button id="gStop" class="secondary" disabled>Stop</button>
+            <button id="gStep" class="secondary" disabled>Step +1</button>
+            <button id="gLast" class="secondary" disabled>Last</button>
+          </div>
+        </div>
+        <p>
+          Snapshot:
+        </p>
+        <div class="console">
+          <div id="gCert" class="output"></div>
+          <div id="gNote" class="output"></div>
+        </div>
+        <p>
+          Event log;
+        </p>
+          <div class="console sqbound" id="gLog" style="height: 10em;">Waiting for build.</div>
+          Interpretation:
+        </p>
+        <div class="console">
+            <span id="gTableWrap" class="output">Waiting for build.</span>
+            <span id="gWeightsWrap" class="output"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="grid-item d-w-9 m-w-9">
+    <span class="nr"></span>
+    <div class="grid-item-content">
+      <div class="box textbox">
+        <p>
+          <i>Ansatz.</i> We fix a deterministic preprocessing, feature extraction, and a
+          stable tie-broken $\arg\max*$ and work over an explicit finite witness table. Training proceeds
+          as a refutation-guided repair loop over a sparse integer weight table, paired with a cached score matrix. The loop
+          preserves decidable invariants (well-formedness and cache correctness) and terminates at a decidable certificate
+          gate: “all margin obligations are satisfied on the table.” Operationally, the procedure functions as a discrete
+          analogue of backpropagation—systematic error-triggered updates with propagation through typed dependencies—while
+          remaining fully auditable and replayable.
+        </p>
+        <p>
+          This is the point at which the usual “degrees of freedom” are intentionally removed: there is no ambiguity about
+          preprocessing, tie-breaking, stochasticity, or evaluation criteria. The resulting object is a finite, replayable execution
+          whose states can be re-checked without trusting the trainer.
+        </p>
+        <p>
+          Training manipulates an explicit, finitary state
+          $$
+          \Sigma \;\equiv\; \{\;W, S, ...\;\},
+          $$
+          where $W$ is a sparse integer weight table and $S$ is a cached score matrix (maintained via postings).
+          Each snapshot exposes decidable predicates with witness extractors on failure:
+        </p>
+        <div class="mathjaxwrap">
+          $$
+            \begin{array}{l|l}
+              \mathsf{WF}(\Sigma) & \text{Well-formedness of the finite representation (bounds, typing, arities).}\\[0.4ex]
+              \mathsf{CACHE.ok}(\Sigma) & \text{Cache correctness: } S \text{ agrees with recomputation from } (W,\Phi).\\[0.4ex]
+              \mathsf{FULL.ok}(\Sigma) & \text{Zero-violation / margin closure under the locked } \arg\max^{*}.\\
+            \end{array}
+          $$
+        </div>
+        <p>
+          When a predicate fails, the system returns a concrete witness (an explicit index and class showing a cache discrepancy,
+          or an explicit earliest margin counterexample). When <span class="mono">FULL.ok</span> holds, success is not asserted as a
+          global generalization claim; it is a verified statement about the finite artifact under <span class="mono">L</span>.
+        </p>
+        <hr>
+        <p>
+          The learner proceeds by refutation-guided updates. At each step it selects the earliest
+          witnessed margin violation and performs a local integer repair, propagating consequences through postings to maintain cache
+          correctness by construction:
+        </p>
+        <div class="mathjaxwrap">
+          $$
+            \begin{array}{l}
+              \Sigma_0 := (W_0,S_0) = (0,0),\\[0.6ex]
+              \Sigma_{t+1} := \mathsf{Repair}_{\gamma,\Delta}(\Sigma_t),\\[0.8ex]
+              i^* = \min\{\, i < N \mid \exists c\neq y_i:\ S(i,y_i) < S(i,c)+\gamma \,\},\\[0.4ex]
+              c^* = \arg\max\nolimits^{\!*}_{c\neq y_{i^*}}\, S(i^*,c).
+            \end{array}
+          $$
+        </div>
+        <p>
+          Operationally this resembles error-driven methods (perceptron-like in spirit), but the intended novelty is the surrounding constructive
+          discipline: the semantics lock, the explicit finitary state, the decidable certificates, and the witness-bearing failure
+          modes. In this sense the update step is not the contribution; the isolated $\lambda$ abstraction as learning is.
+        </p>
+        <p>
+          Let $\textsf{E}_{\mathsf{ref}}$ be a reference evaluator induced by the lock $\mathcal{L}$
+          (e.g. recomputation from $\Phi$ and a declared scoring rule), and let $\textsf{E}_{\mathsf{learn}}$ be the learned evaluator encoded by a terminal snapshot $\Sigma_T$. We permit replacing $\textsf{E}_{\mathsf{ref}}$ by $\textsf{E}_{\mathsf{learn}}$ only after a finite validation pass discharges a checkable obligation such as
+          $$
+            \forall i < \mathrm{N} : \textsf{E}_{\mathsf{learn}}(x_i) = \textsf{E}_{\mathsf{ref}}
+          $$
+          When this gate fails, it fails with a concrete counterexample $i$.
+        </p>
+        <hr>
+        <p>
+          <i>Limitation.</i> Seen extensionally, the model is still “just a perceptron.” What changes is not what can be represented, but what is known about training: updates are deterministic, refutation-driven, and auditable.
+          The project does not dissolve the black box; it argues that opacity is intrinsic once learning amounts to selecting a program in an expressive language, where intensional structure is underdetermined by behavior.
+          In that sense, the project explains the persistence of black boxes rather than eliminating them: If a system already contains a hard core—underdetermination, intractable minimization, undecidable properties—then adding complexity typically does not remove that core.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-item d-w-9 m-w-9">
+    <span class="nr"></span>
+    <div class="grid-item-content">
+      <div class="box textbox">
+        <p>
+          <i>Note.</i> I am looking for <span class="u">collaborators:</span> who will want to reproduce traces, and either extend the system
+          or break its stated checks. Vision. Typed Repair might be well-suited to regimes where the system is repeatedly updated in response to new evidence.
+        </p>
+        <p>Aims:</p>
+        <ul>
+          <li>Constructive scrutiny of explicit finite execution and effectivity</li>
+          <li>Optimization and Organization</li>
+        </ul>
+        <p>Suggestions:</p>
+        <ul>
+          <li>
+            <span class="u">Replicate</span>: run a preset with fixed parameters/seed and report any trace discrepancy (events,
+            violation counts, certificate state).
+          </li>
+          <li>
+            <span class="u">Break</span>: produce a minimal dataset/setting where a stated check fails without an explicit witness,
+            or where determinism/replayability is violated.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="legend">
+  <div class="legend-title">Legend</div>
+  <div class="legend-item"><span class="legend-key">1</span><span class="legend-text">Navigation</span></div>
+  <div class="legend-item"><span class="legend-key">2</span><span class="legend-text">Tutorial</span></div>
+  <div class="legend-item"><span class="legend-key">3</span><span class="legend-text">Notes</span></div>
+  <div class="legend-item"><span class="legend-key">4</span><span class="legend-text">Comparison via Javascript</span></div>
+  <div class="legend-item"><span class="legend-key">5</span><span class="legend-text">Exposition</span></div>
+  <div class="legend-item"><span class="legend-key">6</span><span class="legend-text">Invitation</span></div>
+</div>
+
+<script src="./js/typed-repair-vs-gd.js" defer></script>
+</body>
+</html>

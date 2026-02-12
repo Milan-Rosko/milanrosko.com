@@ -1,0 +1,46 @@
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+{%- assign page_title = page.title | default: site.title -%}
+{%- assign page_desc  = page.description | default: site.description -%}
+{%- assign page_keys  = page.keywords | default: site.keywords -%}
+{%- assign page_author = page.author | default: site.author -%}
+
+{%- assign og_img_raw = page.og_image | default: site.og_image | default: "/aux/1200x630.png" -%}
+{%- if og_img_raw contains "://" -%}
+  {%- assign og_img = og_img_raw -%}
+{%- else -%}
+  {%- assign og_img = og_img_raw | absolute_url -%}
+{%- endif -%}
+
+<link rel="canonical" href="{{ page.url | absolute_url }}">
+
+<title>{{ page_title }}</title>
+<meta name="description" content="{{ page_desc }}">
+<meta name="keywords" content="{{ page_keys }}">
+<meta name="author" content="{{ page_author }}">
+
+<meta name="robots" content="index, follow">
+<meta name="googlebot" content="index, follow">
+
+<!-- Open Graph -->
+<meta property="og:title" content="{{ page.og_title | default: page_title }}">
+<meta property="og:description" content="{{ page.og_description | default: page_desc }}">
+<meta property="og:type" content="{{ page.og_type | default: 'website' }}">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+<meta property="og:site_name" content="{{ site.title }}">
+<meta property="og:image" content="{{ og_img }}">
+<meta property="og:image:alt" content="{{ page.og_image_alt | default: page_title }}">
+
+<meta property="og:image:width" content="{{ page.og_image_width | default: '1200' }}">
+<meta property="og:image:height" content="{{ page.og_image_height | default: '630' }}">
+<meta property="og:image:type" content="{{ page.og_image_type | default: 'image/png' }}">
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="{{ page.twitter_card | default: 'summary_large_image' }}">
+<meta name="twitter:title" content="{{ page.twitter_title | default: page_title }}">
+<meta name="twitter:description" content="{{ page.twitter_description | default: page_desc }}">
+<meta name="twitter:image" content="{{ page.twitter_image | default: og_img }}">
+<meta name="twitter:image:alt" content="{{ page.twitter_image_alt | default: page_title }}">
+<meta name="twitter:url" content="{{ page.url | absolute_url }}">
+<meta name="twitter:domain" content="{{ site.url | replace: 'https://', '' | replace: 'http://', '' }}">

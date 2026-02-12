@@ -1,0 +1,184 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="./style.css">
+    <script src="js/mathjaxconfig.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    {% include meta.html %}
+    <style>
+
+        :root {
+          --color-bg: #d8e1e6;
+        }
+        .screener{
+          position: absolute;
+          inset: 0;
+          z-index: 1;
+          pointer-events: none;
+          mix-blend-mode: darken;
+          background: var(--color-bg);
+        }
+        #ca-container {
+          position: absolute;
+          max-width: auto;
+          max-height: auto;
+          inset: 0;
+          overflow: auto;
+          padding:  2em;
+        }
+        #ca-container canvas {
+          display: block;
+          width: auto;
+          height: auto;
+          max-width: 100%;
+          max-height: 100%;
+          object-fit: contain;
+        }
+        .appbox {
+          width: 10em;
+          height: 20em;
+          margin-bottom: 2em;
+          margin-top: 2em;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        TYPE.LEGAL
+    </header>
+    <div class="grid">
+
+        <div class="grid-item d-w-9 m-w-9"><span class="nr"></span>
+            <div class="grid-item-content">
+                <div class="box navibox">
+                        Main site - <a href="./index.html">index.html</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item d-w-9 m-w-9"><span class="nr"></span>
+            <div class="grid-item-content">
+                <div class="box textbox" style="margin-bottom: 4em; margin-top: 3em;">
+
+                    <h1>
+                        Legal
+                    </h1>
+                    <p>
+                        In accordance with “EU law” in German.
+
+                    </p>
+                    <h2>
+                        Hinweise
+                    </h2>
+
+                    <h3>
+                        Datenschutzhinweis
+                    </h3>
+                    <p>
+                        1.1
+                    </p>
+                    <p>
+                        Diese Website verwendet keine Cookies, keine Tracking-Dienste und keine Analysetools. Es werden keine personenbezogenen Daten gespeichert oder an Dritte weitergegeben. Serverseitige Logfiles (z. B. technische Zugriffsdaten) werden, soweit sie entstehen, ausschließlich zur Sicherstellung des Betriebs verarbeitet und nicht ausgewertet.
+                    </p>
+                    <p>
+                        1.2
+                    </p>
+                    <p>
+                        Die Inhalte dieser Website werden mit Sorgfalt erstellt. Eine Haftung für die Richtigkeit, Vollständigkeit oder Aktualität der Informationen wird nicht übernommen. Diese Website kann Links zu externen Websites Dritter enthalten. Auf deren Inhalte besteht kein Einfluss; eine Haftung wird ausgeschlossen. Verantwortlich ist der jeweilige Anbieter.
+                    </p>
+
+                    <h3>
+                        Impressum
+                    </h3>
+
+                    <p>
+                        2.1
+                    </p>
+
+                    <p>
+                        Zitierbar unter dem Namen: Milan Rosko
+                    </p>
+
+                    <p>
+                        2.2
+                    </p>
+
+                    <p>
+                        Inhaltlich Verantwortlich gemäß § 55 Abs. 2 RStV:<br>
+                        (i) Milan Rosko Vuckovic<br>
+                        (ii) Rechtsform: Einzelperson / Freiberuflich<br>
+                        (iii) Anschrift: Finowstr. 34, 10247 Berlin<br>
+                        (iv) E-Mail: hi 'dasatzeichen' milanrosko . com<br>
+                        Stand: 11.12.2025
+                    </p>
+
+                    <h2>
+                        Other
+                    </h2>
+
+                    <h3>
+                        Github
+                    </h3>
+
+                    <p>
+                        The website is hosted through <i>Github pages</i>. The repository is: https://github.com/Milan-Rosko/milanrosko.com
+                    </p>
+
+                    <h3>
+                        Security
+                    </h3>
+                    <p>
+                        If you believe you have found a security vulnerability, please report it privately per Email.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="grid-item d-w-9 m-w-9"><span class="nr"></span>
+            <div class="grid-item-content">
+                <div class="box monobox">
+                    <div class="mathjaxwrap">
+                        -----BEGIN PGP PUBLIC KEY BLOCK-----
+                        <br>
+                        mDMEaUlV7hYJKwYBBAHaRw8BAQdACprgAQs7uNyjmIqjt5rnr4v1uL7uL3Fa+Mm9
+                        860lOfG0H01pbGFuIFJvc2tvIDxoaUBtaWxhbnJvc2tvLmNvbT6ImQQTFgoAQRYh
+                        BNqz55Ktr1Mc9H9lRdHfGpjVos+DBQJpSVXuAhsDBQkB4TOABQsJCAcCAiICBhUK
+                        CQgLAgQWAgMBAh4HAheAAAoJENHfGpjVos+DsjcBANjGPpoqghBMcvzfypowOlij
+                        nRCozE0myLm/fDI4ncmLAQDC+g09hEuf/5Fe6drXvzGZXvqq95vrP5JvrqSB9HG9
+                        Cbg4BGlJVe4SCisGAQQBl1UBBQEBB0BYxFsvNTUO6aLJOhoreWvIY18v1sHskSUG
+                        tZj2WjrGUwMBCAeIfgQYFgoAJhYhBNqz55Ktr1Mc9H9lRdHfGpjVos+DBQJpSVXu
+                        AhsMBQkB4TOAAAoJENHfGpjVos+DNP8BAMn1FP+CTojsx4z9JGr8TPYwM35tsaen
+                        xHGny82D3OtmAP9gqyjX3E1vB5qjMSGJ7SqTUtqNgZRA8s7Jpe82IeQ6CQ==
+                        =If37
+                        <br>
+                        -----END PGP PUBLIC KEY BLOCK-----
+                        </div>
+                </div>
+            </div>
+        </div>
+        <div class="grid-item d-w-9 m-w-9"><span class="nr"></span>
+            <div class="grid-item-content">
+                <div class="appbox">
+                    asdansduadbf
+                    <div id="ca-container">
+                    </div>
+                    <div class="screener">
+                    </div>
+                </div>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.2.0/p5.min.js"></script>
+                <script src="./js/rule31.js"></script>
+            </div>
+        </div>
+    </div>
+    <div class="legend">
+        <div class="legend-title">Legend</div>
+        <div class="legend-item"><span class="legend-key">1</span><span class="legend-text">Navigation</span></div>
+        <div class="legend-item"><span class="legend-key">2</span><span class="legend-text">Legal text</span></div>
+        <div class="legend-item"><span class="legend-key">3</span><span class="legend-text">PGP Public Key</span></div>
+        <div class="legend-item"><span class="legend-key">4</span><span class="legend-text">Cellular automaton</span></div>
+    </div>
+</body>
+</html>

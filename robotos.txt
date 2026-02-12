@@ -1,0 +1,7 @@
+# /robots.txt
+# Allow all user agents full access
+User-agent: *
+Disallow:
+
+# Link to sitemap for search engines
+Sitemap: https://milanrosko.com/sitemap.xml

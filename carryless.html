@@ -1,0 +1,328 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="./style.css">
+    <script src="js/mathjaxconfig.js"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    {% include meta.html %}
+    <style>
+        .fib-selected {
+            background: var(--color-ok) !important;
+            color: black;
+            border-color: black;
+        }
+        .fib-forbidden {
+            background: var(--color-not) !important;
+            color: black;
+            border-color: black;
+
+        }
+        .fibowrap {
+          position: absolute;
+          inset: 0;
+          display: grid;
+          place-items: center;
+          overflow: hidden;
+        }
+        .fibonacci-squares {
+          position: relative;
+          display: inline-block;
+          transform: translate(-5em, 3em);
+        }
+        .fibonacci-squares .square {
+          box-sizing: border-box;
+          position: absolute;
+          outline: 0.5px solid var(--color-link-external);
+          outline-offset: -0.25px;
+          background-color: var(--color-link-external-10);
+        }
+        .fibonacci-squares .square.square-1 {
+          width: 12.6ex;
+          height: 12.6ex;
+          bottom: 0;
+              animation: rotation-0 12s infinite;
+        }
+        .fibonacci-squares .square.square-2 {
+          width: 7.8ex;
+          height: 7.8ex;
+          transform-origin: right bottom;
+          top: -7.8ex;
+          right: 0;
+              animation: rotation-A 12s infinite;
+        }
+        .fibonacci-squares .square.square-3 {
+          width: 4.8ex;
+          height: 4.8ex;
+          transform-origin: top right;
+          top: 0;
+          left: -4.8ex;
+              animation: rotation-B 12s infinite;
+        }
+        .fibonacci-squares .square.square-4 {
+          width: 3.0ex;
+          height: 3.0ex;
+          transform-origin: top left;
+          bottom: -3.0ex;
+          left: 0;
+                animation: rotation-A 12s infinite;
+        }
+        .fibonacci-squares .square.square-5 {
+          width: 1.8ex;
+          height: 1.8ex;
+          transform-origin: bottom left;
+          bottom: 0;
+          right: -1.8ex;
+                animation: rotation-B 12s infinite;
+        }
+        .fibonacci-squares .square.square-6 {
+          width: 1.2ex;
+          height: 1.2ex;
+          transform-origin: bottom right;
+          top: -1.2ex;
+          right: 0;
+                animation: rotation-A 12s infinite;
+        }
+        .fibonacci-squares .square.square-7 {
+          width: 0.6ex;
+          height: 0.6ex;
+          transform-origin: top right;
+          top: 0;
+          left: -0.6ex;
+                animation: rotation-B 12s infinite;
+        }
+        .fibonacci-squares .square.square-8 {
+          width: 0.6ex;
+          height: 0.6ex;
+          transform-origin: top left;
+          bottom: -0.6ex;
+          left: 0;
+                animation: rotation-A 12s infinite;
+        }
+        @keyframes rotation-0 {
+            0% {transform: translate(0rem, 0) rotate(90deg);}
+            25% {transform: translate(2rem, 0) rotate(-90deg);}
+            50% {transform: translate(2rem,0) rotate(-90deg);}
+            75% {transform: translate(0rem, 0) rotate(0deg);}
+            100% {transform: translate(0rem, 0) rotate(90deg);}
+        } 
+        @keyframes rotation-A { 
+            0% {transform: rotate(0deg); animation-timing-function: linear;}
+            25% {transform: rotate(-180deg); animation-timing-function: linear;}
+            50% {transform: rotate(-360deg);animation-timing-function: linear;}
+            75% {transform: rotate(-540deg);animation-timing-function: linear;}
+            100% {transform: rotate(-720deg);/*border-color: red;*/}
+        }
+        @keyframes rotation-B { 
+            0% {transform: rotate(0deg);animation-timing-function: linear;}
+            25% {transform: rotate(-180deg);animation-timing-function: linear;}
+            50% {transform: rotate(-360deg);animation-timing-function: linear;}
+            75% {transform: rotate(-180deg); animation-timing-function: linear;}
+            100% {transform: rotate(0deg); /*border-color: red;*/}
+
+        }
+        .pairing-controls {
+          display: flex;
+          gap: 1rem;
+          align-items: center;
+          flex-wrap: wrap;
+        }
+        .warning-bad { color: var(--colorwarning); }
+        .warning-ok  { color: var(--colorgrey); }
+    </style>
+</head>
+<body>
+<header>
+    CLASS.ALGORITHM
+</header>
+    <div class="grid">
+
+        <div class="grid-item d-w-9 m-w-9"><span class="nr"></span>
+            <div class="grid-item-content">
+                <div class="box navibox">
+                        Main site - <a href="./index.html">index.html</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item d-w-6 m-w-9"><span class="nr"></span>
+            <div class="grid-item-content">
+                <div class="box textbox">
+                    <p>
+                        On <span class="sc">Carryless Pairing.</span>
+                    </p>
+
+                    <p>
+                        The algorithm bellow emerges solely from addition and bounded recursion. We demonstrate the core mechanism and the pairing function.
+                    </p>
+                    <p>
+                        (i) First, a chosen set of Fibonacci terms is aggregated into a single numerical value.
+                    </p>
+                    <p>
+                        (ii) In a second step, the selection itself is discarded, and only the resulting sum is returned to a <span class="sc">Greedy Algorithm</span>.
+                    </p>
+                    <p>
+                        (iii) Finally, the original terms are recovered from the sum alone within a bounded number of steps.
+                    </p>
+                    <p>
+                        This round-trip, from arbitrary input to canonical additive and back, utilizes <span class="sc">Binet’s Formula</span>, the <span class="sc">Hurwitz Satz</span>, and <span class="sc">Zeckendorf’s Theorem</span> to yield a stable, reversible, and fully bounded finitary encoding–decoding scheme.
+                    </p>
+                    <p>
+                        (iv) The structure can be used to realize a constructive (hence injective) arithmetical pairing function:
+                    </p>
+                    <div class="mathjaxwrap">
+                        $$ \pi_{\mathrm{CL}}^{\tau}(x,y) = \!\!\!\!\! \sum_{e\in Z(x)\subseteq\tau_x}\!\!\!\!\! F_{2e} \;+\;\!\!\!\!\! \sum_{j\in Z(y)\subseteq\tau_y}\!\!\!\!\! F_{\,B(x)+(2j-1)}. $$
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="grid-item d-w-3 m-w-9"><span class="nr"></span>
+            <div class="grid-item-content">
+                <div class="box monobox">
+                    <p>
+                        Key Materials:
+                        <ul>
+                            <li>
+                                Main Paper - <a href="https://arxiv.org/abs/2509.10382" target="_blank">arXiv</a>
+                            </li>
+                            <li>
+                                Seconary Paper - <a href="https://arxiv.org/abs/2510.08934" target="_blank">arXiv</a>
+                            </li>
+                        </ul>
+                        Secondary Literature: 
+                        <ul>
+                            <li>
+                                Fibonacci and Lucas Numbers - <a href="https://doi.org/10.1002/9781118033067" target="_blank">DOI</a>
+                            </li>
+                            <li>
+                                Computability and Logic - <a href="https://doi.org/10.1017/CBO9780511804076" target="_blank">DOI</a>
+                            </li>
+                                <li>
+                                On “Zeckendorf's Theorem” - <a href="https://en.wikipedia.org/wiki/Zeckendorf%27s_theorem" target="_blank">Wikipedia</a>
+                            </li>
+                        </ul>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="grid-item d-w-9 m-w-9"><span class="nr"></span>
+            <div class="grid-item-content">
+                <div class="box monobox">
+                    <p>
+                         <span class="u">Step 1.</span> We select (at least 2) integers that our <i>javascript</i> decomposes uniquely into non-consecutive Fibonacci summands.
+                    </p>
+                    <div style="padding: 0 1em;" id="fib-list" style="font-family: var(--fontmono);">
+                    </div>
+                    <p>
+                        <button id="encode-btn">Encode</button>
+                    </p>
+                    <p>
+                        <div class="console">
+                            <div id="encode-output" class="output">Waiting for summands.</div>
+                        </div>
+                    </p>
+                    <hr>
+                    <p>
+                        <span class="u">Step 2.</span> We forget the supporting Fibonacci indices...
+                    </p>
+                    <p>
+                            <button id="decode-btn">Forget and Decode</button>
+                    </p>
+                    <p>
+                        ...and reconstruct them via a series of local search problems.
+                    </p>
+                    <p>
+                        <div class="console sqbound" style="height: 15em;">
+                            <div id="steps" class="output">Waiting for command.</div>
+                        </div>
+                    </p>
+                    <p>
+                        <span class="u">Step 3.</span> We can use this correspondance to create an injective $\Delta_0$ pairing function. We select 2 arbitrary natural numbers.
+                    </p>
+                    <center>
+                        <p style="margin-top:2em">
+                            $x \in \mathbb{N}:$ <input id="pair-x" type="number" min="0" step="1" value="0" class="input">
+                        </p>
+                        <p style="margin-bottom:2em">
+                            $y \in \mathbb{N}:$ <input id="pair-y" type="number" min="0" step="1" value="0" class="input">
+                        </p>
+                    </center>
+                    <p>
+                        <button id="pair-generate-btn">Pair ($x,y$)</button>
+                    </p>
+                    <p>
+                        <div class="console" style="min-height: 10em;">
+                            <div id="pair-output" class="output">Waiting for input.</div>
+                        </div>
+                    </p>
+                    <hr>
+                    <p style="margin-top:2em">
+                        <span class="u">Step 4.</span> Inverse is given by bounded search in subpolynomial-time.
+                    </p>
+
+                        <center>
+                            <p>
+                                $n \in \mathbb{N}:$ <input id="unpair-n" type="number" min="0" step="1" value="0" class="input">
+                            </p>
+                        </center>
+                    <p>
+                        <button id="unpair-btn">Unpair $n$</button>
+                    </p>
+                    <p>
+                        <div class="console" style="min-height: 10em;">
+                            <div id="unpair-output" class="output">Waiting for input.</div><br>
+                            <div id="pair-warning" class="output"></div>
+                        </div>
+                    </p>
+                    <p>
+                        Remark. The pairing $\pi_{\mathrm{CL}}^\tau$ is finitary and correctness relies on the uniqueness and stability of Zeckendorf decompositions (cf. 'Phi'-adic Logic) under exact order. The apperant division at the reversal is a $\mathcal{O}(\log n)$ search problem. However, if one realizes the procedure in a numerical model that is not an exact copy of $\{\,\mathbb{N},\, +,\, \le\,\}$ (with  $\Delta I$) then the underlying invariants might not be preserved, e.g. IEEE-754 floating-point past $2^{53}$. This highlights a persistent key bias in contemporary computation. 
+                    </p>
+                    <p>
+                        Acknoledgment. Thanks are due to Albert Visser <a href="https://www.uu.nl/staff/AVisser" target="_blank">University of Utrecht</a> for timely criticism and guidance.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="grid-item d-w-9 m-w-9"><span class="nr"></span>
+            <div class="grid-item-content">
+                <div class="box animbox">
+                    <div class="fibowrap">
+                        <div class="fibonacci-squares">
+                            <div class="square-1 square">
+                                <div class="square-2 square">
+                                    <div class="square-3 square">
+                                        <div class="square-4 square">
+                                            <div class="square-5 square">
+                                                <div class="square-6 square">
+                                                    <div class="square-7 square">
+                                                        <div class="square-8 square">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="caption">
+                    Illustration: Recurrence relations are computationally expressive.
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="legend">
+        <div class="legend-title">Legend</div>
+        <div class="legend-item"><span class="legend-key">1</span><span class="legend-text">Navigation</span></div>
+        <div class="legend-item"><span class="legend-key">2</span><span class="legend-text">Introduction</span></div>
+        <div class="legend-item"><span class="legend-key">3</span><span class="legend-text">Notes and References</span></div>
+        <div class="legend-item"><span class="legend-key">4</span><span class="legend-text">Realization via Javascript</span></div>
+        <div class="legend-item"><span class="legend-key">5</span><span class="legend-text">Group Transformations</span></div>
+    </div>
+</body>
+<script src="js/carrylesspairing.js"></script>
+</body>
+</html>

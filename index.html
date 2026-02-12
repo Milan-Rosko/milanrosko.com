@@ -1,0 +1,208 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- Simple Fallback START-->
+
+		<link rel="canonical" href="https://milanrosko.com/">
+
+		<title>Milan Rosko — Logician & Designer</title>
+		<meta name="description" content="Research in constructive logic and theory of computation.">
+		<meta name="keywords" content="Constructive Logic, Proof Theory, Realizability, Information design">
+
+		<!-- Robots, indexing policy, Author, Canonical identity -->
+		<meta name="author" content="Milan Rosko">
+		<meta name="robots" content="index, follow">
+		<meta name="googlebot" content="index, follow">
+
+		<meta property="og:title" content="Milan Rosko — Logician & Designer">
+		<meta property="og:description"
+		      content="Constructive logic, proof theory, realizability, and Information design.">
+		<meta property="og:type" content="website">
+		<meta property="og:url" content="https://milanrosko.com/">
+
+		<meta property="og:image" content="https://milanrosko.com/aux/1200x630.png">
+		<meta property="og:image:width" content="1200">
+		<meta property="og:image:height" content="630">
+		<meta property="og:image:type" content="image/png">
+		<meta property="og:image:alt" content="Milan Rosko — Logician & Designer">
+
+		<!-- Simple Fallback END -->
+
+
+	<link rel="stylesheet" href="./style.css">
+	<script src="js/mathjaxconfig.js"></script>
+	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+	{% include meta.html %}
+  <style>
+		#anim-container1 {
+		  max-width: 25em;
+		  max-height: 25em;
+		  position: relative; /* ensures absolute-positioned canvas fits correctly */
+		}
+
+		#anim-container1 canvas {
+		  width: 70% !important;
+		  height: 70% !important;
+		  padding: 15%;
+		}
+	</style>
+  <!-- Favicons (minimal set) 
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png"> -->
+</head>
+<body>
+
+  <header>
+	TYPE.WEBSITE
+	</header>
+  <div class="grid">
+		<div class="grid-item d-w-5 m-w-9"><span class="nr"></span>
+			<div class="grid-item-content">
+				<div class="box spaceybox">
+					<p>
+						<span style="font-size: 2.5em; font-weight: 500;">Milan Rosko</span><br>
+						<span style="font-size: 1.2em; font-weight: 400;">Logician & Designer</span><br>
+					</p>
+					<p style="font-weight: 300;">
+						Constructive Logic, Proof Theory,<br>
+						Realizability Interpretation,<br>
+						Type Theory, Linear Algebra.
+					</p>
+					<p style="font-weight: 300;">
+						Information Design, Motion Design, Signage
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="grid-item d-w-4 m-w-9" id="anim-cell"><span class="nr"></span>
+			<div id="anim-container1"></div>
+			<script src="./js/poly.js"></script>
+		</div>
+
+		<div class="grid-item d-w-9 m-w-9"><span class="nr"></span>
+			<div class="grid-item-content">
+				<div class="box monobox">
+					<p>
+						Main Projects:
+						<ul>
+							<li>
+								About the “Carryless” pairing function - <a href="./carryless.html">carryless.html</a>
+							</li>
+							<li>
+								About the “Typed Repair” algorithm - <a href="./typedrepair.html">typedrepair.html</a>
+							</li>
+							<li>
+								“BHK_R” or “Reflexica” repository - <a href="https://github.com/Milan-Rosko/BHK_R">GitHub</a>
+							</li>
+						</ul>
+					</p>
+					<hr>
+					<p>
+						Selected Paper:
+						<ul>
+							<li>
+								2025, Adversarial Barrier in Uniform Class Separation - <a href="https://arxiv.org/abs/2512.08149" target="_blank">arXiv</a>
+							</li>
+							<li>
+								2025, On the Realizability of Prime Conjectures in Heyting Arithmetic - <a href="https://arxiv.org/abs/2511.07774" target="_blank">arXiv</a>
+							</li>
+						</ul>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="grid-item d-w-3 m-w-9"><span class="nr"></span>
+			<div class="grid-item-content">
+				<div class="box monobox">
+					<p>
+						Contact:
+						<ul>
+							<li>
+								Email - <a href="mailto:hiTHEATSYMBOLmilanrosko.com" target="_blank">mailto</a>
+							</li>
+						</ul>
+						Links:
+						<ul>
+							<li>
+								GitHub - <a href="https://github.com/Milan-Rosko/" target="_blank">GitHub</a>
+							</li>
+							<li>
+								Open Researcher and Contributor ID - <a href="https://orcid.org/0009-0003-1363-7158" target="_blank">ORCID</a>
+							</li>
+						</ul>
+						How to cite:
+						<ul>
+							<li>
+								BibTex format - <a href="./bibtex.txt" target="_blank">bibtex.txt</a>
+							</li>
+						</ul>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="grid-item d-w-6 m-w-9"><span class="nr"></span>
+			<div class="grid-item-content">
+				<div class="box textbox">
+					<p>
+						My earlier work in design cultivated a lasting interest in structural clarity and disciplined abstraction. This eventually led to a shift toward formal logic, with a particular emphasis on first-order systems and constructive semantics—areas that often sit in the shadow of late-20th-century classical revivals.
+					</p>
+					<p>
+						My current research examines how <i>impredicativity</i> develops when separated from the full classical apparatus. The aim is to restrict the ontological commitments that typically accompany such constructions, and thereby retain constructive control over expressive resources: a mechanism that functions as a <i>sink</i> under the <span class="sc">Brouwer–Heyting–Kolmogorov Interpretation.</span>.
+					</p>
+					<p>
+						In the mid-20th century, the cybernetic vision was ahead of its institutional time. Today, the world has become cybernetic in fact: software mediates nearly all coordination, security is adversarial, and “proof” means not only “truth” but “verification”. 
+					</p>
+					<p>
+						The constructive viewpoint is no longer “philosophical,” it is arguably the natural epistemology of our computational civilization.
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="grid-item d-w-2 m-w-5"><span class="nr"></span>
+			<div class="grid-item-content">
+				<div class="box ">
+					<img src="./img/mr.png" alt="Ligature" height="140px">
+				</div>
+			</div>
+		</div>
+		<div class="grid-item d-w-2 m-w-4"><span class="nr"></span>
+			<div class="grid-item-content">
+				<div class="box photobox">
+					<img src="img/milan.jpg" alt="Portrait" height="140px" style="">
+				</div>
+			</div>
+		</div>
+		<div class="grid-item d-w-2 m-w-4"><span class="nr"></span>
+			<div class="grid-item-content">
+				<div class="box picbox">
+					<img src="img/location.png" alt="A probability mapping" height="140px" style="border: 1px black solid;">
+				</div>
+			</div>
+		</div>
+		<div class="grid-item d-w-3 m-w-5"><span class="nr"></span>
+			<div class="grid-item-content">
+				<div class="box monobox">
+		        Imprint/Impressum - <a href="./impressum.html">impressum.html</a>
+				</div>
+			</div>
+		</div>
+	</div>
+  <div class="legend">
+    <div class="legend-title">Legend</div>
+    <div class="legend-item"><span class="legend-key">1</span><span class="legend-text">Name, occupation, interests</span></div>
+    <div class="legend-item"><span class="legend-key">2</span><span class="legend-text">Trail of a parametric polycurve</span></div>
+    <div class="legend-item"><span class="legend-key">3</span><span class="legend-text">Selected works</span></div>
+    <div class="legend-item"><span class="legend-key">4</span><span class="legend-text">Related information</span></div>
+    <div class="legend-item"><span class="legend-key">5</span><span class="legend-text">About</span></div>
+    <div class="legend-item"><span class="legend-key">6</span><span class="legend-text">Monogram ligature</span></div>
+    <div class="legend-item"><span class="legend-key">7</span><span class="legend-text">Portrait from 2014</span></div>
+    <div class="legend-item"><span class="legend-key">8</span><span class="legend-text">Spacial probability distribution</span></div>
+    <div class="legend-item"><span class="legend-key">9</span><span class="legend-text">Legal</span></div>
+  </div>
+
+</body>
+</html>
