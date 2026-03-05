@@ -411,7 +411,6 @@ table{
 }
 
 .pngbox {
-    max-width: 90%;
     justify-content: center;
     align-items: center;
     mix-blend-mode: multiply;
@@ -565,6 +564,22 @@ ul > li::before {
 /* == MOBILE == */
 
 @media (max-width: 800px) {
+
+    .pngbox, .photobox{
+    display: block;
+    width: calc(100% - 2rem);
+    margin: 1rem auto;
+    box-sizing: border-box;
+  }
+
+  /* make the image obey the container */
+  .pngbox img, .photobox img{
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
 
   .box{
     max-width: 30em;
