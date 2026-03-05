@@ -356,6 +356,8 @@ table{
 .spaceybox {
   margin: 0 auto;
   line-height: 1.6;
+  font-weight: 300;
+
 }
 
 .monobox {
@@ -365,7 +367,7 @@ table{
   margin: auto;
   font-size: var(--size-mono);
   max-width: 45em;
-  font-weight: 400;
+  font-weight: 300;
   border-radius: 20px;
   padding-bottom: 3em;
 }
@@ -469,16 +471,14 @@ table{
 /* == other == */
 
 .info{
-  font-family: var(--fontmono);
+  font-family: var(--fontlmcaps);
   font-weight: 400;
   font-size: 1.5em;
   font-variant-ligatures: none;
   margin: 1em 0 0.5em 0;
   display: inline-block;
-
   text-transform: uppercase;
 
-  text-decoration: underline;
   text-underline-offset: 0.3em;
 }
 
