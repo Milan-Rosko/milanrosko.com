@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cistercian Debug</title>
+    <style>
+      :root {
+        --bg: #0b0b0b;
+        --fg: #a2cfe9;
+        --muted: #89a7ba;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: var(--bg);
+        color: var(--fg);
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        display: grid;
+        place-items: center;
+        padding: 1rem;
+      }
+
+      main {
+        width: min(760px, 100%);
+        border: 1px solid color-mix(in srgb, var(--fg) 25%, transparent);
+        padding: 1rem;
+      }
+
+      .controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        align-items: center;
+        margin-bottom: 0.9rem;
+      }
+
+      label {
+        font-size: 0.8rem;
+        color: var(--muted);
+      }
+
+      input {
+        width: 4.2rem;
+        padding: 0.25rem 0.35rem;
+        background: #131313;
+        color: var(--fg);
+        border: 1px solid color-mix(in srgb, var(--fg) 30%, transparent);
+      }
+
+      button {
+        padding: 0.32rem 0.58rem;
+        background: #131313;
+        color: var(--fg);
+        border: 1px solid color-mix(in srgb, var(--fg) 30%, transparent);
+        cursor: pointer;
+      }
+
+      #debug-clock-wrap {
+        display: grid;
+        place-items: center;
+        gap: 0.6rem;
+      }
+
+      #debug-clock {
+        color: var(--fg);
+      }
+
+      #debug-clock svg {
+        width: min(62vw, 260px);
+        display: block;
+        filter: drop-shadow(0 0 6px color-mix(in srgb, var(--fg) 75%, transparent));
+      }
+
+      #debug-clock .ghost {
+        stroke: color-mix(in srgb, var(--fg) 14%, transparent);
+      }
+
+      #debug-time {
+        font-size: 0.95rem;
+      }
+
+      #debug-meta {
+        font-size: 0.76rem;
+        line-height: 1.6;
+        color: var(--muted);
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="controls">
+        <label for="in-h">H</label>
+        <input id="in-h" type="number" min="0" max="23" step="1" value="0">
+        <label for="in-m">M</label>
+        <input id="in-m" type="number" min="0" max="59" step="1" value="0">
+        <label for="in-s">S</label>
+        <input id="in-s" type="number" min="0" max="59" step="1" value="0">
+        <button id="apply-btn" type="button">Apply</button>
+        <button id="now-btn" type="button">Now</button>
+      </div>
+
+      <div id="debug-clock-wrap">
+        <div id="debug-clock"></div>
+        <div id="debug-time">00:00:00</div>
+        <div id="debug-meta"></div>
+      </div>
+    </main>
+    <script src="./debug-clock.js"></script>
+  </body>
+</html>

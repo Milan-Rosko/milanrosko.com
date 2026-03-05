@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500;700&display=swap');
+
+:root {
+  --color-cisclock: #568070;
+  --color-accent: #7f7557;
+  --fontmono: 'Geist Mono', monospace;
+  --size-mono: 0.85rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background: #e6e5d8;
+  color: var(--color-cisclock);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Courier New', monospace;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+
+#clock .ghost {
+  stroke: color-mix(in srgb, var(--color-cisclock) 12%, transparent);
+}
+
+#clock svg {
+  width: min(80vw, 280px);
+  display: block;
+  color: var(--color-cisclock);
+}
+
+#clock path {
+  stroke-linecap: round !important;
+  stroke-linejoin: round !important;
+}
+
+
+#progress-track {
+  width: min(80vw, 280px);
+  height: 4px;
+  display: flex;
+  gap: 3px;
+  position: relative;
+}
+
+#progress-track::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--color-accent) 15%, transparent);
+}
+
+#progress-track .seg {
+  flex: 1;
+  border-radius: 4px;
+  position: relative;
+}
+
+#progress-track .seg.short {
+  flex: 0.64;
+}
+
+#progress-track .seg.on {
+  background: var(--color-accent);
+}
+
+#panel #of {
+  opacity: 0.3;
+}
+
+#panel #time {
+  opacity: 0.3;
+  margin-left: 0.6em;
+}
+
+#panel {
+  font-family: var(--fontmono);
+  font-size: var(--size-mono);
+  font-weight: 400;
+  line-height: 1.6;
+  color: #000;
+  font-variant-numeric: tabular-nums;
+  font-size: x-small;
+  text-align: center;
+}

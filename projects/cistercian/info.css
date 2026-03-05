@@ -1,0 +1,267 @@
+/* Embeddable clock — scoped under #cisclock, no globals */
+
+#cisclock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 15em;
+  color: var(--color-main-secondary);
+}
+
+#cisclock .ghost {
+  stroke: color-mix(in srgb, var(--color-main-secondary) 12%, transparent);
+}
+
+#cisclock svg {
+  width: 200px;
+  display: block;
+  color: var(--color-main-secondary);
+}
+
+#cisclock #progress-track {
+  width: 180px;
+  height: 4px;
+  display: flex;
+  gap: 3px;
+  position: relative;
+}
+
+#cisclock #progress-track::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 0px;
+  background: color-mix(in srgb, var(--color-main-primary) 15%, transparent);
+}
+
+#cisclock #progress-track .seg {
+  flex: 1;
+  border-radius: 0px;
+  position: relative;
+}
+
+#cisclock #progress-track .seg.short {
+  flex: 0.64;
+}
+
+#cisclock #progress-track .seg.on {
+  background: var(--color-main-primary);
+}
+
+#cisclock #panel {
+  font-family: var(--fontmono);
+  font-size: small;
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--color-main-dark);
+  font-variant-numeric: tabular-nums;
+}
+
+#cisclock #panel #of {
+  opacity: 0.3;
+}
+
+#cisclock #panel #time {
+  opacity: 0.3;
+  margin-left: 0.6em;
+}
+
+#cis-controls {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 1rem 0 0.5rem;
+}
+
+#cis-controls label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.78rem;
+}
+
+#cis-controls select.input,
+#cis-controls input.input {
+  padding: 0.3rem 0.5rem;
+}
+
+#cis-controls button {
+  margin: 0;
+  padding: 0.35rem 0.65rem;
+}
+
+#cis-meta {
+  font-size: 0.74rem;
+  opacity: 0.85;
+  margin-bottom: 0.55rem;
+}
+
+#cis-scroll {
+  height: 27rem;
+  overflow-y: auto;
+  background: color-mix(in srgb, var(--color-main-secondary) 6%, transparent);
+  padding: 0.5rem;
+}
+
+#cis-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.cis-row {
+  display: grid;
+  grid-template-columns: 4.2rem 1fr;
+  gap: 0.5rem;
+  align-items: start;
+  border-radius: 0.35rem;
+  padding: 0.42rem;
+}
+
+.cis-index {
+  font-family: var(--fontmono);
+  font-size: 0.7rem;
+  padding-top: 0.12rem;
+}
+
+.cis-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(7.8rem, 1fr));
+  gap: 0.4rem;
+}
+
+.cis-card {
+  background: var(--color-black-05);
+  border-radius: 0.32rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.3rem 0.2rem;
+}
+
+.cis-card.compact {
+   color: var(--color-main-secondary);
+}
+
+.cis-card.medieval {
+  color: var(--color-main-quaternary);
+}
+
+.cis-card.combinatorial {
+   color: var(--color-main-tertiary);
+
+}
+
+.cis-card svg {
+  width: 1.9rem;
+  aspect-ratio: 2 / 3;
+}
+
+.cis-card .tag {
+  font-size: 0.6rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.cis-card .digits {
+  font-family: var(--fontmono);
+  font-size: 0.62rem;
+  opacity: 0.78;
+}
+
+#cis-sentinel {
+  text-align: center;
+  font-size: 0.68rem;
+  opacity: 0.65;
+  padding: 0.5rem 0;
+}
+
+@media (max-width: 760px) {
+  #cis-scroll {
+    height: 22rem;
+  }
+
+  .cis-row {
+    grid-template-columns: 1fr;
+  }
+
+  .cis-index {
+    font-size: 0.68rem;
+  }
+}
+
+/* Final clock (readable HH:MM:SS) — same styling as #cisclock */
+#cisclock-final {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 15em;
+  color: var(--color-main-secondary);
+}
+
+#cisclock-final .ghost {
+  stroke: color-mix(in srgb, var(--color-main-secondary) 12%, transparent);
+}
+
+#cisclock-final svg {
+  width: 200px;
+  display: block;
+  color: var(--color-main-secondary);
+}
+
+#cisclock-final path {
+  stroke-linecap: round !important;
+  stroke-linejoin: round !important;
+}
+
+
+#cisclock-final #panel-final {
+  font-family: var(--fontmono);
+  font-size: var(--size-mono);
+  font-weight: 400;
+  line-height: 1.6;
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+  color: var(--color-main-grey);
+  font-size: small;
+}
+
+#mask-cycle-demo,
+#mask-cycle-growth-demo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--color-main-grey);
+  font-weight: 400;
+  line-height: 1.6;
+  font-variant-numeric: tabular-nums;
+  font-size: small;
+  text-align: center;
+
+}
+
+#mask-cycle-clock .ghost,
+#mask-cycle-growth-clock .ghost {
+  stroke: color-mix(in srgb, var(--color-main-secondary) 12%, transparent);
+}
+
+#mask-cycle-clock svg,
+#mask-cycle-growth-clock svg {
+  width: 170px;
+  display: block;
+  color: var(--color-main-secondary);
+
+}
+
+#mask-cycle-clock path,
+#mask-cycle-clock line,
+#mask-cycle-growth-clock path,
+#mask-cycle-growth-clock line {
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}

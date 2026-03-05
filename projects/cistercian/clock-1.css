@@ -1,0 +1,106 @@
+:root {
+  --color-cisclock: #a2cfe9;
+  --color-accent: #a2cfe9;
+  --fontmono: 'Geist Mono', monospace;
+  --size-mono: 0.85rem;
+}
+
+
+/* #568070 #7f7557 #fcb7b7 #a2cfe9 */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background: #000;
+  color: var(--color-cisclock);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Courier New', monospace;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+#clock .ghost {
+  stroke: color-mix(in srgb, var(--color-cisclock) 12%, transparent);
+}
+
+#clock svg {
+  width: min(80vw, 280px);
+  display: block;
+  color: var(--color-cisclock);
+  filter: drop-shadow(0 0 6px color-mix(in srgb, var(--color-cisclock) 75%, transparent))
+          drop-shadow(0 0 14px color-mix(in srgb, var(--color-cisclock) 45%, transparent));
+}
+
+#clock path {
+  stroke-linecap: round !important;
+  stroke-linejoin: round !important;
+}
+
+
+#info {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6em;
+}
+
+#piece {
+}
+
+
+#progress-track {
+  width: min(80vw, 280px);
+  height: 4px;
+  display: flex;
+  gap: 3px;
+  position: relative;
+}
+
+#progress-track::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--color-accent) 15%, transparent);
+}
+
+#progress-track .seg {
+  flex: 1;
+  border-radius: 4px;
+  position: relative;
+}
+
+#progress-track .seg.short {
+  flex: 0.64;
+}
+
+#progress-track .seg.on {
+  background: var(--color-accent);
+  filter: drop-shadow(0 0 6px color-mix(in srgb, var(--color-accent) 75%, transparent))
+          drop-shadow(0 0 14px color-mix(in srgb, var(--color-accent) 45%, transparent));
+}
+
+#panel {
+  font-family: var(--fontmono);
+  font-size: var(--size-mono);
+  font-weight: 400;
+  line-height: 1.6;
+  color: #000;
+  font-variant-numeric: tabular-nums;
+  font-size: x-small;
+  text-align: center;
+}

@@ -1,0 +1,274 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="fibonaccisquare.css">
+
+    <script src="../../js/mathjaxconfig.js"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    {% include meta.html %}
+
+</head>
+<body>
+    <header>
+    CLASS.ALGORITHM
+    </header>
+    <div class="grid">
+
+        <div class="grid-item d-w-3 m-w-9"><span class="nr"></span>
+            <div class="grid-item-content">
+                <div class="box monobox">
+                    <p>
+                      Navigation:
+                    </p>
+                    <ul>
+                        <li>
+                            Main site <a href="../../index.html">.html</a><br>
+                        </li>
+                    </ul>
+                    <p>
+                      On this page:
+                    </p>
+                    <ul>
+                        <li>
+                            Interactive demo <a href="#demo">#</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item d-w-6 m-w-9"><span class="nr"></span>
+            <div class="grid-item-content">
+                <div class="box monobox">
+                    <div class="info">
+                        Summary
+                    </div>
+                    <p>
+                        CARRYLESS PAIRING
+                    </p>
+                    <p>
+                        Our function encodes a pair of natural numbers using only addition and primitive recursion. We work in the Fibonacci basis and place the digits of $x$ in even-index slots and the digits of $y$ in odd-index slots after an offset, so the two bands stay disjoint and no carrying is needed.
+                    </p>
+                    <p>
+                        Key materials:
+                    </p>
+                    <ul>
+                        <li>
+                            Repository T001 (Rocq) <a href="https://github.com/Milan-Rosko/Proofcase/tree/main/theories/T001" target="_blank">GitHub</a>
+
+                        </li>
+                        <li>
+                            Main Paper <a href="https://arxiv.org/abs/2509.10382" target="_blank">arXiv</a>
+                        </li>
+                        <li>
+                            Secondary Paper <a href="https://arxiv.org/abs/2510.08934" target="_blank">arXiv</a>
+                        </li>
+                    </ul>
+                    <p>
+                        Secondary literature and prerequisites:
+                    </p>
+                    <ul>
+                        <li>
+                            Fibonacci and Lucas Numbers <a href="https://doi.org/10.1002/9781118033067" target="_blank">DOI</a>
+                        </li>
+                        <li>
+                            Boolos, Burgess, Jeffrey: Computability and Logic <a href="https://doi.org/10.1017/CBO9781139164931" target="_blank">DOI</a>
+                        </li>
+                        <li>
+                            On “Zeckendorf's Theorem” <a href="https://en.wikipedia.org/wiki/Zeckendorf%27s_theorem" target="_blank">Wikipedia</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item d-w-9 m-w-9"><span class="nr"></span>
+            <div class="grid-item-content">
+                <div class="box contentbox">
+                    <p>
+                        The algorithm below emerges solely from addition and bounded recursion. We demonstrate the core mechanism and the pairing function.
+                    </p>
+                    <p>
+                        (i) First, a chosen set of Fibonacci terms is aggregated into a single numerical value.
+                    </p>
+                    <p>
+                        (ii) In a second step, the selection itself is discarded, and only the resulting sum is returned to a <span class="sc">Greedy Algorithm</span>.
+                    </p>
+                    <p>
+                        (iii) Finally, the original terms are recovered from the sum alone within a bounded number of steps.
+                    </p>
+                    <p>
+                        This round-trip, from arbitrary input to canonical additive form and back, utilizes <span class="sc">Binet’s Formula</span>, the <span class="sc">Hurwitz Satz</span>, and <span class="sc">Zeckendorf’s Theorem</span> to yield a stable, reversible, and fully bounded finitary encoding-decoding scheme.
+                    </p>
+                    <p>
+                        (iv) The structure can be used to realize a constructive (hence injective) arithmetical pairing function by defining $Z(0):=\varnothing$ and $x, y \in \mathbb{N}$:
+                    </p>
+                    <p>
+                        For $x,y\in\mathbb{N}$ we define the even-band and odd-band supports,
+                    </p>
+                    <div class="mathjaxwrap">
+                        $$\begin{align}
+                          E(x) &:= \{\, 2k : k \in Z(x) \,\},\\
+                          r(x) &:= \min\{\, m \ge 2 : F_m > x \,\},\\
+                          B(x) &:= 2r(x),\\
+                          O(x,y) &:= \{\, B(x) + (2j - 1) : j \in Z(y) \,\}.
+                        \end{align}$$
+                    </div>
+                    <p>
+                        <span class="sc">Carryless Pairing</span> (recommended when $0$ is reserved, e.g. for $\varnothing$) is the function $\pi_{\mathrm{CL}}:\mathbb{N}^2\to\mathbb{N}$ given by:
+                    </p>
+                    <div class="mathjaxwrap">
+                        $$\pi_{\mathrm{CL}}(x,y)
+                          \;:=\;
+                          F_2
+                          \;+\;
+                          \sum_{k\in Z(x)} F_{2k}
+                          \;+\;
+                          \sum_{j\in Z(y)} F_{\,B(x)+(2j-1)}.$$
+                    </div>
+                    <p>
+                        Equivalently,
+                    </p>
+                    <div class="mathjaxwrap">
+                        $$\pi_{\mathrm{CL}}(x,y)=F_2+\sum_{i\in E(x)\cup O(x,y)} F_i,$$
+                    </div>
+                    <p>
+                        The offset term $F_2$ ensures  
+                    </p>
+                    <div class="mathjaxwrap">
+                        $$\pi_{\mathrm{CL}}(x,y)\ge 1, \pi_{\mathrm{CL}}(0,0)\neq 0.$$
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item d-w-9 m-w-9"><span class="nr"></span>
+            <div class="grid-item-content">
+                <div class="box monobox" id="demo">
+                    <div class="info">
+                        Demo
+                    </div>
+                    <p>
+                         <span class="u">Realization.</span> We demonstrate effectivity of the carryless construction in four stages: bounded Fibonacci decomposition, reconstruction by local search, forward pairing, and inverse unpairing.
+                    </p>
+                    <hr>
+                    <p>
+                         <span class="u">Step 1.</span> Select at least two integers. <i>JavaScript</i> decomposes each one uniquely into non-consecutive Fibonacci summands.
+                    </p>
+                    <div style="padding: 0 1em;" id="fib-list" style="font-family: var(--fontmono);">
+                    </div>
+                    <p>
+                        <button id="encode-btn">Encode</button>
+                    </p>
+                    <p>
+                        <div class="console">
+                            <div id="encode-output" class="output">Waiting for summands.</div>
+                        </div>
+                    </p>
+                    <hr>
+                    <p>
+                        <span class="u">Step 2.</span> Forget the supporting Fibonacci indices.
+                    </p>
+                    <p>
+                            <button id="decode-btn">Forget and Decode</button>
+                    </p>
+                    <p>
+                        Reconstruct them through a series of local search steps.
+                    </p>
+                    <p>
+                        <div class="console sqbound" style="height: 15em;">
+                            <div id="steps" class="output">Waiting for command.</div>
+                        </div>
+                    </p>
+                    <p>
+                        <span class="u">Step 3.</span> Use this correspondence to build an injective $\Delta_0$ pairing function from two arbitrary natural numbers.
+                    </p>
+                    <center>
+                        <p style="margin-top:2em">
+                            $x \in \mathbb{N}:$ <input id="pair-x" type="number" min="0" step="1" value="0" class="input">
+                        </p>
+                        <p style="margin-bottom:2em">
+                            $y \in \mathbb{N}:$ <input id="pair-y" type="number" min="0" step="1" value="0" class="input">
+                        </p>
+                    </center>
+                    <p>
+                        <button id="pair-generate-btn">Pair ($x,y$)</button>
+                    </p>
+                    <p>
+                        <div class="console" style="min-height: 10em;">
+                            <div id="pair-output" class="output">Waiting for input.</div>
+                        </div>
+                    </p>
+                    <hr>
+                    <p style="margin-top:2em">
+                        <span class="u">Step 4.</span> The inverse is recovered by bounded search in subpolynomial time.
+                    </p>
+
+                        <center>
+                            <p>
+                                $n \in \mathbb{N}:$ <input id="unpair-n" type="number" min="0" step="1" value="0" class="input">
+                            </p>
+                        </center>
+                    <p>
+                        <button id="unpair-btn">Unpair $n$</button>
+                    </p>
+                    <p>
+                        <div class="console" style="min-height: 10em;">
+                            <div id="unpair-output" class="output">Waiting for input.</div><br>
+                            <div id="pair-warning" class="output"></div>
+                        </div>
+                    </p>
+                    <p>
+                        Remark. The pairing $\pi_{\mathrm{CL}}^\tau$ is finitary and correctness relies on the uniqueness and stability of Zeckendorf decompositions (cf. 'Phi'-adic Logic) under exact order. The apparent division at reversal is a $\mathcal{O}(\log n)$ search problem. However, if one realizes the procedure in a numerical model that is not an exact copy of $\{\,\mathbb{N},\, +,\, \le\,\}$ (with  $\Delta I$), then the underlying invariants might not be preserved, e.g. IEEE-754 floating-point past $2^{53}$. This highlights a persistent key bias in contemporary computation.
+                    </p>
+                    <p>
+                        Acknowledgment. Thanks are due to Albert Visser <a href="https://www.uu.nl/staff/AVisser" target="_blank">University of Utrecht</a> for timely criticism and guidance.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item d-w-9 m-w-9"><span class="nr"></span>
+            <div class="grid-item-content">
+                <div class="box animbox">
+                    <div class="fibowrap">
+                        <div class="fibonacci-squares">
+                            <div class="square-1 square">
+                                <div class="square-2 square">
+                                    <div class="square-3 square">
+                                        <div class="square-4 square">
+                                            <div class="square-5 square">
+                                                <div class="square-6 square">
+                                                    <div class="square-7 square">
+                                                        <div class="square-8 square">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="caption">
+                    Illustration: Recurrence relations are computationally expressive.
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="legend">
+        <div class="legend-title">Legend</div>
+        <div class="legend-item"><span class="legend-key">1</span><span class="legend-text">Navigation</span></div>
+        <div class="legend-item"><span class="legend-key">2</span><span class="legend-text">Introduction</span></div>
+        <div class="legend-item"><span class="legend-key">3</span><span class="legend-text">Notes and References</span></div>
+        <div class="legend-item"><span class="legend-key">4</span><span class="legend-text">Realization via JavaScript</span></div>
+        <div class="legend-item"><span class="legend-key">5</span><span class="legend-text">Group Transformations</span></div>
+    </div>
+</body>
+<script src="./carrylesspairing.js"></script>
+</html>

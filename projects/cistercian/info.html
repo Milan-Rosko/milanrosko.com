@@ -1,0 +1,279 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="./info.css">
+    <script src="../../js/mathjaxconfig.js"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    
+    {% include meta.html %}
+
+</head>
+<body>
+    <header>
+    CLASS.TOOL
+    </header>
+    <div class="grid">
+        <div class="grid-item d-w-3 m-w-9"><span class="nr"></span>
+            <div class="grid-item-content">
+                <div class="box monobox">
+                    <p>
+                      Navigation:
+                    </p>
+                    <ul>
+                        <li>
+                            Main site <a href="../../index.html">.html</a><br>
+                        </li>
+                        <li>
+                            Standalone version <a href="./index.html">.html</a>
+                        </li>
+                    </ul>
+                    <p>
+                      On this page:
+                    </p>
+                    <ul>
+                        <li>
+                            Trivial Clock <a href="#cisclock">#</a>
+                        </li>
+                        <li>
+                            Glyph Browser <a href="#demo1">#</a>
+                        </li>
+                        <li>
+                            Effective Clock <a href="#cisclock-final">#</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item d-w-6 m-w-9"><span class="nr"></span>
+            <div class="grid-item-content">
+                <div class="box monobox">
+                    <div class="info">
+                        Summary
+                    </div>
+                    <p>
+                        VARIATIONS ON THE CISTERCIAN NUMERALS
+                    </p>
+                    <p>
+                        Cistercian numerals encode any integer from 0 to 9999 as strokes on a single vertical stem. We study three structural variants, which we call medieval, compact, and combinatorial, each trading compositionality against code-space size. A synthesis of the compact and combinatorial variants yields a binary clock that factors the day's 86,400 seconds into a mixed-radix product across four quadrants, each readable as a standard time component.
+                    </p>
+                    <p>
+                        Similar projects and secondary literature:
+                    </p>
+                    <ul>
+                        <li>
+                            DeHart: Cistercian Date <a href="https://cistercian.date/" target="_blank">cistercian.date</a>
+                        </li>
+                        <li>
+                            Cistercian numerals on Wikipedia <a href="https://en.wikipedia.org/wiki/Cistercian_numerals" target="_blank">Wikipedia</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item d-w-9 m-w-9"><span class="nr"></span>
+            <div class="grid-item-content">
+                <div class="box contentbox">
+                    <p>
+                        Begin with a vertical line, a stem. The plane around it divides into four quadrants: top-right, top-left, bottom-right, bottom-left. In each quadrant five primitive strokes are available: two horizontals, one diagonal, one anti-diagonal, and one outer rail. A Cistercian numeral is a selection of these strokes: one decimal digit per quadrant, four digits per stem, every integer from $0$ to $9{,}999$ expressible as a single glyph.
+                    </p>
+                    <p>
+                        The historical system—call it <i>medieval</i>—assigns each digit $d \in \{0,\dots,9\}$ a fixed stroke pattern. The assignments are conventional: $1$ is a horizontal at the top of the stem, $2$ a horizontal further down, $3$ a diagonal connecting their endpoints. The ten shapes follow no compositional rule, they must be learned by rote. But the encoding is effective. Write a numeral as a 4-tuple $(a_0, a_1, a_2, a_3)$, one digit per quadrant, and the code is the Cartesian product
+                    </p>
+                    <div class="mathjaxwrap">
+                        $$\begin{align}
+                          C \;\cong\; D^{4}, \quad |C| = |D|^{4} = 10^{4}.
+                        \end{align}$$
+                    </div>
+                    <p>
+                        Cycling each digit to the next quadrant is the action of $C_4 = \langle \sigma \rangle$ on coordinates:
+                    </p>
+                    <div class="mathjaxwrap">
+                        $$\begin{align}
+                          \sigma(a_0, a_1, a_2, a_3) = (a_3, a_0, a_1, a_2).
+                        \end{align}$$
+                    </div>
+                    <p>
+                        Everything above is notation—a way to write integers. What follows is a separate question: can these glyphs also measure time?
+                    </p>
+                    <p>
+                        Ten thousand glyphs is already enough for a clock. Map each day onto the full code space, cycling through every glyph exactly once before resetting at midnight:
+                    </p>
+                    <div id="cisclock" class="console">
+                        <div id="clock"></div>
+                        <br>
+                        <div id="progress-track">
+                        <div class="seg short"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div>
+                        <div class="seg"></div><div class="seg"></div><div class="seg"></div><div class="seg"></div>
+                        </div>
+                        <div id="panel">
+                        <span id="piece"></span>
+                        <span id="of">/ 9999</span>
+                        <span id="time"></span>
+                        </div>
+                    </div>
+                    <p>
+                        At midnight the glyph is a bare stem ($0$), and it accumulates strokes through $9{,}999$ before resetting. The progress bar visualizes each interval as it elapses. Let $S = 86{,}400$ and $N = 10{,}000$. The duration of one interval follows from the Euclidean division
+                    </p>
+                    <div class="mathjaxwrap">
+                        $$\begin{align}
+                          S &= q \cdot N + r, \quad q = \lfloor S / N \rfloor, \quad r = S \bmod N,
+                        \end{align}$$
+                    </div>
+                    <p>
+                        which yields
+                    </p>
+                    <div class="mathjaxwrap">
+                        $$\begin{align}
+                          86{,}400 &= 8 \cdot 10{,}000 + 6{,}400, \quad q = 8, \quad r = 6{,}400.
+                        \end{align}$$
+                    </div>
+                    <p>
+                        Each interval lasts $q + r/N = 8.64$ seconds. The progress bar encodes this directly: one short segment of $0.64\,\text{s}$ (with proportional width $r/N$ of a full segment), followed by $q = 8$ full segments of $1\,\text{s}$ each.
+                    </p>
+                    <p>
+                        The clock works, but the numeral system beneath it is opaque: you cannot read the time without memorizing all ten stroke patterns. This prompts two structural modifications, each pulling in a different direction.
+                    </p>
+                    <p>
+                        The <i>compact</i> variant discards the outer rail, leaving four primitives per quadrant. Since $2^4 = 16 > 10$, the ten digits still fit as subsets of these four strokes, and glyphs become visually lighter. But the mapping from digit to subset remains conventional, no more compositional than the medieval original:
+                    </p>
+                    <div class="mathjaxwrap">
+                        $$\begin{align}
+                          |C_{\mathrm{compact}}| = 10^4.
+                        \end{align}$$
+                    </div>
+                    <p>
+                        The <i>combinatorial</i> variant moves in the opposite direction. It retains all five primitives and treats each as an independent binary feature. A quadrant's state is a $5$-bit mask, the glyph is the union of active strokes. No lookup table is needed; the binary representation <i>is</i> the visual. This restores full compositionality but expands the code space dramatically:
+                    </p>
+                    <div class="mathjaxwrap">
+                        $$\begin{align}
+                          |C_{\mathrm{comb}}| = 32^4 = 2^{20} = 1{,}048{,}576.
+                        \end{align}$$
+                    </div>
+                    <p>
+                        The compact variant is economical, the combinatorial variant is principled.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item d-w-9 m-w-9"><span class="nr"></span>
+            <div class="grid-item-content">
+                <div class="box monobox" id="demo1">
+                    <div class="info">
+                        Demo
+                    </div>
+                    <p>
+                        The browser should render glyphs in lazy chunks.
+                    </p>
+                    <div class="console" style="display:none">
+                        <div id="cis-meta" class="output"></div>
+                    </div>
+                    <div id="cis-scroll" class="console" style="height: 40em">
+                        <div id="cis-list"></div>
+                        <div id="cis-sentinel">Loading...</div>
+                    </div>
+                    <p>
+                        It compares Compact, Medieval, and Combinatorial for indices 0..9999, then continues with Combinatorial up to 2^20-1 = 1048575.
+                    </p>
+                    <p>
+                        Jump to <input id="cis-jump" class="input" type="number" min="0" step="1" value="0"> <button id="cis-jump-btn">Jump</button> <button id="cis-reset-btn" style="display:none">Reset</button>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item d-w-9 m-w-9"><span class="nr"></span>
+            <div class="grid-item-content">
+                <div class="box contentbox">
+                    <p>
+                        The goal is a modern, human-readable clock: hours, minutes, and seconds
+                        visible at a glance, with every stroke remaining a single toggleable bit.
+                        Instead of dividing the day into $10^4$ abstract intervals, we factor
+                        its seconds into a mixed-radix product
+                    </p>
+                    <div class="mathjaxwrap">
+                        $$\begin{align}
+                          24 \times 30 \times 30 \times 4 = 86{,}400
+                        \end{align}$$
+                    </div>
+                    <p>
+                        and assign each factor to a quadrant: hours ($0$–$23$), low minutes
+                        ($0$–$29$), low seconds ($0$–$29$), and a two-bit flag $f = 2m_1 + s_1$
+                        combining the upper halves of minutes and seconds.
+                    </p>
+                    <p>
+
+                        Within each quadrant the value is written as a binary mask over the five primitive strokes:
+                        the combinatorial variant's compositional grammar, restricted to only the states
+                        the factor requires. The result reads as a conventional clock (each
+                        quadrant carries a human-legible time component) while every stroke
+                        remains an independently toggleable bit. No digit alphabet needs to be
+                        memorized, the glyph is fully determined by the time.
+                    </p>
+                    <p>
+                       Two orderings are possible. A plain binary count:
+                    </p>
+                    <div class="console" id="mask-cycle-demo">
+                        <div id="mask-cycle-clock"></div>
+                        <div id="mask-cycle-output" class="output">mask = 0 | bits = 00000</div>
+                    </div>
+                    <p>
+                        And a “growing” cycle:
+                    </p>
+                    <div class="console" id="mask-cycle-growth-demo">
+                        <div id="mask-cycle-growth-clock"></div>
+                        <div id="mask-cycle-growth-output" class="output">seconds = 0 | cycle.bits = 00000 | flag.bits = 0 | sec.bits = 000000</div>
+                    </div>
+
+                    <p>
+                        The binary count wins: each stroke carries a fixed weight, and reading a quadrant is simple addition. The growing cycle looks more deliberate but requires internalizing a sequence rather than five positional values. With this choice the four quadrants are:
+                    </p>
+                    <div class="mathjaxwrap">
+                        $$\begin{array}{c|c}
+                            \mathrm{h/24\;hours} & \mathrm{m/30\;or\;(30+m)/60\;minutes}  \\  \hline
+                             \mathrm{s/30\;or\;(30+s)/60\;seconds} & \mathrm{(f_1/2+f_2/2)/4\;flag} \\
+                        \end{array}$$
+                        </div>
+                    <p>
+                        Because each quadrant maps to a familiar time unit, the glyph is readable after minimal training; hours and minutes separate visually the same way they separate conceptually, and the full state (hour, minute, second, half-minute flag) compresses into a single 19-bit stem:
+                    </p>
+                    <div id="cisclock-final" class="console">
+                        <div id="clock-final"></div>
+                        <br>
+                        <div id="panel-final">
+                            <span id="time-final"></span>
+                            <span id="meta-final"></span>
+                        </div>
+                    </div>
+                    <p>
+                        Each of the five stroke positions carries a fixed binary weight: $1, 2, 4, 8, 16 + 30;$ and the displayed value is their sum. The flag quadrant works at smaller scale: its two strokes act as independent half-indicators, one for seconds, one for minutes. If you only care about hour and minute, one flag stroke tells you whether minutes are in the lower or upper half.
+                    </p>
+                    <p>
+                        A standalone version is available. Clicking anywhere on the page toggles between two layouts. <a href="./index.html">.html</a>
+                    </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="legend">
+        <div class="legend-title">Legend</div>
+        <div class="legend-item"><span class="legend-key">1</span><span class="legend-text">Navigation</span></div>
+        <div class="legend-item"><span class="legend-key">2</span><span class="legend-text">Description and References</span></div>
+        <div class="legend-item"><span class="legend-key">3</span><span class="legend-text">Compact vs Combinatorial Narrative</span></div>
+        <div class="legend-item"><span class="legend-key">4</span><span class="legend-text">Lazy Generator App</span></div>
+        <div class="legend-item"><span class="legend-key">5</span><span class="legend-text">Final Clock</span></div>
+    </div>
+</body>
+<script src="./clock.js"></script>
+<script src="./clock-final.js"></script>
+<script src="./mask-cycle.js"></script>
+<script src="./mask-cycle-growth.js"></script>
+<script src="./cistercian-lazy.js"></script>
+</html>

@@ -1,0 +1,15 @@
+<!-- /sitemap.xml -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://milanrosko.com/</loc></url>
+  <url><loc>https://milanrosko.com/projects/index.html</loc></url>
+  <url><loc>https://milanrosko.com/projects/cubic/</loc></url>
+  <url><loc>https://milanrosko.com/projects/carryless/</loc></url>
+  <url><loc>https://milanrosko.com/projects/cistercian/</loc></url>
+  <url><loc>https://milanrosko.com/projects/cistercian/info.html</loc></url>
+  <url><loc>https://milanrosko.com/projects/typedrepair/</loc></url>
+
+  <url><loc>https://milanrosko.com/impressum.html</loc></url>
+
+  <!-- Link to BibTeX download -->
+  <url><loc>https://milanrosko.com/bibtex.txt</loc></url>
+</urlset>

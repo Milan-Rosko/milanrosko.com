@@ -1,0 +1,230 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<!-- Simple Fallback START-->
+
+		<link rel="canonical" href="https://milanrosko.com/">
+
+		<title>Milan Rosko — Logician & Designer</title>
+		<meta name="description" content="Research in constructive logic and theory of computation.">
+		<meta name="keywords" content="Constructive Logic, Proof Theory, Realizability, Information design">
+
+		<!-- Robots, indexing policy, Author, Canonical identity -->
+		<meta name="author" content="Milan Rosko">
+		<meta name="robots" content="index, follow">
+		<meta name="googlebot" content="index, follow">
+
+		<meta property="og:title" content="Milan Rosko — Logician & Designer">
+		<meta property="og:description"
+		      content="Constructive logic, proof theory, realizability, and Information design.">
+		<meta property="og:type" content="website">
+		<meta property="og:url" content="https://milanrosko.com/">
+
+		<meta property="og:image" content="https://milanrosko.com/aux/1200x630.png">
+		<meta property="og:image:width" content="1200">
+		<meta property="og:image:height" content="630">
+		<meta property="og:image:type" content="image/png">
+		<meta property="og:image:alt" content="Milan Rosko — Logician & Designer">
+
+		<!-- Simple Fallback END -->
+
+
+	<link rel="stylesheet" href="./style.css">
+	<script src="js/mathjaxconfig.js"></script>
+	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js"> </script>
+	{% include meta.html %}
+  <style>
+		#anim-container1 {
+		  max-width: 25em;
+		  max-height: 25em;
+		  display: grid;
+		  position: relative; /* ensures absolute-positioned canvas fits correctly */
+		}
+
+		#anim-container1 canvas {
+		  width: 70% !important;
+		  height: 70% !important;
+		  padding: 15%;
+		}
+	</style>
+  <!-- Favicons (minimal set) 
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png"> -->
+</head>
+<body>
+  <header>
+	TYPE.WEBSITE
+	</header>
+  <div class="grid">
+		<div class="grid-item d-w-5 m-w-9"><span class="nr"></span>
+			<div class="grid-item-content">
+				<div class="box spaceybox">
+					<p>
+						<span style="font-size: 2.5em; font-weight: 500;">Milan Rosko</span><br>
+						<span style="font-size: 1.2em; font-weight: 400;">Logician & Designer</span><br>
+					</p>
+					<p>
+						Constructive Logic, Proof Theory,<br>
+						Realizability Interpretation,<br>
+						Type Theory, Linear Algebra.
+					</p>
+					<p>
+						Information Design, Motion Design, Signage
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="grid-item d-w-4 m-w-9" id="anim-cell"><span class="nr"></span>
+			<div id="anim-container1"></div>
+			<script src="./js/poly.js"></script>
+		</div>
+
+		<div class="grid-item d-w-9 m-w-9"><span class="nr"></span>
+			<div class="grid-item-content">
+				<div class="box monobox">
+
+					<div class="info">Selected Projects</div>
+					<p>
+						Formal logic:
+					</p>
+					<ul>
+						<li>
+							Universal Cubic Diophantines (bounded theorem-check artifacts) <a href="./projects/cubic/index.html">.html</a>
+						</li>
+						<li>
+							“Carryless Pairing” <a href="./projects/carryless/index.html">.html</a>
+						</li>
+						<li>
+							“Typed Repair” vs Gradient Descent (trace-verifiable learning) <a href="./projects/typedrepair/index.html">.html</a>
+						</li>
+						<li>
+							The “Reflexica” repository <a href="https://github.com/Milan-Rosko/BHK_R">GitHub</a>
+						</li>
+					</ul>
+					<p>
+						Design & Logic:
+					</p>
+						<ul>
+							<li>
+								Variations on Cistercian Numerals <a href="./projects/cistercian/info.html">.html</a>
+							</li>
+						</ul>
+					<p>
+						Selected Publications:
+						<ul>
+							<li>
+								2026, Proof by Mechanization: Cubic Diophantine Equation Satisfiability is $\Sigma^0_1$-Complete <a href="https://arxiv.org/abs/2510.00759" target="_blank">arXiv</a>
+							</li>
+							<li>
+								2025, Adversarial Barrier in Uniform Class Separation <a href="https://arxiv.org/abs/2512.08149" target="_blank">arXiv</a>
+							</li>
+							<li>
+								2025, On the Realizability of Prime Conjectures in Heyting Arithmetic <a href="https://arxiv.org/abs/2511.07774" target="_blank">arXiv</a>
+							</li>
+						</ul>
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="grid-item d-w-6 m-w-9"><span class="nr"></span>
+			<div class="grid-item-content">
+				<div class="box contentbox">
+						<p>
+							My earlier work in design cultivated a lasting interest in structural clarity and disciplined abstraction. That path eventually led to formal logic, with a particular emphasis on first-order systems and constructive semantics.
+						</p>
+						<p>
+							My current research examines how <i>impredicativity</i> behaves when separated from the full classical apparatus. The goal is to restrict unnecessary ontological commitments while retaining constructive control over expressive resources under the <span class="sc">Brouwer–Heyting–Kolmogorov Interpretation</span>.
+						</p>
+						<p>
+							In the mid-20th century, the cybernetic vision was ahead of its institutional time. Today, software mediates most coordination, security is adversarial, and “proof” increasingly means verifiable procedure.
+							Hence the constructive viewpoint is no longer only philosophical; it is a practical epistemology for computational civilization.
+						</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="grid-item d-w-3 m-w-9"><span class="nr"></span>
+			<div class="grid-item-content">
+				<div class="box monobox">
+					<p>
+						Mail:
+					</p>
+					<ul>
+						<li>
+        			hi$\texttt{\,\char64\,}$milanrosko.com
+						</li>
+					</ul>
+					<p>
+						Links:
+					</p>
+					<ul>
+						<li>
+							GitHub <a href="https://github.com/Milan-Rosko/" target="_blank">GitHub</a>
+						</li>
+						<li>
+							Open Researcher and Contributor ID <a href="https://orcid.org/0009-0003-1363-7158" target="_blank">ORCID</a>
+						</li>
+						<li>
+							X <a href="https://x.com/milan_rosko" target="_blank">X.com</a>
+						</li>
+						<li>
+							Imprint/Impressum <a href="./impressum.html">.html</a>
+						</li>
+					</ul>
+					<p>
+						How to cite:
+					</p>
+					<ul>
+						<li>
+							BibTeX format <a href="./bibtex.txt" target="_blank">.txt</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="grid-item d-w-3 m-w-3"><span class="nr"></span>
+			<div class="grid-item-content">
+				<div class="box photobox">
+					<img src="aux/milan.jpg" alt="Portrait" height="140px" style="">
+				</div>
+			</div>
+		</div>
+
+		<div class="grid-item d-w-3 m-w-3"><span class="nr"></span>
+			<div class="grid-item-content">
+				<div class="box pngbox">
+					<img src="aux/location.png" alt="A probability mapping" height="140px" style="border: 1px black solid;">
+				</div>
+			</div>
+		</div>
+
+		<div class="grid-item d-w-3 m-w-3"><span class="nr"></span>
+			<div class="grid-item-content">
+				<div class="box pngbox">
+					<img src="./aux/mr.png" alt="Ligature" height="140px">
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+  <div class="legend">
+    <div class="legend-title">Legend</div>
+    <div class="legend-item"><span class="legend-key">1</span><span class="legend-text">Name, occupation, interests</span></div>
+    <div class="legend-item"><span class="legend-key">2</span><span class="legend-text">Trail of a parametric polycurve</span></div>
+    <div class="legend-item"><span class="legend-key">3</span><span class="legend-text">Selected projects</span></div>
+    <div class="legend-item"><span class="legend-key">4</span><span class="legend-text">About</span></div>
+    <div class="legend-item"><span class="legend-key">5</span><span class="legend-text">Contact, related links, legal</span></div>
+    <div class="legend-item"><span class="legend-key">6</span><span class="legend-text">Portrait from 2014</span></div>
+    <div class="legend-item"><span class="legend-key">7</span><span class="legend-text">Spatial probability distribution</span></div>
+    <div class="legend-item"><span class="legend-key">8</span><span class="legend-text">Monogram ligature</span></div>
+  </div>
+
+</body>
+</html>

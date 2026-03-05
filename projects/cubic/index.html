@@ -1,0 +1,273 @@
+---
+title: "Universal Cubic Diophantine Equation"
+description: "Concrete bounded universal cubic Diophantine equations with mechanized degree certificates, published as coefficient tables in two parameterizations."
+keywords: "Diophantine equation, cubic, undecidability, Sigma_1-complete, Rocq, Hilbert's Tenth Problem"
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="../../style.css">
+  <script src="../../js/mathjaxconfig.js"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+  {% include meta.html %}
+</head>
+<body>
+<header>
+  CLASS.EQUATION
+</header>
+
+  <div class="grid">
+    <div class="grid-item d-w-3 m-w-9"><span class="nr"></span>
+      <div class="grid-item-content">
+        <div class="box monobox">
+
+          <p>
+            Navigation:
+          </p>
+          <ul>
+            <li>
+              Main site <a href="../../index.html">.html</a><br>
+            </li>
+          </ul>
+          <p>
+            On this page:
+          </p>
+          <ul>
+            <li>
+              Artifacts <a href="#datasheet">#</a>
+            </li>
+            <li>
+              Interactive demo <a href="#demo">#</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-item d-w-6 m-w-9"><span class="nr"></span>
+      <div class="grid-item-content">
+        <div class="box monobox">
+          <div class="info">
+            Summary
+          </div>
+          <p>
+            BOUNDED CUBIC UNIVERSAL DIOPHANTINES
+          </p>
+          <p>
+            We present two concrete cubic Diophantine equations (degree-3 polynomials over $\mathbb{N}$) whose satisfiability effectively recovers constructive theoremhood.
+          </p>
+          <p>
+            Key materials:
+          </p>
+          <ul>
+            <li>
+              Main Paper <a href="https://arxiv.org/abs/2510.00759" target="_blank">arXiv</a>
+            </li>
+            <li>
+              Repository T002 (Proof System & Reduction in Rocq) <a href="https://github.com/Milan-Rosko/Proofcase/tree/main/theories/T002" target="_blank">GitHub</a>
+            </li>
+            <li>
+              Repository T003 (Universal Cubic in Rocq) <a href="https://github.com/Milan-Rosko/Proofcase/tree/main/theories/T003" target="_blank">GitHub</a>
+            </li>
+            <li>
+              Repository T004 (Bridge in Rocq) <a href="https://github.com/Milan-Rosko/Proofcase/tree/main/theories/T004" target="_blank">GitHub</a>
+            </li>
+            <li>
+              Carryless Pairing <a href="../carryless/">.html</a>
+            </li>
+          </ul>
+          <p>
+            Secondary literature and prerequisites:
+          </p>
+          <ul>
+            <li>
+              Jones: Universal Diophantine Equation (1982) <a href="https://doi.org/10.2307/2273588" target="_blank">DOI</a>
+            </li>
+            <li>
+              Matiyasevich: Hilbert's Tenth Problem (Book) <a href="https://doi.org/10.7551/mitpress/3672.001.0001" target="_blank">DOI</a>
+            </li>
+            <li>
+              Gasarch: Hilbert's Tenth Problem (2021) <a href="https://arxiv.org/abs/1907.02432" target="_blank">arXiv</a>
+            </li>
+            <li>
+              Boolos, Burgess, Jeffrey: Computability and Logic (Book) <a href="https://doi.org/10.1017/CBO9781139164931" target="_blank">DOI</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-item d-w-9 m-w-9"><span class="nr"></span>
+      <div class="grid-item-content">
+        <div class="box contentbox">
+          <p>
+            We recall the <span class="sc">MRDP Theorem</span>, the <span class="sc">Universal Diophantine Equation</span> of Jones, and the degree hierarchy of Diophantine equations over $\mathbb{N}$, as codified in the study of <span class="sc">Hilbert's Tenth Problem</span>.
+          </p>
+          <p>
+            Operational summary: each artifact below is a published degree-3 polynomial whose bounded satisfiability can be checked directly from its coefficient table.
+          </p>
+          <ul>
+            <li>
+              <i>Degree 2.</i>&ensp;Certain structured quadratic forms are decidable via classical number-theoretic methods (<span class="sc">Hasse&ndash;Minkowski</span>, <span class="sc">Lagrange</span>). Degree-2 constraints lack the expressive power to encode arbitrary proof checking.
+            </li>
+            <li>
+              <i>Degree 4.</i>&ensp;Every recursively enumerable set is the solution set of a degree-4 Diophantine equation in 58 variables. Undecidability follows classically from <span class="sc">MRDP</span>.
+            </li>
+            <li>
+            <i>Degree 3.</i>&ensp;The open case, identified by Jones (1980), cf. “Secondary Literature” on this page.
+            </li>
+          </ul>
+          <p>
+            The artifacts shown here are computable witnesses rather than classic existence claims. Their coefficients are published, their degrees can be directly examined, and their bounded satisfaction predicates are decidable by finite search. The constructions are strictly more informative: where tradition asserts that some polynomial encodes all recursively enumerable sets, the effective construction demonstrates this.
+          </p>
+          <p>
+            We start with simple resource parameters signifying the number of lines, the digit width, and the base:
+          </p>
+          <div class="mathjaxwrap">
+            $$\mathtt{k,digit\_width,base}$$
+          </div>
+          <p>
+            A generator in $\mathsf{Python}$ emits one concrete cubic coefficient table $U_{k,w}$ and establishes bounded proof-check satisfiability:
+          </p>
+          <div class="mathjaxwrap">
+            $$\mathsf{BoundedThm}_{k,w}(u) \;\Longleftrightarrow\; \exists\, \vec{x} \in \mathbb{N}^{m(k,w)}\; U_{k,w}(\vec{x}) = 0.$$
+          </div>
+          <p>
+            Analogy. We imagine a polynomial as a command-line interface (without a monitor). We can define a query and feed it into its variables. The equation evaluates to 'zero' if the encoded statement is true, and to a nonzero value otherwise. The polynomial itself is fixed; only the input changes.
+          </p>
+          <p>
+            Realization proceeds in layers.
+          </p>
+          <p>
+            Given a weak arithmetic we define as <span class="sc">Register Arithmetic</span> or $\mathsf{RA}$, situating its comprehension (with extensional multiplication) between <span class="sc">Robinson Arithmetic</span> ($\mathsf{Q}$) and <span class="sc">Peano Arithmetic</span> $(\mathsf{PA})$:
+          </p>
+          <div class="mathjaxwrap">
+            $$\mathsf{Q} \;\leq_{\mathrm{int}}\; \mathsf{RA}+\mathtt{Mult} \;\leq_{\mathrm{int}}\; \mathsf{EFA} \;<\; \mathsf{PA} \lor \mathsf{HA}.$$
+          </div>
+          <p>
+            (ii)&ensp;<i>Compilation.</i> A primitive recursive map
+          </p>
+          <div class="mathjaxwrap">
+            $$\varphi \longmapsto \mathcal{S}_\varphi$$
+          </div>
+          <p>
+            takes sentence codes to finite systems of degree-3 Diophantine equations, such that
+          </p>
+          <div class="mathjaxwrap">
+            $$\mathrm{Prov}_{\mathsf{RA}}(\ulcorner\varphi\urcorner) \;\Longleftrightarrow\; \mathsf{CubicSat}(\ulcorner \mathcal{S}_\varphi \urcorner).$$
+          </div>
+          <p>
+            (iii)&ensp;<i>Constraining.</i> Syntactic and inference checks compile to quadratic constraints (degree-2). Cubic terms arise only when a degree-1 selector variable activates a quadratic obligation. The resulting system is collapsed to a single cubic equation by mixed-radix aggregation, avoiding the sum-of-squares degree doubling that would otherwise raise degree to 6.
+          </p>
+          <p>
+            (iv)&ensp;<i>Metatheory.</i> Each fixed bounded slice is decidable, yet no total correct uniform decider for the compiled family exists. By the <span class="sc">Diagonal Lemma</span>, such a decider would compose with the compiler to decide theoremhood: contradiction. If $\mathsf{RA}$ could internally certify such a decider, it would witness its own $\Sigma_1$-reflection, contradicting <span class="sc">G&ouml;del's Second Incompleteness Theorem</span>, hence <i>ad absurdum</i>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-item d-w-9 m-w-9"><span class="nr"></span>
+      <div class="grid-item-content">
+        <div class="box monobox" id="datasheet">
+          <div class="info">
+            Download
+          </div>
+          <p>
+            Both Diophantine polynomials are generated by the same compiler with different parameter choices and have total degree exactly 3. They differ by resource bounds and aggregation scale. Each is decidable, recursively enumerable, and able to validate bounded proofs according to its pinned parameters. We introduce two flavors:
+          </p>
+          <p>
+            Effective ($\mathsf{imp},\bot,\mathsf{EFQ}$)
+          </p>
+          <ul>
+            <li>Bounded universal, single proof line (k = 1), digit width 36</li>
+            <li>Radix base 6,000,001&nbsp;|&nbsp;13,545&nbsp;variables&nbsp;|&nbsp;4,842&nbsp;channels&nbsp;|&nbsp;15,417&nbsp;monomials&nbsp;|&nbsp;max&nbsp;coefficient&nbsp;10^1234&nbsp;|</li>
+            <li>JSON: <a href="./assets/universal_cubic.effective.coefficients.json" download>.json</a></li>
+          </ul>
+          <p>
+            Minimal ($\mathsf{RE}$)
+          </p>
+          <ul>
+            <li>$\mathsf{Rocq}$-formalized, three proof lines (k = 3), digit width 16</li>
+            <li>Radix base 5&nbsp;|&nbsp;18 712&nbsp;variables&nbsp;|&nbsp;6,675&nbsp;channels&nbsp;|&nbsp;21,471&nbsp;monomials&nbsp;|&nbsp;max&nbsp;coefficient&nbsp;&asymp;&nbsp;10^198&nbsp;|</li>
+            <li>JSON: <a href="./assets/universal_cubic.minimal.coefficients.json" download>.json</a></li>
+            <li>Rendered equation: <a href="./assets/universal_cubic.minimal.web.htm" download>.htm</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-item d-w-9 m-w-9"><span class="nr"></span>
+      <div class="grid-item-content">
+        <div class="box monobox jscheck" id="demo">
+          <div class="info">
+            Demo
+          </div>
+          <p>
+            This demo performs in-browser verification of the published cubic artifact. The coefficient table is loaded locally, structural bounds are checked, and a fixed suite of two provable and two unprovable sentence encodings is validated against the loaded polynomial.
+          </p>
+          <div class="console sqbound">
+            <div id="log" class="output sqbound">Worker idle.</div>
+          </div>
+          <hr>
+          <p>
+            <span class="u">Step 1.</span> Load a coefficient table. Download one of the JSON artifacts above, or fetch directly.
+          </p>
+            <button id="loadBtn" style="">Load (fetch)</button>
+            <button id="fileBtn">Load (file)</button>
+            <input id="fileInput" type="file" accept=".json" style="display: none;">
+          <div class="console">
+            <div class="output" id="progressText"></div>
+            <div class="progress" aria-hidden="true">
+              <div class="progress-full" id="progressBar"></div>
+            </div>
+          </div>
+          <hr>
+          <p>
+            <span class="u">Step 2.</span> Run structural audits: degree bounds, coefficient digit counts, variable index bounds.
+          </p>
+          <button id="auditBtn" disabled>Readout</button>
+          <div class="console sqbound">
+            <div id="analytics" class="output">
+              No artifact loaded.
+            </div>
+          </div>
+          <hr>
+          <p>
+            <span class="u">Step 3.</span> Validate four fixed sentence cases (two provable, two unprovable) against the loaded polynomial. The witness environments are sparse encodings drawn from the bounded regime.
+          </p>
+          <div class="mathjaxwrap">
+            $$
+            \begin{aligned}
+            \mathtt{true\_efq\_bot\_bot} &: \bot \to \bot,\\
+            \mathtt{true\_k\_bot} &: \bot \to (\bot \to \bot),\\
+            \mathtt{false\_bot\_goal} &: \bot,\\
+            \mathtt{false\_trace\_mismatch\_k\_bot} &: u \leftarrow u+1.
+            \end{aligned}
+            $$
+          </div>
+          <p>
+            The suite is explicit: two theorem witnesses are checked as positive cases (expected zero), and two negative controls are checked as expected nonzero. One negative case sets the target to $\bot$ (bottom/false); the other keeps theorem data fixed and mutates the public trace code by <span class="mono">+1</span>.
+          </p>
+            <button class="secondary" id="suiteBtn" disabled>Test</button>
+            <div class="console sqbound">
+              <div id="suiteResult" class="output">Sentence suite not run yet.</div>
+            </div>
+          <p>
+            Note. We restrict ourselves to equations no more sophisticated than those above, but in principle, we should see no obstructions.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="legend">
+    <div class="legend-title">Legend</div>
+    <div class="legend-item"><span class="legend-key">1</span><span class="legend-text">Navigation</span></div>
+    <div class="legend-item"><span class="legend-key">3</span><span class="legend-text">Materials and References</span></div>
+    <div class="legend-item"><span class="legend-key">2</span><span class="legend-text">Introduction and Construction</span></div>
+    <div class="legend-item"><span class="legend-key">4</span><span class="legend-text">Equation Artifact</span></div>
+    <div class="legend-item"><span class="legend-key">5</span><span class="legend-text">JS Check (Audit + Sentence Suite)</span></div>
+  </div>
+  <script src="./js/cubic_sentence_cases.js"></script>
+  <script src="./js/universal-cubic-check.js" defer></script>
+</body>
+</html>
