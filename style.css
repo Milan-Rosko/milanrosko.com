@@ -565,14 +565,7 @@ ul > li::before {
 
 @media (max-width: 800px) {
 
-    .pngbox, .photobox{
-    display: block;
-    width: calc(100% - 2rem);
-    margin: 1rem auto;
-    box-sizing: border-box;
-  }
 
-  /* make the image obey the container */
   .pngbox img, .photobox img{
     display: block;
     width: 100%;
@@ -584,8 +577,6 @@ ul > li::before {
   .box{
     max-width: 30em;
   }
-
-  .box img{max-width: 20em !important}
 
   body{
         max-width: 95%;
