@@ -6,7 +6,7 @@
   align-items: center;
   justify-content: center;
   height: 15em;
-  color: var(--color-main-secondary);
+  color: var(--color-terminal);
 }
 
 #cisclock .ghost {
@@ -16,7 +16,7 @@
 #cisclock svg {
   width: 200px;
   display: block;
-  color: var(--color-main-secondary);
+  color: var(--color-terminal);
 }
 
 #cisclock #progress-track {
@@ -46,7 +46,7 @@
 }
 
 #cisclock #progress-track .seg.on {
-  background: var(--color-main-primary);
+  background: var(--color-terminal);
 }
 
 #cisclock #panel {
@@ -54,7 +54,7 @@
   font-size: small;
   font-weight: 400;
   line-height: 1.6;
-  color: var(--color-main-dark);
+  color: var(--color-terminal);
   font-variant-numeric: tabular-nums;
 }
 
@@ -101,7 +101,7 @@
 #cis-scroll {
   height: 27rem;
   overflow-y: auto;
-  background: color-mix(in srgb, var(--color-main-secondary) 6%, transparent);
+  background: color-mix(in srgb, var(--color-terminal) 6%, transparent);
   padding: 0.5rem;
 }
 
@@ -133,7 +133,8 @@
 }
 
 .cis-card {
-  background: var(--color-black-05);
+  border: 1px solid var(--color-main-secondary-22);
+
   border-radius: 0.32rem;
   display: flex;
   flex-direction: column;
@@ -200,17 +201,17 @@
   align-items: center;
   justify-content: center;
   height: 15em;
-  color: var(--color-main-secondary);
+  color: var(--color-terminal);
 }
 
 #cisclock-final .ghost {
-  stroke: color-mix(in srgb, var(--color-main-secondary) 12%, transparent);
+  stroke: color-mix(in srgb, var(--color-terminal) 12%, transparent);
 }
 
 #cisclock-final svg {
   width: 200px;
   display: block;
-  color: var(--color-main-secondary);
+  color: var(--color-terminal);
 }
 
 #cisclock-final path {
@@ -226,7 +227,7 @@
   line-height: 1.6;
   font-variant-numeric: tabular-nums;
   text-align: center;
-  color: var(--color-main-grey);
+  color: var(--color-terminal);
   font-size: small;
 }
 
@@ -236,7 +237,7 @@
   flex-direction: column;
   align-items: center;
   gap: 0.4rem;
-  color: var(--color-main-grey);
+  color: var(--color-terminal);
   font-weight: 400;
   line-height: 1.6;
   font-variant-numeric: tabular-nums;
@@ -247,14 +248,14 @@
 
 #mask-cycle-clock .ghost,
 #mask-cycle-growth-clock .ghost {
-  stroke: color-mix(in srgb, var(--color-main-secondary) 12%, transparent);
+  stroke: color-mix(in srgb, var(--color-terminal) 12%, transparent);
 }
 
 #mask-cycle-clock svg,
 #mask-cycle-growth-clock svg {
   width: 170px;
   display: block;
-  color: var(--color-main-secondary);
+  color: var(--color-terminal);
 
 }
 

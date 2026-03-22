@@ -1,12 +1,18 @@
 :root {
-  --color-cisclock: #a2cfe9;
-  --color-accent: #a2cfe9;
+  --color-cisclock: #568070;
+  --color-accent: #568070;
   --fontmono: 'Geist Mono', monospace;
   --size-mono: 0.85rem;
 }
 
 
-/* #568070 #7f7557 #fcb7b7 #a2cfe9 */
+/* #568070 #7f7557 #fcb7b7 #a2cfe9 
+
+  --color-cisclock: #566680;
+  --color-accent: #a2cfe9;
+
+
+*/
 
 * {
   margin: 0;
@@ -19,7 +25,7 @@ html, body {
 }
 
 body {
-  background: #000;
+  background: #011002;
   color: var(--color-cisclock);
   display: flex;
   align-items: center;
@@ -35,15 +41,15 @@ main {
 }
 
 #clock .ghost {
-  stroke: color-mix(in srgb, var(--color-cisclock) 12%, transparent);
+  stroke: color-mix(in srgb, var(--color-cisclock) 5%, transparent);
 }
 
 #clock svg {
   width: min(80vw, 280px);
   display: block;
   color: var(--color-cisclock);
-  filter: drop-shadow(0 0 6px color-mix(in srgb, var(--color-cisclock) 75%, transparent))
-          drop-shadow(0 0 14px color-mix(in srgb, var(--color-cisclock) 45%, transparent));
+  filter: drop-shadow(0 0 6px color-mix(in srgb, var(--color-cisclock) 44%, transparent))
+          drop-shadow(0 0 14px color-mix(in srgb, var(--color-cisclock) 22%, transparent));
 }
 
 #clock path {
@@ -99,7 +105,7 @@ main {
   font-size: var(--size-mono);
   font-weight: 400;
   line-height: 1.6;
-  color: #000;
+  color: var(--color-cisclock);
   font-variant-numeric: tabular-nums;
   font-size: x-small;
   text-align: center;
