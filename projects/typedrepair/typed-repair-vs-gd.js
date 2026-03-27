@@ -505,7 +505,7 @@
     wHtml += `</tbody></table>`;
     if (elTWeightsWrap) {
       elTWeightsWrap.innerHTML =
-        `<div class="muted" style="margin-bottom:6px">Integer W; updates are symmetric on (y, c*) and propagated via postings.</div>` + wHtml;
+        `<div class="muted-note">Integer W; updates are symmetric on (y, c*) and propagated via postings.</div>` + wHtml;
     }
 
     let pHtml = `<table><thead><tr><th>feature f</th><th>post[f] (example indices)</th></tr></thead><tbody>`;
@@ -515,7 +515,7 @@
     pHtml += `</tbody></table>`;
     if (elTPostingsWrap) {
       elTPostingsWrap.innerHTML =
-        `<div class="muted" style="margin-bottom:6px">Propagation paths are exactly these lists.</div>` + pHtml;
+        `<div class="muted-note">Propagation paths are exactly these lists.</div>` + pHtml;
     }
 
     // PATCH: just highlight
@@ -581,7 +581,7 @@
     wHtml += `</tbody></table>`;
     if (elGWeightsWrap) {
       elGWeightsWrap.innerHTML =
-        `<div class="muted" style="margin-bottom:6px">Float W; GD on softmax cross-entropy (one update per cycle).</div>` + wHtml;
+        `<div class="muted-note">Float W; GD on softmax cross-entropy (one update per cycle).</div>` + wHtml;
     }
 
     // PATCH: just highlight

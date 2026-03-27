@@ -11,11 +11,13 @@ keywords: "Typed Repair, SGD, constructive logic"
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
   {% include meta.html %}
   <style>
-    #dataset{
+    #dataset {
       width: 15em;
       margin: 1em auto;
+      min-height: 10em;
       resize: none;
     }
+
     .logline.here {
       background: #fff7cc50;
       border-radius: 6px;
@@ -75,10 +77,10 @@ keywords: "Typed Repair, SGD, constructive logic"
         </p>
         <ul>
           <li>
-            Downloadable EMNIST Jupyter Notebook <a href="https://github.com/Milan-Rosko/typedrepair" target="_blank">GitHub</a>
+            Downloadable EMNIST Jupyter Notebook <a href="https://github.com/Milan-Rosko/typedrepair" target="_blank" rel="noopener noreferrer">GitHub</a>
           </li>
           <li>
-            Draft Paper <a href="./typedrepair.pdf" target="_blank">.pdf</a>
+            Draft Paper <a href="./typedrepair.pdf" target="_blank" rel="noopener noreferrer">.pdf</a>
           </li>
         </ul>
         <p>
@@ -86,17 +88,17 @@ keywords: "Typed Repair, SGD, constructive logic"
         </p>
         <ul>
           <li>
-            Kleene: Introduction to Metamathematics <a href="https://doi.org/10.2307/2268620" target="_blank">DOI</a>
+            Kleene: Introduction to Metamathematics <a href="https://doi.org/10.2307/2268620" target="_blank" rel="noopener noreferrer">DOI</a>
           </li>
           <li>
             Troelstra, van Dalen:
-            Constructivism in Mathematics: An Introduction <a href="https://doi.org/10.1016/s0049-237x(09)x7019-9" target="_blank">DOI</a>
+            Constructivism in Mathematics: An Introduction <a href="https://doi.org/10.1016/s0049-237x(09)x7019-9" target="_blank" rel="noopener noreferrer">DOI</a>
           </li>
           <li>
-            On Stochastic Gradient Descent <a href="https://en.wikipedia.org/wiki/Stochastic_gradient_descent" target="_blank">Wikipedia</a>
+            On Stochastic Gradient Descent <a href="https://en.wikipedia.org/wiki/Stochastic_gradient_descent" target="_blank" rel="noopener noreferrer">Wikipedia</a>
           </li>
           <li>
-            On Type Systems <a href="https://en.wikipedia.org/wiki/Type_system" target="_blank">Wikipedia</a>
+            On Type Systems <a href="https://en.wikipedia.org/wiki/Type_system" target="_blank" rel="noopener noreferrer">Wikipedia</a>
           </li>
         </ul>
       </div>
@@ -177,7 +179,7 @@ keywords: "Typed Repair, SGD, constructive logic"
         </p>
         <p>
           Display (editable):<br>
-          <textarea id="dataset" class="input" style="min-height:10em"></textarea>
+          <textarea id="dataset" class="input"></textarea>
         </p>
         <p>
           Note. Inputs are separated by spaces, then “|”, then class label. Example: 0 1 | 1.
@@ -188,11 +190,11 @@ keywords: "Typed Repair, SGD, constructive logic"
         </p>
         <p>
           Shared budget (cycles C):
-          <input type="number" id="cycles" value="200" min="1" step="1" class="input" style="width: 5em;" />
+          <input type="number" id="cycles" value="200" min="1" step="1" class="input input-w-5em" />
           <span id="epochsDerived"></span>.
         </p>
         <p>
-          Seed: <input type="number" id="seed" value="123456789" step="1" class="input" style="width: 10em;"/>
+          Seed: <input type="number" id="seed" value="123456789" step="1" class="input input-w-10em"/>
         </p>
         <p>
           Scan order:
@@ -203,13 +205,13 @@ keywords: "Typed Repair, SGD, constructive logic"
         </p>
         <p>
           For Typed Repair, Margin $\gamma$:
-          <input type="number" id="tGamma" value="1" min="0" step="1" class="input" style="width: 5em;"/>,
+          <input type="number" id="tGamma" value="1" min="0" step="1" class="input input-w-5em"/>,
           Overshoot $\Delta$:
-          <input type="number" id="tDelta" value="0" min="0" step="1" class="input" style="width: 5em;"/>.
+          <input type="number" id="tDelta" value="0" min="0" step="1" class="input input-w-5em"/>.
         </p>
         <p>
           For Gradient Descent, Learning rate $\eta$:
-          <input type="number" id="gLR" value="0.3" min="0.0001" step="0.01" class="input" style="width: 5em;"/>.
+          <input type="number" id="gLR" value="0.3" min="0.0001" step="0.01" class="input input-w-5em"/>.
         </p>
         <hr>
         <p>
@@ -218,7 +220,7 @@ keywords: "Typed Repair, SGD, constructive logic"
         <p>
           <button id="buildBtn">Generate Traces</button>
         </p>
-        <div class="console" style="min-height: 8em;">
+        <div class="console min-h-8em">
           Build status:<br>
           <div id="buildText" class="output">Not built.</div>
         </div>
@@ -236,7 +238,7 @@ keywords: "Typed Repair, SGD, constructive logic"
         <p>
           <span class="u">Step 4.</span> Analyze the results. Both traces run a scan schedule through the finite table for the requested number of epochs. A “cycle” means one repair or one stochastic update.
         </p>
-        <center>(a) Typed Repair (integer, refutation-guided, cached)</center>
+        <div class="align-center">(a) Typed Repair (integer, refutation-guided, cached)</div>
         <p>
           State:
         </p>
@@ -245,10 +247,10 @@ keywords: "Typed Repair, SGD, constructive logic"
           <span id="tFULL" class="pill">FULL.ok: ?</span>
           <span id="tCACHE" class="pill">CACHE.ok: ?</span>
         </div>
-        <div style="margin-bottom: 2em">
+        <div class="mb-2em">
           Cycle selection:<br>
           <div class="sliderRow">
-            <input type="range" id="tCycle" min="0" max="0" style="display: none;"/>
+            <input type="range" id="tCycle" min="0" max="0" class="hidden"/>
             <input type="number" id="tCycleNum" min="0" value="0" step="1" class="input"/>
             <button id="tPlay" class="secondary" disabled>Play</button>
             <button id="tStop" class="secondary" disabled>Stop</button>
@@ -266,7 +268,7 @@ keywords: "Typed Repair, SGD, constructive logic"
         <p>
           Event log:
         </p>
-          <div class="console sqbound" id="tLog" style="height: 10em;">Waiting for build.</div>
+        <div class="console sqbound h-10em" id="tLog">Waiting for build.</div>
         <p>
           Interpretation:
         </p>
@@ -276,7 +278,7 @@ keywords: "Typed Repair, SGD, constructive logic"
           <div id="tPostingsWrap" class="output"></div>
         </div>
         <hr>
-        <center>(b) Gradient Descent (softmax cross-entropy, SGD)</center>
+        <div class="align-center">(b) Gradient Descent (softmax cross-entropy, SGD)</div>
         <div>
           State:<br>
           <div class="console">
@@ -284,10 +286,10 @@ keywords: "Typed Repair, SGD, constructive logic"
             <span id="gLoss" class="pill">loss: ?</span>
           </div>
         </div>
-        <div style="margin-bottom: 2em">
+        <div class="mb-2em">
           Cycle selection:<br>
           <div class="sliderRow">
-            <input type="range" id="gCycle" min="0" max="0" style="display: none;"/>
+            <input type="range" id="gCycle" min="0" max="0" class="hidden"/>
             <input type="number" id="gCycleNum" min="0" value="0" step="1" class="input"/>
             <button id="gPlay" class="secondary" disabled>Play</button>
             <button id="gStop" class="secondary" disabled>Stop</button>
@@ -305,7 +307,7 @@ keywords: "Typed Repair, SGD, constructive logic"
         <p>
           Event log:
         </p>
-          <div class="console sqbound" id="gLog" style="height: 10em;">Waiting for build.</div>
+        <div class="console sqbound h-10em" id="gLog">Waiting for build.</div>
         <p>
           Interpretation:
         </p>
@@ -384,11 +386,12 @@ keywords: "Typed Repair, SGD, constructive logic"
         <p>
           Let $\textsf{E}_{\mathsf{ref}}$ be a reference evaluator induced by the lock $\mathcal{L}$
           (e.g. recomputation from $\Phi$ and a declared scoring rule), and let $\textsf{E}_{\mathsf{learn}}$ be the learned evaluator encoded by a terminal snapshot $\Sigma_T$. We permit replacing $\textsf{E}_{\mathsf{ref}}$ by $\textsf{E}_{\mathsf{learn}}$ only after a finite validation pass discharges a checkable obligation such as
-          <div class="mathjaxwrap">
-            $$
-              \forall i < \mathrm{N} : \textsf{E}_{\mathsf{learn}}(x_i) = \textsf{E}_{\mathsf{ref}}(x_i)
-            $$
-          </div>
+        </p>
+        <div class="mathjaxwrap">
+          $$
+            \forall i < \mathrm{N} : \textsf{E}_{\mathsf{learn}}(x_i) = \textsf{E}_{\mathsf{ref}}(x_i)
+          $$
+        </div>
         <p>
           When this gate fails, it fails with a concrete counterexample $i$.
         </p>

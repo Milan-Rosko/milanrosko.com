@@ -57,14 +57,14 @@
                     </p>
                     <ul>
                         <li>
-                            Repository T001 (Rocq) <a href="https://github.com/Milan-Rosko/Proofcase/tree/main/theories/T001" target="_blank">GitHub</a>
+                            Repository T001 (Rocq) <a href="https://github.com/Milan-Rosko/Proofcase/tree/main/theories/T001" target="_blank" rel="noopener noreferrer">GitHub</a>
 
                         </li>
                         <li>
-                            Main Paper <a href="https://arxiv.org/abs/2509.10382" target="_blank">arXiv</a>
+                            Main Paper <a href="https://arxiv.org/abs/2509.10382" target="_blank" rel="noopener noreferrer">arXiv</a>
                         </li>
                         <li>
-                            Secondary Paper <a href="https://arxiv.org/abs/2510.08934" target="_blank">arXiv</a>
+                            Secondary Paper <a href="https://arxiv.org/abs/2510.08934" target="_blank" rel="noopener noreferrer">arXiv</a>
                         </li>
                     </ul>
                     <p>
@@ -72,13 +72,13 @@
                     </p>
                     <ul>
                         <li>
-                            Fibonacci and Lucas Numbers <a href="https://doi.org/10.1002/9781118033067" target="_blank">DOI</a>
+                            Fibonacci and Lucas Numbers <a href="https://doi.org/10.1002/9781118033067" target="_blank" rel="noopener noreferrer">DOI</a>
                         </li>
                         <li>
-                            Boolos, Burgess, Jeffrey: Computability and Logic <a href="https://doi.org/10.1017/CBO9781139164931" target="_blank">DOI</a>
+                            Boolos, Burgess, Jeffrey: Computability and Logic <a href="https://doi.org/10.1017/CBO9781139164931" target="_blank" rel="noopener noreferrer">DOI</a>
                         </li>
                         <li>
-                            On “Zeckendorf's Theorem” <a href="https://en.wikipedia.org/wiki/Zeckendorf%27s_theorem" target="_blank">Wikipedia</a>
+                            On “Zeckendorf's Theorem” <a href="https://en.wikipedia.org/wiki/Zeckendorf%27s_theorem" target="_blank" rel="noopener noreferrer">Wikipedia</a>
                         </li>
                     </ul>
                 </div>
@@ -158,74 +158,65 @@
                     <p>
                          <span class="u">Step 1.</span> Select at least two integers. <i>JavaScript</i> decomposes each one uniquely into non-consecutive Fibonacci summands.
                     </p>
-                    <div style="padding: 0 1em;" id="fib-list" style="font-family: var(--fontmono);">
+                    <div id="fib-list" class="pad-inline-1em font-mono">
                     </div>
                     <p>
                         <button id="encode-btn">Encode</button>
                     </p>
-                    <p>
-                        <div class="console">
-                            <div id="encode-output" class="output">Waiting for summands.</div>
-                        </div>
-                    </p>
+                    <div class="console">
+                        <div id="encode-output" class="output">Waiting for summands.</div>
+                    </div>
                     <hr>
                     <p>
                         <span class="u">Step 2.</span> Forget the supporting Fibonacci indices.
                     </p>
                     <p>
-                            <button id="decode-btn">Forget and Decode</button>
+                        <button id="decode-btn">Forget and Decode</button>
                     </p>
                     <p>
                         Reconstruct them through a series of local search steps.
                     </p>
-                    <p>
-                        <div class="console sqbound" style="height: 15em;">
-                            <div id="steps" class="output">Waiting for command.</div>
-                        </div>
-                    </p>
+                    <div class="console sqbound">
+                        <div id="steps" class="output">Waiting for command.</div>
+                    </div>
                     <p>
                         <span class="u">Step 3.</span> Use this correspondence to build an injective $\Delta_0$ pairing function from two arbitrary natural numbers.
                     </p>
-                    <center>
-                        <p style="margin-top:2em">
+                    <div class="align-center">
+                        <p class="mt-2em">
                             $x \in \mathbb{N}:$ <input id="pair-x" type="number" min="0" step="1" value="0" class="input">
                         </p>
-                        <p style="margin-bottom:2em">
+                        <p class="mb-2em">
                             $y \in \mathbb{N}:$ <input id="pair-y" type="number" min="0" step="1" value="0" class="input">
                         </p>
-                    </center>
+                    </div>
                     <p>
                         <button id="pair-generate-btn">Pair ($x,y$)</button>
                     </p>
-                    <p>
-                        <div class="console" style="min-height: 10em;">
-                            <div id="pair-output" class="output">Waiting for input.</div>
-                        </div>
-                    </p>
+                    <div class="console min-h-10em">
+                        <div id="pair-output" class="output">Waiting for input.</div>
+                    </div>
                     <hr>
-                    <p style="margin-top:2em">
+                    <p class="mt-2em">
                         <span class="u">Step 4.</span> The inverse is recovered by bounded search in subpolynomial time.
                     </p>
-
-                        <center>
-                            <p>
-                                $n \in \mathbb{N}:$ <input id="unpair-n" type="number" min="0" step="1" value="0" class="input">
-                            </p>
-                        </center>
+                    <div class="align-center">
+                        <p>
+                            $n \in \mathbb{N}:$ <input id="unpair-n" type="number" min="0" step="1" value="0" class="input">
+                        </p>
+                    </div>
                     <p>
                         <button id="unpair-btn">Unpair $n$</button>
                     </p>
-                    <p>
-                        <div class="console" style="min-height: 10em;">
-                            <div id="unpair-output" class="output">Waiting for input.</div><br>
-                            <div id="pair-warning" class="output"></div>
-                        </div>
-                    </p>
+                    <div class="console min-h-10em">
+                        <div id="unpair-output" class="output">Waiting for input.</div><br>
+                        <div id="pair-warning" class="output"></div>
+                    </div>
                     <p>
                         Remark. The pairing $\pi_{\mathrm{CL}}^\tau$ is finitary and correctness relies on the uniqueness and stability of Zeckendorf decompositions (cf. 'Phi'-adic Logic) under exact order. The apparent division at reversal is a $\mathcal{O}(\log n)$ search problem. However, if one realizes the procedure in a numerical model that is not an exact copy of $\{\,\mathbb{N},\, +,\, \le\,\}$ (with  $\Delta I$), then the underlying invariants might not be preserved, e.g. IEEE-754 floating-point past $2^{53}$. This highlights a persistent key bias in contemporary computation.
                     </p>
                     <p>
-                        Acknowledgment. Thanks are due to Albert Visser <a href="https://www.uu.nl/staff/AVisser" target="_blank">University of Utrecht</a> for timely criticism and guidance.
+                        Acknowledgment. Thanks are due to Albert Visser <a href="https://www.uu.nl/staff/AVisser" target="_blank" rel="noopener noreferrer">University of Utrecht</a> for timely criticism and guidance.
                     </p>
                 </div>
             </div>
@@ -253,9 +244,9 @@
                                 </div>
                             </div>
                         </div>
-                                        <div class="caption">
-                    Illustration: Recurrence relations are computationally expressive.
-                </div>
+                        <div class="caption">
+                            Illustration: Recurrence relations are computationally expressive.
+                        </div>
 
                     </div>
                 </div>

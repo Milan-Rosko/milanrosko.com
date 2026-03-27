@@ -190,6 +190,66 @@ a[href^="http"]:focus-visible {
 
 }
 
+.align-center {
+  text-align: center;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.pad-inline-1em {
+  padding: 0 1em;
+}
+
+.font-mono {
+  font-family: var(--fontmono);
+}
+
+.mt-2em {
+  margin-top: 2em;
+}
+
+.mb-2em {
+  margin-bottom: 2em;
+}
+
+.min-h-8em {
+  min-height: 8em;
+}
+
+.min-h-10em {
+  min-height: 10em;
+}
+
+.h-10em {
+  height: 10em;
+}
+
+.h-15em {
+  height: 15em;
+}
+
+.h-40em {
+  height: 40em;
+}
+
+.input-w-5em {
+  width: 5em;
+}
+
+.input-w-10em {
+  width: 10em;
+}
+
+.border-dark {
+  border: 1px solid var(--color-main-dark);
+}
+
+.muted-note {
+  margin-bottom: 6px;
+}
+
 .sc{
   font-family: var(--fontlmcaps);
 }
