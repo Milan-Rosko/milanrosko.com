@@ -288,12 +288,12 @@ button {
 .console {
   color: var(--color-terminal) !important;
   background: var(--color-terminalbg) !important;
+  border: var(--color-main-secondary-22) solid 1px;
+  border-radius: 0.5em;
   font-weight: 500;
   overflow-y: auto;
   padding: 1em;
-  border-radius: 0.5em;
   margin: 1em 0em 2em 0em;
-  border: var(--color-main-secondary-22) solid 1px;
 }
 
 .sqbound{

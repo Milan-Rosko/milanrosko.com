@@ -15,11 +15,20 @@
   display: grid;
   place-items: center;
   overflow: hidden;
+
+  color: var(--color-terminal) !important;
+  background: var(--color-terminalbg) !important;
+  border: var(--color-terminalhi) solid 1px;
+  max-width: 80%;
+  max-height: 80%;
+  margin: auto;
+  border-radius: 0.5em;
 }
 .fibonacci-squares {
   position: relative;
   display: inline-block;
   transform: translate(-5em, 3em);
+
 }
 .fibonacci-squares .square {
   box-sizing: border-box;
