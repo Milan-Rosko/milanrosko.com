@@ -451,8 +451,30 @@ table{
   -webkit-overflow-scrolling: touch;
   font-weight: 500;
   border-radius: 0.5em;
-
 }
+
+.ascii {
+  color: var(--color-main-secondary);
+  border: var(--color-main-secondary-22) solid 1px;
+  background: var(--color-main-secondary-10);
+
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+
+  padding: 2em;
+  border-radius: 0.5em;
+  font-weight: 500;
+
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-variant-ligatures: none;
+  font-feature-settings: "liga" 0;
+  letter-spacing: 0;
+  white-space: pre;
+  line-height: 1;
+}
+
 
 .mathjaxwrap mjx-container {
   max-width: 100%;
