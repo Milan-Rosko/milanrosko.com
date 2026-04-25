@@ -12,9 +12,7 @@
 
 </head>
 <body>
-    <header>
-    CLASS.TOOL
-    </header>
+    <header>DESIGN CONCEPT<span class="header-date">2026</span></header>
     <div class="grid">
         <div class="grid-item d-w-3 m-w-9"><span class="nr"></span>
             <div class="grid-item-content">
@@ -35,7 +33,7 @@
                     </p>
                     <ul>
                         <li>
-                            Trivial Clock <a href="#cisclock">#</a>
+                            Interval clock <a href="#cisclock">#</a>
                         </li>
                         <li>
                             Glyph Browser <a href="#demo1">#</a>
@@ -57,9 +55,9 @@
                     <p>
                         VARIATIONS ON THE CISTERCIAN NUMERALS
                     </p>
-                    <p>
-                        Cistercian numerals encode any integer from 0 to 9999 as strokes on a single vertical stem. We study three structural variants, which we call medieval, compact, and combinatorial, each trading compositionality against code-space size. A synthesis of the compact and combinatorial variants yields a binary clock that factors the day's 86,400 seconds into a mixed-radix product across four quadrants, each readable as a standard time component.
-                    </p>
+                      <p>
+                          Cistercian numerals are treated here as a design space rather than a fixed historical notation. The page compares medieval, compact, and combinatorial variants, then uses a compact-combinatorial compromise to build a binary clock whose four quadrants encode the day's 86,400 seconds as readable time components.
+                      </p>
                     <p>
                         Similar projects and secondary literature:
                     </p>
@@ -79,10 +77,10 @@
             <div class="grid-item-content">
                 <div class="box contentbox">
                     <p>
-                        Begin with a vertical line, a stem. The plane around it divides into four quadrants: top-right, top-left, bottom-right, bottom-left. In each quadrant five primitive strokes are available: two horizontals, one diagonal, one anti-diagonal, and one outer rail. A Cistercian numeral is a selection of these strokes: one decimal digit per quadrant, four digits per stem, every integer from $0$ to $9{,}999$ expressible as a single glyph.
+                        Begin with a vertical stem. The plane around it divides into four quadrants: top-right, top-left, bottom-right, bottom-left. In each quadrant five primitive strokes are available: two horizontals, one diagonal, one anti-diagonal, and one outer rail. A Cistercian numeral is a selection of these strokes: one decimal digit per quadrant, four digits per stem, every integer from $0$ to $9{,}999$ expressible as a single glyph.
                     </p>
                     <p>
-                        The historical system—call it <i>medieval</i>—assigns each digit $d \in \{0,\dots,9\}$ a fixed stroke pattern. The assignments are conventional: $1$ is a horizontal at the top of the stem, $2$ a horizontal further down, $3$ a diagonal connecting their endpoints. The ten shapes follow no compositional rule, they must be learned by rote. But the encoding is effective. Write a numeral as a 4-tuple $(a_0, a_1, a_2, a_3)$, one digit per quadrant, and the code is the Cartesian product
+                        The historical system—call it <i>medieval</i>—assigns each digit $d \in \{0,\dots,9\}$ a fixed stroke pattern. The assignments are conventional: $1$ is a horizontal at the top of the stem, $2$ a horizontal further down, $3$ a diagonal connecting their endpoints. The ten shapes follow no compositional rule; they must be learned by rote. Still, the encoding is effective. Write a numeral as a 4-tuple $(a_0, a_1, a_2, a_3)$, one digit per quadrant, and the code is the Cartesian product
                     </p>
                     <div class="mathjaxwrap">
                         $$\begin{align}
@@ -98,10 +96,10 @@
                         \end{align}$$
                     </div>
                     <p>
-                        Everything above is notation—a way to write integers. What follows is a separate question: can these glyphs also measure time?
+                        Everything above is notation, a way to write integers. What follows is a separate question: can these glyphs also measure time?
                     </p>
                     <p>
-                        Ten thousand glyphs is already enough for a clock. Map each day onto the full code space, cycling through every glyph exactly once before resetting at midnight:
+                        Ten thousand glyphs is already enough for a clock. Map one day onto the full code space, cycling through every glyph exactly once before resetting at midnight:
                     </p>
                     <div id="cisclock" class="console">
                         <div id="clock"></div>
@@ -139,7 +137,7 @@
                         The clock works, but the numeral system beneath it is opaque: you cannot read the time without memorizing all ten stroke patterns. This prompts two structural modifications, each pulling in a different direction.
                     </p>
                     <p>
-                        The <i>compact</i> variant discards the outer rail, leaving four primitives per quadrant. Since $2^4 = 16 > 10$, the ten digits still fit as subsets of these four strokes, and glyphs become visually lighter. But the mapping from digit to subset remains conventional, no more compositional than the medieval original:
+                        The <i>compact</i> variant discards the outer rail, leaving four primitives per quadrant. Since $2^4 = 16 > 10$, the ten digits still fit as subsets of these four strokes, and glyphs become visually lighter. But the mapping from digit to subset remains conventional; it is no more compositional than the medieval original:
                     </p>
                     <div class="mathjaxwrap">
                         $$\begin{align}
@@ -168,7 +166,7 @@
                         Demo
                     </div>
                     <p>
-                        The browser should render glyphs in lazy chunks.
+                        The browser renders glyphs in lazy chunks.
                     </p>
                     <div class="console hidden">
                         <div id="cis-meta" class="output"></div>
@@ -178,7 +176,7 @@
                         <div id="cis-sentinel">Loading...</div>
                     </div>
                     <p>
-                        It compares Compact, Medieval, and Combinatorial for indices 0..9999, then continues with Combinatorial up to 2^20-1 = 1048575.
+                        It compares compact, medieval, and combinatorial glyphs for indices $0$ through $9999$, then continues with combinatorial glyphs up to $2^{20}-1 = 1048575$.
                     </p>
                     <p>
                         Jump to <input id="cis-jump" class="input" type="number" min="0" step="1" value="0"> <button id="cis-jump-btn">Jump</button> <button id="cis-reset-btn" class="hidden">Reset</button>
@@ -203,7 +201,7 @@
                     </div>
                     <p>
                         and assign each factor to a quadrant: hours ($0$–$23$), low minutes
-                        ($0$–$29$), low seconds ($0$–$29$), and a two-bit flag $f = 2m_1 + s_1$
+                        ($0$–$29$), low seconds ($0$–$29$), and a two-bit flag $f = 2s_1 + m_1$
                         combining the upper halves of minutes and seconds.
                     </p>
                     <p>
@@ -213,17 +211,17 @@
                         the factor requires. The result reads as a conventional clock (each
                         quadrant carries a human-legible time component) while every stroke
                         remains an independently toggleable bit. No digit alphabet needs to be
-                        memorized, the glyph is fully determined by the time.
+                        memorized; the glyph is fully determined by the time.
                     </p>
                     <p>
-                       Two semantics were considered. A plain binary count:
+                       Two stroke semantics were considered. A plain binary count:
                     </p>
                     <div class="console" id="mask-cycle-demo">
                         <div id="mask-cycle-clock"></div>
                         <div id="mask-cycle-output" class="output">mask = 0 | bits = 00000</div>
                     </div>
                     <p>
-                        And a “growing” cycle:
+                        And a growing cycle:
                     </p>
                     <div class="console" id="mask-cycle-growth-demo">
                         <div id="mask-cycle-growth-clock"></div>
@@ -231,7 +229,7 @@
                     </div>
 
                     <p>
-                        The binary count wins: each stroke carries a fixed weight, and reading a quadrant is simple addition. The growing cycle looks more deliberate but requires internalizing a sequence rather than five positional values. With this choice the four quadrants are:
+                        The binary count is clearer: each stroke carries a fixed weight, and reading a quadrant is simple addition. The growing cycle looks more deliberate but requires internalizing a sequence rather than five positional values. With this choice the four quadrants are:
                     </p>
                     <div class="mathjaxwrap">
                         $$\begin{array}{c|c}
@@ -240,7 +238,8 @@
                         \end{array}$$
                     </div>
                     <p>
-                    We see that the clock is realizable in unicode:
+                    The clock can also be sketched in Unicode:
+                    </p>
                     <div class="unicodedark">
 Unicode (U+2500 to U+257F)
 
@@ -254,7 +253,7 @@ Unicode (U+2500 to U+257F)
     │ ╱ ╲ │     │ ╱ ╲ │
     └─────┘     └─────┘
 
-4'o clock:
+4 o'clock:
 
     ──────╴    
          
@@ -262,7 +261,7 @@ Unicode (U+2500 to U+257F)
 
     ─────────────────── 
 
-plus 8'o clock:
+plus 8 o'clock:
 
 
         ╱ 
@@ -270,7 +269,7 @@ plus 8'o clock:
       ╱     
     ───────────────────
 
-is 12'o clock:
+is 12 o'clock:
 
     ─────╴
        ╱  
@@ -278,7 +277,6 @@ is 12'o clock:
      ╱
     ─────────────────── 
 </div>
-                    </p>
                     <p>
                         Because each quadrant maps to a familiar time unit, the glyph is readable after minimal training; hours and minutes separate visually the same way they separate conceptually, and the full state (hour, minute, second, half-minute flag) compresses into a single 19-bit stem:
                     </p>
@@ -291,10 +289,10 @@ is 12'o clock:
                         </div>
                     </div>
                     <p>
-                        Each of the five stroke positions carries a fixed binary weight: $1, 2, 4, 8, 16 + 30;$ and the displayed value is their sum. The flag quadrant works at smaller scale: its two strokes act as independent half-indicators, one for seconds, one for minutes. If you only care about hour and minute, one flag stroke tells you whether minutes are in the lower or upper half.
+                        Each full quadrant uses five stroke positions with fixed binary weights $1, 2, 4, 8, 16$; the displayed value is their sum. The flag quadrant works at smaller scale: its two strokes act as independent half-indicators, one for seconds, one for minutes. If you only care about hour and minute, one flag stroke tells you whether minutes are in the lower or upper half.
                     </p>
                     <p>
-                        A standalone version is available. Clicking anywhere on the page toggles between two layouts. <a href="./index.html">.html</a>
+                        A standalone version is available. Clicking anywhere on that page toggles between two layouts. <a href="./index.html">.html</a>
                     </p>
                     </div>
                 </div>

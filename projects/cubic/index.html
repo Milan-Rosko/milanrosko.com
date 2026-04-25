@@ -1,6 +1,6 @@
 ---
 title: "Universal Cubic Diophantine Equation"
-description: "Concrete bounded universal cubic Diophantine equations with mechanized degree certificates, published as coefficient tables in two parameterizations."
+description: "Concrete bounded cubic Diophantine theorem-checking artifacts with mechanized degree certificates, published as coefficient tables in two parameterizations."
 keywords: "Diophantine equation, cubic, undecidability, Sigma_1-complete, Rocq, Hilbert's Tenth Problem"
 ---
 <!DOCTYPE html>
@@ -12,10 +12,7 @@ keywords: "Diophantine equation, cubic, undecidability, Sigma_1-complete, Rocq, 
   {% include meta.html %}
 </head>
 <body>
-<header>
-  CLASS.EQUATION
-</header>
-
+  <header>REALIZABILITY<span class="header-date">2026</span></header>
   <div class="grid">
     <div class="grid-item d-w-3 m-w-9"><span class="nr"></span>
       <div class="grid-item-content">
@@ -50,21 +47,24 @@ keywords: "Diophantine equation, cubic, undecidability, Sigma_1-complete, Rocq, 
           <div class="info">
             Summary
           </div>
+            <p>
+              BOUNDED CUBIC UNIVERSAL DIOPHANTINES
+            </p>
           <p>
-            BOUNDED CUBIC UNIVERSAL DIOPHANTINES
+              Bounded proof-checking instances are compiled here into explicit cubic Diophantine artifacts over $\mathbb{N}$. A generator emits concrete degree-3 coefficient tables, and the page lets the reader inspect their degree bounds, structural parameters, and behavior on fixed sentence cases. The aim is to make the reduction visible as a finite object rather than only as an existence claim.
           </p>
           <p>
-            We present two concrete cubic Diophantine equations (degree-3 polynomials over $\mathbb{N}$) whose satisfiability effectively recovers constructive theoremhood.
+              <i>Note.</i> This bounded construction does not imply unbounded universality.
           </p>
           <p>
             Key materials:
           </p>
           <ul>
             <li>
-              Main Paper <a href="https://arxiv.org/abs/2510.00759" target="_blank" rel="noopener noreferrer">arXiv</a>
+                Main paper <a href="https://arxiv.org/abs/2510.00759" target="_blank" rel="noopener noreferrer">arXiv</a>
             </li>
             <li>
-              Repository T002 (Proof System & Reduction in Rocq) <a href="https://github.com/Milan-Rosko/Proofcase/tree/main/theories/T002" target="_blank" rel="noopener noreferrer">GitHub</a>
+                Repository T002 (proof system and reduction in Rocq) <a href="https://github.com/Milan-Rosko/Proofcase/tree/main/theories/T002" target="_blank" rel="noopener noreferrer">GitHub</a>
             </li>
             <li>
               Repository T003 (Universal Cubic in Rocq) <a href="https://github.com/Milan-Rosko/Proofcase/tree/main/theories/T003" target="_blank" rel="noopener noreferrer">GitHub</a>
@@ -101,10 +101,10 @@ keywords: "Diophantine equation, cubic, undecidability, Sigma_1-complete, Rocq, 
       <div class="grid-item-content">
         <div class="box contentbox">
           <p>
-            We recall the <span class="sc">MRDP Theorem</span>, the <span class="sc">Universal Diophantine Equation</span> of Jones, and the degree hierarchy of Diophantine equations over $\mathbb{N}$, as codified in the study of <span class="sc">Hilbert's Tenth Problem</span>.
+              The page situates the artifacts against the <span class="sc">MRDP Theorem</span>, the <span class="sc">Universal Diophantine Equation</span> of Jones, and the degree hierarchy of Diophantine equations over $\mathbb{N}$, as codified in the study of <span class="sc">Hilbert's Tenth Problem</span>.
           </p>
           <p>
-            Operational summary: each artifact below is a published degree-3 polynomial whose bounded satisfiability can be checked directly from its coefficient table.
+              Operational summary: each artifact below is a published degree-3 polynomial whose bounded satisfiability can be checked directly from its coefficient table.
           </p>
           <ul>
             <li>
@@ -114,14 +114,14 @@ keywords: "Diophantine equation, cubic, undecidability, Sigma_1-complete, Rocq, 
               <i>Degree 4.</i>&ensp;Every recursively enumerable set is the solution set of a degree-4 Diophantine equation in 58 variables. Undecidability follows classically from <span class="sc">MRDP</span>.
             </li>
             <li>
-            <i>Degree 3.</i>&ensp;The open case, identified by Jones (1980), cf. “Secondary Literature” on this page.
+              <i>Degree 3.</i>&ensp;The case identified by Jones (1980), cf. “Secondary Literature” on this page.
             </li>
           </ul>
           <p>
-            The artifacts shown here are computable witnesses rather than classic existence claims. Their coefficients are published, their degrees can be directly examined, and their bounded satisfaction predicates are decidable by finite search. The constructions are strictly more informative: where tradition asserts that some polynomial encodes all recursively enumerable sets, the effective construction demonstrates this.
+              The artifacts shown here are computable witnesses rather than classical existence claims. Their coefficients are published, their degrees can be directly examined, and their bounded satisfaction predicates are decidable by finite search. The constructions are strictly more informative: where a classical MRDP-style presentation asserts that some polynomial encodes all recursively enumerable sets, the effective construction demonstrates this.
           </p>
           <p>
-            We start with simple resource parameters signifying the number of lines, the digit width, and the base:
+              We start with simple resource parameters for the number of proof lines, the digit width, and the base:
           </p>
           <div class="mathjaxwrap">
             $$\mathtt{k,digit\_width,base}$$
@@ -133,13 +133,13 @@ keywords: "Diophantine equation, cubic, undecidability, Sigma_1-complete, Rocq, 
             $$\mathsf{BoundedThm}_{k,w}(u) \;\Longleftrightarrow\; \exists\, \vec{x} \in \mathbb{N}^{m(k,w)}\; U_{k,w}(\vec{x}) = 0.$$
           </div>
           <p>
-            Analogy. We imagine a polynomial as a command-line interface (without a monitor). We can define a query and feed it into its variables. The equation evaluates to 'zero' if the encoded statement is true, and to a nonzero value otherwise. The polynomial itself is fixed; only the input changes.
+              Analogy. Imagine the polynomial as a command-line interface without a monitor. We define a query and feed it into the variables. The equation evaluates to zero if the encoded statement is true, and to a nonzero value otherwise. The polynomial itself is fixed; only the input changes.
           </p>
           <p>
             Realization proceeds in layers.
           </p>
           <p>
-            Given a weak arithmetic we define as <span class="sc">Register Arithmetic</span> or $\mathsf{RA}$, situating its comprehension (with extensional multiplication) between <span class="sc">Robinson Arithmetic</span> ($\mathsf{Q}$) and <span class="sc">Peano Arithmetic</span> $(\mathsf{PA})$:
+              We use a weak arithmetic, <span class="sc">Register Arithmetic</span> or $\mathsf{RA}$, whose comprehension (with extensional multiplication) sits between <span class="sc">Robinson Arithmetic</span> ($\mathsf{Q}$) and <span class="sc">Peano Arithmetic</span> $(\mathsf{PA})$:
           </p>
           <div class="mathjaxwrap">
             $$\mathsf{Q} \;\leq_{\mathrm{int}}\; \mathsf{RA}+\mathtt{Mult} \;\leq_{\mathrm{int}}\; \mathsf{EFA} \;<\; \mathsf{PA} \lor \mathsf{HA}.$$
@@ -160,7 +160,7 @@ keywords: "Diophantine equation, cubic, undecidability, Sigma_1-complete, Rocq, 
             (iii)&ensp;<i>Constraining.</i> Syntactic and inference checks compile to quadratic constraints (degree-2). Cubic terms arise only when a degree-1 selector variable activates a quadratic obligation. The resulting system is collapsed to a single cubic equation by mixed-radix aggregation, avoiding the sum-of-squares degree doubling that would otherwise raise degree to 6.
           </p>
           <p>
-            (iv)&ensp;<i>Metatheory.</i> Each fixed bounded slice is decidable, yet no total correct uniform decider for the compiled family exists. By the <span class="sc">Diagonal Lemma</span>, such a decider would compose with the compiler to decide theoremhood: contradiction. If $\mathsf{RA}$ could internally certify such a decider, it would witness its own $\Sigma_1$-reflection, contradicting <span class="sc">G&ouml;del's Second Incompleteness Theorem</span>, hence <i>ad absurdum</i>.
+              (iv)&ensp;<i>Metatheory.</i> Each fixed bounded slice is decidable, yet no total correct uniform decider for the compiled family exists. By the <span class="sc">Diagonal Lemma</span>, such a decider would compose with the compiler to decide theoremhood. If $\mathsf{RA}$ could internally certify such a decider, it would witness its own $\Sigma_1$-reflection, contradicting <span class="sc">G&ouml;del's Second Incompleteness Theorem</span>.
           </p>
         </div>
       </div>
@@ -173,7 +173,7 @@ keywords: "Diophantine equation, cubic, undecidability, Sigma_1-complete, Rocq, 
             Download
           </div>
           <p>
-            Both Diophantine polynomials are generated by the same compiler with different parameter choices and have total degree exactly 3. They differ by resource bounds and aggregation scale. Each is decidable, recursively enumerable, and able to validate bounded proofs according to its pinned parameters. We introduce two flavors:
+              Both Diophantine polynomials are generated by the same compiler with different parameter choices and have total degree exactly 3. They differ by resource bounds and aggregation scale. Each is decidable, recursively enumerable, and able to validate bounded proofs according to its pinned parameters. We introduce two versions:
           </p>
           <p>
             Effective ($\mathsf{imp},\bot,\mathsf{EFQ}$)
@@ -188,7 +188,7 @@ keywords: "Diophantine equation, cubic, undecidability, Sigma_1-complete, Rocq, 
           </p>
           <ul>
             <li>$\mathsf{Rocq}$-formalized, three proof lines (k = 3), digit width 16</li>
-            <li>Radix base 5&nbsp;|&nbsp;18 712&nbsp;variables&nbsp;|&nbsp;6,675&nbsp;channels&nbsp;|&nbsp;21,471&nbsp;monomials&nbsp;|&nbsp;max&nbsp;coefficient&nbsp;&asymp;&nbsp;10^198&nbsp;|</li>
+              <li>Radix base 5&nbsp;|&nbsp;18,712&nbsp;variables&nbsp;|&nbsp;6,675&nbsp;channels&nbsp;|&nbsp;21,471&nbsp;monomials&nbsp;|&nbsp;max&nbsp;coefficient&nbsp;&asymp;&nbsp;10^198&nbsp;|</li>
             <li>JSON: <a href="./assets/universal_cubic.minimal.coefficients.json" download>.json</a></li>
             <li>Rendered equation: <a href="./assets/universal_cubic.minimal.web.htm" download>.htm</a></li>
           </ul>
@@ -203,7 +203,7 @@ keywords: "Diophantine equation, cubic, undecidability, Sigma_1-complete, Rocq, 
             Demo
           </div>
           <p>
-            This demo performs in-browser verification of the published cubic artifact. The coefficient table is loaded locally, structural bounds are checked, and a fixed suite of two provable and two unprovable sentence encodings is validated against the loaded polynomial.
+              This demo performs in-browser verification of the published cubic artifact. The coefficient table is loaded locally, structural bounds are checked, and a fixed suite of two provable and two unprovable sentence encodings is validated against the loaded polynomial.
           </p>
           <div class="console sqbound">
             <div id="log" class="output sqbound">Worker idle.</div>
@@ -253,7 +253,7 @@ keywords: "Diophantine equation, cubic, undecidability, Sigma_1-complete, Rocq, 
               <div id="suiteResult" class="output">Sentence suite not run yet.</div>
             </div>
           <p>
-            Note. We restrict ourselves to equations no more sophisticated than those above, but in principle, we should see no obstructions.
+              Note. The demo restricts itself to the explicit equations above; the construction is meant to scale by regenerating coefficient tables rather than changing the verification principle.
           </p>
         </div>
       </div>
