@@ -47,7 +47,7 @@
                           CARRYLESS PAIRING
                       </p>
                       <p>
-                          We provide a pairing function for natural numbers in the Fibonacci basis. It separates the Zeckendorf supports of $x$ and $y$ into even and offset odd bands, so encoding and decoding use addition, bounded search, and primitive recursion without carrying.
+                          A pairing function takes two natural numbers $x$ and $y$ and returns a single natural number from which both can be recovered. The construction here works in the Fibonacci basis: each input is written as a sum of distinct, non-consecutive Fibonacci numbers (its <i>Zeckendorf support</i>), and the two supports are placed on disjoint <i>even</i> and <i>offset odd</i> index bands. Because the bands cannot overlap, the encoding and its inverse use only addition and bounded search, never a carry.
                       </p>
                     <p>
                         Key materials:
@@ -60,7 +60,7 @@
                             Main paper <a href="https://arxiv.org/abs/2509.10382" target="_blank" rel="noopener noreferrer">arXiv</a>
                         </li>
                         <li>
-                            Dr. Zoltán Sóstai’s linear-size block-partition Fibonacci encoding for Gödel numbering <a href="https://arxiv.org/abs/2603.25307" target="_blank" rel="noopener noreferrer">arXiv</a>.
+                            A subsequent specialization by Dr. Zoltán Sóstai adapts the present even/odd band-partition mechanism to a linear-size Fibonacci encoding for Gödel numbering, retaining the carry-free decoding strategy of <span class="sc">Carryless Pairing</span> <a href="https://arxiv.org/abs/2603.25307" target="_blank" rel="noopener noreferrer">arXiv</a>.
                         </li>
                         <li>
                             Philosophical companion paper <a href="https://arxiv.org/abs/2510.08934" target="_blank" rel="noopener noreferrer">arXiv</a>
@@ -88,22 +88,22 @@
             <div class="grid-item-content">
                 <div class="box contentbox">
                     <p>
-                          The construction below uses only addition and bounded recursion. It exposes the core mechanism first, then turns that mechanism into a pairing function.
+                          The construction below uses only addition and bounded recursion. We first describe the underlying mechanism, then turn it into a pairing function.
                     </p>
                     <p>
-                          (i) First, chosen Fibonacci terms are aggregated into a single numerical value.
+                          (i) A chosen collection of Fibonacci numbers is added together into a single value.
                     </p>
                     <p>
-                          (ii) The chosen indices are then discarded, and only the resulting sum is returned to a <span class="sc">Greedy Algorithm</span>.
+                          (ii) The list of chosen indices is then discarded, and only the resulting sum is handed to a <span class="sc">Greedy Algorithm</span>.
                     </p>
                     <p>
-                          (iii) Finally, the original support is recovered from the sum alone within a bounded number of steps.
+                          (iii) From that sum alone, the original collection of indices is reconstructed in a bounded number of steps.
                     </p>
                     <p>
-                          This round trip, from arbitrary input to canonical additive form and back, uses <span class="sc">Binet’s Formula</span>, <span class="sc">Hurwitz’s Theorem</span>, and <span class="sc">Zeckendorf’s Theorem</span> to obtain a stable, reversible, and fully bounded finitary encoding-decoding scheme.
+                          This round trip, from an arbitrary input to its canonical additive form and back, relies on <span class="sc">Binet’s Formula</span>, <span class="sc">Hurwitz’s Theorem</span>, and <span class="sc">Zeckendorf’s Theorem</span>. Together they yield a stable, reversible, and fully bounded encoding-decoding scheme.
                     </p>
                     <p>
-                          (iv) The same structure realizes a constructive, hence injective, arithmetical pairing function. Set $Z(0):=\varnothing$ and let $x, y \in \mathbb{N}$:
+                          (iv) The same machinery yields a constructive, and therefore injective, arithmetical pairing function. Writing $Z(n)$ for the set of Zeckendorf indices of $n$, we set $Z(0):=\varnothing$ and let $x, y \in \mathbb{N}$:
                     </p>
                     <p>
                         For $x,y\in\mathbb{N}$ we define the even-band and odd-band supports,
@@ -135,11 +135,14 @@
                         $$\pi_{\mathrm{CL}}(x,y)=F_2+\sum_{i\in E(x)\cup O(x,y)} F_i,$$
                     </div>
                     <p>
-                        The offset term $F_2$ ensures  
+                        The offset term $F_2$ shifts the output away from zero, so that
                     </p>
                     <div class="mathjaxwrap">
                         $$\pi_{\mathrm{CL}}(x,y)\ge 1, \pi_{\mathrm{CL}}(0,0)\neq 0.$$
                     </div>
+                    <p>
+                        This keeps $0$ free as a reserved value (for example, to denote the empty support $\varnothing$).
+                    </p>
                 </div>
             </div>
         </div>
@@ -151,7 +154,7 @@
                         Demo
                     </div>
                     <p>
-                        <span class="u">Realization.</span> The demo witnesses effectivity of the carryless construction in four stages: bounded Fibonacci decomposition, reconstruction by local search, forward pairing, and inverse unpairing.
+                        <span class="u">Realization.</span> The demo executes the carryless construction in four stages, each fully effective: bounded Fibonacci decomposition, reconstruction by local search, forward pairing, and inverse unpairing.
                     </p>
                     <hr>
                     <p>
@@ -179,7 +182,7 @@
                         <div id="steps" class="output">Waiting for command.</div>
                     </div>
                     <p>
-                          <span class="u">Step 3.</span> Use this correspondence to build an injective $\Delta_0$ pairing function on two arbitrary natural numbers.
+                          <span class="u">Step 3.</span> Use this correspondence to build an injective $\Delta_0$ pairing function that takes any two natural numbers and returns a single one.
                     </p>
                     <div class="align-center">
                         <p class="mt-2em">
@@ -197,7 +200,7 @@
                     </div>
                     <hr>
                     <p class="mt-2em">
-                        <span class="u">Step 4.</span> The inverse is recovered by bounded search in subpolynomial time.
+                        <span class="u">Step 4.</span> The inverse — recovering $(x, y)$ from $n$ — is computed by a bounded search that runs in subpolynomial time.
                     </p>
                     <div class="align-center">
                         <p>
@@ -212,7 +215,7 @@
                         <div id="pair-warning" class="output"></div>
                     </div>
                     <p>
-                          Remark. The pairing $\pi_{\mathrm{CL}}^\tau$ is finitary; correctness rests on the uniqueness and stability of Zeckendorf decompositions under exact order (cf. phi-adic logic). The apparent division in the inverse is only a $\mathcal{O}(\log n)$ search. In a numerical model that is not an exact copy of $\{\,\mathbb{N},\, +,\, \le\,\}$ (with $\Delta I$), these invariants may fail; IEEE-754 floating point past $2^{53}$ is a simple example. The point is not implementation detail but a persistent bias in contemporary computation: exact arithmetical structure is often simulated inside approximate hardware.
+                          Remark. The pairing $\pi_{\mathrm{CL}}^\tau$ is finitary: each step uses a finite, explicitly bounded amount of arithmetic. Its correctness depends on the fact that every natural number has exactly one Zeckendorf decomposition, and that this decomposition is preserved under the standard order on $\mathbb{N}$ (cf. phi-adic logic). What looks like a division in the inverse is in fact a bounded $\mathcal{O}(\log n)$ search. These guarantees, however, presuppose that the underlying number model is faithful to $\{\,\mathbb{N},\, +,\, \le\,\}$ (without an arithmetic discrepancy $\Delta I$); IEEE-754 floating point past $2^{53}$ is a familiar case where this assumption breaks down. The deeper point is not a detail of implementation but a recurring bias of modern computation: exact arithmetical structure is routinely simulated inside hardware that is only approximate.
                     </p>
                     <p>
                           Acknowledgment. Thanks to Albert Visser <a href="https://www.uu.nl/staff/AVisser" target="_blank" rel="noopener noreferrer">University of Utrecht</a> for timely criticism and guidance.
