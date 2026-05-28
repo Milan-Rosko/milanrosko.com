@@ -1,37 +1,35 @@
-<!-- /sitemap.xml -->
+<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://milanrosko.com/</loc>
-    <lastmod>2026-04-25</lastmod>
+    <lastmod>2026-05-28</lastmod>
   </url>
   <url>
-    <loc>https://milanrosko.com/projects/cubic/</loc>
-    <lastmod>2026-04-25</lastmod>
+    <loc>https://milanrosko.com/projects/publications/</loc>
+    <lastmod>2026-05-28</lastmod>
   </url>
   <url>
     <loc>https://milanrosko.com/projects/carryless/</loc>
-    <lastmod>2026-04-25</lastmod>
-  </url>
-  <url>
-    <loc>https://milanrosko.com/projects/cistercian/</loc>
-    <lastmod>2026-04-25</lastmod>
-  </url>
-  <url>
-    <loc>https://milanrosko.com/projects/cistercian/info.html</loc>
-    <lastmod>2026-04-25</lastmod>
+    <lastmod>2026-05-28</lastmod>
   </url>
   <url>
     <loc>https://milanrosko.com/projects/typedrepair/</loc>
-    <lastmod>2026-04-25</lastmod>
+    <lastmod>2026-05-28</lastmod>
   </url>
-
+  <url>
+    <loc>https://milanrosko.com/projects/cistercian/info.html</loc>
+    <lastmod>2026-05-28</lastmod>
+  </url>
+  <url>
+    <loc>https://milanrosko.com/projects/cistercian/</loc>
+    <lastmod>2026-05-28</lastmod>
+  </url>
   <url>
     <loc>https://milanrosko.com/impressum.html</loc>
-    <lastmod>2026-04-25</lastmod>
+    <lastmod>2026-05-28</lastmod>
   </url>
-
-  <!-- Link to BibTeX download -->
   <url>
     <loc>https://milanrosko.com/bibtex.txt</loc>
+    <lastmod>2026-05-28</lastmod>
   </url>
 </urlset>

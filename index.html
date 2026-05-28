@@ -1,4 +1,10 @@
 ---
+title: "Milan Rosko — Frontpage"
+description: "Frontpage of Milan Rosko's personal website: constructive logic, proof theory, realizability, and design."
+keywords: "Milan Rosko, constructive logic, proof theory, realizability, design, personal website"
+og_title: "Milan Rosko — Logician & Designer"
+og_description: "Personal website of Milan Rosko, focused on constructive logic, proof theory, realizability, and design."
+og_type: "website"
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -11,8 +17,10 @@
     #anim-container1 {
       max-width: 25em;
       max-height: 25em;
+      mix-blend-mode: screen;
+
       display: grid;
-      position: relative; /* ensures absolute-positioned canvas fits correctly */
+      position: relative;
     }
 
     #anim-container1 canvas {
@@ -32,156 +40,164 @@
       }
     </style>
   </head>
-  <body>
-    <header>PERSONAL WEBSITE</header>
-    <div class="grid">
-      <div class="grid-item d-w-5 m-w-9"><span class="nr"></span>
-        <div class="grid-item-content">
-          <div class="box spaceybox">
-            <p>
-              <span class="home-name">Milan Rosko</span><br>
-              <span class="home-role">Logician & Designer</span><br>
-            </p>
-            <p>
-                Constructive logic, proof theory,<br>
-                realizability interpretation.<br>
-            </p>
-            <p>
-                Information design, motion design, signage.
-            </p>
-          </div>
+<body>
+    <div class="introduction">
+        <h1>Personal Website / Frontpage</h1>
+        <div class="toc">
+            <div class="toc-item"><span class="toc-key">1</span><span class="toc-text">Name, occupation, interests</span></div>
+            <div class="toc-item"><span class="toc-key">2</span><span class="toc-text">Polycurve trail</span></div>
+            <div class="toc-item"><span class="toc-key">3</span><span class="toc-text">Selected projects</span></div>
+            <div class="toc-item"><span class="toc-key">4</span><span class="toc-text">About</span></div>
+            <div class="toc-item"><span class="toc-key">5</span><span class="toc-text">Related links, legal</span></div>
+            <div class="toc-item"><span class="toc-key">6</span><span class="toc-text">Portrait</span></div>
+            <div class="toc-item"><span class="toc-key">7</span><span class="toc-text">Location distribution</span></div>
+            <div class="toc-item"><span class="toc-key">8</span><span class="toc-text">Monogram ligature</span></div>
         </div>
-      </div>
-      <div class="grid-item d-w-4 m-w-9" id="anim-cell"><span class="nr"></span>
-        <div id="anim-container1"></div>
-        <script src="./js/poly.js"></script>
-      </div>
-
-      <div class="grid-item d-w-9 m-w-9"><span class="nr"></span>
-        <div class="grid-item-content">
-          <div class="box monobox">
-            <div class="info">Selected Projects</div>
-            <p>
-              Formal Logic
-            </p>
-            <ul>
-              <li>
-                PROOFCASE, consolidated formalization repository <a href="https://github.com/Milan-Rosko/Proofcase">GitHub</a>
-              </li>
-              <li>
-                CARRYLESS PAIRING, an overview <a href="./projects/carryless/index.html">.html</a>
-              </li>
-              <li>
-                TYPED REPAIR, comparison with Gradient Descent <a href="./projects/typedrepair/index.html">.html</a>
-              </li>
-            </ul>
-            <p>
-              Design & Logic
-            </p>
-            <ul>
-              <li>
-                  Variations on Cistercian Clocks <a href="./projects/cistercian/info.html">.html</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="grid-item d-w-6 m-w-9"><span class="nr"></span>
-        <div class="grid-item-content">
-          <div class="box contentbox">
-            <p>
-                My current work is centered on first-order systems, computability and the behavior of <i>impredicativity</i> without relying on the full classical apparatus. I came to formal logic also through design: questions of structure, compression, and legibility kept reappearing, only in a stricter language.
-            </p>
-            <p>
-                I am especially interested in constructive and intuitionist approaches as disciplines of computer science: they treat claims less as abstract assertions and more as procedures that must be effective to be witnessed. This does not make them merely restrictive; it makes them relevant to environments where verification, execution, and trust boundaries matter.
-            </p>
-            <p>
-                The cybernetic vision of the mid-20th century was ahead of its institutional setting. Today, software mediates coordination, security is adversarial, and “proof” increasingly means verifiable procedure. In this context, constructive semantics offers a useful lens: it asks not only what can be stated, but what is <i>realizable</i> in Kleene's sense.
-            </p>
-            <p>
-                I am an alumnus of the B.A. program in Gestaltung und Kultur at a University of Applied Sciences in Berlin, and I am currently enrolled in the B.A. Computer Science program at the University of Hagen.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="grid-item d-w-3 m-w-9"><span class="nr"></span>
-        <div class="grid-item-content">
-          <div class="box monobox">
-            <p>
-              Mail:
-            </p>
-            <ul>
-              <li>
-                hi$\texttt{\,\char64\,}$milanrosko.com
-              </li>
-            </ul>
-            <p>
-              Links:
-            </p>
-            <ul>
-              <li>
-                GitHub <a href="https://github.com/Milan-Rosko/" target="_blank" rel="noopener noreferrer">GitHub</a>
-              </li>
-              <li>
-                ORCID <a href="https://orcid.org/0009-0003-1363-7158" target="_blank" rel="noopener noreferrer">ORCID</a>
-              </li>
-              <li>
-                X <a href="https://x.com/milan_rosko" target="_blank" rel="noopener noreferrer">X.com</a>
-              </li>
-              <li>
-                Imprint/Impressum <a href="./impressum.html">.html</a>
-              </li>
-            </ul>
-            <p>
-              How to cite:
-            </p>
-            <ul>
-              <li>
-                BibTeX format <a href="./bibtex.txt" target="_blank" rel="noopener noreferrer">.txt</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="grid-item d-w-3 m-w-3"><span class="nr"></span>
-        <div class="grid-item-content">
-          <div class="box photobox">
-            <img src="aux/milan.jpg" alt="Portrait" height="140px">
-          </div>
-        </div>
-      </div>
-
-      <div class="grid-item d-w-3 m-w-3"><span class="nr"></span>
-        <div class="grid-item-content">
-          <div class="box pngbox">
-            <img src="aux/location.png" alt="A probability mapping" height="140px" class="border-dark">
-          </div>
-        </div>
-      </div>
-
-      <div class="grid-item d-w-3 m-w-3"><span class="nr"></span>
-        <div class="grid-item-content">
-          <div class="box pngbox">
-            <img src="./aux/mr.png" alt="Ligature" height="140px">
-          </div>
-        </div>
-      </div>
-
-
     </div>
-    <div class="legend">
-      <div class="legend-title">Legend</div>
-      <div class="legend-item"><span class="legend-key">1</span><span class="legend-text">Name, occupation, interests</span></div>
-      <div class="legend-item"><span class="legend-key">2</span><span class="legend-text">Trail of a parametric polycurve</span></div>
-      <div class="legend-item"><span class="legend-key">3</span><span class="legend-text">Selected projects</span></div>
-      <div class="legend-item"><span class="legend-key">4</span><span class="legend-text">About</span></div>
-      <div class="legend-item"><span class="legend-key">5</span><span class="legend-text">Contact, related links, legal</span></div>
-      <div class="legend-item"><span class="legend-key">6</span><span class="legend-text">Portrait from 2014</span></div>
-      <div class="legend-item"><span class="legend-key">7</span><span class="legend-text">Spatial probability distribution</span></div>
-      <div class="legend-item"><span class="legend-key">8</span><span class="legend-text">Monogram ligature</span></div>
+
+    <div class="grid">
+
+        <div class="grid-item d-w-5 m-w-9"><span class="nr"></span>
+            <div class="grid-item-content">
+                <div class="box spaceybox">
+                    <p>
+                        <span class="home-name">Milan Rosko</span><br>
+                        <span class="home-role">Logician & Designer</span><br>
+                    </p>
+                    <p>
+                        Constructive logic, proof theory,<br>
+                        realizability interpretation.<br>
+                    </p>
+                    <p>
+                        Information design, motion design, signage.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="grid-item d-w-4 m-w-9" id="anim-cell"><span class="nr"></span>
+            <div id="anim-container1"></div>
+            <script src="./js/poly.js"></script>
+        </div>
+
+        <div class="grid-item d-w-9 m-w-9"><span class="nr"></span>
+            <div class="grid-item-content">
+                <div class="box monobox">
+                    <h2>
+                        Projects
+                    </h2>
+                    <p>
+                        Formal Logic
+                    </p>
+                    <ul>
+                        <li>
+                            PUBLICATIONS, an overview <a href="./projects/publications/index.html">.html</a>
+                        </li>
+                        <li>
+                            PROOFCASE, consolidated formalization repository <a href="https://github.com/Milan-Rosko/Proofcase">GitHub</a>
+                        </li>
+                        <li>
+                            CARRYLESS PAIRING, effective pairing algorithm <a href="./projects/carryless/index.html">.html</a>
+                        </li>
+                        <li>
+                            TYPED REPAIR, constructive perceptron algorithm <a href="./projects/typedrepair/index.html">.html</a>
+                        </li>
+                        </ul>
+                    <p>
+                        Design & Logic
+                    </p>
+                    <ul>
+                        <li>
+                            Variations on Cistercian Clocks <a href="./projects/cistercian/info.html">.html</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item d-w-6 m-w-9"><span class="nr"></span>
+            <div class="grid-item-content">
+                <div class="box contentbox">
+                    <h2>
+                        About me
+                    </h2>
+                    <p>
+                        I am an alumnus of the B.A. program of Gestaltung und Kultur (KD), HTW University of Applied Sciences in Berlin, and I am currently enrolled in the B.A. Computer Science program at the University of Hagen.
+                    </p>
+                    <p>
+                        My current work is centered on first-order systems, computability and the behavior of <i>impredicativity</i> without relying on the full classical apparatus. I came to formal logic also through design: questions of structure, compression, and legibility kept reappearing, only in a stricter language.
+                    </p>
+                    <p>
+                        I am especially interested in constructive and intuitionist approaches as disciplines of computer science: they treat claims less as abstract assertions and more as procedures that must be effective to be witnessed. This does not make them merely restrictive; it makes them relevant to environments where verification, execution, and trust boundaries matter.
+                    </p>
+                    <p>
+                        The cybernetic vision of the mid-20th century was ahead of its institutional setting. Today, software mediates coordination, security is adversarial, and “proof” increasingly means verifiable procedure. In this context, constructive semantics offers a useful lens: it asks not only what can be stated, but what is <i>realizable</i> in Kleene's sense.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item d-w-3 m-w-9"><span class="nr"></span>
+          <div class="grid-item-content">
+            <div class="box monobox">
+              <p>
+                    Mail:
+              </p>
+              <ul>
+                <li>
+                  hi$\texttt{\,\char64\,}$milanrosko.com
+                </li>
+              </ul>
+              <p>
+                  Links:
+              </p>
+              <ul>
+                <li>
+                  GitHub <a href="https://github.com/Milan-Rosko/" target="_blank" rel="noopener noreferrer">GitHub</a>
+                </li>
+                <li>
+                    ORCID <a href="https://orcid.org/0009-0003-1363-7158" target="_blank" rel="noopener noreferrer">ORCID</a>
+                </li>
+                <li>
+                  X <a href="https://x.com/milan_rosko" target="_blank" rel="noopener noreferrer">X.com</a>
+                </li>
+                <li>
+                  Imprint/Impressum <a href="./impressum.html">.html</a>
+                </li>
+              </ul>
+              <p>
+                  How to cite:
+              </p>
+                <ul>
+                  <li>
+                    BibTeX format <a href="./bibtex.txt" target="_blank" rel="noopener noreferrer">.txt</a>
+                  </li>
+                </ul>
+            </div>
+        </div>
+      </div>
+
+        <div class="grid-item d-w-3 m-w-3"><span class="nr"></span>
+            <div class="grid-item-content">
+                <div class="box imagebox boxshadow">
+                    <img src="aux/milan.jpg" alt="Portrait" height="140px" style="mix-blend-mode: soft-light;" >
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item d-w-3 m-w-3"><span class="nr"></span>
+            <div class="grid-item-content">
+                <div class="box imagebox">
+                    <img src="aux/location.png" alt="Map" height="140px" style="mix-blend-mode: soft-light;">
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item d-w-3 m-w-3"><span class="nr"></span>
+            <div class="grid-item-content">
+                <div class="box imagebox">
+                    <img src="./aux/mr.png" alt="Ligature" height="140px">
+                </div>
+            </div>
+        </div>
     </div>
 </body>
-</html>

@@ -3,18 +3,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="{{ '/style.css' | relative_url }}">
+
     {% include meta.html %}
     <style>
         :root {
           --color-bg: #e6d8d8;
+          --color-main: #000;
         }
     </style>
 </head>
 <body>
-    <header>
-        TYPE.FAILURE
-    </header>
+    <div class="introduction">
+        <h1>Personal Website / Error</h1>
+        <div class="toc">
+            <div class="toc-item"><span class="toc-key">1</span><span class="toc-text">Navigation</span></div>
+            <div class="toc-item"><span class="toc-key">2</span><span class="toc-text">Event</span></div>
+            <div class="toc-item"><span class="toc-key">3</span><span class="toc-text">Code</span></div>
+            <div class="toc-item"><span class="toc-key">4</span><span class="toc-text">Description</span></div>
+        </div>
+    </div>
     <div class="grid">
 
         <div class="grid-item d-w-5 m-w-9"><span class="nr"></span>
@@ -51,13 +60,6 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="legend">
-        <div class="legend-title">Legend</div>
-        <div class="legend-item"><span class="legend-key">1</span><span class="legend-text">Navigation</span></div>
-        <div class="legend-item"><span class="legend-key">2</span><span class="legend-text">Event</span></div>
-        <div class="legend-item"><span class="legend-key">3</span><span class="legend-text">Code</span></div>
-        <div class="legend-item"><span class="legend-key">4</span><span class="legend-text">Description</span></div>
     </div>
 </body>
 </html>

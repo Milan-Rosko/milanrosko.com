@@ -12,7 +12,16 @@
 
 </head>
 <body>
-    <header>ALGORITHM<span class="header-date">2025</span></header>
+    <div class="introduction">
+        <h1>Personal Website / Carryless Pairing</h1>
+        <div class="toc">
+            <div class="toc-item"><span class="toc-key">1</span><span class="toc-text">Navigation</span></div>
+            <div class="toc-item"><span class="toc-key">2</span><span class="toc-text">Introduction</span></div>
+            <div class="toc-item"><span class="toc-key">3</span><span class="toc-text">Notes and References</span></div>
+            <div class="toc-item"><span class="toc-key">4</span><span class="toc-text">Realization via JavaScript</span></div>
+            <div class="toc-item"><span class="toc-key">5</span><span class="toc-text">Group Transformations</span></div>
+        </div>
+    </div>
     <div class="grid">
         <div class="grid-item d-w-3 m-w-9"><span class="nr"></span>
             <div class="grid-item-content">
@@ -110,10 +119,10 @@
                     </p>
                     <div class="mathjaxwrap">
                         $$\begin{align}
-                          E(x) &:= \{\, 2k : k \in Z(x) \,\},\\
-                          r(x) &:= \min\{\, m \ge 2 : F_m > x \,\},\\
-                          B(x) &:= 2r(x),\\
-                          O(x,y) &:= \{\, B(x) + (2j - 1) : j \in Z(y) \,\}.
+                            E(x) &:= \{\, 2k : k \in Z(x) \,\},\\
+                            r(x) &:= \min\{\, m \ge 2 : F_m > x \,\},\\
+                            B(x) &:= 2r(x),\\
+                            O(x,y) &:= \{\, B(x) + (2j - 1) : j \in Z(y) \,\}.
                         \end{align}$$
                     </div>
                     <p>
@@ -218,7 +227,7 @@
                           Remark. The pairing $\pi_{\mathrm{CL}}^\tau$ is finitary: each step uses a finite, explicitly bounded amount of arithmetic. Its correctness depends on the fact that every natural number has exactly one Zeckendorf decomposition, and that this decomposition is preserved under the standard order on $\mathbb{N}$ (cf. phi-adic logic). What looks like a division in the inverse is in fact a bounded $\mathcal{O}(\log n)$ search. These guarantees, however, presuppose that the underlying number model is faithful to $\{\,\mathbb{N},\, +,\, \le\,\}$ (without an arithmetic discrepancy $\Delta I$); IEEE-754 floating point past $2^{53}$ is a familiar case where this assumption breaks down. The deeper point is not a detail of implementation but a recurring bias of modern computation: exact arithmetical structure is routinely simulated inside hardware that is only approximate.
                     </p>
                     <p>
-                          Acknowledgment. Thanks to Albert Visser <a href="https://www.uu.nl/staff/AVisser" target="_blank" rel="noopener noreferrer">University of Utrecht</a> for timely criticism and guidance.
+                          Acknowledgment. Thanks to Albert Visser <a href="https://www.uu.nl/staff/AVisser" target="_blank" rel="noopener noreferrer">Utrecht University</a> for timely criticism and guidance.
                     </p>
                 </div>
             </div>
@@ -254,14 +263,6 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="legend">
-        <div class="legend-title">Legend</div>
-        <div class="legend-item"><span class="legend-key">1</span><span class="legend-text">Navigation</span></div>
-        <div class="legend-item"><span class="legend-key">2</span><span class="legend-text">Introduction</span></div>
-        <div class="legend-item"><span class="legend-key">3</span><span class="legend-text">Notes and References</span></div>
-        <div class="legend-item"><span class="legend-key">4</span><span class="legend-text">Realization via JavaScript</span></div>
-        <div class="legend-item"><span class="legend-key">5</span><span class="legend-text">Group Transformations</span></div>
     </div>
 </body>
 <script src="./carrylesspairing.js"></script>

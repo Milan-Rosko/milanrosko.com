@@ -28,7 +28,7 @@
 <meta name="keywords" content="{{ page_keys }}">
 <meta name="author" content="{{ page_author }}">
 
-<meta name="robots" content="index, follow">
+<meta name="robots" content="{{ page.robots | default: 'index, follow' }}">
 <meta name="googlebot" content="index, follow">
 
 <!-- Open Graph -->

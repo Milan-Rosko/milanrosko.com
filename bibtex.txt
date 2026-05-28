@@ -1,57 +1,97 @@
-% The suggested entries are '@misc' with 'note' to ensure DOI and arXiv identifiers appear reliably across BibTeX styles.
+% Suggested BibTeX entries for papers listed at https://milanrosko.com/projects/publications/
 
-@misc{rosko2025fractal,
-	title        = {{The Fractal Logic of $\Phi$-adic Recursion}},
-	author       = {Rosko, M.},
-	year         = 2025,
-	note         = {arXiv preprint},
-	url          = {http://doi.org/10.48550/arXiv.2510.08934}
+@misc{rosko2025carryless,
+  title         = {{Carryless Pairing: Additive Pairing in the Fibonacci Basis}},
+  author        = {Rosko, M.},
+  year          = {2025},
+  eprint        = {2509.10382},
+  archivePrefix = {arXiv},
+  primaryClass  = {math.LO},
+  note          = {arXiv preprint; cross-listed in cs.LO},
+  url           = {https://arxiv.org/abs/2509.10382}
 }
 
 @misc{rosko2025cubic,
-	title        = {{On the $\Sigma^0_1$-Completeness of Cubic Diophantine Systems and their Consequences for Equations}},
-	author       = {Rosko, M.},
-	year         = 2025,
-	note         = {arXiv preprint},
-	url          = {http://doi.org/10.48550/arXiv.2510.00759},
+  title         = {{Considering The Satisfiability of Cubic Diophantine Equations}},
+  author        = {Rosko, M.},
+  year          = {2025},
+  eprint        = {2510.00759},
+  archivePrefix = {arXiv},
+  primaryClass  = {math.LO},
+  note          = {arXiv preprint},
+  url           = {https://arxiv.org/abs/2510.00759}
 }
 
-@misc{rosko2025fragment,
-	title        = {{A Constructive Fragment of Physical Propositions}},
-	author       = {Rosko, M.},
-	year         = 2025,
-	note         = {arXiv preprint},
-	url          = {http://doi.org/10.48550/arXiv.2511.21296},
+@misc{rosko2025phiadic,
+  title         = {{The Fractal Logic of Phi-adic Recursion}},
+  author        = {Rosko, M.},
+  year          = {2025},
+  eprint        = {2510.08934},
+  archivePrefix = {arXiv},
+  primaryClass  = {math.LO},
+  note          = {arXiv preprint},
+  url           = {https://arxiv.org/abs/2510.08934}
 }
 
 @misc{rosko2025primeconjectures,
-	title        = {{On the Realizability of Prime Conjectures in Heyting Arithmetic}},
-	author       = {Rosko, M.},
-	year         = 2025,
-	note         = {arXiv preprint},
-	url          = {http://doi.org/10.48550/arXiv.2511.07774}
+  title         = {{On the Realizability of Prime Conjectures in Heyting Arithmetic}},
+  author        = {Rosko, M.},
+  year          = {2025},
+  eprint        = {2511.07774},
+  archivePrefix = {arXiv},
+  primaryClass  = {math.LO},
+  note          = {arXiv preprint},
+  url           = {https://arxiv.org/abs/2511.07774}
 }
 
 @misc{rosko2025solverparadox,
-	title        = {{The Solver's Paradox in Formal Problem Spaces}},
-	author       = {Rosko, M.},
-	year         = 2025,
-	note         = {arXiv preprint},
-	url          = {http://doi.org/10.48550/arXiv.2511.14665},
+  title         = {{The Solver's Paradox in Formal Problem Spaces}},
+  author        = {Rosko, M.},
+  year          = {2025},
+  eprint        = {2511.14665},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.CC},
+  note          = {arXiv preprint},
+  url           = {https://arxiv.org/abs/2511.14665}
+}
+
+@misc{rosko2025physicalfragment,
+  title         = {{A Constructive Fragment of Physical Propositions}},
+  author        = {Rosko, M.},
+  year          = {2025},
+  eprint        = {2511.21296},
+  archivePrefix = {arXiv},
+  primaryClass  = {math.LO},
+  note          = {arXiv preprint},
+  url           = {https://arxiv.org/abs/2511.21296}
 }
 
 @misc{rosko2025adversarial,
-	title        = {{Adversarial Barrier in Uniform Class Separation}},
-	author       = {Rosko, M.},
-	year         = 2025,
-	note         = {arXiv preprint},
-	url          = {http://doi.org/10.48550/arXiv.2512.08149},
+  title         = {{Adversarial Barrier in Uniform Class Separation}},
+  author        = {Rosko, M.},
+  year          = {2025},
+  eprint        = {2512.08149},
+  archivePrefix = {arXiv},
+  primaryClass  = {math.LO},
+  note          = {arXiv preprint},
+  url           = {https://arxiv.org/abs/2512.08149}
 }
 
-@misc{rosko2025fibonacci,
-	title        = {{Carryless Pairing: Additive Pairing in the Fibonacci Basis}},
-	author       = {Rosko, M.},
-	year         = 2026,
-	note         = {arXiv preprint},
-	url          = {http://doi.org/10.48550/arXiv.2509.10382}
+@misc{rosko2026primitive,
+  title         = {{Remarks on Primitive Regulation}},
+  author        = {Rosko, M.},
+  year          = {2026},
+  eprint        = {2605.18924},
+  archivePrefix = {arXiv},
+  primaryClass  = {math.LO},
+  note          = {arXiv preprint},
+  url           = {https://arxiv.org/abs/2605.18924}
+}
+
+@misc{rosko2026typedrepair,
+  title        = {{Typed Repair: EMNIST From Lambda-Definable Evaluation and Specialization Gate}},
+  author       = {Rosko, Milan},
+  year         = {2026},
+  note         = {Draft, self-hosted PDF},
+  url          = {https://milanrosko.com/projects/typedrepair/typedrepair.pdf}
 }
