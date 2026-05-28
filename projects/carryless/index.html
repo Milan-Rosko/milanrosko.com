@@ -94,7 +94,7 @@
             <div class="grid-item-content">
                 <div class="box contentbox">
                     <p>
-                          The construction below uses only addition and bounded recursion. We first describe the underlying mechanism, then turn it into a pairing function.
+                          We first describe a mechanism, then turn it into a pairing function.
                     </p>
                     <p>
                           (i) A chosen collection of Fibonacci numbers is added together into a single value.
@@ -103,7 +103,7 @@
                           (ii) The list of chosen indices is then discarded, and only the resulting sum is handed to a <span class="sc">Greedy Algorithm</span>.
                     </p>
                     <p>
-                          (iii) From that sum alone, the original collection of indices is reconstructed in a bounded number of steps.
+                          (iii) From that sum alone, the original collection of indices is reconstructed in a bounded number of steps arithmetically.
                     </p>
                     <p>
                           This round trip, from an arbitrary input to its canonical additive form and back, relies on <span class="sc">Binet’s Formula</span>, <span class="sc">Hurwitz’s Theorem</span>, and <span class="sc">Zeckendorf’s Theorem</span>. Together they yield a stable, reversible, and fully bounded encoding-decoding scheme.
