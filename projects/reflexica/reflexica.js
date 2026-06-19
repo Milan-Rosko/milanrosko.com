@@ -90,6 +90,7 @@ var container,
   geometry,
   material,
   mesh,
+  resizeObserver,
   startTime = Date.now();
 
 function init() {
@@ -98,10 +99,10 @@ function init() {
 
   scene = new THREE.Scene();
 
-  camera = new THREE.PerspectiveCamera(75, 1, 1, 2);
+  camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 2);
   camera.position.z = 1;
 
-  geometry = new THREE.PlaneGeometry(10, 10);
+  geometry = new THREE.PlaneGeometry(2, 2);
   uniforms = {
     time: { type: "f", value: 1.0 },
     resolution: { type: "v2", value: new THREE.Vector2() }
@@ -120,8 +121,14 @@ function init() {
     alpha: true,
     antialias: true
   });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
   renderer.setClearColor(0x000000, 0);
   container.appendChild(renderer.domElement);
+
+  if (window.ResizeObserver) {
+    resizeObserver = new ResizeObserver(resize);
+    resizeObserver.observe(container);
+  }
 
   resize();
   animate();
@@ -136,14 +143,14 @@ function animate() {
 function resize() {
   if (!container || !renderer || !camera || !material) return;
 
-  var width = container.clientWidth || window.innerWidth;
-  var height = container.clientHeight || window.innerHeight;
+  var bounds = container.getBoundingClientRect();
+  var width = Math.round(bounds.width);
+  var height = Math.round(bounds.height);
 
-  camera.aspect = width / height;
-  camera.updateProjectionMatrix();
-  material.uniforms.resolution.value.x = width;
-  material.uniforms.resolution.value.y = height;
-  renderer.setSize(width, height);
+  if (width < 1 || height < 1) return;
+
+  renderer.setSize(width, height, false);
+  renderer.getDrawingBufferSize(material.uniforms.resolution.value);
 }
 
 window.addEventListener("load", init);
