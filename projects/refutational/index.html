@@ -1,7 +1,7 @@
 ---
-title: "Symbolic Repair Learning"
-description: "Finite repair of semantic objects through explicit refutation witnesses."
-keywords: "Symbolic Repair Learning, semantic repair, refutation witnesses, constructive learning"
+title: "Refutational Learning"
+description: "A learning schema in which training proceeds by eliminating explicit refutation witnesses against a semantic object."
+keywords: "Refutational Learning, semantic repair, refutation witnesses, constructive learning"
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +20,7 @@ keywords: "Symbolic Repair Learning, semantic repair, refutation witnesses, cons
   </style>
 </head>
 <body>
-  <header>SYMBOLIC REPAIR LEARNING<span class="header-date">2025</span></header>
+  <header>REFUTATIONAL LEARNING<span class="header-date">2025</span></header>
   <div class="grid">
     <div class="grid-item d-w-3 m-w-9"><span class="nr"></span>
         <div class="grid-item-content">
@@ -71,17 +71,17 @@ keywords: "Symbolic Repair Learning, semantic repair, refutation witnesses, cons
             Summary
         </div>
         <p>
-          SYMBOLIC REPAIR LEARNING
+          REFUTATIONAL LEARNING
         </p>
         <p>
-          <span class="sc">Construction.</span> Symbolic Repair Learning fixes the semantics and trains by eliminating explicit finite refutation witnesses. The result is a trace with checkable states, not merely a final parameter vector.
+          Refutational Learning is a learning schema in which training proceeds by eliminating explicit refutation witnesses against a semantic object. A learner is not primarily moved through a loss landscape; it is repaired in response to exhibited failures. The process terminates, relative to a declared finite obligation set, when no remaining witness refutes the object.
         </p>
         <p>
           Key materials:
         </p>
         <ul>
           <li>
-            Standalone EMNIST Python program <a href="https://github.com/Milan-Rosko/symbolic-repair-learning" target="_blank" rel="noopener noreferrer">GitHub</a>
+            Standalone EMNIST Python program <a href="https://github.com/Milan-Rosko/refutational-learning" target="_blank" rel="noopener noreferrer">GitHub</a>
           </li>
           <li>
               Draft paper <a href="./symbolic-repair-learning.pdf" target="_blank" rel="noopener noreferrer">.pdf</a>
@@ -114,7 +114,7 @@ keywords: "Symbolic Repair Learning, semantic repair, refutation witnesses, cons
     <div class="grid-item-content">
       <div class="box contentbox" id="core-idea">
         <p>
-            On <span class="sc">Symbolic Repair Learning</span>.
+            On <span class="sc">Refutational Learning</span>.
         </p>
         <p>
             The central contribution is a constructive account of learning as semantic repair. The process begins when the current interpretation fails a declared margin condition. That failure is exposed by a refutation witness: a finite example/class pair that identifies the specific margin violation.
@@ -136,7 +136,7 @@ keywords: "Symbolic Repair Learning, semantic repair, refutation witnesses, cons
           <i>This is not a benchmark claim.</i> The comparison isolates what each training trace makes visible.
         </p>
         <p>
-          SGD is included because it compresses failure into a numerical loss signal. Symbolic Repair Learning keeps the failing obligation explicit as a refutation witness.
+          SGD is included because it compresses failure into a numerical loss signal. Refutational Learning keeps the failing obligation explicit as a refutation witness.
         </p>
         <p>
           <i>Note.</i> The demo is easiest to read after the short technical orientation below.
@@ -153,11 +153,11 @@ keywords: "Symbolic Repair Learning, semantic repair, refutation witnesses, cons
         </p>
 
         <p>
-          (ii) <span class="sc">Symbolic Repair Learning</span> locates an explicit refutation witness, performs a local repair on the sparse integer table $W$, and propagates its semantic consequences through postings into a cached score matrix $S$. <span class="sc">Gradient Descent</span> instead performs SGD updates on softmax cross-entropy with floating weights, while prediction is still read out by the same locked $\arg\max\nolimits^{*}$.
+          (ii) <span class="sc">Refutational Learning</span> locates an explicit refutation witness, performs a local repair on the sparse integer table $W$, and propagates its semantic consequences through postings into a cached score matrix $S$. <span class="sc">Gradient Descent</span> instead performs SGD updates on softmax cross-entropy with floating weights, while prediction is still read out by the same locked $\arg\max\nolimits^{*}$.
         </p>
 
         <p>
-            <i>What the trace shows.</i> The <span class="sc">Symbolic Repair Learning</span> trace exposes each refutation witness, repair, and resulting state. The GD trace reports loss and accuracy computed under the same locked readout.
+            <i>What the trace shows.</i> The <span class="sc">Refutational Learning</span> trace exposes each refutation witness, repair, and resulting state. The GD trace reports loss and accuracy computed under the same locked readout.
         </p>
         <p>
           We start with linearly separable datasets, e.g. $\mathrm{NAND/OR/AND}$ where finite-table closure is typically reachable. Alternatively, we can examine “harder” cases, some of which are not separable in this setting, e.g. $\textrm{XOR}$ or $\textrm{Parity-of-3}$.
@@ -204,7 +204,7 @@ keywords: "Symbolic Repair Learning, semantic repair, refutation witnesses, cons
             The demo instantiates the repair loop on small Boolean datasets and compares it with an SGD trace under the same locked readout rule.
         </p>
         <p>
-            As you step through the traces, compare what each method exposes: Symbolic Repair Learning exposes the current margin violation, its refutation witness, and the resulting repair; Gradient Descent exposes loss and accuracy.
+            As you step through the traces, compare what each method exposes: Refutational Learning exposes the current margin violation, its refutation witness, and the resulting repair; Gradient Descent exposes loss and accuracy.
         </p>
         <hr>
         <p>
@@ -239,7 +239,7 @@ keywords: "Symbolic Repair Learning, semantic repair, refutation witnesses, cons
           <span id="epochsDerived"></span>.
         </p>
         <p>
-          A cycle is one attempted update: one repair step for Symbolic Repair Learning or one SGD update for Gradient Descent. The same number of cycles is used to make the traces comparable as executions, not to claim equal computational cost.
+          A cycle is one attempted update: one repair step for Refutational Learning or one SGD update for Gradient Descent. The same number of cycles is used to make the traces comparable as executions, not to claim equal computational cost.
         </p>
         <p>
           Seed: <input type="number" id="seed" value="123456789" step="1" class="input input-w-10em"/>
@@ -252,10 +252,10 @@ keywords: "Symbolic Repair Learning, semantic repair, refutation witnesses, cons
           </select>
         </p>
         <p>
-          On the GD side, deterministic scan order makes replay trivial; seeded shuffle changes the order while preserving reproducibility. Symbolic Repair Learning always scans for the earliest refutation witness.
+          On the GD side, deterministic scan order makes replay trivial; seeded shuffle changes the order while preserving reproducibility. Refutational Learning always scans for the earliest refutation witness.
         </p>
         <p>
-            For Symbolic Repair Learning, margin $\gamma$:
+            For Refutational Learning, margin $\gamma$:
           <input type="number" id="tGamma" value="1" min="0" step="1" class="input input-w-5em"/>,
             overshoot $\Delta$:
           <input type="number" id="tDelta" value="0" min="0" step="1" class="input input-w-5em"/>.
@@ -292,7 +292,7 @@ keywords: "Symbolic Repair Learning, semantic repair, refutation witnesses, cons
         <p>
             <span class="u">Step 4.</span> Analyze the traces. Both run through the finite table for the requested cycle budget.
         </p>
-        <div class="align-center">(a) Symbolic Repair Learning (finite, refutation-guided, cached)</div>
+        <div class="align-center">(a) Refutational Learning (finite, refutation-guided, cached)</div>
         <p>
           State:
         </p>
@@ -320,7 +320,7 @@ keywords: "Symbolic Repair Learning, semantic repair, refutation witnesses, cons
           <div id="tNote" class="output">Waiting for build.</div>
         </div>
         <p>
-          Symbolic Repair Learning log: inspect the refutation witness, competing class, repair amount, and predicate state shown above.
+          Refutational Learning log: inspect the refutation witness, competing class, repair amount, and predicate state shown above.
         </p>
         <div class="console sqbound h-10em" id="tLog">Waiting for build.</div>
         <p>
@@ -458,7 +458,7 @@ keywords: "Symbolic Repair Learning, semantic repair, refutation witnesses, cons
         </p>
         <h3>Research direction</h3>
         <p>
-          Symbolic Repair Learning may be well suited to regimes where a semantic object is repeatedly repaired in response to new refutation witnesses. The broader question is which parts of this training discipline survive beyond the prototype’s finite-table representation.
+          Refutational Learning may be well suited to regimes where a semantic object is repeatedly repaired in response to new refutation witnesses. The broader question is which parts of this training discipline survive beyond the prototype’s finite-table representation.
         </p>
       </div>
     </div>

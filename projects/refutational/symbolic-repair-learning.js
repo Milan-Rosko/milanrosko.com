@@ -3,7 +3,7 @@
   By Milan Rosko (c)
 
   Patch set (Jan 2026):
-  - Symbolic Repair Learning: push a terminal snapshot when FULL.ok is reached.
+  - Refutational Learning: push a terminal snapshot when FULL.ok is reached.
   - Semantics lock: truthful schedule statement (Typed deterministic; GD respects scanOrder/seed).
   - GD trace: store only W + scalar metrics; compute logits/probs on-demand in render.
   - Logs: render once, update highlight only.
@@ -163,7 +163,7 @@
     return facts;
   }
 
-  // ---------- Symbolic Repair Learning core ----------
+  // ---------- Refutational Learning core ----------
   function buildFiniteTable(examples, featNames) {
     const N = examples.length;
     const FI = new Array(N);
@@ -640,7 +640,7 @@
       `features: bias + unary (x_i=1)\n` +
       `prediction: argmax* (first maximum)\n` +
       `budget: C=${C} cycles (shared)\n` +
-      `Symbolic Repair Learning schedule: deterministic scan i=0..N-1 (first witness)\n` +
+      `Refutational Learning schedule: deterministic scan i=0..N-1 (first witness)\n` +
       `GD schedule: ${scan === 'shuffle' ? 'shuffle per epoch (seeded)' : 'deterministic i = cycle mod N'}\n` +
       `seed (GD shuffle): ${seed}`;
   }
@@ -830,7 +830,7 @@
       `features: bias + unary (x_i=1)\n` +
       `prediction: argmax* (first maximum)\n` +
       `budget: C=? cycles (shared)\n` +
-      `Symbolic Repair Learning schedule: deterministic scan i=0..N-1 (first witness)\n` +
+      `Refutational Learning schedule: deterministic scan i=0..N-1 (first witness)\n` +
       `GD schedule: deterministic i = cycle mod N\n` +
       `seed (GD shuffle): ?`;
   }
