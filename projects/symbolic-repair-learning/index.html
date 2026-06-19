@@ -1,0 +1,493 @@
+---
+title: "Symbolic Repair Learning"
+description: "Finite repair of semantic objects through explicit refutation witnesses."
+keywords: "Symbolic Repair Learning, semantic repair, refutation witnesses, constructive learning"
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="../../style.css">
+  <script src="../../js/mathjaxconfig.js"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+  {% include meta.html %}
+  <style>
+    #dataset {
+      width: 15em;
+      margin: 1em auto;
+      min-height: 10em;
+      resize: none;
+    }
+  </style>
+</head>
+<body>
+  <header>SYMBOLIC REPAIR LEARNING<span class="header-date">2025</span></header>
+  <div class="grid">
+    <div class="grid-item d-w-3 m-w-9"><span class="nr"></span>
+        <div class="grid-item-content">
+            <div class="box navibox">
+                <p>
+                  Navigation:
+                </p>
+                <ul>
+                    <li>
+                        Main site <a href="../../index.html">.html</a><br>
+                    </li>
+                </ul>
+                <p>
+                  On this page:
+                </p>
+                <ul>
+                    <li>
+                        Summary <a href="#summary">#</a>
+                    </li>
+                    <li>
+                        Core idea <a href="#core-idea">#</a>
+                    </li>
+                    <li>
+                        Repair loop <a href="#repair-loop">#</a>
+                    </li>
+                    <li>
+                        Interactive demo <a href="#demo">#</a>
+                    </li>
+                    <li>
+                        Technical details <a href="#detail">#</a>
+                    </li>
+                    <li>
+                        Limits <a href="#limits">#</a>
+                    </li>
+                    <li>
+                        Invitation <a href="#invitation">#</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid-item d-w-6 m-w-9" id="summary">
+    <span class="nr"></span>
+    <div class="grid-item-content">
+      <div class="box monobox">
+        <div class="info">
+            Summary
+        </div>
+        <p>
+          SYMBOLIC REPAIR LEARNING
+        </p>
+        <p>
+          <span class="sc">Construction.</span> Symbolic Repair Learning fixes the semantics and trains by eliminating explicit finite refutation witnesses. The result is a trace with checkable states, not merely a final parameter vector.
+        </p>
+        <p>
+          Key materials:
+        </p>
+        <ul>
+          <li>
+            Standalone EMNIST Python program <a href="https://github.com/Milan-Rosko/symbolic-repair-learning" target="_blank" rel="noopener noreferrer">GitHub</a>
+          </li>
+          <li>
+              Draft paper <a href="./symbolic-repair-learning.pdf" target="_blank" rel="noopener noreferrer">.pdf</a>
+          </li>
+        </ul>
+        <p>
+          Secondary literature and prerequisites:
+        </p>
+        <ul>
+          <li>
+            Kleene: Introduction to Metamathematics <a href="https://doi.org/10.2307/2268620" target="_blank" rel="noopener noreferrer">DOI</a>
+          </li>
+          <li>
+            Troelstra, van Dalen:
+            Constructivism in Mathematics: An Introduction <a href="https://doi.org/10.1016/s0049-237x(09)x7019-9" target="_blank" rel="noopener noreferrer">DOI</a>
+          </li>
+          <li>
+            On Stochastic Gradient Descent <a href="https://en.wikipedia.org/wiki/Stochastic_gradient_descent" target="_blank" rel="noopener noreferrer">Wikipedia</a>
+          </li>
+          <li>
+            On Type Systems <a href="https://en.wikipedia.org/wiki/Type_system" target="_blank" rel="noopener noreferrer">Wikipedia</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-item d-w-9 m-w-9">
+    <span class="nr"></span>
+    <div class="grid-item-content">
+      <div class="box contentbox" id="core-idea">
+        <p>
+            On <span class="sc">Symbolic Repair Learning</span>.
+        </p>
+        <p>
+            The central contribution is a constructive account of learning as semantic repair. The process begins when the current interpretation fails a declared margin condition. That failure is exposed by a refutation witness: a finite example/class pair that identifies the specific margin violation.
+        </p>
+        <p>
+          The learner responds with a local integer repair. Repeating this step produces a finite trace in which each state follows from an explicit witness and repair. When no declared refutation witness remains, the interpretation has reached closure on the finite table.
+        </p>
+        <h3>Glossary</h3>
+        <p><span class="mono">Semantics lock</span>: the fixed preprocessing, feature schema, scoring rule, readout rule, and scan schedule.</p>
+        <p><span class="mono">Witness table</span>: the fixed finite collection of examples over which the declared obligations are checked.</p>
+        <p><span class="mono">Refutation witness</span>: a concrete finite example/class pair showing that the current state violates the declared margin condition.</p>
+        <p><span class="mono">Repair</span>: the integer update triggered by such a witness.</p>
+        <p><span class="mono">Closure</span>: the condition that no declared finite refutation witness remains.</p>
+        <p><span class="mono">Trace</span>: the replayable sequence of states produced by repairs.</p>
+        <p>
+          The comparison with <span class="sc">Gradient Descent</span> therefore concerns two conceptions of training: explicit repair of witnessed semantic failure, and numerical descent over a scalar objective.
+        </p>
+        <p>
+          <i>This is not a benchmark claim.</i> The comparison isolates what each training trace makes visible.
+        </p>
+        <p>
+          SGD is included because it compresses failure into a numerical loss signal. Symbolic Repair Learning keeps the failing obligation explicit as a refutation witness.
+        </p>
+        <p>
+          <i>Note.</i> The demo is easiest to read after the short technical orientation below.
+        </p>
+        <p>
+            Both are implemented in JavaScript and judged by the same locked prediction rule $\arg\max\nolimits^{*}$, but the aim is analytic rather than competitive. The shared interface isolates the difference between repairing a finite interpretation in response to a refutation witness and updating coordinates according to a differentiable objective.
+        </p>
+        <p>
+            The extensional interface remains fixed and each trace runs under its declared scan schedule. The important difference is not only how the update is computed, but what kind of evidence the update leaves behind.
+        </p>
+
+        <p>
+            (i) We fix the witness table, the feature schema (bias, unary facts), the number of classes, and the scan order used by each method. Each cycle therefore has an unambiguous definition and can be replayed exactly.
+        </p>
+
+        <p>
+          (ii) <span class="sc">Symbolic Repair Learning</span> locates an explicit refutation witness, performs a local repair on the sparse integer table $W$, and propagates its semantic consequences through postings into a cached score matrix $S$. <span class="sc">Gradient Descent</span> instead performs SGD updates on softmax cross-entropy with floating weights, while prediction is still read out by the same locked $\arg\max\nolimits^{*}$.
+        </p>
+
+        <p>
+            <i>What the trace shows.</i> The <span class="sc">Symbolic Repair Learning</span> trace exposes each refutation witness, repair, and resulting state. The GD trace reports loss and accuracy computed under the same locked readout.
+        </p>
+        <p>
+          We start with linearly separable datasets, e.g. $\mathrm{NAND/OR/AND}$ where finite-table closure is typically reachable. Alternatively, we can examine “harder” cases, some of which are not separable in this setting, e.g. $\textrm{XOR}$ or $\textrm{Parity-of-3}$.
+        </p>
+        <p>
+          These cases are useful because failure is informative: the trace can show persistent refutation witnesses rather than falsely certifying success.
+        </p>
+        <p>
+          The Boolean presets show the repair logic in miniature. The EMNIST notebook applies the same discipline to a larger finite witness table.
+        </p>
+        <h3 id="repair-loop">The repair loop</h3>
+        <ol>
+          <li>Evaluate the current semantic state.</li>
+          <li>Find the earliest refutation witness to a margin violation.</li>
+          <li>Repair the state locally.</li>
+          <li>Check whether any finite refutation witness remains.</li>
+        </ol>
+        <p>
+          For state $\Sigma_t=(W_t,S_t)$, the next witness is selected by its earliest example index $i^*$; $c^*$ is the strongest competing class under the fixed tie-broken readout:
+        </p>
+        <div class="mathjaxwrap">
+          $$
+            \begin{array}{l}
+              \Sigma_0 := (W_0,S_0) = (0,0),\\[0.6ex]
+              \Sigma_{t+1} := \mathsf{Repair}_{\gamma,\Delta}(\Sigma_t),\\[0.8ex]
+              i^* = \min\{\, i < N \mid \exists c\neq y_i:\ S(i,y_i) < S(i,c)+\gamma \,\},\\[0.4ex]
+              c^* = \arg\max\nolimits^{\!*}_{c\neq y_{i^*}}\, S(i^*,c).
+            \end{array}
+          $$
+        </div>
+        <p>
+          The trace is not merely a visualization. It is the finite history from which the terminal state and its checks can be recomputed.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-item d-w-9 m-w-9">
+    <span class="nr"></span>
+    <div class="grid-item-content">
+      <div class="box monobox" id="demo">
+        <div class="info">Demo</div>
+        <p>
+            The demo instantiates the repair loop on small Boolean datasets and compares it with an SGD trace under the same locked readout rule.
+        </p>
+        <p>
+            As you step through the traces, compare what each method exposes: Symbolic Repair Learning exposes the current margin violation, its refutation witness, and the resulting repair; Gradient Descent exposes loss and accuracy.
+        </p>
+        <hr>
+        <p>
+          <span class="u">Step 1.</span> Choose a preset:
+        </p>
+        <p>
+          <select id="preset" class="input">
+            <option value="nand">NAND (2-bit)</option>
+            <option value="or">OR (2-bit)</option>
+            <option value="and">AND (2-bit)</option>
+            <option value="xor">XOR (2-bit)</option>
+            <option value="impl">Implication (2-bit)</option>
+            <option value="xandnot">x1 ∧ ¬x2 (2-bit)</option>
+            <option value="maj3">majority-of-3 (3-bit)</option>
+            <option value="parity3">parity-of-3 (3-bit)</option>
+          </select>
+        </p>
+        <p>
+            Dataset (editable):<br>
+          <textarea id="dataset" class="input"></textarea>
+        </p>
+        <p>
+          Note. Inputs are separated by spaces, then “|”, then class label. Example: 0 1 | 1.
+        </p>
+        <hr>
+        <p>
+          <span class="u">Step 2.</span> Optionally choose the run budget and update-rule parameters.
+        </p>
+        <p>
+          Shared budget (cycles C):
+          <input type="number" id="cycles" value="200" min="1" step="1" class="input input-w-5em" />
+          <span id="epochsDerived"></span>.
+        </p>
+        <p>
+          A cycle is one attempted update: one repair step for Symbolic Repair Learning or one SGD update for Gradient Descent. The same number of cycles is used to make the traces comparable as executions, not to claim equal computational cost.
+        </p>
+        <p>
+          Seed: <input type="number" id="seed" value="123456789" step="1" class="input input-w-10em"/>
+        </p>
+        <p>
+          Scan order:
+          <select id="scanOrder" class="input">
+            <option value="det">deterministic</option>
+            <option value="shuffle">shuffle</option>
+          </select>
+        </p>
+        <p>
+          On the GD side, deterministic scan order makes replay trivial; seeded shuffle changes the order while preserving reproducibility. Symbolic Repair Learning always scans for the earliest refutation witness.
+        </p>
+        <p>
+            For Symbolic Repair Learning, margin $\gamma$:
+          <input type="number" id="tGamma" value="1" min="0" step="1" class="input input-w-5em"/>,
+            overshoot $\Delta$:
+          <input type="number" id="tDelta" value="0" min="0" step="1" class="input input-w-5em"/>.
+        </p>
+        <p>
+            For the loss-landscape comparison, learning rate $\eta$:
+          <input type="number" id="gLR" value="0.3" min="0.0001" step="0.01" class="input input-w-5em"/>.
+        </p>
+        <hr>
+        <p>
+          <span class="u">Step 3.</span> Generate the two traces.
+        </p>
+        <p>
+          <button id="buildBtn">Generate Traces</button>
+        </p>
+        <div class="console min-h-8em">
+          Build status:<br>
+          <div id="buildText" class="output">Not built.</div>
+        </div>
+
+        <p>
+            The semantics lock says exactly what is being held fixed, so that a later trace comparison is not affected by changing preprocessing, readout, tie-breaking, or evaluation criteria.
+        </p>
+        <p>
+            Symbolically, $\mathcal{L}$ records $K$ classes, $N$ examples, $F$ features, prediction by $\arg\max\nolimits^{*}$, and the scan schedule.
+        </p>
+        <p>
+          Semantics Lock:
+        </p>
+        <div class="console">
+          <div id="lockText" class="output"></div>
+        </div>
+        <hr>
+        <p>
+            <span class="u">Step 4.</span> Analyze the traces. Both run through the finite table for the requested cycle budget.
+        </p>
+        <div class="align-center">(a) Symbolic Repair Learning (finite, refutation-guided, cached)</div>
+        <p>
+          State:
+        </p>
+        <div class="console">
+          <span id="tWF" class="pill">WF: ?</span>
+          <span id="tFULL" class="pill">FULL.ok: ?</span>
+          <span id="tCACHE" class="pill">CACHE.ok: ?</span>
+        </div>
+        <div class="mb-2em">
+          Cycle selection:<br>
+          <div class="sliderRow">
+            <input type="range" id="tCycle" min="0" max="0" class="hidden"/>
+            <input type="number" id="tCycleNum" min="0" value="0" step="1" class="input"/>
+            <button id="tPlay" class="secondary" disabled>Play</button>
+            <button id="tStop" class="secondary" disabled>Stop</button>
+            <button id="tStep" class="secondary" disabled>Step +1</button>
+            <button id="tLast" class="secondary" disabled>Last</button>
+          </div>
+        </div>
+        <p>
+          Snapshot:
+        </p>
+        <div class="console">
+          <div id="tCert" class="output"></div>
+          <div id="tNote" class="output">Waiting for build.</div>
+        </div>
+        <p>
+          Symbolic Repair Learning log: inspect the refutation witness, competing class, repair amount, and predicate state shown above.
+        </p>
+        <div class="console sqbound h-10em" id="tLog">Waiting for build.</div>
+        <p>
+          Interpretation:
+        </p>
+        <div class="console">
+          <div id="tTableWrap" class="output"></div>
+          <div id="tWeightsWrap" class="output"></div>
+          <div id="tPostingsWrap" class="output"></div>
+        </div>
+        <hr>
+        <div class="align-center">(b) Loss-landscape descent (softmax cross-entropy, SGD)</div>
+        <div>
+          State:<br>
+          <div class="console">
+            <span id="gAcc" class="pill">acc: ?</span>
+            <span id="gLoss" class="pill">loss: ?</span>
+          </div>
+        </div>
+        <div class="mb-2em">
+          Cycle selection:<br>
+          <div class="sliderRow">
+            <input type="range" id="gCycle" min="0" max="0" class="hidden"/>
+            <input type="number" id="gCycleNum" min="0" value="0" step="1" class="input"/>
+            <button id="gPlay" class="secondary" disabled>Play</button>
+            <button id="gStop" class="secondary" disabled>Stop</button>
+            <button id="gStep" class="secondary" disabled>Step +1</button>
+            <button id="gLast" class="secondary" disabled>Last</button>
+          </div>
+        </div>
+        <p>
+          Snapshot:
+        </p>
+        <div class="console">
+          <div id="gCert" class="output"></div>
+          <div id="gNote" class="output"></div>
+        </div>
+        <p>
+          GD log: inspect the loss, prediction, and aggregate accuracy.
+        </p>
+        <div class="console sqbound h-10em" id="gLog">Waiting for build.</div>
+        <p>
+          Interpretation:
+        </p>
+        <div class="console">
+            <span id="gTableWrap" class="output">Waiting for build.</span>
+            <span id="gWeightsWrap" class="output"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="grid-item d-w-9 m-w-9">
+    <span class="nr"></span>
+    <div class="grid-item-content">
+      <div class="box contentbox" id="detail">
+        <h3>Formal setup</h3>
+        <p>
+            Fix deterministic preprocessing, a feature map $\Phi$, a finite witness table, and a stable tie-broken $\arg\max^{*}$ under a semantics lock $\mathcal{L}$. Let the learner state be a sparse integer weight table $W$ together with a cached score matrix $S$. Training selects the earliest refutation witness to a margin violation, applies a local repair, and terminates when every declared margin obligation is satisfied on the table.
+        </p>
+        <p>
+          In the current implementation, the evaluator can be viewed as a lambda-definable perceptron under the declared semantics.
+        </p>
+        <p>Aims:</p>
+        <ul>
+          <li><i>Object.</i> Learning transforms a finite interpretation with explicitly declared semantics.</li>
+          <li><i>Method.</i> Each update eliminates a concrete refutation witness while preserving decidable invariants.</li>
+          <li><i>Gate.</i> Accept the repaired evaluator only when finite validation under the lock $\mathcal{L}$ finds no remaining refutation witness.</li>
+        </ul>
+        <p>
+            The lock fixes preprocessing, feature extraction, tie-breaking, scan order, and evaluation criteria. These are the usual hidden degrees of freedom removed by the construction.
+        </p>
+        <p>
+            <i>Finite</i> means that the obligation set is bounded and explicit. <i>Replayable</i> means that the trace can be re-executed. <i>Checkable</i> means that its state predicates can be recomputed without trusting the trainer.
+        </p>
+        <p>
+          Training manipulates an explicit, finitary state
+        </p>
+        <div class="mathjaxwrap">
+          $$
+          \Sigma \;\equiv\; \{\;W, S, ...\;\},
+          $$
+        </div>
+        <p>
+          where $W$ is a sparse integer weight table and $S$ is a cached score matrix (maintained via postings).
+          This is the current prototype’s state representation, not a limit of the general idea.
+          After the repair loop is understood, each snapshot can also be checked by decidable predicates with diagnostic witnesses on failure:
+        </p>
+        <div class="mathjaxwrap">
+          $$
+            \begin{array}{l|l}
+              \mathsf{WF}(\Sigma) & \text{Well-formedness of the finite representation}\\[0.4ex]
+              \mathsf{CACHE.ok}(\Sigma) & \text{Cache correctness}\\[0.4ex]
+              \mathsf{FULL.ok}(\Sigma) & \text{Zero-violation / margin closure by } \arg\max^{*}\\
+            \end{array}
+          $$
+        </div>
+        <p>
+          These are not performance metrics. They are state predicates. They say whether the finite representation is well-formed, whether the cached scores still mean what they claim to mean, and whether the declared finite margin obligations have been closed.
+        </p>
+        <p>
+          <span class="mono">WF</span> says the finite state has the right shape: weights, examples, features, classes, and cache entries line up.
+        </p>
+        <p>
+          <span class="mono">CACHE.ok</span> says the fast cached scores agree with the slower definitional recomputation. This separates the learned object from an accidental implementation shortcut.
+        </p>
+        <p>
+          <span class="mono">FULL.ok</span> means: under the locked readout and margin rule, the finite table no longer contains a witnessed failure.
+        </p>
+        <p>
+          When a predicate fails, the system returns a concrete diagnostic witness: an explicit index and class showing a cache discrepancy,
+          or, for <span class="mono">FULL.ok</span>, the earliest refutation witness to a margin violation. When <span class="mono">FULL.ok</span> holds, the state has reached closure. Together with well-formedness and cache correctness, this supplies a finite certificate about the artifact under $\mathcal{L}$, not a global generalization claim.
+        </p>
+        <hr>
+        <p>
+            Operationally this resembles error-driven methods (perceptron-like in spirit), but its interpretation is different. A gradient is not taken as evidence of direction in a pre-given topological landscape. The learner instead receives a refutation witness to a declared semantic obligation and performs a repair whose effect is explicitly propagated. Learning is therefore a sequence of witness eliminations over a named object. Implementation substitution is considered only after the resulting state has passed its declared checks.
+        </p>
+        <p>
+          Let $\textsf{E}_{\mathsf{ref}}$ be a reference evaluator induced by the lock $\mathcal{L}$
+          (e.g. recomputation from $\Phi$ and a declared scoring rule), and let $\textsf{E}_{\mathsf{learn}}$ be the learned evaluator encoded by a terminal snapshot $\Sigma_T$. Here, “replace” means implementation substitution: using $\textsf{E}_{\mathsf{learn}}$ where $\textsf{E}_{\mathsf{ref}}$ would otherwise be evaluated. Before that substitution, a bounded comparison must establish semantic agreement on the locked finite table, such as
+        </p>
+        <div class="mathjaxwrap">
+          $$
+            \forall i < \mathrm{N} : \textsf{E}_{\mathsf{learn}}(x_i) = \textsf{E}_{\mathsf{ref}}(x_i)
+          $$
+        </div>
+        <p>
+          This obligation establishes equivalence only on the declared finite table; it does not identify the two implementations or justify behavior outside the lock. Acceptance of the learned state is a separate question governed by the declared closure and state predicates. When the substitution check fails, it returns the concrete failing index $i$.
+        </p>
+        <h3 id="limits">Limits</h3>
+        <p>
+          The prototype is intentionally simple extensionally. Its role is to isolate the training discipline: deterministic refutation, finite repair, replayable trace, and explicit closure.
+        </p>
+        <p>
+          The project does not dissolve the black box. Once learning amounts to selecting a program in an expressive language, intensional structure remains underdetermined by behavior. If the underlying problem contains underdetermination, intractable minimization, or undecidable properties, additional model complexity does not by itself remove that core.
+        </p>
+        <h3>Research direction</h3>
+        <p>
+          Symbolic Repair Learning may be well suited to regimes where a semantic object is repeatedly repaired in response to new refutation witnesses. The broader question is which parts of this training discipline survive beyond the prototype’s finite-table representation.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-item d-w-9 m-w-9">
+    <span class="nr"></span>
+    <div class="grid-item-content">
+      <div class="box contentbox" id="invitation">
+        <h3>Invitation</h3>
+        <p>
+            Collaborators who want to reproduce traces, extend the system, or test its stated checks are invited. The aim is constructive scrutiny of explicit finite execution, effectivity, and optimization routines.
+        </p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="legend">
+  <div class="legend-title">Legend</div>
+  <div class="legend-item"><span class="legend-key">1</span><span class="legend-text">Navigation</span></div>
+  <div class="legend-item"><span class="legend-key">2</span><span class="legend-text">Summary</span></div>
+  <div class="legend-item"><span class="legend-key">3</span><span class="legend-text">Core Idea</span></div>
+  <div class="legend-item"><span class="legend-key">4</span><span class="legend-text">Interactive Demo</span></div>
+  <div class="legend-item"><span class="legend-key">5</span><span class="legend-text">Technical Details</span></div>
+  <div class="legend-item"><span class="legend-key">6</span><span class="legend-text">Invitation</span></div>
+</div>
+
+<script src="./symbolic-repair-learning.js" defer></script>
+</body>
+</html>
