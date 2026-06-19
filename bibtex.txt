@@ -4,94 +4,70 @@
   title         = {{Carryless Pairing: Additive Pairing in the Fibonacci Basis}},
   author        = {Rosko, M.},
   year          = {2025},
-  eprint        = {2509.10382},
-  archivePrefix = {arXiv},
-  primaryClass  = {math.LO},
-  note          = {arXiv preprint; cross-listed in cs.LO},
-  url           = {https://arxiv.org/abs/2509.10382}
+  note          = {arXiv submission 2509.10382; listed in cs.LO, math.LO},
+  url           = {https://doi.org/10.48550/arXiv.2509.10382}
 }
 
 @misc{rosko2025cubic,
   title         = {{Considering The Satisfiability of Cubic Diophantine Equations}},
   author        = {Rosko, M.},
   year          = {2025},
-  eprint        = {2510.00759},
-  archivePrefix = {arXiv},
-  primaryClass  = {math.LO},
-  note          = {arXiv preprint},
-  url           = {https://arxiv.org/abs/2510.00759}
+  note          = {arXiv submission 2510.00759; listed in math.LO},
+  url           = {https://doi.org/10.48550/arXiv.2510.00759}
 }
 
-@misc{rosko2025phiadic,
-  title         = {{The Fractal Logic of Phi-adic Recursion}},
+@misc{rosko2025goldenratio,
+  title         = {{On the Golden Ratio and Stable Self-Application}},
   author        = {Rosko, M.},
   year          = {2025},
-  eprint        = {2510.08934},
-  archivePrefix = {arXiv},
-  primaryClass  = {math.LO},
-  note          = {arXiv preprint},
-  url           = {https://arxiv.org/abs/2510.08934}
+  note          = {arXiv submission 2510.08934; listed in cs.LO, math.LO},
+  url           = {https://doi.org/10.48550/arXiv.2510.08934}
 }
 
 @misc{rosko2025primeconjectures,
   title         = {{On the Realizability of Prime Conjectures in Heyting Arithmetic}},
   author        = {Rosko, M.},
   year          = {2025},
-  eprint        = {2511.07774},
-  archivePrefix = {arXiv},
-  primaryClass  = {math.LO},
-  note          = {arXiv preprint},
-  url           = {https://arxiv.org/abs/2511.07774}
+  note          = {arXiv submission 2511.07774; listed in math.LO},
+  url           = {https://doi.org/10.48550/arXiv.2511.07774}
 }
 
 @misc{rosko2025solverparadox,
   title         = {{The Solver's Paradox in Formal Problem Spaces}},
   author        = {Rosko, M.},
   year          = {2025},
-  eprint        = {2511.14665},
-  archivePrefix = {arXiv},
-  primaryClass  = {cs.CC},
-  note          = {arXiv preprint},
-  url           = {https://arxiv.org/abs/2511.14665}
+  note          = {arXiv submission 2511.14665; listed in cs.CC},
+  url           = {https://doi.org/10.48550/arXiv.2511.14665}
 }
 
 @misc{rosko2025physicalfragment,
   title         = {{A Constructive Fragment of Physical Propositions}},
   author        = {Rosko, M.},
   year          = {2025},
-  eprint        = {2511.21296},
-  archivePrefix = {arXiv},
-  primaryClass  = {math.LO},
-  note          = {arXiv preprint},
-  url           = {https://arxiv.org/abs/2511.21296}
+  note          = {arXiv submission 2511.21296; listed in math.LO},
+  url           = {https://doi.org/10.48550/arXiv.2511.21296}
 }
 
 @misc{rosko2025adversarial,
   title         = {{Adversarial Barrier in Uniform Class Separation}},
   author        = {Rosko, M.},
   year          = {2025},
-  eprint        = {2512.08149},
-  archivePrefix = {arXiv},
-  primaryClass  = {math.LO},
-  note          = {arXiv preprint},
-  url           = {https://arxiv.org/abs/2512.08149}
+  note          = {arXiv submission 2512.08149; listed in math.LO},
+  url           = {https://doi.org/10.48550/arXiv.2512.08149}
 }
 
 @misc{rosko2026primitive,
   title         = {{Remarks on Primitive Regulation}},
   author        = {Rosko, M.},
   year          = {2026},
-  eprint        = {2605.18924},
-  archivePrefix = {arXiv},
-  primaryClass  = {math.LO},
-  note          = {arXiv preprint},
-  url           = {https://arxiv.org/abs/2605.18924}
+  note          = {arXiv submission 2605.18924; listed in math.LO},
+  url           = {https://doi.org/10.48550/arXiv.2605.18924}
 }
 
 @misc{rosko2026typedrepair,
-  title        = {{Typed Repair: EMNIST From Lambda-Definable Evaluation and Specialization Gate}},
-  author       = {Rosko, Milan},
-  year         = {2026},
-  note         = {Draft, self-hosted PDF},
-  url          = {https://milanrosko.com/projects/typedrepair/typedrepair.pdf}
+  title         = {{Typed Repair: EMNIST From Lambda-Definable Evaluation and Specialization Gate}},
+  author        = {Rosko, M.},
+  year          = {2026},
+  note          = {Draft, self-hosted PDF},
+  url           = {https://milanrosko.com/projects/typedrepair/typedrepair.pdf}
 }
