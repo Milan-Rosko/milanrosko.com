@@ -42,18 +42,6 @@
   max-width: 800px;
 }
 
-.caption {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 0 0 2em 0;
-  line-height: 1.3;
-  text-align: center;
-  pointer-events: none;
-  font-weight: 400;
-}
-
 button {
     border: 1px solid var(--color-black);
     background: var(--color-terminalbg);
@@ -231,6 +219,21 @@ table{
   border-radius: 0.5em;
 }
 
+.mathjaxlike {
+  color: var(--color-white-44);
+  border: var(--color-main-secondary-22) solid 1px;
+  background: var(--color-main-secondary-10);
+  max-width: 100%;
+  -webkit-overflow-scrolling: touch;
+  font-weight: 500;
+  border-radius: 0.5em;
+  padding: 1em;
+  font-family: var(--fontmono);
+  font-weight: 300;
+  font-size: 0.75em;
+}
+
+
 .unicodedark {
   color: var(--color-terminal) !important;
   background: var(--color-terminalbg) !important;
@@ -316,9 +319,57 @@ ul > li::before {
   font-size: var(--size-micro);
 }
 
+.toc > a.toc-item:link,
+.toc > a.toc-item:visited {
+  display: grid;
+  position: static;
+  grid-template-columns: 1rem auto;
+  align-items: start;
+  top: auto;
+  padding: 0;
+  margin: 0 0 0.1em 0;
+  font-size: var(--size-micro);
+  border: 0;
+  color: inherit;
+  background: transparent;
+  line-height: inherit;
+  font-family: inherit;
+  text-decoration: none;
+  transition: none;
+}
+
+.toc > a.toc-item > span {
+  line-height: inherit;
+}
+
+.toc > a.toc-item:hover,
+.toc > a.toc-item:focus-visible {
+  outline: none;
+  text-decoration: underline;
+}
+
 .toc-key {
   opacity: 1;
 }
+
+.miniscript{
+  font-family: var(--fontmono);
+  font-size: 0.75em;
+}
+
+.caption {
+  font-family: var(--fontmono);
+  font-size: 0.75em;
+  position: relative;
+  padding: 2em 0;
+  margin: auto;
+  line-height: 2;
+  text-align: center;
+  pointer-events: none;
+  font-weight: 400;
+  width: 80%;
+}
+
 
 @media (min-width: 801px) {
   .grid {

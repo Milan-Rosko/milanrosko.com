@@ -1,0 +1,356 @@
+---
+title: "What is Reflexica"
+description: "Introduction and program of formal logic for Reflexica."
+keywords: "Reflexica, formal logic, empiricism, excluded middle, finite witness, totality"
+og_title: "What is Reflexica"
+og_description: "An introduction and program of formal logic."
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="../../style.css">
+  <script src="../../js/mathjaxconfig.js"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+  {% include meta.html %}
+  <style>
+    .reflexica-world {
+      position: relative;
+      width: min(100%, 760px);
+      padding: 8em 0 8em 0;
+      max-width: 100%;
+      aspect-ratio: 16 / 10;
+      min-height: 320px;
+      overflow: hidden;
+      /*mix-blend-mode: lighten;*/
+      background: transparent;
+    }
+
+    #container,
+    #container canvas {
+      display: block;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      background: transparent;
+    }
+  </style>
+</head>
+<body>
+  <div class="introduction">
+    <h1>Program: What is Reflexica</h1>
+    <div class="toc">
+      <a class="toc-item" href="#navigation"><span class="toc-key">1</span><span class="toc-text">Navigation</span></a>
+      <a class="toc-item" href="#introduction"><span class="toc-key">2</span><span class="toc-text">Introduction</span></a>
+      <a class="toc-item" href="#characterization"><span class="toc-key">3</span><span class="toc-text">Characterization</span></a>
+      <a class="toc-item" href="#methodology"><span class="toc-key">4</span><span class="toc-text">Methodology</span></a>
+      <a class="toc-item" href="#cases-resonances"><span class="toc-key">5</span><span class="toc-text">Cases and Resonances</span></a>
+      <a class="toc-item" href="#program"><span class="toc-key">6</span><span class="toc-text">Program</span></a>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="grid-item d-w-3 m-w-9" id="navigation"><span class="nr"></span>
+      <div class="grid-item-content">
+        <div class="box monobox">
+          <p>
+            Navigation:
+          </p>
+          <ul>
+            <li>
+              Main site <a href="../../index.html">.html</a><br>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-item d-w-6 m-w-9"><span class="nr"></span>
+      <div class="grid-item-content">
+        <div class="box monobox">
+          <h2>
+            Summary
+          </h2>
+          <p>
+            Reflexica studies the displacement generated when finite witness is made to coincide with total domain.
+          </p>
+          <p class="miniscript">
+            Edit: June 2026
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-item d-w-9 m-w-9"><span class="nr"></span>
+      <div class="grid-item-content">
+        <div class="box reflexica-world">
+          <div id="container" aria-label="Reflexica shader fractal animation"></div>
+        </div>
+        <div class="caption">
+          Illustration: Chromostereopsis is a visual illusion in which high-contrast red and blue fields are perceived at different depths; above seventy percent of observers report the effect. A system's susceptibility to its own chromatic misregistration offers a perceptual case of Reflexica, where the conditions of observation become part of what is observed.
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-item d-w-9 m-w-9"><span class="nr"></span>
+      <div class="grid-item-content">
+        <div class="box contentbox">
+          <p class="miniscript">
+            First draft. Licenced under <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY</a>.
+          </p>
+          <p class="miniscript">
+            We study an operation that recurs across mathematics, semantics, computation, and empirical inquiry: the moment a local construction is quietly promoted into a claim about a completed domain. The promotion introduces no contradiction. That is the problem.
+          </p>
+          <h2>What is Reflexica?</h2>
+          <div id="introduction">
+          <h3>1 Introduction</h3>
+          <p>
+            Reflexica begins from an intuitionistic standpoint.
+          </p>
+          <p>
+            Contrary to popular belief, <i>Book IX, Proposition 20</i> of Euclid's <i>Elements</i> [Ref.] does not assert that infinitely many primes exist. It supplies an extension rule: given any finite collection of primes, one can construct a number that must be divisible by a prime outside that collection. The proposition is an iterable and open-ended procedure before the contemporary presentation converts it into a claim about a completed domain. The difference is not one of attitude, but in metamathematical commitment.
+          </p>
+          <p>
+            The procedural reading is answerable to explicit construction: it commits only to what that construction reaches, and no further. The existential reading presupposes a totality, the set of all primes, complete before any individual member is produced. One is constrained by structure; the other has made a large and quiet assumption before the first line is written.
+          </p>
+          <p>
+            Classically, this appears cost-free: any existential claim of a finite procedure can be read back into its procedural form without contradiction. The relevant distinction here is between proof-theoretic signatures [Ref.]. To establish that a number is <i>composite,</i> one produces a factor greater than one: a finite, extractable, checkable object. The witness <i>is</i> the proof. Numbers alone do not carry such a witness; it must be decided for them.
+          </p>
+          <p>
+            The asymmetry is visible in geometrically by a simple case.
+          </p>
+          <div class="mathjaxwrap">
+            $$
+            \begin{array}{ll}
+            1+1+1 & \qquad 1+1+1\\
+            1+1+1 & \qquad 1+1+1\\
+            1+1+1 & \qquad 1+0+0\\[2ex]
+            \exists \, \mathrm{d}_{i} >1 & \qquad ?
+            \end{array}
+            $$
+          </div>
+          <p>
+            The left arrangement witnesses factorization directly as the factor is read off the shape, while the right cannot provide a geometric primitive. No configuration of seven units exposes a nontrivial divisor, because there is none to exhibit. Primality must be established by exhaustive elimination, carried as a conclusion. The absence is not a gap in knowledge but a lack of structure—it is the feature that makes the witness asymmetry precise.
+          </p>
+          <p>
+            The lack of nontrivial factors is pulled through a theorem whose algebraic structure has already internalized the exclusion; the result is returned as a positive existential. The individual case remains decidable and well founded. What has occurred, however, is a small act of reification: an absence has been converted into a named object that can now be quantified over, composed into theorems, and treated as a feature of the domain rather than a local conclusion about a particular number. The conversion is conservative and introduces no contradiction. It is precisely this conservativeness that makes it easy to absorb—and easy to repeat at much larger scale without noticing that the character of the move has changed.
+          </p>       
+          <p>
+            By the early twentieth century, tensions of this kind could no longer be dismissed as a quirk of exposition. A theory may be locally impeccable and still carry a commitment in the way its existential conclusions are understood: a commitment that exceeds what the underlying procedure licenses. The difficulty is not that Euclid's construction fails to support the classical statement; it is that the classical statement is also an epistemic posture. The reification performed on primality, benign at the level of a single number, has here been extended to the entire collection.
+          </p>
+          <p>
+            This identifies a pattern that recurs wherever local witness is taken to license global closure. A finite, positive, checkable construction may establish a local result cleanly, while the passage to a universal or completed claim is sustained by a structural assumption that the construction itself does not supply. Wherever a finite procedure is promoted into a statement about a total domain, the passage carries implicit weight.
+          </p>
+          </div>
+          <div id="characterization">
+          <h3>2 Characterization</h3>
+          <p>
+            Reflexica is an interdisciplinary idea at the intersection of formal logic, natural sciences, and metamathematics. It investigates when empirical systems, models, and explanations treat the outputs or limits of local procedures as evidence for a completed domain not independently warranted by those procedures. Its central claim is that a systematic asymmetry exists between locally witnessed procedures and the global closure conditions those procedures are taken to establish, and that this boundary is self-similar and detectable only indirectly. The asymmetry does not impair mathematics or the sciences as they are ordinarily practiced; it becomes consequential at the periphery, where hard problems, foundational questions, and metamathematical phenomena converge, and the unexamined passage from local witness to global closure begins to carry implicit structural weight.
+          </p>
+          <p>
+            Reflexica is not a foundation, a replacement calculus, or a proposal to supersede classical mathematics aiming to replace Martin-Löf type theory, Bishop-style constructive mathematics, or constructive presentations of homotopy type theory, instead, we adopt a diagnostic posture that can be applied across settings—including classical and empiric ones—to mark the transition from local witness to global closure wherever that transition bears weight.
+          </p>
+          <h3>2.1 The Zeroth world </h3>
+          <p>
+            The name is an antiphrasis borrowing from Impagliazzo's [impagliazzo] possible-worlds taxonomy in average-case complexity, projecting a missing “uninhabited world.” We use this image to ask why a lack of method, known as <i>problems</i>, are converted into semantic architecture at all. Complexity theory enters here as both object and symptom: a field whose dominant formulations may stall when coupled to a contradiction-free classical totality, and thence, no contradiction follows, because the promotion remains conservative: an existential claim can be read back into its procedural counterpart.
+          </p>
+          <p>
+            The obstruction is not a technical limitation of specific formalisms or of the theoreticians working within them. It is a structural absence: a gap that certain classical principles reify locally, converting it into a reflection principle against which the system recurses on itself, rather than making contact with an independent domain that could ground the closure.
+          </p>
+          <div class="mathjaxlike">
+            When does a system treat the success of its local operations as empirical warrant for a closure claim about the system, its domain, or an independently existing structure?
+          </div>
+          <p>
+            The difficulty lies in the conservativeness of the promotion. At a specific threshold, a theory begins to produce what functions as an essence claim after its intended closure has already been reached, or to seek a proposition that restores a transitivity the system has quietly lost. Neither move announces itself as a departure. Each reads as ordinary mathematical practice. It is this readability that allows the passage to go unmarked.
+          </p>
+          </div>
+          <div id="methodology">
+          <h3>2.2 Methodology</h3>
+          <p>
+            We propose the following core methodological principles:
+          </p>
+          <ul>
+            <li>
+              <i>Limitative</i> abduction.
+            </li>
+            <li>
+              <i>Mechanization,</i> subject to exposition.
+            </li>
+            <li>
+              <i>Parsimonious</i> semantics.
+            </li>
+          </ul>
+          <p>
+            These extend to the following characteristic preliminary instruments:
+          </p>
+          <ul>
+            <li>
+              <i>Problem critique</i> examines the substrate choices and commitments through which a problem or a field is constituted.
+            </li>
+            <li>
+              <i>Semantic Liminality</i> denotes a site where problems from distinct formal domains share propositional logic.
+            </li>
+            <li>
+              <i>Sublimations</i> are irreversible many-to-one limitative reductions from a formal to an empirical regime.
+            </li>
+          </ul>
+          </div>
+          <div id="cases-resonances">
+          <h3>3 Topics</h3>
+          <p>
+            Below, we apply this approach across contemporary cases.
+          </p>
+          <h3>3.1 Newcomb's Problem</h3>
+          <p>
+            Newcomb's problem is commonly treated within decision theory as a question of causal rationality. Here, it carries an impredicative structure and provides an example of <i>problem critique</i>.
+          </p>
+          <div class="mathjaxlike">
+            The agent may either “one-box”, receiving $B$, or “two-box”, receiving $A+B$, where $A=1000\,\mathrm{USD}$ and $B\in\{0,10^6\}\,\mathrm{USD}$ has already been fixed by a predictor $P$. Specifically, $B=10^6\,\mathrm{USD}$ iff $P$ predicted one-boxing, and $B=0$ iff $P$ predicted two-boxing. Conditional on the value of $B$ being fixed, two-boxing strictly dominates one-boxing by $1000\,\mathrm{USD}$. However, let $C_1$ be the act of one-boxing and $C_2$ the act of two-boxing. If $p=\Pr(B=10^6\,\mathrm{USD}\mid C_1)$ and $q=\Pr(B=10^6\,\mathrm{USD}\mid C_2)$, then $\operatorname{EU}(C_1)=10^6p$ and $\operatorname{EU}(C_2)=1000+10^6q$. Hence one-boxing maximizes evidential expected utility iff $p-q>10^{-3}$.
+          </div>
+          <p>
+            Causal decision theory (CDT) treats $B$ as fixed and recommends $A+B$. Evidential decision theory (EDT) treats the act as evidence about the predictor's prior classification and recommends $B$, provided the evidential gap is sufficiently large. Both calculations are locally coherent. Neither addresses the prior question: whether the object being optimized over is well-formed.
+          </p>
+          <p>
+            We focus on the fact that the predictor is internalized as an evaluator over the same domain that contains the agent's decision procedure. The problem is then no longer merely that $P$ predicted $C$. It is that $C$ is allowed to be formed under the condition that $P$ evaluates $C$, while $P$ is simultaneously treated as ranging over such evaluator-sensitive choices. The object of evaluation is therefore not independent of the evaluating setup.
+          </p>
+          <div class="mathjaxwrap">
+            $$
+            P(C) \quad\text{where}\quad C=C(P(C)).
+            $$
+          </div>
+          <p>
+            This is the impredicative core. The agent's choice is not presented as a first-order act inside a fixed environment, but as an object partially constituted by its relation to the predictor. Once this is admitted, the predictor no longer functions as an ordinary antecedent.
+          </p>
+          <p>
+            The familiar disagreement between causal and evidential decision theory is therefore downstream. CDT restores predicativity by imposing a causal type distinction: the box is fixed, the act comes later, and no present intervention reaches backward. EDT instead collapses the predictor and the agent into one correlated evidential structure. Each response selects a different cut through the same impredicative substrate. Neither explains why such a substrate should have been admitted.
+          </p>
+          <p>
+            Reflexica's <i>problem critique</i> rejects this promotion. The first-order mechanism is admissible; the higher-order evaluator is not. A reliable predictor may be stipulated externally for a particular case, but it cannot, without further witness, be promoted into a total evaluator over the class of agents whose decisions are themselves conditioned by that evaluation. That promotion is precisely the unmarked passage from local procedure to global closure.
+          </p>
+          <p>
+            What remains is a bounded decision problem. One may specify a particular agent, a predictor with stated reliability over a fixed hypothesis class, and an explicit payoff structure; within that model, one may ask which action maximizes a selected decision rule, how calibration changes evidential and causal dependencies, and how robust the recommendation is under changes to the model. The restriction is not a ban on prediction, choice, or decision theory. It denies only the unlicensed promotion of a locally specified predictive mechanism into a total evaluator of an open-ended class of evaluator-sensitive agents.
+          </p>
+          <h3>3.2 Queer Objects</h3>
+          <p>
+            The preceding example concerned an evaluator admitted into the same domain as the procedure it evaluates. The present case concerns a difficulty in which the object is not an evaluator but a problem itself. Under this reading, Mackie's Error Theory is not primarily a thesis about morals, but is a local moral expression of a logical obstruction: the difficulty of treating an absence, once disciplined by a practice, as though it already named the object whose absence it marks. His queerness argument becomes intelligible as a resonance of a pattern.
+          </p>
+          <p>
+            A practice encounters a lack of a term; the lack is bounded, returned to, and worked upon; and at some threshold the absence is permitted to appear as a semantic object.
+          </p>
+          <p>
+            The claim that error theory is unwitnessable if and only if it is true is itself a fixed point. If the semantic object required by moral discourse could be produced, the theory would fail; if the theory is correct, no such object can be produced. Its correctness therefore cannot appear as a positive witness without cancelling itself. What it marks is not a missing object subsequently available to inspection, but an absence whose being witnessed would destroy the very thesis that identified it.
+          </p>
+          <p>
+            We therefore treat Mackie’s queerness argument as an indirect indication of absence. Where a discourse requires a queer semantic object, the failure to produce or locate that object is not simply a gap awaiting repair. It is evidence, defeasible but structurally appropriate, that no such object belongs to the domain. The object is not refuted by comparison with an independently available reality: it is exposed by the inability of the practice that requires it to furnish the term on which its own semantic force depends.
+          </p>
+          <h3>3.3 Self-Relation and Obstruction</h3>
+          <p>
+            A self-similarity obstruction is proposed across different domains without a witness for that proposal. The resonance itself—the recurrence of a similar obstruction across algebra, computation, and proof theory—would be an unwitnessed totality claim of exactly the kind Reflexica diagnoses if it were asserted as established. To say that these cases are instances of one thing would be to perform the move being described.
+          </p>
+          <p>
+            Reflexica is therefore not in a position to explain the resonance. It can only pose a question: why might self-relation, through self-embedding or self-similarity, generate obstruction independently across domains that share no objects, no methods, and no historical contact at the relevant points of development?
+          </p>
+          <p>
+            For a Turing machine $\mathcal{M}$, the language $\mathcal{L}(\mathcal{M})$ is not an object among its states, symbols, or transitions. It is the semantic extension assigned to the machine:
+          </p>
+          <div class="mathjaxwrap">
+            $$
+              \mathcal{M}\in\mathbf{TM},\quad [[\mathcal{M}]] = L(\mathcal{M}) \subseteq\Sigma^{*}.
+            $$
+          </div>
+          <p>
+            A particular computation may witness that a string belongs to $\mathcal{L}(\mathcal{M})$. The language itself, however, is not another term available to the computation. It is the extension obtained when the machine's activity is taken as a whole. A self-description remains a presentation of the rule; a stream of accepted strings remains a sequence of witnesses. Neither returns the extension as an object internal to the activity that constitutes it.
+          </p>
+          <p>
+            The obstruction appears when that activity is required to yield its own closure. The machine is not denied an inventory it already possesses. Rather, the demand presupposes a separation between the procedure and the language whose extension that procedure is.
+          </p>
+          <p>
+            An apparently unrelated question posed to a human yields a structurally analogous limit.
+          </p>
+          <div class="mathjaxlike" style="text-align: center;">
+            How many words do you know?
+          </div>
+          <p>
+            The question is well formed, but an exact answer need not be available to the subject. Producing one would require an exhaustive, fixed inventory of an evolving and context-sensitive linguistic competence; the survey would be conducted by the very system whose contents were being inventoried. What returns is often an estimate rather than a retrieved census.
+          </p>
+          <p>
+            A language model asked the same question may also return an estimate. Such an estimate should be understood as a locally generated response rather than a retrieved census.
+          </p>
+          <p>
+            Whether a given system contains a complete inventory of its linguistic capacities is an empirical and architectural question; the formal result does not settle it. The proposed resonance concerns the task of closing an inventory from within a self-modeling system.
+          </p>
+          <h3>3.4 Seed</h3>
+          <p>
+            Finally, a trivial observation could be how so called mobile “apps” improved rapidly during the early 2010s, then the rate of distinguishable improvement slowed and effectively plateaued. Machine learning models trained on fixed benchmarks exhibit characteristic loss curves that steepen early and flatten asymptotically. Sprint-based development teams report high initial velocity that decays as a product matures. In each case the structure is similar: early iterations produce witnessable improvements; later iterations consume comparable resources for returns that the evaluative apparatus can no longer distinguish as progress. The phenomenon is not confined to a single domain or substrate. Its recurrence across organizational, computational, and market settings is what makes it a candidate for structural rather than contingent explanation.
+          </p>
+          <p>
+            The organizational and computational structures through which this optimization proceeds share a common form. A team abstracts over individual decisions; a sprint abstracts over the team's deliberation; a language model abstracts over its training corpus; an agent abstracts over individual model calls; subprocesses and task partitions abstract further still. Each promotion is many-to-one and, in the relevant sense, irreversible: the granularity of the layer below is not recoverable from the output of the layer above. This is not a defect. The compression is constitutive of the layer — it is what makes the layer operable at all. But it carries a determinate consequence: the refutation space available at each layer is strictly bounded by the compression that produced it. A layer can only witness improvements that are visible at its own level of abstraction. What falls below that threshold is not lost through error but through the very act of formation.
+          </p>
+          <p>
+            The structure is visible in its most disciplined form in the passage from pure logical content to effective computation. Each step selects one inhabitation of the space above it, discarding what the lower layer need  not distinguish to proceed.
+          </p>
+          <div class="mathjaxwrap">
+            $$
+            P \;\xrightarrow{\;\lambda\;}\; \lambda x.\,t 
+              \;\xrightarrow{\;\text{compile}\;}\; s 
+              \;\xrightarrow{\;\text{eval}\;}\; r
+            $$
+          </div>
+          <p>
+            Each arrow is surjective but not injective. The reversal is not merely difficult in practice; it is structurally underdetermined. What the runtime retains is insufficient to reconstruct the proposition that originated it.
+          </p>     
+          <p>
+            Whether the saturation observed across organizational, computational, and formal strata constitutes one phenomenon or a family of related ones is not settled here. What can be noted is that the compression enabling each layer is also what bounds it, and that this bound appears to generate, rather 
+            than merely terminate, the pressure toward the next layer of abstraction. The ceiling and the acceleration that encounters could be of logical origin.
+          </p>       
+          </div>
+          <div id="program">
+          <h3>4 The Program</h3>
+          <p>
+            The cases above presented are sharing no substrate, method, or historical contact at the relevant points, except one theme: self-reference. Reflexica proposes, rather than establishes, a structural position: recurrent self-relation—whether through self-survey or self-similar expansion—may coincide with a related formation limit, that is again self-similar. If such an obstruction is substrate-independent, the tools developed to handle it formally need not be bounded by their formal origin, but still they must be.
+          </p>
+          <p>
+           These rules might make the domain explicit before quantification ranges over it, but typing disciplines can mark the transition from local witness to global closure rather than absorbing it silently. What type theory does internally for mathematics, Reflexica proposes as a posture toward the empirical: not to formalize the empirical cases, but to ask whether the structural obstruction identified inside formal systems has an analogue in systems that model themselves.
+          </p>
+          <p>
+            As one knows, classical totalities and completed domains are undeniably productive and their local utility cannot be contested. Our demand is narrower: passage from locally witnessed procedure to globally closed domain be marked at the point of transit, not absorbed silently into the semantics in which the next layer of reasoning is expressed.
+          </p>
+          <p>
+            The expansion to the empirical realm is the program's purpose. Neuronal computation, evolutionary closure, and self-modeling in artificial systems are not offered as proofs that a formal obstruction governs the empirical domain. They are offered as possible sites at which a related structural question may recur: whether phenomena that arise in distinct formal, computational, and empirical regimes are instances of one obstruction, rather than merely comparable cases described in a common vocabulary.
+          </p>
+          <p>
+            The epistemically proper form is consequently not:
+          </p>
+          <div class="mathjaxlike" style="text-align: center;">
+            These are all reflexica.
+          </div>
+          <p>
+            but:
+          </p>
+          <div class="mathjaxlike" style="text-align: center;">
+            Under what conditions would these count as the same phenomenon?
+          </div>
+          <p>
+            To assert their identity in advance would transform a series of bounded observations into an unwitnessed totality claim—the very passage Reflexica seeks to mark. The resonance therefore identifies a frontier at which formal logic, metamathematics, and the sciences of complex self-modeling systems converge on a question that none of them, separately, has the resources to settle under consistency.
+          </p>
+          <p>
+            Our question then becomes sharper:
+          </p>
+          <div class="mathjaxlike" style="text-align: center;">
+            Is reflexica inherited?
+          </div>
+          <p>
+            It asks whether a structural configuration—local production, self-relation or self-survey, a demand for closure, and an ensuing unwitnessed reification or obstruction—is preserved across a change of substrate. If it is, then Reflexica may name a substrate-independent limitative structure. If it is not, then the apparent resonance belongs to our description of the cases rather than to the cases themselves.
+          </p>
+          <p>
+            These questions are deliberately left open. They are not rhetorical conclusions, but the correct epistemic form for claims at the boundary of what any closure can reach.
+          </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="./reflexica.js"></script>
+</body>
+</html>

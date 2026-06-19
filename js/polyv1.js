@@ -45,16 +45,31 @@ const ctx = (() => {
       ? Math.floor(Math.random() * Math.random() * (max - min)) + min
       : Math.floor(Math.random() * (max - min)) + min;
 
-  const SEGMENT_PALETTE = [
-    "red", "blue", "red", "black",
-    "red", "blue", "red", "black"
-  ];
+  function Color() {
+    const CBASE = 11;
+    const CT = 256 - CBASE;
 
-  function getSegmentColor(kind, alpha) {
-    if (kind === "red") return `rgba(255,0,0,${alpha})`;
-    if (kind === "blue") return `rgba(0,0,255,${alpha})`;
-    return `rgba(0,0,0,${alpha})`;
+    this.getRGB = (cf) => {
+      let red = Math.round(cf * (CBASE + CT * 1 * Math.cos(this.RK2 + c / this.RK1)));
+      let grn = Math.round(cf * (CBASE + CT * 2 * Math.cos(this.GK2 + c / this.GK1)));
+      let blu = Math.round(cf * (CBASE + CT * 3 * Math.cos(this.BK2 + c / this.BK1)));
+      return `rgb(${red},${grn},${blu})`;
+    };
+
+    this.randomize = () => {
+      this.RK1 = 10 + 40 * Math.random();
+      this.GK1 = 10 + 40 * Math.random();
+      this.BK1 = 10 + 40 * Math.random();
+
+      this.RK2 = TP * Math.random();
+      this.GK2 = TP * Math.random();
+      this.BK2 = TP * Math.random();
+    };
+
+    this.randomize();
   }
+
+  const color = new Color();
 
 
   /* ============================================================
@@ -123,6 +138,7 @@ const ctx = (() => {
   const DUR = 200;     // main cycle length in frames (shape morphing)
   let t = 0;
   let t2 = 0;
+  let c = 0;
 
   let frac = 1;
   let frac2 = 1;
@@ -150,9 +166,10 @@ const ctx = (() => {
    * 5. TRAIL DECAY (≈5 SECONDS)
    * ============================================================ */
 
-  // Cheap canvas-feedback trail: fade existing colored pixels toward the black backing.
-  const decaySeconds = 4.2;
-  const targetFactor = 0.035;
+  // We want old strokes to fade to ~5% of their brightness after 5 seconds.
+  // Model: intensity(t) = exp(-t / tau), with intensity(5s) ≈ 0.05.
+  const decaySeconds = 3;
+  const targetFactor = 0.2;
   const tau = -decaySeconds / Math.log(targetFactor);  // in seconds
 
   let lastTs = null;  // last timestamp from requestAnimationFrame
@@ -165,19 +182,8 @@ const ctx = (() => {
     // Temporarily reset transform so the fill covers the full canvas
     ctx.save();
     ctx.setTransform(1, 0, 0, 1, 0, 0);
-    ctx.globalCompositeOperation = "source-atop";
-    ctx.fillStyle = `rgba(0,0,0,${alpha})`;
+    ctx.fillStyle = `rgba(0,0,0,0)`;
     ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-    ctx.restore();
-  }
-
-  function drawBackgroundCircle() {
-    ctx.save();
-    ctx.globalCompositeOperation = "destination-over";
-    ctx.fillStyle = "#000";
-    ctx.beginPath();
-    ctx.arc(0, 0, CSIZE * 1.01, 0, TP);
-    ctx.fill();
     ctx.restore();
   }
 
@@ -221,19 +227,10 @@ const draw = () => {
   setPoints();
 
   let path = new Path2D();
-  let segmentPaths = {
-    red: new Path2D(),
-    blue: new Path2D(),
-    black: new Path2D()
-  };
-
   for (let i = 0; i < la.length; i++) {
     if (la[i].p) continue;
     if (la[i].p1.m || la[i].p2.m) {
-      const segment = la[i].getPath();
-      const colorKind = SEGMENT_PALETTE[i % SEGMENT_PALETTE.length];
-      path.addPath(segment);
-      segmentPaths[colorKind].addPath(segment);
+      path.addPath(la[i].getPath());
     }
   }
 
@@ -257,11 +254,8 @@ const draw = () => {
   ctx.stroke(path);
 
   ctx.lineWidth = 0.6 + 2 * (1 - Math.pow(ffa[0](), 8));
-  const alpha = 1 - Math.pow(fracm, 2);
-  for (const colorKind of ["red", "blue", "black"]) {
-    ctx.strokeStyle = getSegmentColor(colorKind, alpha);
-    ctx.stroke(segmentPaths[colorKind]);
-  }
+  ctx.strokeStyle = color.getRGB(1 - Math.pow(fracm, 2));
+  ctx.stroke(path);
 
   ctx.restore();   // important: keep decay in screen space
 };
@@ -280,11 +274,11 @@ const draw = () => {
 
     // Apply decay to existing content
     applyDecay(dt);
-    drawBackgroundCircle();
 
     // Advance counters
     t++;
     t2++;
+    c+=3;
 
     // Add rotation
     rot += rotSpeed;

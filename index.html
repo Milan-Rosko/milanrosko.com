@@ -17,7 +17,7 @@ og_type: "website"
     #anim-container1 {
       max-width: 25em;
       max-height: 25em;
-      mix-blend-mode: screen;
+      /*mix-blend-mode: screen;*/
 
       display: grid;
       position: relative;
@@ -44,20 +44,20 @@ og_type: "website"
     <div class="introduction">
         <h1>Personal Website / Frontpage</h1>
         <div class="toc">
-            <div class="toc-item"><span class="toc-key">1</span><span class="toc-text">Name, occupation, interests</span></div>
-            <div class="toc-item"><span class="toc-key">2</span><span class="toc-text">Polycurve trail</span></div>
-            <div class="toc-item"><span class="toc-key">3</span><span class="toc-text">Selected projects</span></div>
-            <div class="toc-item"><span class="toc-key">4</span><span class="toc-text">About</span></div>
-            <div class="toc-item"><span class="toc-key">5</span><span class="toc-text">Related links, legal</span></div>
-            <div class="toc-item"><span class="toc-key">6</span><span class="toc-text">Portrait</span></div>
-            <div class="toc-item"><span class="toc-key">7</span><span class="toc-text">Location distribution</span></div>
-            <div class="toc-item"><span class="toc-key">8</span><span class="toc-text">Monogram ligature</span></div>
+            <a class="toc-item" href="#identity"><span class="toc-key">1</span><span class="toc-text">Name, occupation, interests</span></a>
+            <a class="toc-item" href="#anim-cell"><span class="toc-key">2</span><span class="toc-text">Polycurve trail</span></a>
+            <a class="toc-item" href="#selected-projects"><span class="toc-key">3</span><span class="toc-text">Selected projects</span></a>
+            <a class="toc-item" href="#about"><span class="toc-key">4</span><span class="toc-text">About</span></a>
+            <a class="toc-item" href="#related-links"><span class="toc-key">5</span><span class="toc-text">Related links, legal</span></a>
+            <a class="toc-item" href="#portrait"><span class="toc-key">6</span><span class="toc-text">Portrait</span></a>
+            <a class="toc-item" href="#location"><span class="toc-key">7</span><span class="toc-text">Location distribution</span></a>
+            <a class="toc-item" href="#monogram"><span class="toc-key">8</span><span class="toc-text">Monogram ligature</span></a>
         </div>
     </div>
 
     <div class="grid">
 
-        <div class="grid-item d-w-5 m-w-9"><span class="nr"></span>
+        <div class="grid-item d-w-5 m-w-9" id="identity"><span class="nr"></span>
             <div class="grid-item-content">
                 <div class="box spaceybox">
                     <p>
@@ -65,8 +65,8 @@ og_type: "website"
                         <span class="home-role">Logician & Designer</span><br>
                     </p>
                     <p>
-                        Constructive logic, proof theory,<br>
-                        realizability interpretation.<br>
+                        Formal logic, proof theory,<br>
+                        intuitionistic type theory.<br>
                     </p>
                     <p>
                         Information design, motion design, signage.
@@ -79,7 +79,7 @@ og_type: "website"
             <script src="./js/poly.js"></script>
         </div>
 
-        <div class="grid-item d-w-9 m-w-9"><span class="nr"></span>
+        <div class="grid-item d-w-9 m-w-9" id="selected-projects"><span class="nr"></span>
             <div class="grid-item-content">
                 <div class="box monobox">
                     <h2>
@@ -91,6 +91,9 @@ og_type: "website"
                     <ul>
                         <li>
                             PUBLICATIONS, an overview <a href="./projects/publications/index.html">.html</a>
+                        </li>
+                        <li>
+                            REFLEXICA, introduction and program of formal logic <a href="./projects/reflexica/index.html">.html</a>
                         </li>
                         <li>
                             PROOFCASE, consolidated formalization repository <a href="https://github.com/Milan-Rosko/Proofcase">GitHub</a>
@@ -114,7 +117,7 @@ og_type: "website"
             </div>
         </div>
 
-        <div class="grid-item d-w-6 m-w-9"><span class="nr"></span>
+        <div class="grid-item d-w-6 m-w-9" id="about"><span class="nr"></span>
             <div class="grid-item-content">
                 <div class="box contentbox">
                     <h2>
@@ -136,7 +139,7 @@ og_type: "website"
             </div>
         </div>
 
-        <div class="grid-item d-w-3 m-w-9"><span class="nr"></span>
+        <div class="grid-item d-w-3 m-w-9" id="related-links"><span class="nr"></span>
           <div class="grid-item-content">
             <div class="box monobox">
               <p>
@@ -176,7 +179,7 @@ og_type: "website"
         </div>
       </div>
 
-        <div class="grid-item d-w-3 m-w-3"><span class="nr"></span>
+        <div class="grid-item d-w-3 m-w-3" id="portrait"><span class="nr"></span>
             <div class="grid-item-content">
                 <div class="box imagebox boxshadow">
                     <img src="aux/milan.jpg" alt="Portrait" height="140px" style="mix-blend-mode: soft-light;" >
@@ -184,7 +187,7 @@ og_type: "website"
             </div>
         </div>
 
-        <div class="grid-item d-w-3 m-w-3"><span class="nr"></span>
+        <div class="grid-item d-w-3 m-w-3" id="location"><span class="nr"></span>
             <div class="grid-item-content">
                 <div class="box imagebox">
                     <img src="aux/location.png" alt="Map" height="140px" style="mix-blend-mode: soft-light;">
@@ -192,7 +195,7 @@ og_type: "website"
             </div>
         </div>
 
-        <div class="grid-item d-w-3 m-w-3"><span class="nr"></span>
+        <div class="grid-item d-w-3 m-w-3" id="monogram"><span class="nr"></span>
             <div class="grid-item-content">
                 <div class="box imagebox">
                     <img src="./aux/mr.png" alt="Ligature" height="140px">

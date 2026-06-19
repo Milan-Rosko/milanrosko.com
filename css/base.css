@@ -152,8 +152,9 @@ a:visited {
     display: inline-block;
     position: relative;
     vertical-align: baseline;
-    top: -1px;
-    padding: 0.2em 1.5em;
+    top: -0.1em;
+    padding: 0.2em 0.5em;
+    margin: auto 0.5em;
     text-decoration: none;
     font-size: var(--size-small);
     border: 0.5px solid var(--color-link-internal);
@@ -183,6 +184,14 @@ a[href^="http"]:focus-visible {
     color: var(--color-link-hover);
     border: 0.5px solid #ff69b4;
 }
+
+.monoblock {
+  border-left: 1px solid var(--color-main); 
+  font-style: italic;
+  padding-left: 1.25rem; 
+  margin-top: 2rem; 
+  font-size: inherit;
+} 
 
 .u{
   text-decoration: underline;

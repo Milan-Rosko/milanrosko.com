@@ -1,0 +1,98 @@
+Ranked on significance
+
+**On LEM and compression**
+- LEM acts as a compression operator: it resolves an undecided proposition into a determinate alternative without producing a witness for either branch
+- Each compression can generate a new semantic object, which may itself require a further LEM application — the process does not terminate
+- Uncertainty is not eliminated by LEM; it is displaced upward into increasingly remote semantic entities
+- There is a dminishing returns effect involved
+
+**On the circular simulation diagram**
+- Untyped lambda calculus, CPU+RAM, rationals, Boolean circuits, Coq, ZFC form a simulation cycle in which each can encode the others
+- Nothing in the local success of these translations selects one member as the semantic ground
+- The foundational order is not forced by the formal practices themselves — it is a choice, not a discovery
+
+
+**On division by zero as diagnostic model**
+- Under a totality requirement, every undefined expression must be assigned a denotation
+- Any object introduced to absorb a failure immediately becomes available for further formal manipulation, generating new failures
+- Refutability (∃k P(k)) is witnessed by a finite stage; non-refutability (∀k ¬P(k)) is not — the asymmetry is structural, not accidental
+
+**On the predicativist wound**
+- A domain becomes circular when membership in it is used to define what belongs to it
+- Russell's paradox and "all propositions" are the visible break; more commonly the circularity is quiet — a totality is used as background without contradiction appearing
+- Reflexica generalizes this: not only definitions but domains themselves can be illegitimate when their totality outruns witness
+
+**On hardness**
+- Hardness is not an intrinsic property of problems — it is a structural effect of a finite observer attempting to encode a domain as total without loss
+- Complexity theory measures this displacement precisely but mistakes the measurement for metaphysics
+- The classification of a problem as hard does not explain why the domain in which it appears was available as a totality in the first place
+
+**On Impagliazzo's worlds**
+- Each of Algorithmica, Heuristica, Pessiland, Minicrypt, Cryptomania converts local procedural obstruction into a global semantic architecture
+- Reflexica is not another world in the sequence — it is a critique of the act of worlding itself
+- The worlds are symptoms: they show what happens when finite failures of witness are translated into completed ontologies
+
+**On P vs NP specifically**
+- Solving P vs NP would not merely classify a relation between two complexity classes
+- It would appear to witness the relation between search and verification, finding and checking, construction and recognition — something like the essence of problemhood
+- This is philosophically explosive: nothing analogous has ever been witnessed in the history of thought
+- The cultural weight of P vs NP comes from treating a formal class relation as if it exposed the inner metaphysics of problems — this passage is not innocent
+
+**On constructivism and Kleene**
+- BHK: assertion requires construction; proof is not a certificate attached to truth but the effective content of the assertion
+- Reflexica does not become constructivism because constructivism still has privileged terms (construction, proof, algorithm) that it treats as unproblematically semantic
+- Kleene forces the constructive demand into effective procedure: if a method is not computable, it must explain in what non-absurd sense it remains a method
+- Reflexica's claim: wherever witness is stabilized as method, method approaches computation
+
+**On the non-witnessibility principle**
+- Where semantics cannot be witnessed, reality converges toward Reflexica
+- This does not mean semantics are false — falsehood would grant them too much. They simply fail to enter as admissible foundation
+- Antirealism is not the opposite of realism — it is already semantics. Nihilism is too semantic. Even meaninglessness is unwitnessed
+
+**On field saturation**
+- Early in a field, ontology is light: terms remain answerable to witness
+- As obvious empirical gains are exhausted, fields generate higher-order constructs: subtypes, latent variables, mediating mechanisms, meta-traits
+- Each anomaly becomes evidence for a more refined model rather than a challenge to the domain
+- A field becomes dangerous not when its ontology is false but when it has become useful enough to survive the loss of witness
+
+**On type theory**
+- Type theory disciplines assertion by formation, judgment, and proof-relevance — it is the strongest known resistance to unwitnessed totality
+- But it is not final ground: its own terms (type, universe, identity, equivalence) can harden into unwitnessed background
+- It should be treated as a barrier, not a foundation
+
+**On the Turing machine finity lemma**
+- A Turing machine cannot witness its own finitude from inside
+- It can simulate another Turing machine that also fails to see its own finitude
+- The encompassing observer (human) is outside this chain — but that observer's finitude is equally unwitnessed from above
+
+**On the golden ratio / Hurwitz**
+- An irrational is not a completed real but an effective update operator: a procedure that improves its own approximation
+- The golden ratio is the canonical case: it is the attractive fixed point of a self-application rule
+- Reflexica can be expressed through this: self-referentiality leads directly to the Hurwitz property — the extremal resistance of an irrational to rational capture
+
+**On the diagonal lemma and self-reference**
+- The diagonal lemma (∀φ ∃ψ: ψ ↔ φ(⌜ψ⌋)) is the formal condition from which reflection begins
+- A theory producing ψ ↔ φ(⌜ψ⌋) is no longer merely producing theorems — it is forced to ask under what stronger standpoint its own provability or consistency can be endorsed
+- This is different from other principles: it cannot be challenged by asking whether its semantic order has been witnessed — it is prior to that question
+
+**On the three-way distinction**
+- Illegitimate totality: a domain whose completion outruns witness
+- Regulative totality: a domain treated as complete for local technical reasons, without metaphysical commitment
+- Formal totality: a domain introduced inside a proof system with explicit formation rules — admissibility is internal to the system
+- Reflexica's critique targets illegitimate totality specifically; regulative and formal totality may be acceptable
+
+**On Reflexica's own status**
+- Reflexica is its own fixed point: proving Reflexica would require a witness for the non-existence of witnesses, which would disprove it
+- One way to falsify Reflexica: prove that semantics exist (i.e., witness a semantic totality)
+- Another way: show that fields converge toward semantic grounding rather than syntactic completeness
+
+**On resonances**
+- Resonances are convergent endpoints that cannot be proven constructively but appear across unrelated domains
+- They are the predictive output of Reflexica at points where formal logic must be left and empirical patterns are used
+- Self-referentiality is the clearest resonance zone: golden ratio, diagonal lemma, Turing finity, P vs NP all cluster around the same structural obstruction
+
+---
+
+That is the full inventory as I read it. Some of these are tighter than others. The weakest in terms of current development are the Turing finity lemma and the resonances concept — they are named but not yet argued. The strongest are the LEM compression argument, the predicativist wound generalization, and the P vs NP essence claim.
+
+Do you want to flag which of these you'd add, remove, or sharpen before we move to structure?
