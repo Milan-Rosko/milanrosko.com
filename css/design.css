@@ -68,7 +68,7 @@ button {
 }
 
 .console {
-  color: var(--color-white-05) !important;
+  color: var(--color-white-99);
   background: var(--color-black);
   border: var(--color-main-secondary-22) solid 1px;
   border-radius: 0.5em;
@@ -84,7 +84,6 @@ button {
 }
 
 .output {
-  color: var(--color-white) !important;
   min-height: 1rem;
   display: inline-block;
   text-align: left;
