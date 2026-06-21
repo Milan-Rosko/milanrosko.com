@@ -1,4 +1,4 @@
-% Suggested BibTeX entries for papers listed at https://milanrosko.com/projects/publications/
+% Suggested BibTeX entries
 
 @misc{rosko2025carryless,
   title         = {{Carryless Pairing: Additive Pairing in the Fibonacci Basis}},
@@ -62,12 +62,4 @@
   year          = {2026},
   note          = {arXiv submission 2605.18924; listed in math.LO},
   url           = {https://doi.org/10.48550/arXiv.2605.18924}
-}
-
-@misc{rosko2026typedrepair,
-  title         = {{Typed Repair: EMNIST From Lambda-Definable Evaluation and Specialization Gate}},
-  author        = {Rosko, M.},
-  year          = {2026},
-  note          = {Draft, self-hosted PDF},
-  url           = {https://milanrosko.com/projects/typedrepair/typedrepair.pdf}
 }
