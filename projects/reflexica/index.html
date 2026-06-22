@@ -107,10 +107,8 @@ og_description: "An introduction and program of formal logic."
             Summary
           </h2>
           <p>
-            Reflexica studies the displacement generated when finite witness is made to coincide with total domain.
-          </p>
-          <p>
-            We study an operation that recurs across mathematics, semantics, computation, and empirical inquiry: the moment a local construction is quietly promoted into a claim about a completed domain. The promotion introduces no contradiction. That is the problem.
+            Reflexica is a framework for diagnosing a specific structural passage: the moment a locally witnessed procedure is quietly promoted into a claim about a completed domain.
+            This operation recurs across mathematics, semantics, computation, and empirical inquiry. The promotion introduces no contradiction. That is the problem.
           </p>
         </div>
       </div>
@@ -251,7 +249,7 @@ og_description: "An introduction and program of formal logic."
             $$
           </div>
           <p>
-            This is the impredicative core. The agent's choice is not presented as a first-order act inside a fixed environment, but as an object partially constituted by its relation to the predictor. Once this is admitted, the predictor no longer functions as an ordinary antecedent.
+            Above is the impredicative core. The agent's choice is not presented as a first-order act inside a fixed environment, but as an object partially constituted by its relation to the predictor. Once this is admitted, the predictor no longer functions as an ordinary antecedent.
           </p>
           <p>
             The familiar disagreement between causal and evidential decision theory is therefore downstream. CDT restores predicativity by imposing a causal type distinction: the box is fixed, the act comes later, and no present intervention reaches backward. EDT instead collapses the predictor and the agent into one correlated evidential structure. Each response selects a different cut through the same impredicative substrate. Neither explains why such a substrate should have been admitted.
@@ -311,15 +309,9 @@ og_description: "An introduction and program of formal logic."
           <p>
             Whether a given system contains a complete inventory of its linguistic capacities is an empirical and architectural question; the formal result does not settle it. The proposed resonance concerns the task of closing an inventory from within a self-modeling system.
           </p>
-          <h3 id="seed">3.4 Inheritance</h3>
+          <h3 id="seed">3.4 Almost Saturated Fields</h3>
           <p>
-            Finally, a trivial observation could be how so called mobile “apps” improved rapidly during the early 2010s, then the rate of distinguishable improvement slowed and effectively plateaued <a href="#reference-chen-app-store-quality">[Chen, 2010]</a> <a href="#reference-bresnahan-davis-yin">[Bresnahan et al., 2015]</a>. Machine learning models trained on fixed benchmarks exhibit characteristic loss curves that steepen early and flatten asymptotically. Sprint-based development teams report high initial velocity that decays as a product matures. In each case the structure is similar: early iterations produce witnessable improvements; later iterations consume comparable resources for returns that the evaluative apparatus can no longer distinguish as progress. The phenomenon is not confined to a single domain or substrate. Its recurrence across organizational, computational, and market settings is what makes it a candidate for structural rather than contingent explanation.
-          </p>
-          <p>
-            The organizational and computational structures through which this optimization proceeds share a common form. A team abstracts over individual decisions; a sprint abstracts over the team's deliberation; a language model abstracts over its training corpus; an agent abstracts over individual model calls; subprocesses and task partitions abstract further still. Each promotion is many-to-one and, in the relevant sense, irreversible: the granularity of the layer below is not recoverable from the output of the layer above. This is not a defect. The compression is constitutive of the layer — it is what makes the layer operable at all. But it carries a determinate consequence: the refutation space available at each layer is strictly bounded by the compression that produced it. A layer can only witness improvements that are visible at its own level of abstraction. What falls below that threshold is not lost through error but through the very act of formation.
-          </p>
-          <p>
-            The structure is visible in its most disciplined form in the passage from pure logical content to effective computation <a href="#reference-howard-formulae-types">[Howard, 1980]</a>. Each step selects one inhabitation of the space above it, discarding what the lower layer need  not distinguish to proceed.
+            Consider the passage from proposition to runtime makes the structure precise. Each transition selects one inhabitation of the space above it and discards what the layer below need not distinguish to proceed. The compression is constitutive, not incidental.
           </p>
           <div class="mathjaxwrap">
             $$
@@ -329,21 +321,16 @@ og_description: "An introduction and program of formal logic."
             $$
           </div>
           <p>
-            Each arrow is surjective but not injective. The reversal is not merely difficult in practice; it is structurally underdetermined. What the runtime retains is insufficient to reconstruct the proposition that originated it.
-          </p>     
-          <p>
-            The same structure reappears when realization is allowed to circulate across systems rather than descend linearly through them. A circuit family may implement an evaluator; an evaluator may host a virtual machine; a virtual machine may execute a kernel for dependent type theory; and that theory may in turn specify or verify circuits. Locally, each passage can be witnessed.
+            A system that could reverse these arrows without loss would not be finite. Speedup is possible precisely because the arrows are surjective: there is slack to exploit. But the same surjectivity that permits speedup bounds it.
           </p>
           <p>
-            The fact that every transition admits a witness does not furnish a further witness that the composed cycle is self-grounding.
+            Gödel–Blum speedup makes this precise. For any program computing a function, there exists another program computing the same function arbitrarily faster. A finite system reflecting on its own procedures can exploit this: self-reflection produces a stronger description, and the stronger description yields a faster inhabitation of the same type. But the rate at which reflection produces distinguishable gain is itself subject to the same compression. Each reflective step purchases less potential than the last. The cumulative gain follows a logarithmic envelope, not as an empirical tendency, but as a consequence of the surjectivity that made speedup available in the first place.
           </p>
-          <div class="mathjaxwrap">
-            $$
-            S_{0}\leadsto S_{1}\leadsto \cdots \leadsto S_{n}\leadsto S_{0}, \quad \bigwedge_{i=0}^{n} W(S_{i}\leadsto S_{i+1}) \;\not\Rightarrow\; W(S_{0}\leadsto^{*}S_{0}),
-            $$
-          </div>
           <p>
-            Each layer is enabled by a compression that also bounds what that layer can witness. A further layer of abstraction may therefore arise not from accidental exhaustion, but from the structure of the passage itself: a layer reaches the limit of what its own formation permits it to distinguish, then seeks relief in a successor system whose greater expressive power is purchased by another irreversible compression. The ceiling encountered at one level and the acceleration toward the next may, in this restricted sense, have a logical origin.
+            The fixed point of this process is “almost” saturation. A system reaches saturation not when it has exhausted its resources but when iterated self-reflection no longer produces an improvement distinguishable at its own level of abstraction. The evaluative closure the system operates within has become the ceiling. This is the due to the condition of being finite and self-reflective.
+          </p>
+          <p>
+            To locate the precise moment of promotion would itself require a witness outside the closure. The question of where the metric became the ceiling is not answerable from within the system asking it: a finite reflective system, seeking the fixed point of its own saturation, finds that the search is bounded by the very closure it seeks to locate.
           </p>
           </div>
           <div id="program">
@@ -456,12 +443,6 @@ og_description: "An introduction and program of formal logic."
             </li>
             <li id="reference-faubert">
               J. Faubert. "Seeing Depth in Colour: More Than Just What Meets the Eyes." <i>Vision Research</i> 34, no. 9 (1994): 1165–1186. <a href="https://doi.org/10.1016/0042-6989(94)90299-2" target="_blank" rel="noopener noreferrer">DOI</a>.
-            </li>
-            <li id="reference-chen-app-store-quality">
-              B. X. Chen. "With More Than Enough Apps, Apple Pushes for Quality." <i>Wired</i>, March 12, 2010. <a href="https://www.wired.com/2010/03/app-store-quality/" target="_blank" rel="noopener noreferrer">[Wired]</a>.
-            </li>
-            <li id="reference-bresnahan-davis-yin">
-              T. F. Bresnahan, J. P. Davis, and P.-L. Yin. "Economic Value Creation in Mobile Applications." In A. B. Jaffe and B. F. Jones, eds., <i>The Changing Frontier: Rethinking Science and Innovation Policy</i>, 233–286. University of Chicago Press, Chicago, 2015. ISBN 9780226286723. <a href="https://www.nber.org/chapters/c13044" target="_blank" rel="noopener noreferrer">[NBER]</a>.
             </li>
           </ul>
         </div>
