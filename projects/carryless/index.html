@@ -16,7 +16,7 @@
         <h1>Algorithm: Carryless Pairing</h1>
         <div class="toc">
             <a class="toc-item" href="#navigation"><span class="toc-key">1</span><span class="toc-text">Navigation</span></a>
-            <a class="toc-item" href="#introduction"><span class="toc-key">2</span><span class="toc-text">Introduction</span></a>
+            <a class="toc-item" href="#abstract"><span class="toc-key">2</span><span class="toc-text">Abstract</span></a>
             <a class="toc-item" href="#notes-references"><span class="toc-key">3</span><span class="toc-text">Notes and References</span></a>
             <a class="toc-item" href="#demo"><span class="toc-key">4</span><span class="toc-text">Realization via JavaScript</span></a>
             <a class="toc-item" href="#group-transformations"><span class="toc-key">5</span><span class="toc-text">Group Transformations</span></a>
@@ -46,11 +46,11 @@
             </div>
         </div>
 
-        <div class="grid-item d-w-6 m-w-9" id="introduction"><span class="nr"></span>
+        <div class="grid-item d-w-6 m-w-9" id="abstract"><span class="nr"></span>
             <div class="grid-item-content">
                 <div class="box monobox">
                     <h2>
-                        Summary
+                        Abstract
                     </h2>
                       <p>
                           A pairing function takes two natural numbers $x$ and $y$ and returns a single natural number from which both can be recovered. The construction here works in the Fibonacci basis: each input is written as a sum of distinct, non-consecutive Fibonacci numbers (its <i>Zeckendorf support</i>), and the two supports are placed on disjoint <i>even</i> and <i>offset odd</i> index bands. Because the bands cannot overlap, the encoding and its inverse use only addition and bounded search, never a carry.
