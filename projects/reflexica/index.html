@@ -143,10 +143,10 @@ og_description: "An introduction and program of formal logic."
             “Therefore $G$ is not the same with any one of the numbers $A, B,$ and $C$. And by hypothesis it is prime. Therefore the prime numbers $A, B, C,$ and $G$ have been found which are more than the assigned multitude of $A, B,$ and $C$.”
           </div>
           <p>
-            It supplies an extension rule: given any finite collection of primes, one can construct a number that must be divisible by a prime outside that collection. The proposition is an iterable and open-ended procedure before the contemporary presentation converts it into a claim about a completed domain. The difference is not one of attitude, but in metamathematical commitment.
+            It supplies an extension rule: given any finite collection of primes, one can construct a number that must be divisible by a prime outside that collection. The proposition is an iterable and open-ended procedure before the contemporary presentation converts it into a claim about a completed domain. The difference concerns metamathematical commitment rather than attitude.
           </p>
           <p>
-            The procedural reading is answerable to explicit construction: it commits only to what that construction reaches, and no further. The existential reading permits the result to be expressed over a completed domain, the primes as a total collection, rather than as an indefinitely iterable extension operation. One reading foregrounds the construction by which a further prime divisor is obtained; the other licenses quantification over the resulting domain. The difference is not that one is valid and the other invalid, but that they carry different proof-theoretic and semantic commitments.
+            The procedural reading is answerable to explicit construction: it commits only to what that construction reaches, and no further. The existential reading permits the result to be expressed over a completed domain, the primes as a total collection, rather than as an indefinitely iterable extension operation. One reading foregrounds the construction by which a further prime divisor is obtained; the other licenses quantification over the resulting domain. Both readings are valid, though they carry different proof-theoretic and semantic commitments.
           </p>
           <p>
             Classically, this often appears cost-free: the existential formulation preserves the theorem while suppressing the difference between a proposition proved in a completed domain and a witness extracted from a construction. In constructive terms, the difference is between asserting $\exists x,P(x)$ and supplying an object $a:A$ together with evidence for $P(a)$; in type-theoretic notation, this is closer to inhabiting $\sum_{x:A}P(x)$ than to merely accepting an existential sentence. The relevant distinction here is between proof-theoretic signatures <a href="#reference-gentzen-logical-deduction">[Gentzen, 1935]</a>. To establish that a number is <i>composite,</i> one produces a factor greater than one: a finite, extractable, checkable object. The witness supplies the computational content of the proof; in the case of compositeness, a factor pair $(a,b)$ is the finite object whose verification establishes the claim <a href="#reference-kleene-realizability">[Kleene, 1945]</a>. Numbers alone, in a constructive sense, do not carry such a witness; it must be decided for them.
@@ -181,10 +181,10 @@ og_description: "An introduction and program of formal logic."
             $$
           </div>
           <p>
-            The left arrangement witnesses factorization directly as the factor is read off the shape, while the right cannot provide a geometric primitive. No configuration of seven units exposes a nontrivial divisor, because there is none to exhibit. Primality must be established by exhaustive elimination, carried as a conclusion. The absence is not a gap in knowledge but a lack of structure—it is the feature that makes the witness asymmetry precise.
+            The left arrangement witnesses factorization directly as the factor is read off the shape, while the right cannot provide a geometric primitive. No configuration of seven units exposes a nontrivial divisor, because there is none to exhibit. Primality must be established by exhaustive elimination, carried as a conclusion. The absence marks a lack of structure, independent of any gap in knowledge; this makes the witness asymmetry precise.
           </p>
           <p>
-            The lack of nontrivial factors is pulled through a theorem whose algebraic structure has already internalized the exclusion; the result is returned as a positive existential. The individual case remains decidable and well founded. What has occurred, however, is a small act of reification: an absence has been converted into a named object that can now be quantified over, composed into theorems, and treated as a feature of the domain rather than a local conclusion about a particular number. The conversion is conservative and introduces no contradiction. Here “conservative” is used diagnostically, not as a proved conservative-extension theorem: the promotion preserves local practice and introduces no immediate contradiction, while altering the semantic status of the object introduced. It is precisely this conservativeness that makes it easy to absorb—and easy to repeat at much larger scale without noticing that the character of the move has changed.
+            The lack of nontrivial factors is pulled through a theorem whose algebraic structure has already internalized the exclusion; the result is returned as a positive existential. The individual case remains decidable and well founded. What has occurred, however, is a small act of reification: an absence has been converted into a named object that can now be quantified over, composed into theorems, and treated as a feature of the domain rather than a local conclusion about a particular number. The conversion is conservative and introduces no contradiction. Here “conservative” has a diagnostic meaning distinct from a proved conservative-extension theorem: the promotion preserves local practice and introduces no immediate contradiction, while altering the semantic status of the object introduced. It is precisely this conservativeness that makes it easy to absorb—and easy to repeat at much larger scale without noticing that the character of the move has changed.
           </p>       
           <p>
             By the early 20th century, tensions of this kind could no longer be dismissed as a quirk of exposition <a href="#reference-godel">[Gödel, 1931]</a> <a href="#reference-heyting-intuitionistische-grundlegung">[Heyting, 1931]</a>. A theory may be locally impeccable and still carry a commitment in the way its existential conclusions are understood: a commitment that exceeds what the underlying procedure licenses. The difficulty is that the classical statement is also an epistemic posture, as the initial benign promissory reification at the level of a number, has been extended to the entire collection.
@@ -199,14 +199,14 @@ og_description: "An introduction and program of formal logic."
             Reflexica is an interdisciplinary idea at the intersection of formal logic, natural sciences, and metamathematics. It investigates when empirical systems, models, and explanations treat the outputs or limits of local procedures as evidence for a completed domain not independently warranted by those procedures. Its central claim is that a systematic asymmetry may arise between locally witnessed procedures and the global closure conditions those procedures are taken to establish. In the cases considered below, this boundary often becomes visible only indirectly: through reification, self-relation, or obstruction at the point where local procedure is asked to support closure. The asymmetry does not impair mathematics or the sciences as they are ordinarily practiced; it becomes consequential at the periphery, where hard problems, foundational questions, and metamathematical phenomena converge, and the unexamined passage from local witness to global closure begins to carry implicit structural weight.
           </p>
           <p>
-            Reflexica is not a foundation, a replacement calculus, or a proposal to supersede classical mathematics aiming to replace <span class="sc">Martin-Löf Type Theory</span> <a href="#reference-martin-lof">[Martin-Löf, 1984]</a>, <span class="sc">Bishop-Style Constructive Mathematics</span> <a href="#reference-bishop">[Bishop, 1967]</a>, or constructive presentations of <span class="sc">Homotopy Type Theory</span> <a href="#reference-hott">[Univalent Foundations Program, 2013]</a>, instead, we adopt a diagnostic posture that can be applied across settings—including classical and empiric ones—to mark the transition from local witness to global closure wherever that transition bears weight.
+            Reflexica adopts a diagnostic posture alongside existing foundations and calculi, including <span class="sc">Martin-Löf Type Theory</span> <a href="#reference-martin-lof">[Martin-Löf, 1984]</a>, <span class="sc">Bishop-Style Constructive Mathematics</span> <a href="#reference-bishop">[Bishop, 1967]</a>, and constructive presentations of <span class="sc">Homotopy Type Theory</span> <a href="#reference-hott">[Univalent Foundations Program, 2013]</a>. It applies across settings, including classical and empirical ones, to mark the transition from local witness to global closure wherever that transition bears weight.
           </p>
           <h3>2.1 The <span class="sc">Zeroth World</span></h3>
           <p>
-            <span class="sc">Impagliazzo's Possible-Worlds Taxonomy</span> <a href="#reference-impagliazzo">[Impagliazzo, 1995]</a> names possible computational worlds by the structural relations among average-case hardness, one-way functions, public-key cryptography, and related complexity assumptions. The <span class="sc">Zeroth World</span> is not proposed as an additional world in that taxonomy. It names the missing or uninhabited position from which Reflexica asks why an unresolved method, once stabilized as a problem, can begin to function as semantic architecture.
+            <span class="sc">Impagliazzo's Possible-Worlds Taxonomy</span> <a href="#reference-impagliazzo">[Impagliazzo, 1995]</a> names possible computational worlds by the structural relations among average-case hardness, one-way functions, public-key cryptography, and related complexity assumptions. The <span class="sc">Zeroth World</span> lies outside that taxonomy and names the missing or uninhabited position from which Reflexica asks why an unresolved method, once stabilized as a problem, can begin to function as semantic architecture.
           </p>
           <p>
-            The obstruction is not a technical limitation of specific formalisms or of the theoreticians working within them. It is a structural absence: a gap that certain classical principles reify locally, converting it into a reflection principle against which the system recurses on itself, rather than making contact with an independent domain that could ground the closure.
+            The obstruction concerns a structural absence beyond the technical limitations of particular formalisms or their theoreticians: a gap that certain classical principles reify locally, converting it into a reflection principle against which the system recurses on itself, rather than making contact with an independent domain that could ground the closure.
           </p>
           <div class="mathjaxlike">
             When does a system treat the success of its local operations as empirical warrant for a closure claim about the system, its domain, or an independently existing structure?
@@ -225,7 +225,7 @@ og_description: "An introduction and program of formal logic."
               <span class="sc">Limitative Abduction</span>: infer not a hidden object, but a boundary condition, from repeated failure of a procedure to furnish the object its own semantics appear to require.
             </li>
             <li>
-              <span class="sc">Mechanization</span>, subject to exposition: where possible, express the suspected passage as a formal or computational dependency; where this is not yet possible, mark the claim as programmatic rather than established.
+              <span class="sc">Mechanization</span>, subject to exposition: where possible, express the suspected passage as a formal or computational dependency; where formalization remains unavailable, mark the claim as programmatic.
             </li>
             <li>
               <span class="sc">Parsimonious Semantics</span>: do not introduce semantic objects beyond what the local procedure, witness, or model licenses, unless the promotion is made explicit.
@@ -253,16 +253,16 @@ og_description: "An introduction and program of formal logic."
           </p>
           <h3 id="mackie-sensitizing-pattern">3.1 Mackie’s Error Theory as Sensitizing Pattern</h3>
           <p>
-            Before turning to more formal cases, <span class="sc">Mackie’s Error Theory</span> <a href="#reference-mackie">[Mackie, 1977]</a> can be used as a sensitizing pattern. It is not offered as a mathematical example of Reflexica. Rather, it helps isolate the kind of movement Reflexica is concerned with: a practice encounters an absence, stabilizes that absence through its own internal demands, and at some threshold permits the absence to appear as a semantic object. <span class="sc">Mackie’s Queerness Argument</span> is therefore treated not as proof of the Reflexica structure, but as an orientation toward it.
+            Before turning to more formal cases, <span class="sc">Mackie’s Error Theory</span> <a href="#reference-mackie">[Mackie, 1977]</a> serves as a sensitizing pattern outside the article’s mathematical examples. It helps isolate the kind of movement Reflexica is concerned with: a practice encounters an absence, stabilizes that absence through its own internal demands, and at some threshold permits the absence to appear as a semantic object. <span class="sc">Mackie’s Queerness Argument</span> therefore orients the reader toward the proposed structure without proving it.
           </p>
           <p>
             In the Mackiean sense, “queerness” concerns the metaphysical and epistemological strangeness of objective values. It serves here as a way of training attention toward a transition in which the absence of a required semantic term is disciplined by a practice and may then be treated as though it already named an object.
           </p>
           <p>
-            If the semantic object required by realist moral discourse could be produced in the relevant sense, <span class="sc">Mackie’s Error Theory</span> would fail; if the theory is correct, no such object is available to be produced. Its correctness therefore cannot take the form of a positive witness for the very object whose absence it asserts. What it marks is not a missing object subsequently available to inspection, but an absence whose being witnessed would destroy the thesis that identified it.
+            If the semantic object required by realist moral discourse could be produced in the relevant sense, <span class="sc">Mackie’s Error Theory</span> would fail; if the theory is correct, no such object is available to be produced. Its correctness therefore cannot take the form of a positive witness for the very object whose absence it asserts. What it marks is an absence whose being witnessed would undermine the thesis that identified it.
           </p>
           <p>
-            We therefore treat <span class="sc">Mackie’s Queerness Argument</span> as an indirect and defeasible indication of absence, not as an instance of Reflexica in the strict formal sense. Where a discourse requires a queer semantic object, the failure to produce or locate that object is not simply a gap awaiting repair.
+            We therefore treat <span class="sc">Mackie’s Queerness Argument</span> as an indirect and defeasible indication of absence. Its role remains orienting rather than formally instantiating. Where a discourse requires a queer semantic object, failure to produce or locate that object may indicate more than a remediable gap.
           </p>
           <p>
             The case attunes the reader to a possible movement from an internally stabilized absence to a purported semantic object, without establishing that the later formal cases share its structure. Whether the same passage recurs under more exact conditions remains the question that the following sections investigate.
@@ -278,7 +278,7 @@ og_description: "An introduction and program of formal logic."
             <span class="sc">Causal Decision Theory</span> (CDT) <a href="#reference-lewis-causal-decision-theory">[Lewis, 1981]</a> treats $B$ as fixed and recommends $A+B$. <span class="sc">Evidential Decision Theory</span> (EDT) <a href="#reference-jeffrey-logic-decision">[Jeffrey, 1965]</a> treats the act as evidence about the predictor's prior classification and recommends $B$, provided the evidential gap is sufficiently large. Both calculations are locally coherent. Neither addresses the prior question: whether the object being optimized over is well-formed.
           </p>
           <p>
-            We focus on the fact that the predictor is internalized as an evaluator over the same domain that contains the agent's decision procedure. The problem is then no longer merely that $P$ predicted $C$. It is that $C$ is allowed to be formed under the condition that $P$ evaluates $C$, while $P$ is simultaneously treated as ranging over such evaluator-sensitive choices. The object of evaluation is therefore not independent of the evaluating setup.
+            We focus on the fact that the predictor is internalized as an evaluator over the same domain that contains the agent's decision procedure. The deeper problem concerns the formation of $C$ under the condition that $P$ evaluates it, while $P$ is simultaneously treated as ranging over such evaluator-sensitive choices. The object of evaluation is therefore not independent of the evaluating setup.
           </p>
           <div class="mathjaxwrap">
             $$
@@ -287,7 +287,7 @@ og_description: "An introduction and program of formal logic."
             $$
           </div>
           <p>
-            The dependency has an impredicative form: the choice is drawn from a space whose admissible description is already parameterized by the predictor that evaluates it. The agent's choice is not presented as a first-order act inside a fixed environment, but as an object partially constituted by its relation to the predictor. Once this is admitted, the predictor no longer functions as an ordinary antecedent.
+            The dependency has an impredicative form: the choice is drawn from a space whose admissible description is already parameterized by the predictor that evaluates it. The agent's choice appears as an object partially constituted by its relation to the predictor, rather than as a first-order act within a fixed environment. Once this is admitted, the predictor assumes a constitutive role beyond that of an ordinary antecedent.
           </p>
           <p>
             The familiar disagreement between <span class="sc">Causal Decision Theory</span> and <span class="sc">Evidential Decision Theory</span> is therefore downstream. CDT restores predicativity by imposing a causal type distinction: the box is fixed, the act comes later, and no present intervention reaches backward. EDT instead collapses the predictor and the agent into one correlated evidential structure. Each response selects a different cut through the same impredicative substrate. Neither explains why such a substrate should have been admitted.
@@ -296,7 +296,7 @@ og_description: "An introduction and program of formal logic."
             Reflexica's <span class="sc">Problem Critique</span> rejects this promotion. The first-order mechanism is admissible. What is not licensed is the promotion of a locally stipulated evaluator into a total evaluator over an open-ended class of agents whose decisions are themselves conditioned by that evaluation. A reliable predictor may still be stipulated externally for a particular case. The unlicensed totalization is precisely the passage from local procedure to global closure at issue here.
           </p>
           <p>
-            What remains is a bounded decision problem. One may specify a particular agent, a predictor with stated reliability over a fixed hypothesis class, and an explicit payoff structure; within that model, one may ask which action maximizes a selected decision rule, how calibration changes evidential and causal dependencies, and how robust the recommendation is under changes to the model. The restriction is not a ban on prediction, choice, or decision theory. It denies only the unlicensed promotion of a locally specified predictive mechanism into a total evaluator of an open-ended class of evaluator-sensitive agents.
+            What remains is a bounded decision problem. One may specify a particular agent, a predictor with stated reliability over a fixed hypothesis class, and an explicit payoff structure; within that model, one may ask which action maximizes a selected decision rule, how calibration changes evidential and causal dependencies, and how robust the recommendation is under changes to the model. The restriction preserves prediction, choice, and decision theory within bounded models. It denies only the unlicensed promotion of a locally specified predictive mechanism into a total evaluator of an open-ended class of evaluator-sensitive agents.
           </p>
           <h3 id="diagonalization-diagnosis">3.3 Diagonalization</h3>
           <p>
@@ -306,7 +306,7 @@ og_description: "An introduction and program of formal logic."
             The standard reading of incompleteness often treats diagonalization and self-reference as the source of the pathology. Here the direction is reversed. Diagonalization does not introduce the defect; it exposes a promotion that was already present. The arithmetized provability predicate contains a numerical proxy for proofhood (HBL), sustained by an external interpretation of codes as proofs. It is the exposure, by self-reference, of a prior semantic promotion: the replacement of proofhood by coded provability, and then of coded provability by a modal or semantic surrogate for proof itself.
           </p>
           <p>
-            Incompleteness might not show that self-reference corrupts an otherwise stable semantic order; it shows that the semantic order was never internally contained by the coded predicate that claimed to represent it.
+            Incompleteness instead indicates that the coded predicate never internally contained the semantic order attributed to it.
           </p>
           <p>
             The legitimate core is local and procedural. Given a finite derivation $\pi$, one can check whether $\pi$ is a valid $T$-proof of a formula $\varphi$. Given a standard Gödel number $n$, one can decode it and verify whether it represents such a derivation.
@@ -365,7 +365,6 @@ og_description: "An introduction and program of formal logic."
             HBL therefore gives closure of coded provability under coded proof-transformations. It does not, by itself, give an inhabited semantics of proofhood.
           </p>
 
-          <h4>Nonstandard Witnesses and Unwitnessed Inhabitation</h4>
           <p>
             In a nonstandard model $M\models T$, the model may satisfy:
           </p>
@@ -382,7 +381,6 @@ og_description: "An introduction and program of formal logic."
             This reveals the central gap: the formal system may contain an object it treats as a proof-code, while the metatheory need not recognize that object as a genuine proof.
           </p>
 
-          <h4>Diagonalization as Diagnostic</h4>
           <p>
             The <span class="sc">Gödel Sentence</span> has the form:
           </p>
@@ -399,7 +397,6 @@ og_description: "An introduction and program of formal logic."
             The <span class="sc">Gödel Sentence</span> forces the provability predicate to occupy the position of proofhood itself. The resulting obstruction is not accidental. It marks the failure of the surrogate to contain the semantic core it was made to represent.
           </p>
 
-          <h4>The Double Strength of the Diagonal</h4>
           <p>
             Diagonalization is powerful because it does not depend on the complete legitimacy of the semantic predicate it targets. Its diagnostic force persists under two opposed readings.
           </p>
