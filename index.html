@@ -37,6 +37,30 @@ og_type: "website"
             font-size: 1.2em;
             font-weight: 300;
         }
+
+        .stickerbox {
+            width: 100%;
+            max-width: none;
+            box-sizing: border-box;
+        }
+
+        .sticker-grid {
+            display: grid;
+            grid-template-columns: repeat(8, minmax(0, 1fr));
+            align-items: center;
+            justify-items: center;
+            gap: 1.5em;
+            margin-top: 1.5em;
+        }
+
+        .sticker-grid img {
+            width: 4.5em;
+            height: 4.5em;
+            object-fit: contain;
+            mix-blend-mode: multiply;
+
+        }
+
     </style>
 </head>
 <body>
@@ -51,6 +75,7 @@ og_type: "website"
             <a class="toc-item" href="#portrait"><span class="toc-key">6</span><span class="toc-text">Portrait</span></a>
             <a class="toc-item" href="#location"><span class="toc-key">7</span><span class="toc-text">Location distribution</span></a>
             <a class="toc-item" href="#monogram"><span class="toc-key">8</span><span class="toc-text">Monogram ligature</span></a>
+            <a class="toc-item" href="#preferred-technologies"><span class="toc-key">9</span><span class="toc-text">Preferred technologies</span></a>
         </div>
     </div>
 
@@ -120,7 +145,7 @@ og_type: "website"
             <div class="grid-item-content">
                 <div class="box contentbox">
                     <h2>
-                        About me
+                        About
                     </h2>
                     <p>
                         I hold a B.A. in Gestaltung und Kultur from HTW Berlin University of Applied Sciences and am currently enrolled in the B.A. Computer Science program at the University of Hagen.
@@ -183,7 +208,7 @@ og_type: "website"
         <div class="grid-item d-w-3 m-w-3" id="location"><span class="nr"></span>
             <div class="grid-item-content">
                 <div class="box imagebox">
-                    <img src="aux/location.png" alt="Map" height="140px" style="mix-blend-mode: screen;">
+                    <img src="aux/location.png" alt="Map" height="140px" style="mix-blend-mode: screen; opacity: 0.5;">
                 </div>
             </div>
         </div>
@@ -192,6 +217,31 @@ og_type: "website"
             <div class="grid-item-content">
                 <div class="box imagebox">
                     <img src="./aux/mr.png" alt="Ligature" height="140px">
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item d-w-9 m-w-9" id="preferred-technologies"><span class="nr"></span>
+            <div class="grid-item-content">
+                <div class="box monobox stickerbox">
+                    <div class="sticker-grid" aria-label="Preferred technologies">
+                        <img src="./aux/stickers/python.png" alt="Python">
+                        <img src="./aux/stickers/lisp.png" alt="Lisp">
+                        <img src="./aux/stickers/rocq.png" alt="Rocq">
+                        <img src="./aux/stickers/ocaml.png" alt="OCaml">
+                        <img src="./aux/stickers/csharp.png" alt="C#">
+                        <img src="./aux/stickers/swift.png" alt="Swift">
+                        <img src="./aux/stickers/html5.png" alt="HTML5">
+                        <img src="./aux/stickers/latex.png" alt="LaTeX">
+                        <img src="./aux/stickers/neovide.png" alt="Neovide">
+                        <img src="./aux/stickers/emacs.png" alt="Emacs">
+                        <img src="./aux/stickers/sublime.png" alt="Sublime">
+                        <img src="./aux/stickers/chromium.png" alt="Chromium">
+                        <img src="./aux/stickers/unix.png" alt="Unix">
+                        <img src="./aux/stickers/macos.png" alt="MacOS">
+                        <img src="./aux/stickers/unity.png" alt="Unity">
+                        <img src="./aux/stickers/codex.png" alt="Codex">
+                    </div>
                 </div>
             </div>
         </div>
