@@ -329,96 +329,150 @@ og_description: "An introduction and program of formal logic."
           <p>
             What remains is a bounded decision problem. One may specify a particular agent, a predictor with stated reliability over a fixed hypothesis class, and an explicit payoff structure; within that model, one may ask which action maximizes a selected decision rule, how calibration changes evidential and causal dependencies, and how robust the recommendation is under changes to the model. The restriction preserves prediction, choice, and decision theory within bounded models. It denies only the unlicensed promotion of a locally specified predictive mechanism into a total evaluator of an open-ended class of evaluator-sensitive agents.
           </p>
-          <h3 id="diagonalization-diagnosis">3.3 Diagonalization as Diagnosis</h3>
+          <h3 id="diagonalization-diagnosis">3.3 Diagonalization and Diagnosis</h3>
           <p>
-            This section treats diagonalization not as the source of the defect, but as the device that exposes it <a href="#reference-godel">[Gödel, 1931]</a> <a href="#reference-lawvere-diagonal">[Lawvere, 1969]</a>. A local procedure may be perfectly legitimate: given a finite object, one may check it; given a code, one may decode it; given a derivation, one may verify whether it is a derivation in a formal system. The problem begins when such a local evaluator is promoted into a total semantic surrogate over a domain that is closed under references to that evaluator itself.
+            This section treats Gödelian diagonalization not as a local trick of self-reference, but as a diagnostic obstruction at the level of proof itself <a href="#reference-godel">[Gödel, 1931]</a> <a href="#reference-boolos-burgess-jeffrey">[Boolos et al., 2007]</a>.
           </p>
           <p>
-            The general pattern is:
-          </p>
-          <div class="mathjaxwrap">
-            $$
-            W(n,x)
-            $$
-          </div>
-          <p>
-            where $W$ is a local witness relation. From it one forms an evaluator:
-          </p>
-          <div class="mathjaxwrap">
-            $$
-            E(x) := \exists n\,W(n,x).
-            $$
-          </div>
-          <p>
-            So far there is no defect. The relation $W$ may be decidable, and the existential $E$ may be a legitimate formal predicate. The promotion occurs when $E$ is treated not merely as an internal predicate, but as a global surrogate for a semantic status: truth, proofhood, admissibility, rational choice, successful prediction, or some other completed classification.
+            The question is not merely whether a formal system can construct a sentence that speaks about its own provability. Nor is the central issue that a local proof-checker is promoted into a semantic surrogate for proof. That is part of the mechanism, but it is not yet the Reflexica point.
           </p>
           <p>
-            Diagonalization tests precisely this promotion. Once the language is strong enough to let objects mention the evaluator applied to their own descriptions, the diagonal construction produces an object $d$ satisfying:
-          </p>
-          <div class="mathjaxwrap">
-            $$
-            d \;\leftrightarrow\; F(E(\ulcorner d\urcorner)).
-            $$
-          </div>
-          <p>
-            The evaluator is thereby forced to classify an object whose formation already depends on that classification. This is the diagnostic moment. The diagonal does not create the promotion. It reveals what the promotion demands: closure under self-application.
+            The deeper structure is this: we want a proof of which regime proof itself belongs to.
           </p>
           <p>
-            In the Gödel case, the local witness relation is the proof-checking relation <a href="#reference-boolos-burgess-jeffrey">[Boolos et al., 2007]</a>:
+            There are two opposed pictures.
+          </p>
+          <p>
+            On an antirealist or broadly constructive picture, arithmetic truth does not outrun proof, warrant, construction, or some admissible form of verification. A mathematical proposition is not treated as determinately true independently of the means by which it can be established.
+          </p>
+          <p>
+            On a realist (classic) picture, arithmetic truth is fixed independently of proof or warrant. The standard natural numbers form a determinate domain, and arithmetic sentences have determinate truth-values whether or not a given proof-system can establish them.
+          </p>
+          <p>
+            The difficulty is that we do not get to stand outside both pictures and inspect, from a neutral position, which one is metaphysically correct. Any argument for one picture over the other must itself proceed by some method. Let that method be denoted by $M$.
+          </p>
+          <p>
+            But $M$ cannot be an inert object. If it is to settle the question, $M$ must be a proof-method, or at least a warrant-conferring method. It must tell us whether arithmetic is to be understood realistically or antirealistically.
+          </p>
+          <p>
+            That is the trap. To decide between realism and antirealism, we need a proof-method whose authority is not already being interpreted realistically or antirealistically. But no such neutral $M$ is available. If $M$ is understood antirealistically, it cannot establish semantic excess over proof, since such excess is precisely what the antirealist refuses. If $M$ is understood realistically, then it already assumes the semantic authority it was supposed to justify.
+          </p>
+          <p>
+            Gödel enters exactly here. By the diagonal lemma, one can construct a sentence $G_{\mathrm{T}}$ such that
           </p>
           <div class="mathjaxwrap">
             $$
-            \operatorname{Proof}_{\mathrm{T}}(n,\ulcorner\varphi\urcorner).
+            G_{\mathrm{T}} \leftrightarrow \neg \operatorname{Prov}_{\mathrm{T}}(\ulcorner G_{\mathrm{T}}\urcorner).
             $$
           </div>
           <p>
-            Given a finite derivation $\pi$, one can check whether $\pi$ is a valid $\mathrm{T}$-proof of $\varphi$. Given a standard Gödel number $n$, one can decode it and verify whether it represents such a derivation. This local relation is not suspicious. It is precisely the arithmetical representation of formal proof-checking.
+            Informally, $G_{\mathrm{T}}$ says that $G_{\mathrm{T}}$ is not provable in $\mathrm{T}$.
           </p>
           <p>
-            Arithmetized provability is then defined by existential closure over proof codes:
+            This construction is stable across the dispute. Both the realist and the antirealist can recognize the formal construction. Both can accept that, under the relevant consistency assumptions, $\mathrm{T}$ does not prove $G_{\mathrm{T}}$. The disagreement concerns what follows from this.
+          </p>
+          <p>
+            In the antirealist picture, Gödel's theorem remains a genuine formal result. It shows that a sufficiently strong effective proof-system cannot, on pain of inconsistency, prove its Gödel sentence:
           </p>
           <div class="mathjaxwrap">
             $$
-            \operatorname{Prov}_{\mathrm{T}}(\ulcorner\varphi\urcorner)
-            :=
-            \exists n\,\operatorname{Proof}_{\mathrm{T}}(n,\ulcorner\varphi\urcorner).
+            \mathrm{T} \nvdash G_{\mathrm{T}}.
             $$
           </div>
           <p>
-            Again, this is legitimate as a predicate of arithmetic. The critical question is not whether $\operatorname{Prov}_{\mathrm{T}}$ is a well-defined formal predicate. It is. The critical question is what role it is asked to play. If it is read modestly as formal derivability in $\mathrm{T}$, it marks the boundary of $\mathrm{T}$. If it is read ambitiously as a surrogate for proofhood or truth, it is being promoted beyond its local witness basis.
-          </p>
-          <p>
-            The diagonal lemma now supplies a sentence $\mathsf{G}_{\mathrm{T}}$ such that <a href="#reference-godel">[Gödel, 1931]</a>:
+            But the antirealist does not thereby have to accept the further claim
           </p>
           <div class="mathjaxwrap">
             $$
-            \mathsf{G}_{\mathrm{T}}
-            \leftrightarrow
-            \neg\operatorname{Prov}_{\mathrm{T}}(\ulcorner\mathsf{G}_{\mathrm{T}}\urcorner).
+            G_{\mathrm{T}} \text{ is true but unprovable}.
             $$
           </div>
           <p>
-            More exactly, it is the fixed point obtained by applying the evaluator $\operatorname{Prov}_{\mathrm{T}}$ to the code of the very sentence whose content is defined in terms of that evaluation. The promoted evaluator is made to encounter the self-substituted case.
+            That further claim requires a notion of arithmetic truth that outruns proof or warrant. Yet such a notion is precisely what the antirealist rejects or refuses to treat as primitive. For the antirealist, then, Gödel is not false. It is deflated. It becomes a theorem about the limits of a given formal system, not a revelation of an independently obtaining arithmetical fact.
           </p>
           <p>
-            The resulting obstruction has two readings, depending on how $\mathrm{T}$ was being used. If $\mathrm{T}$ is treated only as a formal calculus, then $\mathsf{G}_{\mathrm{T}}$ says that this sentence is not derivable in $\mathrm{T}$. Under the usual consistency assumptions, that is a limit theorem about $\mathrm{T}$; no scandal follows. $\mathrm{T}$ remains a well-defined syntactic system.
+            In this sense Gödel is vacuous with respect to realism. It cannot prove realism from inside antirealism, because the semantic surplus needed for the realist conclusion has already been disallowed. The theorem still marks a boundary, but the boundary is internal to the formal apparatus. It does not by itself license a metaphysics of completed arithmetic truth.
           </p>
           <p>
-            If, however, $\mathrm{T}$ is treated as capturing mathematical truth, ideal proof, or the full semantic order of arithmetic, then the same diagonal sentence becomes a refutation of that identification. The sentence separates the formal evaluator from the semantic role it was asked to occupy.
+            In the realist picture, the same construction has greater force. If there is a determinate standard model of arithmetic, and if $\mathrm{T}$ is sound with respect to that model, then $G_{\mathrm{T}}$ is true because what it says is the case. It says that it is not $\mathrm{T}$-provable, and, under the relevant assumptions, it is not $\mathrm{T}$-provable.
           </p>
           <p>
-            The <span class="sc">Hilbert–Bernays–Löb Derivability Conditions</span> <a href="#reference-boolos-burgess-jeffrey">[Boolos et al., 2007]</a> belong to the same diagnosis. They show that $\operatorname{Prov}_{\mathrm{T}}$ has enough internal closure to behave like a provability operator: proofs can be coded, proof transformations can be coded, and the system can represent certain facts about its own derivability predicate. But this formal success is exactly what makes the diagonal test possible. The better the surrogate behaves internally, the more sharply diagonalization can ask whether it deserves the semantic role assigned to it.
-          </p>
-          <p>
-            Nonstandard models display a secondary symptom of the same gap. A model $M\models \mathrm{T}$ may satisfy <a href="#reference-kaye-models-pa">[Kaye, 1991]</a>:
+            So the same formal construction now yields
           </p>
           <div class="mathjaxwrap">
             $$
-            M\models \exists n\,\operatorname{Proof}_{\mathrm{T}}(n,\ulcorner\varphi\urcorner),
+            \text{truth} \neq \mathrm{T}\text{-provability}.
             $$
           </div>
           <p>
-            while the witnessing element is nonstandard. Internally, the existential is satisfied; externally, there need be no standard finite derivation. This is not the source of incompleteness, but it makes visible the distinction between internal satisfaction of the coded predicate and external possession of a genuine finite proof.
+            Here Gödel is not merely a boundary theorem about $\mathrm{T}$. It becomes a method for showing that arithmetic truth exceeds any given sufficiently strong effective formal system. The Gödel sentence is then read as an arithmetical truth not captured by the proof-system whose provability predicate it mentions.
+          </p>
+          <p>
+            Thus Gödel is invariant across the dispute, but its force is not.
+          </p>
+          <p>
+            The invariant construction is
+          </p>
+          <div class="mathjaxwrap">
+            $$
+            G_{\mathrm{T}} \leftrightarrow \neg \operatorname{Prov}_{\mathrm{T}}(\ulcorner G_{\mathrm{T}}\urcorner).
+            $$
+          </div>
+          <p>
+            The two readings are:
+          </p>
+          <div class="mathjaxwrap">
+            $$
+            \text{Antirealist: boundary of }\mathrm{T}. \;
+            \text{Realist: truth beyond }\mathrm{T}.
+            $$
+          </div>
+          <p>
+            The formal diagonal does not decide between these readings. It can be accepted in both regimes. What changes is the semantic authority granted to the sentence after the formal result has been obtained.
+          </p>
+          <p>
+            This is the relevant obstruction. We want to know whether arithmetic belongs to the antirealist regime or to the realist regime. But to prove either answer, we require a method $M$. Once $M$ is introduced, the question repeats:
+          </p>
+          <div class="mathjaxwrap">
+            $$
+            \text{What is the status of }M?
+            $$
+          </div>
+          <p>
+            If $M$ is treated antirealistically, then it cannot prove the existence of arithmetic truth beyond proof, since such truth is not admitted as an independent target. If $M$ is treated realistically, then it already presupposes the semantic excess it was meant to establish.
+          </p>
+          <p>
+            The needed method is therefore exactly what cannot be neutrally supplied.
+          </p>
+          <p>
+            The structure may be displayed as follows:
+          </p>
+          <div class="mathjaxwrap">
+            $$
+            \begin{array}{c}
+            \text{Realism vs Antirealism} \\
+            \Downarrow \\
+            \text{Need a proof-method whose authority is neutral} \\
+            \Downarrow \\
+            \text{But proof-methods are themselves interpreted inside the dispute} \\
+            \Downarrow \\
+            \text{Gödel applies in both regimes} \\
+            \Downarrow \\
+            \text{In antirealism: formal boundary of }\mathrm{T} \\
+            \text{In realism: semantic excess of arithmetic truth over }\mathrm{T} \\
+            \Downarrow \\
+            \text{No neutral proof of which reading we inhabit.}
+            \end{array}
+            $$
+          </div>
+          <p>
+            This is the Reflexica point in the Gödelian case. Not that Gödel shows proof is merely a proxy. Not that diagonalization creates self-reference. Not that Newcomb's Problem is formally analogous.
+          </p>
+          <p>
+            The point is that the demand for a proof of the correct theory of proof is itself caught in the dispute it seeks to resolve. Gödel's theorem is stable under both realism and antirealism, but it cannot neutrally choose between them, because the choice requires the very semantic authority under dispute.
+          </p>
+          <p>
+            The diagonal construction therefore diagnoses a limit not only of $\mathrm{T}$, but of the attempt to adjudicate the status of proof from a position outside proof. Once a method is asked to certify the correct interpretation of method itself, it is no longer neutral.
           </p>
           <h3 id="self-reference-schema">3.4 Self-Reference as a Schema</h3>
           <p>
