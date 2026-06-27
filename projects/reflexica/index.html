@@ -131,7 +131,7 @@ og_description: "An introduction and program of formal logic."
       <div class="grid-item-content">
         <div class="box contentbox">
           <p class="miniscript">
-            Preliminary article; first draft. Revised June 2026. Licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY</a>.
+            Preliminary state. Revised June 2026. Licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY</a>.
           </p>
           <h2>What is Reflexica?</h2>
           <div id="introduction">
@@ -215,7 +215,10 @@ og_description: "An introduction and program of formal logic."
           </p>
           <h3>2.1 The <span class="sc">Zeroth World</span></h3>
           <p>
-            The name “Reflexica” is an antiphrasis borrowing from <span class="sc">Impagliazzo's Possible-Worlds Taxonomy</span> in average-case complexity <a href="#reference-impagliazzo">[Impagliazzo, 1995]</a>, projecting a missing “uninhabited world.” We use this image to ask why a lack of method, denoted as <i>problems</i>, are converted into semantic architecture at all. Complexity theory enters here as both object and symptom: a field whose dominant formulations may stall when coupled to a contradiction-free classical totality, and thence, no contradiction follows, because the promotion remains conservative: an existential claim can be read back into its procedural counterpart.
+            The name “Reflexica” is an antiphrasis borrowing from <span class="sc">Impagliazzo's Possible-Worlds Taxonomy</span> in average-case complexity <a href="#reference-impagliazzo">[Impagliazzo, 1995]</a>, projecting a missing “uninhabited world.”
+          </p>
+          <p>
+            We use this image to ask why a lack of method, denoted as <i>problems</i>, are converted into semantic architecture at all. Complexity theory enters here as both object and symptom: a field whose dominant formulations may stall when coupled to a contradiction-free classical totality, and thence, no contradiction follows, because the promotion remains conservative: an existential claim can be read back into its procedural counterpart.
           </p>
           <p>
             The obstruction concerns a structural absence beyond the technical limitations of particular formalisms or their theoreticians: a gap that certain classical principles reify locally, converting it into a reflection principle against which the system recurses on itself, rather than making contact with an independent domain that could ground the closure.
@@ -268,20 +271,26 @@ og_description: "An introduction and program of formal logic."
             Before turning to more formal cases, <span class="sc">Mackie’s Error Theory</span> <a href="#reference-mackie">[Mackie, 1977]</a> serves as a sensitizing pattern outside the article’s mathematical examples. It helps isolate the kind of movement Reflexica is concerned with: a practice encounters an absence, stabilizes that absence through its own internal demands, and at some threshold permits the absence to appear as a semantic object. <span class="sc">Mackie’s Queerness Argument</span> therefore orients the reader toward the proposed structure without proving it.
           </p>
           <p>
-            In the Mackiean sense, “queerness” concerns the metaphysical and epistemological strangeness of objective values. It serves here as a way of training attention toward a transition in which the absence of a required semantic term is disciplined by a practice and may then be treated as though it already named an object.
+            Here, “queerness” concerns the metaphysical and epistemological appeal to “strangeness” of non-promissory values. It serves as a way of training attention toward a transition in which the absence of a required semantic term is disciplined by a practice and may then be treated as though it already named an object.
           </p>
           <p>
-            If the semantic object required by realist moral discourse could be produced in the relevant sense, <span class="sc">Mackie’s Error Theory</span> would fail; if the theory is correct, no such object is available to be produced. Its correctness therefore cannot take the form of a positive witness for the very object whose absence it asserts. What it marks is an absence whose being witnessed would undermine the thesis that identified it.
+            We note here that if (and only if) the semantic object required by realist moral discourse could be produced in the relevant sense, <span class="sc">Mackie’s Error Theory</span> would fail; if the theory is correct, no such object is available to be produced. Its correctness therefore cannot take the form of a positive witness for the very object whose absence it asserts. What it marks is a shadow whose being witnessed would undermine the thesis that identified it.
           </p>
           <p>
-            We therefore treat <span class="sc">Mackie’s Queerness Argument</span> as an indirect and defeasible indication of absence. Its role remains orienting rather than formally instantiating. Where a discourse requires a queer semantic object, failure to produce or locate that object may indicate more than a remediable gap.
+            For now, we treat this argument as an indirect but defeasible indication of absence. Its role remains orienting rather than formally instantiating. Where a discourse requires a queer semantic object, failure to produce or locate that object may indicate more than a remediable gap.
           </p>
           <p>
             The case attunes the reader to a possible movement from an internally stabilized absence to a purported semantic object, without establishing that the later formal cases share its structure. Whether the same passage recurs under more exact conditions remains the question that the following sections investigate.
           </p>
+          <p>
+            We also note that this obstruction appears at other phenomenological discussions.
+          </p>
           <h3 id="newcombs-problem">3.2 <span class="sc">Newcomb's Problem</span></h3>
           <p>
-            <span class="sc">Newcomb's Problem</span> <a href="#reference-nozick">[Nozick, 1969]</a> gives a more structured case. Here the issue is no longer moral objectivity, but the promotion of a locally stipulated predictor into a total evaluator over a class of evaluator-sensitive agents. Commonly treated within decision theory as a question of causal rationality, it is examined here through <span class="sc">Problem Critique</span>.
+            We move to a more structured case, to <span class="sc">Newcomb's Problem</span> <a href="#reference-nozick">[Nozick, 1969]</a>.
+          </p>
+          <p>
+            Here the issue is no longer moral objectivity, but the promotion of a locally stipulated predictor into a total evaluator over a class of evaluator-sensitive agents. Commonly treated within decision theory as a question of causal rationality, it is examined here through <span class="sc">Problem Critique</span>.
           </p>
           <div class="mathjaxlike">
             The agent may either “one-box”, receiving $B$, or “two-box”, receiving $A+B$, where $A=1000\,\mathrm{USD}$ and $B\in\{0,10^6\}\,\mathrm{USD}$ has already been fixed by a predictor $P$. Specifically, $B=10^6\,\mathrm{USD}$ iff $P$ predicted one-boxing, and $B=0$ iff $P$ predicted two-boxing. Conditional on the value of $B$ being fixed, two-boxing strictly dominates one-boxing by $1000\,\mathrm{USD}$. However, let $C_1$ be the act of one-boxing and $C_2$ the act of two-boxing. If $p=\Pr(B=10^6\,\mathrm{USD}\mid C_1)$ and $q=\Pr(B=10^6\,\mathrm{USD}\mid C_2)$, then $\operatorname{EU}(C_1)=10^6p$ and $\operatorname{EU}(C_2)=1000+10^6q$. Hence one-boxing maximizes evidential expected utility iff $p-q>10^{-3}$.
