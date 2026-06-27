@@ -302,16 +302,26 @@ og_description: "An introduction and program of formal logic."
             We focus on the fact that the predictor is internalized as an evaluator over the same domain that contains the agent's decision procedure. The deeper problem concerns the formation of $C$ under the condition that $P$ evaluates it, while $P$ is simultaneously treated as ranging over such evaluator-sensitive choices. The object of evaluation is therefore not independent of the evaluating setup.
           </p>
           <p>
-            The dependency can be displayed schematically:
+            The dependency can be displayed schematically as reciprocal simulation:
           </p>
           <div class="mathjaxwrap">
             $$
-            P:\mathcal{C}(P)\to\{C_1,C_2\},
-            \quad C\in\mathcal{C}(P).
+            \begin{aligned}
+            P(D) &\Downarrow \operatorname{Sim}(D,P),\\
+            D(P) &\Downarrow \operatorname{Sim}(P,D).
+            \end{aligned}
             $$
           </div>
           <p>
-            The dependency has an impredicative form: the choice is drawn from a space whose admissible description is already parameterized by the predictor that evaluates it. The agent's choice appears as an object partially constituted by its relation to the predictor, rather than as a first-order act within a fixed environment. Once this is admitted, the predictor assumes a constitutive role beyond that of an ordinary antecedent.
+            Predictive success then requires
+          </p>
+          <div class="mathjaxwrap">
+            $$
+            P(D)=D(P),
+            $$
+          </div>
+          <p>
+            but neither side is formed independently: the predictor reaches the act by simulating a decider whose decision procedure may itself simulate the predictor. The issue is therefore not contradiction by inversion, but an ungrounded evaluator loop. The promoted object is a choice whose admissible formation already depends on the evaluator that is supposed to classify it.
           </p>
           <p>
             The familiar disagreement between <span class="sc">Causal Decision Theory</span> and <span class="sc">Evidential Decision Theory</span> is therefore downstream. CDT restores predicativity by imposing a causal type distinction: the box is fixed, the act comes later, and no present intervention reaches backward. EDT instead collapses the predictor and the agent into one correlated evidential structure. Each response selects a different cut through the same impredicative substrate. Neither explains why such a substrate should have been admitted.
