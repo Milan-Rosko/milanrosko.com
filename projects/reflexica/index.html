@@ -331,152 +331,95 @@ og_description: "An introduction and program of formal logic."
           </p>
           <h3 id="diagonalization-diagnosis">3.3 Diagonalization as Diagnosis</h3>
           <p>
-            This section treats the classical provability predicate as a formal instance of how a locally witnessed procedure is promoted into a global semantic surrogate, and the resulting obstruction becomes visible only when the surrogate is forced into self-relation.
+            This section treats diagonalization not as the source of the defect, but as the device that exposes it <a href="#reference-godel">[Gödel, 1931]</a> <a href="#reference-lawvere-diagonal">[Lawvere, 1969]</a>. A local procedure may be perfectly legitimate: given a finite object, one may check it; given a code, one may decode it; given a derivation, one may verify whether it is a derivation in a formal system. The problem begins when such a local evaluator is promoted into a total semantic surrogate over a domain that is closed under references to that evaluator itself.
           </p>
           <p>
-            A prominent interpretive tradition foregrounds diagonalization and self-reference as the source of the Gödelian obstruction <a href="#reference-hofstadter-geb">[Hofstadter, 1979]</a>. Here the direction is reversed. Diagonalization does not introduce the defect; it exposes a promotion that was already present. The arithmetized provability predicate contains a numerical proxy for proofhood, sustained by an external interpretation of codes as proofs; the <span class="sc">Hilbert–Bernays–Löb Derivability Conditions</span> (HBL) <a href="#reference-boolos-burgess-jeffrey">[Boolos et al., 2007]</a> conditions govern the formal behavior of that predicate.
+            The general pattern is:
+          </p>
+          <div class="mathjaxwrap">
+            $$
+            W(n,x)
+            $$
+          </div>
+          <p>
+            where $W$ is a local witness relation. From it one forms an evaluator:
+          </p>
+          <div class="mathjaxwrap">
+            $$
+            E(x) := \exists n\,W(n,x).
+            $$
+          </div>
+          <p>
+            So far there is no defect. The relation $W$ may be decidable, and the existential $E$ may be a legitimate formal predicate. The promotion occurs when $E$ is treated not merely as an internal predicate, but as a global surrogate for a semantic status: truth, proofhood, admissibility, rational choice, successful prediction, or some other completed classification.
           </p>
           <p>
-            As self-reference exposes a prior semantic promotion—the replacement of proofhood by coded provability—and then of coded provability by a modal or semantic surrogate for proof itself, incompleteness indicates that the coded predicate never internally contained the semantic order attributed to it.
+            Diagonalization tests precisely this promotion. Once the language is strong enough to let objects mention the evaluator applied to their own descriptions, the diagonal construction produces an object $d$ satisfying:
+          </p>
+          <div class="mathjaxwrap">
+            $$
+            d \;\leftrightarrow\; F(E(\ulcorner d\urcorner)).
+            $$
+          </div>
+          <p>
+            The evaluator is thereby forced to classify an object whose formation already depends on that classification. This is the diagnostic moment. The diagonal does not create the promotion. It reveals what the promotion demands: closure under self-application.
           </p>
           <p>
-            The legitimate core is local and procedural. Given a finite derivation $\pi$, one can check whether $\pi$ is a valid $T$-proof of a formula $\varphi$. Given a standard Gödel number $n$, one can decode it and verify whether it represents such a derivation.
+            In the Gödel case, the local witness relation is the proof-checking relation <a href="#reference-boolos-burgess-jeffrey">[Boolos et al., 2007]</a>:
+          </p>
+          <div class="mathjaxwrap">
+            $$
+            \operatorname{Proof}_{\mathrm{T}}(n,\ulcorner\varphi\urcorner).
+            $$
+          </div>
+          <p>
+            Given a finite derivation $\pi$, one can check whether $\pi$ is a valid $\mathrm{T}$-proof of $\varphi$. Given a standard Gödel number $n$, one can decode it and verify whether it represents such a derivation. This local relation is not suspicious. It is precisely the arithmetical representation of formal proof-checking.
           </p>
           <p>
-            Thus the proof relation $\operatorname{Proof}_T(n,\ulcorner\varphi\urcorner)$ is not itself suspicious. It is a decidable arithmetical relation over finite codes <a href="#reference-boolos-burgess-jeffrey">[Boolos et al., 2007]</a>. The problem begins when this local, checkable relation is promoted into a semantic account of proofhood.
-          </p>
-          <p>
-            Arithmetized provability is usually defined as:
+            Arithmetized provability is then defined by existential closure over proof codes:
           </p>
           <div class="mathjaxwrap">
             $$
             \operatorname{Prov}_{\mathrm{T}}(\ulcorner\varphi\urcorner)
-            \;:=\;
-            \exists n\,\operatorname{Proof}_T(n,\ulcorner\varphi\urcorner).
+            :=
+            \exists n\,\operatorname{Proof}_{\mathrm{T}}(n,\ulcorner\varphi\urcorner).
             $$
           </div>
           <p>
-            This formula says that there exists a number satisfying the proof predicate. It does not directly give a proof-object; it promises that the coded existential can occupy the place of proofhood. The semantic shift occurs when this existential over codes is read not merely as internal provability in $T$, but as proofhood in the stronger sense needed for closure.
+            Again, this is legitimate as a predicate of arithmetic. The critical question is not whether $\operatorname{Prov}_{\mathrm{T}}$ is a well-defined formal predicate. It is. The critical question is what role it is asked to play. If it is read modestly as formal derivability in $\mathrm{T}$, it marks the boundary of $\mathrm{T}$. If it is read ambitiously as a surrogate for proofhood or truth, it is being promoted beyond its local witness basis.
           </p>
           <p>
-            Metatheoretically, the existential over proof codes can be decomposed by introducing an actual decoded sequence $\pi$: for a number $n$ to be a proof-code, it must decode into a sequence whose entries are formulas and whose steps are valid applications of the inference rules.
+            The diagonal lemma now supplies a sentence $\mathsf{G}_{\mathrm{T}}$ such that <a href="#reference-godel">[Gödel, 1931]</a>:
           </p>
           <div class="mathjaxwrap">
             $$
-            \exists n\,\exists\pi\in\operatorname{Seq}_{\mathrm{fin}}\,
-            \bigl(\operatorname{Decode}(n)=\pi
-            \wedge
-            \operatorname{ValidProofSeq}_T(\pi,\varphi)\bigr).
+            \mathsf{G}_{\mathrm{T}}
+            \leftrightarrow
+            \neg\operatorname{Prov}_{\mathrm{T}}(\ulcorner\mathsf{G}_{\mathrm{T}}\urcorner).
             $$
           </div>
           <p>
-            This is a metatheoretic decomposition, not an additional existential formulated inside first-order arithmetic. Within the arithmetized setting, $\pi$ is itself represented numerically; the displayed sequence belongs to the external interpretation of the code.
+            More exactly, it is the fixed point obtained by applying the evaluator $\operatorname{Prov}_{\mathrm{T}}$ to the code of the very sentence whose content is defined in terms of that evaluation. The promoted evaluator is made to encounter the self-substituted case.
           </p>
           <p>
-            The arithmetized provability predicate does not contain proofhood. It contains a numerical proxy for proofhood, plus an external convention under which certain numbers are read as proofs.
+            The resulting obstruction has two readings, depending on how $\mathrm{T}$ was being used. If $\mathrm{T}$ is treated only as a formal calculus, then $\mathsf{G}_{\mathrm{T}}$ says that this sentence is not derivable in $\mathrm{T}$. Under the usual consistency assumptions, that is a limit theorem about $\mathrm{T}$; no scandal follows. $\mathrm{T}$ remains a well-defined syntactic system.
           </p>
           <p>
-            HBL are formally justified, as they express the fact that coded provability is closed under certain proof-code transformations. But this is not the same as giving a semantics of proof-inhabitation.
+            If, however, $\mathrm{T}$ is treated as capturing mathematical truth, ideal proof, or the full semantic order of arithmetic, then the same diagonal sentence becomes a refutation of that identification. The sentence separates the formal evaluator from the semantic role it was asked to occupy.
           </p>
           <p>
-            For example, the condition
+            The <span class="sc">Hilbert–Bernays–Löb Derivability Conditions</span> <a href="#reference-boolos-burgess-jeffrey">[Boolos et al., 2007]</a> belong to the same diagnosis. They show that $\operatorname{Prov}_{\mathrm{T}}$ has enough internal closure to behave like a provability operator: proofs can be coded, proof transformations can be coded, and the system can represent certain facts about its own derivability predicate. But this formal success is exactly what makes the diagonal test possible. The better the surrogate behaves internally, the more sharply diagonalization can ask whether it deserves the semantic role assigned to it.
+          </p>
+          <p>
+            Nonstandard models display a secondary symptom of the same gap. A model $M\models \mathrm{T}$ may satisfy <a href="#reference-kaye-models-pa">[Kaye, 1991]</a>:
           </p>
           <div class="mathjaxwrap">
             $$
-            T\vdash
-            \operatorname{Prov}_{\mathrm{T}}(\ulcorner\varphi\urcorner)
-            \rightarrow
-            \operatorname{Prov}_{\mathrm{T}}
-            \bigl(\ulcorner\operatorname{Prov}_{\mathrm{T}}(\ulcorner\varphi\urcorner)\urcorner\bigr)
+            M\models \exists n\,\operatorname{Proof}_{\mathrm{T}}(n,\ulcorner\varphi\urcorner),
             $$
           </div>
           <p>
-            need not mean that a proof reflects on itself. It means that from a code satisfying the proof predicate one can construct another code satisfying the proof predicate for an existential claim about the first code.
+            while the witnessing element is nonstandard. Internally, the existential is satisfied; externally, there need be no standard finite derivation. This is not the source of incompleteness, but it makes visible the distinction between internal satisfaction of the coded predicate and external possession of a genuine finite proof.
           </p>
-          <p>
-            HBL therefore gives closure of coded provability under coded proof-transformations. It does not, by itself, give an inhabited semantics of proofhood.
-          </p>
-
-          <p>
-            In a nonstandard model $M\models T$, the model may satisfy <a href="#reference-kaye-models-pa">[Kaye, 1991]</a>:
-          </p>
-          <div class="mathjaxwrap">
-            $$
-            M\models
-            \exists n\,\operatorname{Proof}_T(n,\ulcorner\varphi\urcorner).
-            $$
-          </div>
-          <p>
-            But the witness may be nonstandard. Externally, it need not correspond to a genuine finite proof. Internally, the existential is inhabited; externally, the alleged proof may be non-extractable. More precisely, there may be a nonstandard element $a\in M$, while externally $a$ does not code any standard finite derivation.
-          </p>
-
-          <p>
-            The <span class="sc">Gödel Sentence</span> has the form:
-          </p>
-          <div class="mathjaxwrap">
-            $$
-            \mathsf{G}\iff
-            \neg\operatorname{Prov}_{\mathrm{T}}(\ulcorner \mathsf{G} \urcorner).
-            $$
-          </div>
-          <p>
-            On the usual reading, the pathology lies in self-reference. On the Reflexica reading, diagonalization is not the pathology. It is the diagnostic device that reveals the prior promotion of coded provability into semantic proofhood.
-          </p>
-          <p>
-            The <span class="sc">Gödel Sentence</span> forces the provability predicate to occupy the position of proofhood itself. The resulting obstruction is not accidental. It marks the failure of the surrogate to contain the semantic core it was made to represent.
-          </p>
-
-          <p>
-            Diagonalization is powerful here because its disclosure does not depend on the complete legitimacy of the semantic predicate it targets. Its force persists across two opposed outcomes.
-          </p>
-          <p>
-            If the provability predicate is treated as merely formal or promissory, the diagonal exposes the gap between coded provability and genuine proofhood. The sentence
-          </p>
-          <div class="mathjaxwrap">
-            $$
-            \mathsf{G}\iff
-            \neg\operatorname{Prov}_{\mathrm{T}}(\ulcorner \mathsf{G} \urcorner)
-            $$
-          </div>
-          <p>
-            then functions diagnostically: the surrogate fails to capture the sentence through the semantic depth it was taken to represent. This branch identifies a representational gap rather than establishing an arithmetical truth:
-          </p>
-          <div class="mathjaxwrap">
-            $$
-            \text{semantic inadequacy}
-            \;\Longrightarrow\;
-            \text{diagnosis of the surrogate}.
-            $$
-          </div>
-          <p>
-            If, on the other hand, the classical semantic reading is granted—standard arithmetic, standard proof codes, and ordinary model-theoretic truth—then the same diagonal sentence is true in the usual Gödelian sense. Under the usual assumptions on $T$ <a href="#reference-boolos-provability">[Boolos, 1993]</a>, $\mathsf{G}$ is not provable in $T$; because this is what $\mathsf{G}$ asserts under the standard classical interpretation, $\mathsf{G}$ is true:
-          </p>
-          <div class="mathjaxwrap">
-            $$
-            \mathsf{G} \; \text{expresses an unprovable arithmetical truth}.
-            $$
-          </div>
-          <p>
-            The two outcomes must remain distinct. Semantic adequacy yields the classical incompleteness result; semantic inadequacy yields a metatheoretic diagnosis of the representational gap.
-          </p>
-          <div class="mathjaxlike" style="text-align: center;">
-            The diagonal discloses a boundary whether the semantic predicate proves adequate or fails in the role assigned to it.
-          </div>
-          <p>
-            The proposed invariant is therefore disclosure rather than truth. If the surrogate is semantically adequate, the diagonal exposes its incompleteness. If the surrogate fails to represent proofhood adequately, the diagonal exposes that failure. It identifies the boundary either as incompleteness within an adequate interpretation or as inadequacy in the interpretation itself.
-          </p>
-          <p>
-            <span class="sc">Constructive Logic</span> is especially attractive here because it refuses to let existence float free of witnesshood. An existential claim $\exists x:A\,P(x)$ must be inhabited by data, typically a pair consisting of a witness and evidence that the witness satisfies the predicate.
-          </p>
-          <div class="mathjaxwrap">
-            $$
-            (a,p):\sum_{x:A}P(x)
-            $$
-          </div>
-          <p>
-            This does not eliminate limitative phenomena: <span class="sc">Constructive Logic</span> requires the semantic cost of existence claims to be paid in witnesses (or assumptions) rather than deferred into an ambient ontology of completed domains.
-          </p>
-
           <h3 id="self-reference-schema">3.4 Self-Reference as a Schema</h3>
           <p>
             After diagonalization has been treated as the formal diagnostic case, self-reference can be considered more broadly as a schema. The question is whether certain forms of self-reference reproduce the same configuration: a local procedure is asked to survey, name, or close over the totality to which it itself belongs.
@@ -557,7 +500,7 @@ og_description: "An introduction and program of formal logic."
           </p>
           <div class="mathjaxwrap">
             $$
-            G_n=\alpha\log(n+1)+\beta,\qquad \alpha&gt;0,
+            G_n=\alpha\log(n+1)+\beta,\quad \alpha&gt;0,
             $$
           </div>
           <p>
