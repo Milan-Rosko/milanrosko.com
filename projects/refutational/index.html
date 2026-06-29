@@ -1,7 +1,7 @@
 ---
 title: "Refutational Learning"
 description: "A learning schema in which training proceeds by eliminating explicit refutation witnesses against a semantic object."
-keywords: "Refutational Learning, semantic repair, refutation witnesses, constructive learning"
+keywords: "Refutational Learning, refutation-repair, refutation witnesses, constructive learning"
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -17,19 +17,28 @@ keywords: "Refutational Learning, semantic repair, refutation witnesses, constru
       min-height: 10em;
       resize: none;
     }
+
+    .console .logline {
+      padding: 0.2em 0.5em;
+      border-left: 3px solid transparent;
+    }
+
+    .console .logline.here {
+      color: var(--color-terminalhi);
+      background: var(--color-main-secondary-22);
+      border-left-color: var(--color-terminalhi);
+    }
   </style>
 </head>
 <body>
   <div class="introduction">
-    <h1>Refutational Learning</h1>
+    <h1>Algorithm: Refutational Learning</h1>
     <div class="toc">
       <a class="toc-item" href="#navigation"><span class="toc-key">1</span><span class="toc-text">Navigation</span></a>
       <a class="toc-item" href="#abstract"><span class="toc-key">2</span><span class="toc-text">Abstract</span></a>
-      <a class="toc-item" href="#core-idea"><span class="toc-key">3</span><span class="toc-text">Glossary</span></a>
+      <a class="toc-item" href="#Glossary"><span class="toc-key">3</span><span class="toc-text">Glossary</span></a>
       <a class="toc-item" href="#core-idea"><span class="toc-key">4</span><span class="toc-text">Exposition</span></a>
       <a class="toc-item" href="#demo"><span class="toc-key">5</span><span class="toc-text">Interactive Demo</span></a>
-      <a class="toc-item" href="#detail"><span class="toc-key">6</span><span class="toc-text">Technical Details</span></a>
-      <a class="toc-item" href="#invitation"><span class="toc-key">7</span><span class="toc-text">Invitation</span></a>
     </div>
   </div>
   <div class="grid">
@@ -49,13 +58,13 @@ keywords: "Refutational Learning, semantic repair, refutation witnesses, constru
                 </p>
                 <ul>
                     <li>
+                        Glossary <a href="#Glossary">#</a>
+                    </li>
+                    <li>
                         Core idea <a href="#core-idea">#</a>
                     </li>
                     <li>
                         Interactive demo <a href="#demo">#</a>
-                    </li>
-                    <li>
-                        Limits <a href="#limits">#</a>
                     </li>
                 </ul>
             </div>
@@ -109,7 +118,7 @@ keywords: "Refutational Learning, semantic repair, refutation witnesses, constru
               <span class="mono">Semantics lock</span>
             </p>
             <p>
-              The declared and fixed preprocessing pipeline, feature schema, scoring rule, readout function, and scan schedule. These are the parameters conventionally left implicit; here they are made explicit and held invariant across the comparison.
+              The declared interpretation under which the run is executed and checked: preprocessing, feature extraction, scoring rule, readout, tie-breaking, margin rule, and scan policy. The lock fixes what counts as the same learning problem. Changing the lock changes the certificate.
             </p>
           </li>
           <li>
@@ -117,7 +126,15 @@ keywords: "Refutational Learning, semantic repair, refutation witnesses, constru
               <span class="mono">Witness table</span>
             </p>
             <p>
-              The enumerated collection of examples over which all margin obligations are checked. The table is the entirety of the declared semantic domain.</p>
+              The finite, enumerated table of labelled examples over which obligations are generated and checked. For purposes of the certificate, this table is not treated as a sample from an implicit completed domain. It is the declared finite domain on which closure is claimed.
+            </p>
+          </li>
+          <li>
+            <p>
+              <span class="mono">Obligation</span>
+            </p>
+            <p>
+              A finite condition imposed on a table entry under the semantics lock. In the current classification setting, the obligation is a margin condition: the true class must score at least the declared margin above every competing class.
             </p>
           </li>
           <li>
@@ -125,23 +142,23 @@ keywords: "Refutational Learning, semantic repair, refutation witnesses, constru
               <span class="mono">Refutation witness</span>
             </p>
             <p>
-              A concrete example/class pair demonstrating that the current weight state violates the declared margin condition. Its existence constitutes a refutation of the hypothesis that learning has terminated.
+              A concrete failure of an obligation. In the current setting, this is an example index together with a competing class showing that the true class does not exceed that competitor by the required margin. Its existence refutes the claim that the current state is closed.
             </p>
           </li>
           <li>
             <p>
-              <span class="mono">Repair</span>
+              <span class="mono">State</span>
             </p>
             <p>
-              The integer weight update triggered by a refutation witness. The repair magnitude is derived from the witness's slack value and is sufficient to eliminate that witness from the obligation set.
+              The finite object being checked and subjected to refutation-repair. In the current prototype, the state consists of sparse integer weights together with cached scores. The general role of the state is to carry the learned interpretation under the lock.
             </p>
           </li>
           <li>
             <p>
-              <span class="mono">Closure</span>
+              <span class="mono">Refutation-repair</span>
             </p>
             <p>
-               The state in which the declared predicate <span class="mono">FULL.ok</span> holds—no refutation witness remains in the finite table. Closure is a certificate, not an approximation.
+              The local update triggered by a refutation witness. A refutation-repair is indexed by a specific failed obligation: it modifies the state in order to remove that failure at the current point in the run. It is not a gradient step and not an unconstrained optimization move.
             </p>
           </li>
           <li>
@@ -149,7 +166,31 @@ keywords: "Refutational Learning, semantic repair, refutation witnesses, constru
               <span class="mono">Trace</span>
             </p>
             <p>
-              The complete, replayable sequence of states produced by successive repairs. Each transition in the trace is justified by an explicit witness and is independently checkable.
+              The replayable sequence of states, witnesses, and refutation-repairs produced by the run. A trace matters because it records why each transition occurred: each refutation-repair is justified by a named failed obligation.
+            </p>
+          </li>
+          <li>
+            <p>
+              <span class="mono">State predicate</span>
+            </p>
+            <p>
+              A decidable check over the finite state. In the current implementation, the main predicates are <span class="mono">WF</span>, <span class="mono">CACHE.ok</span>, and <span class="mono">FULL.ok</span>. These are not performance metrics; they are checks on representation, cache correctness, and finite closure.
+            </p>
+          </li>
+          <li>
+            <p>
+              <span class="mono">Closure</span>
+            </p>
+            <p>
+              The state in which <span class="mono">FULL.ok</span> holds: no refutation witness remains in the declared finite table under the declared semantics lock. Closure is exact but bounded. It is not a claim about examples outside the table.
+            </p>
+          </li>
+          <li>
+            <p>
+              <span class="mono">Certificate</span>
+            </p>
+            <p>
+              The finite evidence that the terminal state satisfies the declared checks under the lock. A certificate may include the lock, table, terminal state, trace information, hashes, and predicate results. It certifies finite closure, not generalisation.
             </p>
           </li>
         </ul>
@@ -157,81 +198,86 @@ keywords: "Refutational Learning, semantic repair, refutation witnesses, constru
     </div>
   </div>
 
-    <div class="grid-item d-w-9 m-w-9">
+  <div class="grid-item d-w-9 m-w-9">
     <span class="nr"></span>
     <div class="grid-item-content">
       <div class="box contentbox" id="core-idea">
         <h3>On Refutational Learning</h3>
         <p>
-          The central thesis is that learning can be given a constructive, proof-theoretic account: training proceeds not by descending a scalar objective but by eliminating explicit counterexamples to a declared semantic obligation. When the current interpretation fails a margin condition, that failure is exhibited by a <em>refutation witness</em>—a concrete example/class pair identifying the precise locus of violation.
+          Refutational Learning gives a finite, constructive account of supervised training under a declared semantics lock. A run is not characterized primarily as descent along a scalar objective, but as the successive elimination of explicit counterexamples to a finite set of declared obligations. The terminal claim is correspondingly bounded: closure holds only relative to the fixed interpretation and the finite witness table on which the obligations are defined.
         </p>
         <p>
-          The learner responds with a local integer repair whose magnitude is derived analytically from the witness. Iterating this procedure produces a finite, replayable trace in which every state transition is grounded in an explicit logical event. Termination coincides with closure: when no refutation witness remains, the interpretation satisfies all declared margin obligations on the finite table, and this fact is certified by a decidable predicate rather than inferred from a loss curve.
+          The semantics lock fixes the objects with respect to which the run is meaningful: preprocessing, feature extraction, class set, scoring rule, readout, margin, tie-breaking convention, and scan order. Together with the finite witness table, these data determine the obligation set and the conditions under which a state may be accepted. A change in the lock changes the claim being certified.
         </p>
         <p>
-          The comparison with <span class="sc">Gradient Descent</span> is therefore analytic rather than competitive. It concerns two distinct conceptions of what a training step <em>is</em>: the elimination of an explicit semantic failure on one hand, and numerical descent over an aggregate scalar objective on the other.
+          In the present instance, a state has the form $\Sigma=(W,S)$, where $W$ is a sparse integer weight table and $S$ is a cached score matrix. The cache is not part of the semantic commitment; it is an implementation structure whose correctness is itself checked against definitional recomputation. The semantic object remains the locked feature map, scoring rule, and finite table.
         </p>
         <p>
-          <i>This is not a benchmark claim.</i> No assertion is made about efficiency or generalisation performance. The comparison isolates what each training trace makes visible to inspection and what kind of evidence it preserves.
-        </p>
-        <p>
-          SGD is included because it compresses failure into an undifferentiated numerical signal. Refutational Learning retains the failing obligation as a named, inspectable object—a witness that can be stored, replayed, and independently verified.
-        </p>
-        <p>
-          <i>Note.</i> The interactive demo is most legible after the formal setup below has been read.
-        </p>
-        <p>
-            Both methods are implemented in JavaScript and evaluated under the same locked prediction rule $\arg\max\nolimits^{*}$. The interface is designed to be analytic rather than competitive. The shared readout isolates the difference between repairing a finite interpretation in response to a named refutation witness and updating real-valued coordinates according to a differentiable objective.
-        </p>
-        <p>
-            The extensional interface is held fixed throughout, and each trace executes under its declared scan schedule. The salient distinction is not solely how the update is computed, but what evidential residue the update leaves behind: a named witness and an integer delta, versus a gradient and a floating-point step.
-        </p>
-        <p>
-          (i) The witness table, feature schema (bias and unary indicator facts), class count, and scan order are fixed before either trace is generated. Each cycle therefore has an unambiguous definition and can be replayed or independently re-executed from the stored state.
-        </p>
-        <p>
-          (ii) <span class="sc">Refutational Learning</span> locates the earliest refutation witness to a margin violation, performs a local integer repair on the sparse weight table $W$, and propagates its semantic consequences through precomputed postings into the cached score matrix $S$. <span class="sc">Gradient Descent</span> performs SGD updates on the softmax cross-entropy loss with real-valued weights; prediction is still read out by the same locked $\arg\max\nolimits^{*}$, preserving comparability.
-        </p>
-        <p>
-            <i>What the trace records.</i> The <span class="sc">Refutational Learning</span> trace makes explicit each refutation witness, the repair it induces, and the resulting state together with its decidable predicates. The GD trace reports the aggregate loss and accuracy computed under the same locked readout at each cycle.
-        </p>
-        <p>
-          We begin with linearly separable Boolean functions,
-        </p>
-        <div class="mathjaxwrap">
-          $$\mathrm{NAND}, \mathrm{OR}, \mathrm{AND}$$
-        </div>
-        <p>
-          for which finite-table closure is attainable and the repair sequence converges to a certificate. Non-separable cases such as $\textrm{XOR}$ and $\textrm{Parity-of-3}$ are equally instructive.
-        </p>
-        <p>
-          These cases are informative precisely because they exhibit persistent failure: the trace accumulates refutation witnesses that cannot be eliminated, making the source of non-separability structurally visible rather than absorbed into a loss plateau.
-        </p>
-        <p>
-          The Boolean presets demonstrate the repair discipline in miniature. The EMNIST notebook applies the same schema to a larger finite witness table under identical closure conditions.
-        </p>
-        <h3 id="repair-loop">The repair loop</h3>
-        <ol>
-          <li>Evaluate the current semantic state against the declared margin condition.</li>
-          <li>Identify the earliest refutation witness to a margin violation.</li>
-          <li>Apply a local integer repair whose magnitude is derived from the witness’s slack.</li>
-          <li>Re-evaluate: check whether any finite refutation witness remains.</li>
-        </ol>
-        <p>
-          For state $\Sigma_t=(W_t,S_t)$, the next witness is selected by its earliest example index $i^*$; $c^*$ is the strongest competing class under the fixed tie-broken readout:
+          For each example $i&lt;N$ with true class $y_i$, and for each competing class $c\neq y_i$, the margin obligation is
         </p>
         <div class="mathjaxwrap">
           $$
-            \begin{array}{l}
-              \Sigma_0 := (W_0,S_0) = (0,0),\\[0.6ex]
-              \Sigma_{t+1} := \mathsf{Repair}_{\gamma,\Delta}(\Sigma_t),\\[0.8ex]
-              i^* = \min\{\, i < N \mid \exists c\neq y_i:\ S(i,y_i) < S(i,c)+\gamma \,\},\\[0.4ex]
-              c^* = \arg\max\nolimits^{\!*}_{c\neq y_{i^*}}\, S(i^*,c).
-            \end{array}
+          S(i,y_i) \geq S(i,c)+\gamma .
           $$
         </div>
         <p>
-          The trace is not merely a visualisation aid. It is the finite, replayable history from which the terminal state and its decidable predicates can be independently recomputed and verified.
+          A refutation witness is a concrete violation of this condition. It consists of an example and a competing class for which the current state fails to separate the true class by the declared margin. Thus failure is not represented only by an aggregate error, loss, or accuracy value; it is represented by a particular unmet obligation.
+        </p>
+        <p>
+          The next refutation-repair is selected by the locked scan order. The least index at which some margin obligation fails is
+        </p>
+        <div class="mathjaxwrap">
+          $$
+          i^*=\min\{\,i&lt;N\mid \exists c\neq y_i:\ S(i,y_i)&lt;S(i,c)+\gamma\,\}.
+          $$
+        </div>
+        <p>
+          At this index, the competing class is chosen by the locked tie-broken readout,
+        </p>
+        <div class="mathjaxwrap">
+          $$
+          c^*=\arg\max\nolimits^{\!*}_{c\neq y_{i^*}} S(i^*,c).
+          $$
+        </div>
+        <p>
+          The pair $(i^*,c^*)$ is the active refutation witness. It supplies the reason that the current state cannot yet be accepted.
+        </p>
+        <p>
+          The refutation-repair associated with this witness is local. Its magnitude is determined by the current slack,
+        </p>
+        <div class="mathjaxwrap">
+          $$
+          S(i^*,c^*)+\gamma-S(i^*,y_{i^*}),
+          $$
+        </div>
+        <p>
+          together with the declared refutation-repair convention. In the sparse integer perceptron instance, the refutation-repair increases the active true-class weights and decreases the active competitor-class weights. The resulting score changes are propagated through the cache by postings. No differentiable loss surface is required for this operation.
+        </p>
+        <p>
+          Acceptance of a terminal state is expressed by finite predicates. <span class="mono">WF</span> asserts well-formedness of the finite representation. <span class="mono">CACHE.ok</span> asserts agreement between cached scores and definitional recomputation from $W$ and the locked feature sets. <span class="mono">FULL.ok</span> asserts the absence of any remaining refutation witness in the declared table.
+        </p>
+        <p>
+          Closure is the condition <span class="mono">FULL.ok</span>. It is exact, but only over the domain that has been declared. It certifies that every finite margin obligation induced by the lock and witness table has been discharged. It does not certify behavior outside the table, nor does it identify the learned evaluator with an intensionally richer rule beyond the declared semantics.
+        </p>
+        <p>
+          The trace records the successive states, witnesses, and refutation-repairs,
+        </p>
+        <div class="mathjaxwrap">
+          $$
+          \Sigma_0,\ (i_1,c_1),\ \mathsf{RefutationRepair}_1,\ \Sigma_1,\ldots,\Sigma_T .
+          $$
+        </div>
+        <p>
+          Its significance is proof-theoretic: each transition is licensed by a named failure of the current state, and the terminal state is accepted only after the finite predicates can be independently checked. The artifact is therefore not merely a trained classifier, but a bounded certificate of closure under the declared interpretation.
+        </p>
+        <p>
+          This also fixes the permitted substitution. Once closure and cache correctness hold, the learned evaluator may replace the reference evaluator on the locked finite table. The substitution is extensional and bounded. It establishes agreement on the declared table; it does not license claims about examples outside the table or about the identity of underlying programs.
+        </p>
+        <p>
+          The contrast with gradient descent is consequently evidential rather than competitive. Gradient descent records movement under an aggregate objective. Refutational Learning records the obligation whose failure induced each update. The distinction concerns the structure of the training record: scalar trajectory on one side, witness-indexed refutation-repair trace on the other.
+        </p>
+        <p>
+          The Boolean demonstrations exhibit this structure on small finite tables. The EMNIST baseline instantiates the same schema on a larger image-derived table. In both cases, the formal claim is not benchmark superiority, but the production of a finite, replayable, and checkable account of closure under a declared semantics lock.
         </p>
       </div>
     </div>
@@ -243,10 +289,10 @@ keywords: "Refutational Learning, semantic repair, refutation witnesses, constru
       <div class="box monobox" id="demo">
         <div class="info">Demo</div>
         <p>
-            The demo instantiates the repair loop on small Boolean datasets and runs it in parallel with an SGD trace under the same locked readout rule. All parameters are declared before either trace is generated.
+            The demo instantiates the refutation-repair loop on small Boolean datasets and runs it in parallel with an SGD trace under the same locked readout rule. All parameters are declared before either trace is generated.
         </p>
         <p>
-            Stepping through the traces reveals what each method makes available for inspection: Refutational Learning exposes the current margin violation, its named refutation witness, and the resulting integer repair; Gradient Descent exposes the aggregate loss and classification accuracy at each update.
+            Stepping through the traces reveals what each method makes available for inspection: Refutational Learning exposes the current margin violation, its named refutation witness, and the resulting integer refutation-repair; Gradient Descent exposes the aggregate loss and classification accuracy at each update.
         </p>
         <hr>
         <p>
@@ -281,7 +327,7 @@ keywords: "Refutational Learning, semantic repair, refutation witnesses, constru
           <span id="epochsDerived"></span>.
         </p>
         <p>
-          One cycle constitutes one attempted update: a single repair step for Refutational Learning, or a single SGD step for Gradient Descent. The two traces share the same cycle budget to make their execution lengths comparable; no claim about equal computational cost is implied.
+          One cycle constitutes one attempted update: a single refutation-repair step for Refutational Learning, or a single SGD step for Gradient Descent. The two traces share the same cycle budget to make their execution lengths comparable; no claim about equal computational cost is implied.
         </p>
         <p>
           Seed: <input type="number" id="seed" value="123456789" step="1" class="input input-w-10em"/>
@@ -362,7 +408,7 @@ keywords: "Refutational Learning, semantic repair, refutation witnesses, constru
           <div id="tNote" class="output">Waiting for build.</div>
         </div>
         <p>
-          Refutational Learning log: each entry records the active refutation witness, the competing class, the integer repair magnitude, and the resulting predicate state.
+          Refutational Learning log: each entry records the active refutation witness, the competing class, the integer refutation-repair magnitude, and the resulting predicate state.
         </p>
         <div class="console sqbound h-10em" id="tLog">Waiting for build.</div>
         <p>
@@ -411,96 +457,6 @@ keywords: "Refutational Learning, semantic repair, refutation witnesses, constru
             <span id="gTableWrap" class="output">Waiting for build.</span>
             <span id="gWeightsWrap" class="output"></span>
         </div>
-      </div>
-    </div>
-  </div>
-  <div class="grid-item d-w-9 m-w-9">
-    <span class="nr"></span>
-    <div class="grid-item-content">
-      <div class="box contentbox" id="detail">
-        <h3>Formal setup</h3>
-        <p>
-            Fix a deterministic preprocessing pipeline, a feature map $\Phi$, a finite witness table, and a stable tie-broken $\arg\max^{*}$ under a semantics lock $\mathcal{L}$. The learner state is a sparse integer weight table $W$ together with a cached score matrix $S$ maintained by postings propagation. Training selects the earliest refutation witness to a declared margin violation, applies a local integer repair, and terminates when every margin obligation in the finite table is satisfied.
-        </p>
-        <p>
-          In the current implementation, the evaluator can be understood as a lambda-definable perceptron operating under the declared semantics lock.
-        </p>
-        <p>Design aims:</p>
-        <ul>
-          <li><i>Object.</i> Learning transforms a finite interpretation whose semantics are explicitly declared and held invariant.</li>
-          <li><i>Method.</i> Each update eliminates a concrete refutation witness while preserving decidable state invariants.</li>
-          <li><i>Gate.</i> Accept the repaired evaluator only when finite validation under the lock $\mathcal{L}$ returns no remaining refutation witness—that is, when the predicate <span class="mono">FULL.ok</span> holds.</li>
-        </ul>
-        <p>
-            The lock makes explicit what is conventionally left implicit: preprocessing, feature extraction, tie-breaking rule, scan order, and evaluation criteria. Removing these hidden degrees of freedom is a precondition for any rigorous comparison of training methods.
-        </p>
-        <p>
-            <i>Finite</i> means the obligation set is bounded and enumerated. <i>Replayable</i> means the trace can be re-executed from any stored state. <i>Checkable</i> means the state predicates can be recomputed independently, without trusting the training procedure.
-        </p>
-        <p>
-          Training manipulates a finitary, explicitly represented state
-        </p>
-        <div class="mathjaxwrap">
-          $$
-          \Sigma \;\equiv\; \{\;W, S, ...\;\},
-          $$
-        </div>
-        <p>
-          where $W$ is a sparse integer weight table and $S$ is a cached score matrix (maintained via postings).
-          This is the current prototype’s state representation, not a limit of the general idea.
-          After the repair loop is understood, each snapshot can also be checked by decidable predicates with diagnostic witnesses on failure:
-        </p>
-        <div class="mathjaxwrap">
-          $$
-            \begin{array}{l|l}
-              \mathsf{WF}(\Sigma) & \text{Well-formedness of the finite representation}\\[0.4ex]
-              \mathsf{CACHE.ok}(\Sigma) & \text{Cache correctness}\\[0.4ex]
-              \mathsf{FULL.ok}(\Sigma) & \text{Zero-violation / margin closure by } \arg\max^{*}\\
-            \end{array}
-          $$
-        </div>
-        <p>
-          These are state predicates, not performance metrics. They assert, respectively, that the finite representation is well-formed, that the cached scores remain consistent with the definitional computation, and that all declared margin obligations on the finite table have been satisfied.
-        </p>
-        <p>
-          <span class="mono">WF</span> asserts that the finite state has the correct shape: weight dimensions, example count, feature count, class count, and cache entries are mutually consistent.
-        </p>
-        <p>
-          <span class="mono">CACHE.ok</span> asserts that the fast cached scores agree with the definitional recomputation from $W$ and the feature sets. This separates the semantic content of the learned object from implementation details of the cache.
-        </p>
-        <p>
-          <span class="mono">FULL.ok</span> asserts that, under the locked readout and margin rule, the finite witness table contains no remaining refutation witness. When this predicate holds, the training obligation has been discharged.
-        </p>
-        <p>
-          When a predicate fails, the system returns a concrete diagnostic witness: an explicit index and class pair exhibiting a cache discrepancy, or, for <span class="mono">FULL.ok</span>, the earliest remaining refutation witness. When all three predicates hold simultaneously, they constitute a finite certificate about the learned artifact under $\mathcal{L}$. This is not a global generalisation claim; it is a decidable assertion about the declared finite table.
-        </p>
-        <hr>
-        <p>
-            Operationally, the method resembles error-driven procedures such as the perceptron, but its conceptual interpretation differs. No gradient is computed; no pre-given topological landscape is assumed. Instead, the learner receives a named refutation witness to a declared semantic obligation and performs a repair whose effect is propagated explicitly through the postings structure. Learning is thus constituted as a sequence of witness eliminations over a finitely named object. Implementation substitution of the learned evaluator is admissible only after the resulting state has satisfied its declared predicates.
-        </p>
-        <p>
-          Let $\textsf{E}_{\mathsf{ref}}$ be a reference evaluator induced by the lock $\mathcal{L}$
-          (e.g. recomputation from $\Phi$ and a declared scoring rule), and let $\textsf{E}_{\mathsf{learn}}$ be the learned evaluator encoded by a terminal snapshot $\Sigma_T$. Here, “replace” means implementation substitution: using $\textsf{E}_{\mathsf{learn}}$ where $\textsf{E}_{\mathsf{ref}}$ would otherwise be evaluated. Before that substitution, a bounded comparison must establish semantic agreement on the locked finite table, such as
-        </p>
-        <div class="mathjaxwrap">
-          $$
-            \forall i < \mathrm{N} : \textsf{E}_{\mathsf{learn}}(x_i) = \textsf{E}_{\mathsf{ref}}(x_i)
-          $$
-        </div>
-        <p>
-          This obligation establishes equivalence only on the declared finite table; it does not identify the two implementations or justify behavior outside the lock. Acceptance of the learned state is a separate question governed by the declared closure and state predicates. When the substitution check fails, it returns the concrete failing index $i$.
-        </p>
-        <h3 id="limits">Limits</h3>
-        <p>
-          The present prototype is intentionally simple in its extensional scope. Its function is to isolate the training discipline in a setting where every step is fully explicit: deterministic refutation, finite integer repair, replayable trace, and decidable closure.
-        </p>
-        <p>
-          The framework does not dissolve the problem of intensional opacity. Once learning amounts to selecting a program in a sufficiently expressive language, the intensional structure of that program remains underdetermined by its extensional behaviour. Where the underlying learning problem involves underdetermination, intractable minimisation, or undecidable properties, increases in model complexity do not remove that core difficulty.
-        </p>
-        <h3>Research direction</h3>
-        <p>
-          Refutational Learning is a natural fit for regimes in which a semantic object is incrementally refined in response to new refutation witnesses, and in which the transparency and verifiability of each repair step are requirements rather than incidentals. The open question is which components of this training discipline, decidable closure, explicit witness retention, replayable trace, remain tractable as the scope of the witness table and the expressive power of the model class are extended.
-        </p>
       </div>
     </div>
   </div>

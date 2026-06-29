@@ -238,7 +238,7 @@
       }
 
       state.updates++;
-      const note = `Repair @i=${i} (y=${yi}, c*=${bestC}): slack=${slack}, |FI|=${ell}, steps=${steps}`;
+      const note = `Refutation-repair @i=${i} (y=${yi}, c*=${bestC}): slack=${slack}, |FI|=${ell}, steps=${steps}`;
       state.note = note;
       return { changed: true, note, i, yi, cStar: bestC, slack, steps };
     }
@@ -277,7 +277,7 @@
       if (!res.changed) {
         state.epoch += 1;
         snapshots.push({ ...state, W: clone2D(state.W), S: clone2D(state.S) });
-        events.push(`cycle=${state.updates}: saturated (no repairs in a full scan).`);
+        events.push(`cycle=${state.updates}: saturated (no refutation-repairs in a full scan).`);
         break;
       }
 
@@ -420,8 +420,8 @@
   // ---------- Rendering: Logs (PATCH: render once; highlight only) ----------
   function buildLogOnce(container, events) {
     if (!container) return;
-    container.innerHTML = events.map((line) => {
-      return `<div class="logline">${escapeHtml(line)}</div>`;
+    container.innerHTML = events.map((line, step) => {
+      return `<div class="logline" data-step="${step}">${escapeHtml(line)}</div>`;
     }).join('');
   }
 
@@ -429,16 +429,16 @@
     if (!container) return;
 
     const prev = container.querySelector('.logline.here');
-    if (prev) prev.classList.remove('here');
+    if (prev) {
+      prev.classList.remove('here');
+      prev.removeAttribute('aria-current');
+    }
 
-    const prefix = `cycle=${cycleIndex}:`;
-    const nodes = container.querySelectorAll('.logline');
-    for (let k = 0; k < nodes.length; k++) {
-      const t = nodes[k].textContent || '';
-      if (t.startsWith(prefix)) {
-        nodes[k].classList.add('here');
-        break;
-      }
+    const selected = container.querySelector(`.logline[data-step="${cycleIndex}"]`);
+    if (selected) {
+      selected.classList.add('here');
+      selected.setAttribute('aria-current', 'step');
+      selected.scrollIntoView({ block: 'nearest' });
     }
   }
 
@@ -456,7 +456,7 @@
       elTCert.textContent =
         `cycle=${cycleIndex}/${trace.snapshots.length - 1}\n` +
         `epoch=${snap.epoch}\n` +
-        `repairs=${snap.updates}\n` +
+        `refutation-repairs=${snap.updates}\n` +
         `violations=${violInfo.viol}`;
     }
 
