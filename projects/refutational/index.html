@@ -470,41 +470,83 @@ keywords: "Refutational Learning, refutation-repair, refutation witnesses, const
         <p>
           The display below abstracts away from any particular dataset or model class. It presents Refutational Learning as a finite arithmetic procedure: obligations are evaluated under a declared lock, failures are returned as refutation witnesses, and each refutation-repair is justified by a contract on the failed margin. Closure is reached only when the bounded search for such witnesses returns none.
         </p>
-        <div class="unicodedark">Input:
+        <div class="unicodedark">
+
+Refutational Learning Algorithm
+
+Input:
   T             finite witness table
   L             semantics lock
   Sigma_0       initial finite state
   gamma         declared margin
+  C             finite class set
   Eval_L        decidable evaluation function
-  Select_L      witness selector
+  Order_L       declared score order: higher-is-better or lower-is-better
+  Select_L      declared witness selector
   Repair_L      declared refutation-repair operator
 
 Table structure:
   For each table index i in T:
     y_i          declared target class for i
+    x_i          declared finite input/support data for i
 
 Definitions:
-  score(Sigma, i, c)
+  score_L(Sigma, i, c)
     := Eval_L(Sigma, i, c)
 
-  margin(Sigma, i, c)
-    := score(Sigma, i, y_i) - score(Sigma, i, c)
+  better_L(a, b)
+    := a > b, if Order_L is higher-is-better
+    := a < b, if Order_L is lower-is-better
 
-  deficit(Sigma, i, c)
-    := gamma - margin(Sigma, i, c)
+  margin_L(Sigma, i, c)
+    := score_L(Sigma, i, y_i) - score_L(Sigma, i, c),
+       if Order_L is higher-is-better
+
+    := score_L(Sigma, i, c) - score_L(Sigma, i, y_i),
+       if Order_L is lower-is-better
+
+  deficit_L(Sigma, i, c)
+    := gamma - margin_L(Sigma, i, c)
 
   Refutes_L(Sigma, i, c)
     iff c != y_i
-    and margin(Sigma, i, c) &lt; gamma
+    and margin_L(Sigma, i, c) < gamma
 
   FULL.ok_L(Sigma)
     iff there is no table index i and no class c such that
        Refutes_L(Sigma, i, c)
 
+perceptron instance:
+  Sigma          sparse integer weight table plus score cache
+  Order_L        higher-is-better
+  Eval_L         sum of active feature weights for class c
+  Repair_L       paired integer update of true and competitor weights
+  CACHE.ok_L     cached scores equal definitional recomputation
+
+decision-list instance:
+  Sigma          decision-list term
+  Order_L        lower-is-better
+  Eval_L         rule-position score
+
+  score_L(Sigma, i, c)
+    := first position of a matching rule assigning class c
+    := len(rules) + 1, if c is the default class and no rule matched c
+    := len(rules) + 2, otherwise
+
+  prediction_L(Sigma, i)
+    := argmin_c score_L(Sigma, i, c)
+
+  Repair_L
+    := insert a true-class rule before the current competitor position,
+       using the declared condition-construction strategy
+
+  TERM.ok_L
+    := terminal decision list is well formed
+
 Repair contract:
   Given a refutation witness (i, c), let
 
-    d := deficit(Sigma, i, c)
+    d := deficit_L(Sigma, i, c)
 
   A one-step repair
 
@@ -512,16 +554,16 @@ Repair contract:
 
   is locally valid only if
 
-    margin(Sigma', i, c) &gt;= gamma
+    margin_L(Sigma', i, c) >= gamma
 
   Equivalently, the repair must satisfy
 
-    margin(Sigma', i, c) - margin(Sigma, i, c) &gt;= d
+    margin_L(Sigma', i, c) - margin_L(Sigma, i, c) >= d
 
   A gradual repair discipline may replace this requirement by the weaker
   condition
 
-    margin(Sigma', i, c) &gt; margin(Sigma, i, c)
+    margin_L(Sigma', i, c) > margin_L(Sigma, i, c)
 
   provided the chosen discipline explicitly declares its progress condition.
 
@@ -552,11 +594,15 @@ Procedure:
       true_score := Eval_L(Sigma, i, y)
       comp_score := Eval_L(Sigma, i, c)
 
-      d := comp_score + gamma - true_score
+      if Order_L is higher-is-better:
+        d := comp_score + gamma - true_score
+
+      if Order_L is lower-is-better:
+        d := true_score - comp_score + gamma
 
     Since (i, c) is a refutation witness:
 
-      d &gt; 0
+      d > 0
 
     Apply the declared refutation-repair:
 
@@ -565,22 +611,24 @@ Procedure:
     Check the declared repair contract:
 
       if one_step_repair is required:
-        assert margin(Sigma', i, c) &gt;= gamma
+        assert margin_L(Sigma', i, c) >= gamma
 
       if gradual_repair is allowed:
-        assert margin(Sigma', i, c) &gt; margin(Sigma, i, c)
+        assert margin_L(Sigma', i, c) > margin_L(Sigma, i, c)
 
     Append to Trace:
 
       repair_event :=
-        step_index      := t
-        witness         := (i, y, c)
-        true_score      := true_score
-        competitor_score:= comp_score
-        deficit         := d
-        before_state_id := id(Sigma)
-        after_state_id  := id(Sigma')
-        repair_contract := satisfied
+        step_index        := t
+        witness           := (i, y, c)
+        true_score        := true_score
+        competitor_score  := comp_score
+        score_order       := Order_L
+        deficit           := d
+        before_state_id   := id(Sigma)
+        after_state_id    := id(Sigma')
+        changed_supports  := declared features/rules/supports changed
+        repair_contract   := satisfied
 
     Set:
 
@@ -588,10 +636,13 @@ Procedure:
 
 Output:
   Sigma_T        terminal finite state, if reached
-  Trace          witness-repair trace
+  Trace          complete witness-repair trace
   FULL.ok_L      bounded closure predicate
   CACHE.ok_L     implementation-cache predicate, if L declares a cache
-  other checks   any additional predicates declared by the semantics lock</div>
+  TERM.ok_L      term well-formedness predicate, if L declares a term
+  other checks   any additional predicates declared by the semantics lock
+
+        </div>
       </div>
     </div>
   </div>
