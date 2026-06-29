@@ -39,6 +39,7 @@ keywords: "Refutational Learning, refutation-repair, refutation witnesses, const
       <a class="toc-item" href="#Glossary"><span class="toc-key">3</span><span class="toc-text">Glossary</span></a>
       <a class="toc-item" href="#core-idea"><span class="toc-key">4</span><span class="toc-text">Exposition</span></a>
       <a class="toc-item" href="#demo"><span class="toc-key">5</span><span class="toc-text">Interactive Demo</span></a>
+      <a class="toc-item" href="#algorithmic-display"><span class="toc-key">6</span><span class="toc-text">Algorithmic Display</span></a>
     </div>
   </div>
   <div class="grid">
@@ -457,6 +458,140 @@ keywords: "Refutational Learning, refutation-repair, refutation witnesses, const
             <span id="gTableWrap" class="output">Waiting for build.</span>
             <span id="gWeightsWrap" class="output"></span>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-item d-w-9 m-w-9">
+    <span class="nr"></span>
+    <div class="grid-item-content">
+      <div class="box contentbox" id="algorithmic-display">
+        <h3>Algorithmic Display</h3>
+        <p>
+          The display below abstracts away from any particular dataset or model class. It presents Refutational Learning as a finite arithmetic procedure: obligations are evaluated under a declared lock, failures are returned as refutation witnesses, and each refutation-repair is justified by a contract on the failed margin. Closure is reached only when the bounded search for such witnesses returns none.
+        </p>
+        <div class="unicodedark">Input:
+  T             finite witness table
+  L             semantics lock
+  Sigma_0       initial finite state
+  gamma         declared margin
+  Eval_L        decidable evaluation function
+  Select_L      witness selector
+  Repair_L      declared refutation-repair operator
+
+Table structure:
+  For each table index i in T:
+    y_i          declared target class for i
+
+Definitions:
+  score(Sigma, i, c)
+    := Eval_L(Sigma, i, c)
+
+  margin(Sigma, i, c)
+    := score(Sigma, i, y_i) - score(Sigma, i, c)
+
+  deficit(Sigma, i, c)
+    := gamma - margin(Sigma, i, c)
+
+  Refutes_L(Sigma, i, c)
+    iff c != y_i
+    and margin(Sigma, i, c) &lt; gamma
+
+  FULL.ok_L(Sigma)
+    iff there is no table index i and no class c such that
+       Refutes_L(Sigma, i, c)
+
+Repair contract:
+  Given a refutation witness (i, c), let
+
+    d := deficit(Sigma, i, c)
+
+  A one-step repair
+
+    Sigma' := Repair_L(Sigma, i, c, d)
+
+  is locally valid only if
+
+    margin(Sigma', i, c) &gt;= gamma
+
+  Equivalently, the repair must satisfy
+
+    margin(Sigma', i, c) - margin(Sigma, i, c) &gt;= d
+
+  A gradual repair discipline may replace this requirement by the weaker
+  condition
+
+    margin(Sigma', i, c) &gt; margin(Sigma, i, c)
+
+  provided the chosen discipline explicitly declares its progress condition.
+
+Procedure:
+  Sigma := Sigma_0
+  Trace := empty sequence
+
+  for t = 0, 1, 2, ...
+
+    Search for a refutation witness using Select_L:
+
+      (i, c) := Select_L(Sigma)
+
+    If no such witness exists:
+
+      assert FULL.ok_L(Sigma)
+
+      return
+        terminal_state  := Sigma
+        trace           := Trace
+        full_check      := FULL.ok_L(Sigma)
+        declared_checks := all other predicates required by L
+
+    Let:
+
+      y := y_i
+
+      true_score := Eval_L(Sigma, i, y)
+      comp_score := Eval_L(Sigma, i, c)
+
+      d := comp_score + gamma - true_score
+
+    Since (i, c) is a refutation witness:
+
+      d &gt; 0
+
+    Apply the declared refutation-repair:
+
+      Sigma' := Repair_L(Sigma, i, c, d)
+
+    Check the declared repair contract:
+
+      if one_step_repair is required:
+        assert margin(Sigma', i, c) &gt;= gamma
+
+      if gradual_repair is allowed:
+        assert margin(Sigma', i, c) &gt; margin(Sigma, i, c)
+
+    Append to Trace:
+
+      repair_event :=
+        step_index      := t
+        witness         := (i, y, c)
+        true_score      := true_score
+        competitor_score:= comp_score
+        deficit         := d
+        before_state_id := id(Sigma)
+        after_state_id  := id(Sigma')
+        repair_contract := satisfied
+
+    Set:
+
+      Sigma := Sigma'
+
+Output:
+  Sigma_T        terminal finite state, if reached
+  Trace          witness-repair trace
+  FULL.ok_L      bounded closure predicate
+  CACHE.ok_L     implementation-cache predicate, if L declares a cache
+  other checks   any additional predicates declared by the semantics lock</div>
       </div>
     </div>
   </div>
