@@ -43,7 +43,7 @@
 }
 
 button {
-    border: 1px solid var(--color-black);
+    border: 1px solid var(--color-main-secondary-22);
     background: var(--color-terminalbg);
     color: var(--color-terminalhi);
     cursor: pointer;
@@ -54,7 +54,7 @@ button {
   }
 
 .input{
-    border: 1px solid var(--color-black);
+    border: 1px solid var(--color-main-secondary-22);
     background: var(--color-terminalbg);
     color: var(--color-terminalhi);
     font-family: var(--fontmono);
@@ -285,8 +285,8 @@ table{
   left: 0;
   width: 3.75em;
   padding-right: 0.75em;
-  border-right: var(--color-main-secondary-22) solid 1px;
-  color: var(--color-white-44);
+  border-right: var(--color-main-tertiary-44) solid 1px;
+  color: var(--color-main-tertiary-44);
   font: inherit;
   line-height: inherit;
   overflow: hidden;
