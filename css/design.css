@@ -234,8 +234,8 @@ table{
 
 
 .unicodedark {
-  color: var(--color-terminal) !important;
-  background: var(--color-terminalbg) !important;
+  color: var(--color-tertiary-hi) !important;
+  background: var(--color-tertiary-dark) !important;
   border: var(--color-main-secondary-22) solid 1px;
   max-width: 100%;
   overflow-x: auto;
