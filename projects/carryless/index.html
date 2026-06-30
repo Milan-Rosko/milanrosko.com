@@ -40,6 +40,10 @@
                     </p>
                     <ul>
                         <li>
+                            Theory <a href="#notes-references">#</a>
+                        </li>
+
+                        <li>
                             Interactive demo <a href="#demo">#</a>
                         </li>
                         <li>
@@ -70,10 +74,7 @@
                             Main paper <a href="https://arxiv.org/abs/2509.10382" target="_blank" rel="noopener noreferrer">arXiv</a>
                         </li>
                         <li>
-                            A subsequent specialization by Dr. Zoltán Sóstai adapts the present mechanism for a linear-size Fibonacci encoding for Gödel numbering; <a href="https://arxiv.org/abs/2603.25307" target="_blank" rel="noopener noreferrer">arXiv</a>.
-                        </li>
-                        <li>
-                            Philosophical companion paper <a href="https://arxiv.org/abs/2510.08934" target="_blank" rel="noopener noreferrer">arXiv</a>
+                            A subsequent specialization by Dr. Zoltán Sóstai adapts the present mechanism for a linear-size existential encoding; <a href="https://arxiv.org/abs/2603.25307" target="_blank" rel="noopener noreferrer">arXiv</a>.
                         </li>
                     </ul>
                     <p>
@@ -101,13 +102,7 @@
                           We first describe a mechanism, then turn it into a pairing function.
                     </p>
                     <p>
-                          (i) A chosen collection of Fibonacci numbers is added together into a single value.
-                    </p>
-                    <p>
-                          (ii) The list of chosen indices is then discarded, and only the resulting sum is handed to a <span class="sc">Greedy Algorithm</span>.
-                    </p>
-                    <p>
-                          (iii) From that sum alone, the original collection of indices is reconstructed in a bounded number of steps arithmetically.
+                          (i) A chosen collection of Fibonacci numbers is added together into a single value. (ii) The list of chosen indices is then discarded, and only the resulting sum is handed to a <span class="sc">Greedy Algorithm</span>. (iii) From that sum alone, the original collection of indices is reconstructed in a bounded number of steps arithmetically.
                     </p>
                     <p>
                           This round trip, from an arbitrary input to its canonical additive form and back, relies on <span class="sc">Binet’s Formula</span>, <span class="sc">Hurwitz’s Theorem</span>, and <span class="sc">Zeckendorf’s Theorem</span>. Together they yield a stable, reversible, and fully bounded encoding-decoding scheme.
@@ -127,7 +122,13 @@
                         \end{align}$$
                     </div>
                     <p>
-                        <span class="sc">Carryless Pairing</span> (recommended when $0$ is reserved, e.g. for $\varnothing$) is the function $\pi_{\mathrm{CL}}:\mathbb{N}^2\to\mathbb{N}$ given by:
+                        <span class="sc">Carryless Pairing</span> (recommended when $0$ is reserved, e.g. for $\varnothing$) is the function
+                    </p>
+                    <div class="mathjaxwrap">
+                        $$\pi_{\mathrm{CL}}:\mathbb{N}^2\to\mathbb{N}$$
+                    </div>
+                    <p>
+                        given by:
                     </p>
                     <div class="mathjaxwrap">
                         $$\pi_{\mathrm{CL}}(x,y)
@@ -148,7 +149,7 @@
                         The offset term $F_2$ shifts the output away from zero, so that
                     </p>
                     <div class="mathjaxwrap">
-                        $$\pi_{\mathrm{CL}}(x,y)\ge 1, \pi_{\mathrm{CL}}(0,0)\neq 0.$$
+                        $$\pi_{\mathrm{CL}}(x,y)\ge 1, \quad \pi_{\mathrm{CL}}(0,0)\neq 0.$$
                     </div>
                     <p>
                         This keeps $0$ free as a reserved value (for example, to denote the empty support $\varnothing$).
@@ -225,7 +226,7 @@
                         <div id="pair-warning" class="output"></div>
                     </div>
                     <p>
-                          Remark. The pairing $\pi_{\mathrm{CL}}^\tau$ is finitary: each step uses a finite, explicitly bounded amount of arithmetic. Its correctness depends on the fact that every natural number has exactly one Zeckendorf decomposition, and that this decomposition is preserved under the standard order on $\mathbb{N}$ (cf. phi-adic logic). What looks like a division in the inverse is in fact a bounded $\mathcal{O}(\log n)$ search. These guarantees, however, presuppose that the underlying number model is faithful to $\{\,\mathbb{N},\, +,\, \le\,\}$ (without an arithmetic discrepancy $\Delta I$); IEEE-754 floating point past $2^{53}$ is a familiar case where this assumption breaks down. The deeper point is not a detail of implementation but a recurring bias of modern computation: exact arithmetical structure is routinely simulated inside hardware that is only approximate.
+                          Remark. The pairing $\pi_{\mathrm{CL}}^\tau$ is finitary: each step uses a finite, explicitly bounded amount of arithmetic. Its correctness depends on the fact that every natural number has exactly one Zeckendorf decomposition, and that this decomposition is preserved under the standard order on $\mathbb{N}$. What looks like division is modular arithmetic, in fact a bounded $\mathcal{O}(\log n)$ search. These guarantees, however, presuppose that the underlying number model is faithful to $\{\,\mathbb{N},\, +,\, \le\,\}$; IEEE-754 floating point past $2^{53}$ is a familiar case where this assumption breaks down. We note a recurring theme in computation: exact arithmetical structure is routinely simulated inside hardware that is only approximate.
                     </p>
                     <p>
                           Acknowledgment. Thanks to Albert Visser <a href="https://www.uu.nl/staff/AVisser" target="_blank" rel="noopener noreferrer">Utrecht University</a> for timely criticism and guidance.
@@ -267,7 +268,7 @@
         <div class="grid-item d-w-9 m-w-9">
             <span class="nr"></span>
             <div class="grid-item-content">
-                <div class="box contentbox" id="algorithmic-display">
+                <div class="box monobox" id="algorithmic-display">
                     <h3>Algorithmic Display</h3>
                     <p>
                         The display below states the pairing as a finite arithmetic procedure. The input numbers are first converted to their canonical Zeckendorf supports; those supports are then placed on disjoint Fibonacci index bands. Decoding reverses the construction by decomposing the output, separating the even and offset odd bands, and summing the recovered Fibonacci terms.
@@ -379,7 +380,6 @@ Output:
   pi_CL(x, y)   one natural number encoding the ordered pair
   inverse       the bounded arithmetic recovery of x and y
   certificate   Zeckendorf.ok, BAND.ok, PAIR.ok, and UNPAIR.ok
-
                     </div>
                 </div>
             </div>
