@@ -20,6 +20,7 @@
             <a class="toc-item" href="#notes-references"><span class="toc-key">3</span><span class="toc-text">Notes and References</span></a>
             <a class="toc-item" href="#demo"><span class="toc-key">4</span><span class="toc-text">Realization via JavaScript</span></a>
             <a class="toc-item" href="#group-transformations"><span class="toc-key">5</span><span class="toc-text">Group Transformations</span></a>
+            <a class="toc-item" href="#algorithmic-display"><span class="toc-key">6</span><span class="toc-text">Algorithmic Display</span></a>
         </div>
     </div>
     <div class="grid">
@@ -40,6 +41,9 @@
                     <ul>
                         <li>
                             Interactive demo <a href="#demo">#</a>
+                        </li>
+                        <li>
+                            Algorithmic display <a href="#algorithmic-display">#</a>
                         </li>
                     </ul>
                 </div>
@@ -256,6 +260,127 @@
                 </div>
                 <div class="caption">
                     Illustration: Recurrence relations are computationally expressive.
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item d-w-9 m-w-9">
+            <span class="nr"></span>
+            <div class="grid-item-content">
+                <div class="box contentbox" id="algorithmic-display">
+                    <h3>Algorithmic Display</h3>
+                    <p>
+                        The display below states the pairing as a finite arithmetic procedure. The input numbers are first converted to their canonical Zeckendorf supports; those supports are then placed on disjoint Fibonacci index bands. Decoding reverses the construction by decomposing the output, separating the even and offset odd bands, and summing the recovered Fibonacci terms.
+                    </p>
+                    <div class="unicodedark">Carryless Pairing Algorithm
+
+Input:
+  x, y          natural numbers
+  F             Fibonacci sequence, with indices available up to a finite bound
+  Z             Zeckendorf support function
+
+Conventions:
+  Z(0)          := empty set
+  Z(n)          := unique finite set A such that
+                   n = sum_{k in A} F_k
+                   and no two indices in A are consecutive
+
+  r(x)          := least m >= 2 such that F_m > x
+  B(x)          := 2 * r(x)
+
+Forward construction:
+  Zx := Z(x)
+  Zy := Z(y)
+
+  E := empty set
+  O := empty set
+
+  for each k in Zx:
+    append 2*k to E
+
+  for each j in Zy:
+    append B(x) + (2*j - 1) to O
+
+  Because every member of E is even, and every member of O is odd and
+  greater than B(x), the two bands are disjoint.
+
+  Define:
+
+    pi_CL(x, y)
+      := F_2
+       + sum_{i in E} F_i
+       + sum_{i in O} F_i
+
+  Return pi_CL(x, y).
+
+Inverse construction:
+  Input:
+    n           a realized carryless-pairing value
+
+  If n < F_2:
+    reject n as outside the reserved-zero pairing range
+
+  m  := n - F_2
+  Zn := Z(m)
+
+  X := empty set
+
+  for each i in Zn:
+    if i is even:
+      append i/2 to X
+
+  x := sum_{k in X} F_k
+
+  r := least m >= 2 such that F_m > x
+  B := 2 * r
+
+  Y := empty set
+
+  for each i in Zn:
+    if i is odd and i >= B + 1:
+      append (i - B + 1)/2 to Y
+
+  y := sum_{j in Y} F_j
+
+  Return (x, y).
+
+Correctness checks:
+  Zeckendorf.ok(n)
+    iff the greedy decomposition of n returns a finite nonconsecutive support
+    whose Fibonacci sum is n.
+
+  BAND.ok(x, y)
+    iff E(x) and O(x, y) are disjoint, all members of E(x) are even,
+    and all members of O(x, y) are odd and greater than B(x).
+
+  PAIR.ok(x, y)
+    iff unpair(pair(x, y)) = (x, y).
+
+  UNPAIR.ok(n)
+    iff pair(unpair(n)) = n.
+
+Procedure:
+  pair(x, y):
+    assert x, y are natural numbers
+    compute Zx, Zy, r(x), B(x), E(x), O(x, y)
+    assert BAND.ok(x, y)
+    return F_2 + sum_{i in E(x) union O(x, y)} F_i
+
+  unpair(n):
+    assert n is a natural number
+    subtract the reserved offset F_2
+    compute the Zeckendorf support of the remaining value
+    recover x from even indices
+    recompute r(x) and B(x)
+    recover y from odd indices at or beyond B(x) + 1
+    return (x, y)
+
+Output:
+  pi_CL(x, y)   one natural number encoding the ordered pair
+  inverse       the bounded arithmetic recovery of x and y
+  certificate   Zeckendorf.ok, BAND.ok, PAIR.ok, and UNPAIR.ok
+
+                    </div>
                 </div>
             </div>
         </div>

@@ -479,9 +479,7 @@ keywords: "Refutational Learning, refutation-repair, refutation witnesses, const
         <p>
           The display below abstracts away from any particular dataset or model class. It presents Refutational Learning as a finite arithmetic procedure: obligations are evaluated under a declared lock, failures are returned as refutation witnesses, and each refutation-repair is justified by a contract on the failed margin. Closure is reached only when the bounded search for such witnesses returns none.
         </p>
-        <div class="unicodedark">
-
-Refutational Learning Algorithm
+        <div class="unicodedark">Refutational Learning Algorithm
 
 Input:
   T             finite witness table
@@ -525,32 +523,63 @@ Definitions:
     iff there is no table index i and no class c such that
        Refutes_L(Sigma, i, c)
 
-perceptron instance:
-  Sigma          sparse integer weight table plus score cache
-  Order_L        higher-is-better
-  Eval_L         sum of active feature weights for class c
-  Repair_L       paired integer update of true and competitor weights
-  CACHE.ok_L     cached scores equal definitional recomputation
+Admissible semantic instances:
 
-02 decision-list instance:
-  Sigma          decision-list term
-  Order_L        lower-is-better
-  Eval_L         rule-position score
+  Linear scoring semantics:
+    Sigma          finite score state, for example a sparse integer weight table
+    Order_L        higher-is-better
+    Eval_L         declared score computation for class c
+    Repair_L       declared finite update of the score state
+    CACHE.ok_L     optional predicate that cached scores equal recomputation
 
-  score_L(Sigma, i, c)
-    := first position of a matching rule assigning class c
-    := len(rules) + 1, if c is the default class and no rule matched c
-    := len(rules) + 2, otherwise
+  Decision-list term semantics:
+    Sigma          finite decision-list term
+    Order_L        lower-is-better
+    Eval_L         rule-position score
 
-  prediction_L(Sigma, i)
-    := argmin_c score_L(Sigma, i, c)
+    score_L(Sigma, i, c)
+      := first position of a matching rule assigning class c
+      := len(rules) + 1, if c is the default class and no rule matched c
+      := len(rules) + 2, otherwise
 
-  Repair_L
-    := insert a true-class rule before the current competitor position,
-       using the declared condition-construction strategy
+    prediction_L(Sigma, i)
+      := argmin_c score_L(Sigma, i, c)
 
-  TERM.ok_L
-    := terminal decision list is well formed
+    Repair_L
+      := insert a true-class rule before the current competitor position,
+         using the declared condition-construction strategy
+
+    TERM.ok_L
+      := terminal decision list is well formed
+
+  Search-refined term semantics:
+    Sigma          finite term
+    Order_L        declared score order
+    Eval_L         declared term score
+    Rewrite_L      declared finite rewrite language
+    Search_L       declared bounded candidate-generation and selection rule
+    Budget_L       declared finite search budget
+    TieBreak_L     declared deterministic tie-breaking rule
+
+    CandidateRewrites_L(Sigma, i, c, d)
+      := finite ordered set of candidate rewrites generated under Budget_L
+
+    SelectRewrite_L(Sigma, i, c, d)
+      := candidate selected by Search_L and TieBreak_L
+
+    Repair_L
+      := generate CandidateRewrites_L
+         evaluate candidates inside the declared finite budget
+         select one candidate using SelectRewrite_L
+         apply the selected rewrite to Sigma
+         record rewrite and search metadata in the repair event
+
+    SEARCH.ok_L
+      := every recorded repair event obeys Rewrite_L, Search_L, Budget_L,
+         and TieBreak_L
+
+    TERM.ok_L
+      := terminal term is well formed
 
 Repair contract:
   Given a refutation witness (i, c), let
@@ -637,6 +666,7 @@ Procedure:
         before_state_id   := id(Sigma)
         after_state_id    := id(Sigma')
         changed_supports  := declared features/rules/supports changed
+        repair_metadata   := rewrite/search metadata, if L declares it
         repair_contract   := satisfied
 
     Set:
@@ -649,6 +679,7 @@ Output:
   FULL.ok_L      bounded closure predicate
   CACHE.ok_L     implementation-cache predicate, if L declares a cache
   TERM.ok_L      term well-formedness predicate, if L declares a term
+  SEARCH.ok_L    search/rewrite predicate, if L declares search
   other checks   any additional predicates declared by the semantics lock
 
         </div>
