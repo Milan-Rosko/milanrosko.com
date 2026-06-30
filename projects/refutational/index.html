@@ -344,7 +344,10 @@ keywords: "Refutational Learning, refutation-repair, refutation witnesses, const
           On the GD side, deterministic scan order renders replay unconditional; seeded shuffle introduces stochasticity while preserving full reproducibility. Refutational Learning always selects the earliest refutation witness, independent of scan-order setting.
         </p>
         <p>
-            For Refutational Learning, margin $\gamma$:
+            For Refutational Learning,
+        </p>
+        <p>
+          margin $\gamma$:
           <input type="number" id="tGamma" value="1" min="0" step="1" class="input input-w-5em"/>,
             overshoot $\Delta$:
           <input type="number" id="tDelta" value="0" min="0" step="1" class="input input-w-5em"/>.
@@ -523,7 +526,7 @@ perceptron instance:
   Repair_L       paired integer update of true and competitor weights
   CACHE.ok_L     cached scores equal definitional recomputation
 
-decision-list instance:
+02 decision-list instance:
   Sigma          decision-list term
   Order_L        lower-is-better
   Eval_L         rule-position score
