@@ -87,7 +87,7 @@ keywords: "Refutational Learning, refutation-repair, refutation witnesses, const
         </p>
         <ul>
           <li>
-            Standalone EMNIST Python program <a href="https://github.com/Milan-Rosko/Refutational_Learning" target="_blank" rel="noopener noreferrer">GitHub</a>
+            Standalone Python realizations <a href="https://github.com/Milan-Rosko/Refutational_Learning" target="_blank" rel="noopener noreferrer">GitHub</a>
           </li>
           <li>
               Draft paper <a href="./symbolic-repair-learning.pdf" target="_blank" rel="noopener noreferrer">.pdf</a>
@@ -487,6 +487,7 @@ Input:
   Sigma_0       initial finite state
   gamma         declared margin
   C             finite class set
+  MaxSteps_L    declared finite step budget
   Eval_L        decidable evaluation function
   Order_L       declared score order: higher-is-better or lower-is-better
   Select_L      declared witness selector
@@ -502,8 +503,8 @@ Definitions:
     := Eval_L(Sigma, i, c)
 
   better_L(a, b)
-    := a > b, if Order_L is higher-is-better
-    := a < b, if Order_L is lower-is-better
+    := a &gt; b, if Order_L is higher-is-better
+    := a &lt; b, if Order_L is lower-is-better
 
   margin_L(Sigma, i, c)
     := score_L(Sigma, i, y_i) - score_L(Sigma, i, c),
@@ -517,7 +518,7 @@ Definitions:
 
   Refutes_L(Sigma, i, c)
     iff c != y_i
-    and margin_L(Sigma, i, c) < gamma
+    and margin_L(Sigma, i, c) &lt; gamma
 
   FULL.ok_L(Sigma)
     iff there is no table index i and no class c such that
@@ -592,16 +593,16 @@ Repair contract:
 
   is locally valid only if
 
-    margin_L(Sigma', i, c) >= gamma
+    margin_L(Sigma', i, c) &gt;= gamma
 
   Equivalently, the repair must satisfy
 
-    margin_L(Sigma', i, c) - margin_L(Sigma, i, c) >= d
+    margin_L(Sigma', i, c) - margin_L(Sigma, i, c) &gt;= d
 
   A gradual repair discipline may replace this requirement by the weaker
   condition
 
-    margin_L(Sigma', i, c) > margin_L(Sigma, i, c)
+    margin_L(Sigma', i, c) &gt; margin_L(Sigma, i, c)
 
   provided the chosen discipline explicitly declares its progress condition.
 
@@ -609,7 +610,7 @@ Procedure:
   Sigma := Sigma_0
   Trace := empty sequence
 
-  for t = 0, 1, 2, ...
+  for t = 1, ..., MaxSteps_L:
 
     Search for a refutation witness using Select_L:
 
@@ -623,6 +624,7 @@ Procedure:
         terminal_state  := Sigma
         trace           := Trace
         full_check      := FULL.ok_L(Sigma)
+        final_witness   := none
         declared_checks := all other predicates required by L
 
     Let:
@@ -640,7 +642,7 @@ Procedure:
 
     Since (i, c) is a refutation witness:
 
-      d > 0
+      d &gt; 0
 
     Apply the declared refutation-repair:
 
@@ -649,10 +651,10 @@ Procedure:
     Check the declared repair contract:
 
       if one_step_repair is required:
-        assert margin_L(Sigma', i, c) >= gamma
+        assert margin_L(Sigma', i, c) &gt;= gamma
 
       if gradual_repair is allowed:
-        assert margin_L(Sigma', i, c) > margin_L(Sigma, i, c)
+        assert margin_L(Sigma', i, c) &gt; margin_L(Sigma, i, c)
 
     Append to Trace:
 
@@ -663,8 +665,8 @@ Procedure:
         competitor_score  := comp_score
         score_order       := Order_L
         deficit           := d
-        before_state_id   := id(Sigma)
-        after_state_id    := id(Sigma')
+        after_true_score  := Eval_L(Sigma', i, y)
+        after_comp_score  := Eval_L(Sigma', i, c)
         changed_supports  := declared features/rules/supports changed
         repair_metadata   := rewrite/search metadata, if L declares it
         repair_contract   := satisfied
@@ -672,6 +674,17 @@ Procedure:
     Set:
 
       Sigma := Sigma'
+
+  If MaxSteps_L is exhausted:
+
+    final_witness := Select_L(Sigma)
+
+    return
+      terminal_state  := Sigma
+      trace           := Trace
+      full_check      := false
+      final_witness   := final_witness
+      declared_checks := all other predicates required by L
 
 Output:
   Sigma_T        terminal finite state, if reached
