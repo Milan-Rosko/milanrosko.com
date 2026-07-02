@@ -326,8 +326,7 @@ og_description: "An introduction and program of formal logic."
           </p>
           <h3 id="diagonalization-diagnosis">3.3 Diagonalization and Diagnosis</h3>
           <p>
-            This section treats <span class="sc">Gödelian Diagonalization</span> not as a local trick of self-reference, but as a diagnostic obstruction at the level of proof itself <a href="#reference-godel">[Gödel, 1931]</a> <a href="#reference-boolos-burgess-jeffrey">[Boolos et al., 2007]</a>.
-          </p>
+            This section treats <span class="sc">Gödelian Diagonalization</span> <a href="#reference-godel">[Gödel, 1931]</a> <a href="#reference-boolos-burgess-jeffrey">[Boolos et al., 2007]</a> not as a local trick of self-reference, but as a central topic.
           <p>
             Consider two opposing pictures of provability.
           </p>
@@ -338,16 +337,13 @@ og_description: "An introduction and program of formal logic."
             On a realist (classic) picture, arithmetic truth is fixed independently of proof or warrant. The standard natural numbers form a determinate domain, and arithmetic sentences have determinate truth-values whether or not a given proof-system can establish them.
           </p>
           <p>
-            The difficulty is that we do not get to stand outside both pictures and inspect, from a neutral position, which one is metaphysically correct. Any argument for one picture over the other must itself proceed by some method. Let that method be denoted by $M$.
+            Notice how we do not get to stand outside both pictures and inspect, from a neutral position, which one is correct. Any argument for one picture over the other must itself proceed by some method. Let that method be denoted by $M$.             $M$ must be a proof-method, or at least a warrant-conferring method. It must tell us whether arithmetic is to be understood realistically or antirealistically.
           </p>
           <p>
-            But $M$ cannot be an inert object. If it is to settle the question, $M$ must be a proof-method, or at least a warrant-conferring method. It must tell us whether arithmetic is to be understood realistically or antirealistically.
+            To “decide” between realism and antirealism, we need a proof-method whose authority is not already being interpreted realistically or antirealistically. But no such neutral $M$ is available. If $M$ is understood antirealistically, it cannot establish semantic excess over proof, since such excess is precisely what the antirealist refuses. If $M$ is understood realistically, then it already assumes the semantic authority it was supposed to justify.
           </p>
           <p>
-            That is the trap. To decide between realism and antirealism, we need a proof-method whose authority is not already being interpreted realistically or antirealistically. But no such neutral $M$ is available. If $M$ is understood antirealistically, it cannot establish semantic excess over proof, since such excess is precisely what the antirealist refuses. If $M$ is understood realistically, then it already assumes the semantic authority it was supposed to justify.
-          </p>
-          <p>
-            Gödel enters exactly here. By the <span class="sc">Diagonal Lemma</span>, one can construct a sentence $\mathsf{G}_{\mathrm{T}}$ such that
+            By the <span class="sc">Diagonal Lemma</span>, one can construct a sentence $\mathsf{G}_{\mathrm{T}}$ such that
           </p>
           <div class="mathjaxwrap">
             $$
@@ -355,13 +351,10 @@ og_description: "An introduction and program of formal logic."
             $$
           </div>
           <p>
-            Informally, $\mathsf{G}_{\mathrm{T}}$ says that $\mathsf{G}_{\mathrm{T}}$ is not provable in $\mathrm{T}$.
+            Informally, $\mathsf{G}_{\mathrm{T}}$ says that $\mathsf{G}_{\mathrm{T}}$ is not provable in $\mathrm{T}$. This is stable across the dispute. Both the realist and the antirealist can recognize the formal construction. Both can accept that, under the relevant consistency assumptions, $\mathrm{T}$ does not prove $\mathsf{G}_{\mathrm{T}}$. The disagreement concerns what follows from this.
           </p>
           <p>
-            This construction is stable across the dispute. Both the realist and the antirealist can recognize the formal construction. Both can accept that, under the relevant consistency assumptions, $\mathrm{T}$ does not prove $\mathsf{G}_{\mathrm{T}}$. The disagreement concerns what follows from this.
-          </p>
-          <p>
-            In the antirealist picture, <span class="sc">Gödel's Theorem</span> remains a genuine formal result. It shows that a sufficiently strong effective proof-system cannot, on pain of inconsistency, prove its <span class="sc">Gödel Sentence</span>:
+            In the antirealist picture, <span class="sc">Gödel's Incompleteness Theorems</span> remains a genuine formal result. It shows that a sufficiently strong effective proof-system cannot, on pain of inconsistency, prove its <span class="sc">Gödel Sentence</span>:
           </p>
           <div class="mathjaxwrap">
             $$
@@ -377,10 +370,7 @@ og_description: "An introduction and program of formal logic."
             $$
           </div>
           <p>
-            That further claim requires a notion of arithmetic truth that outruns proof or warrant. Yet such a notion is precisely what the antirealist rejects or refuses to treat as primitive. For the antirealist, then, <span class="sc">Gödel</span> is not false. It is deflated. It becomes a theorem about the limits of a given formal system, not a revelation of an independently obtaining arithmetical fact.
-          </p>
-          <p>
-            In this sense $\mathsf{G}_{\mathrm{T}}$ is vacuous with respect to realism. It cannot prove realism from inside antirealism, because the semantic surplus needed for the realist conclusion has already been disallowed. The theorem still marks a boundary, but the boundary is internal to the formal apparatus. It does not by itself license a metaphysics of completed arithmetic truth.
+            That further claim requires a notion of arithmetic truth that outruns proof or warrant. Yet such a notion is precisely what the antirealist rejects or refuses to treat as primitive. For the antirealist, then, <span class="sc">Incompleteness</span> is deflated. It becomes a theorem about the limits of a given formal system, not a revelation of an independently obtaining arithmetical fact. That category is not constructed. In this sense $\mathsf{G}_{\mathrm{T}}$ is or could be vacuous with respect to realism. It cannot prove realism from inside antirealism, because the semantic surplus needed for the realist conclusion has already been disallowed. The theorem still marks a boundary, but the boundary is internal to the formal apparatus. It does not by itself license a metaphysics of completed arithmetic truth.
           </p>
           <p>
             In the realist picture, the same construction has greater force. If there is a determinate standard model of arithmetic, and if $\mathrm{T}$ is sound with respect to that model, then $\mathsf{G}_{\mathrm{T}}$ is true because what it says is the case. It says that it is not $\mathrm{T}$-provable, and, under the relevant assumptions, it is not $\mathrm{T}$-provable.
@@ -405,16 +395,7 @@ og_description: "An introduction and program of formal logic."
             $$
           </div>
           <p>
-            The two readings are:
-          </p>
-          <div class="mathjaxwrap">
-            $$
-            \text{Boundary of }\mathrm{T} \; \lor \;
-            \text{Unprovable truth beyond }\mathrm{T}
-            $$
-          </div>
-          <p>
-            The formal diagonal does not decide between these readings. It can be accepted in both regimes. What changes is the semantic authority granted to the sentence after the formal result has been obtained.
+            Now we come to a central <span class="sc">2nd Incompleteness Theorem</span> phenomena. The formal diagonal does not decide between these readings. It can be accepted in both regimes. What changes is the semantic authority granted to the sentence after the formal result has been obtained.
           </p>
           <p>
             This is the relevant obstruction. We want to know whether arithmetic belongs to the antirealist regime or to the realist regime. But to prove either answer, we require a method $M$. Once $M$ is introduced, the question repeats:
@@ -435,22 +416,22 @@ og_description: "An introduction and program of formal logic."
           </p>
           <div class="mathjaxwrap">
             $$
-            \begin{array}{c}
-            \text{Realism vs Antirealism} \\
-            \Downarrow \\
-            \text{Need a proof-method whose authority is neutral} \\
-            \Downarrow \\
-            \text{But proof-methods are themselves interpreted inside the dispute} \\
-            \Downarrow \\
-            \text{2nd Incompleteness Theorem applies in both regimes} \\
-            \Downarrow \\
-            \text{In antirealism: formal boundary of }\mathrm{T} \\
-            \text{In realism: semantic excess of arithmetic truth over }\mathrm{T} \\
-            \Downarrow \\
-            \text{No witness of the semantic world we inhabit} \\
-            \Downarrow \\
-            \text{Reflexica}
-            \end{array}
+              \begin{array}{c}
+              \text{Realism vs Antirealism} \\
+              \Downarrow \\
+              \text{Need a proof-method whose authority is neutral} \\
+              \Downarrow \\
+              \text{But proof-methods are themselves interpreted inside the dispute} \\
+              \Downarrow \\
+              \text{2nd Incompleteness Theorem applies in both regimes} \\
+              \Downarrow \\
+              \text{In antirealism: formal boundary of }\mathrm{T} \\
+              \text{In realism: semantic excess of arithmetic truth over }\mathrm{T} \\
+              \Downarrow \\
+              \text{No witness of the semantic world we inhabit} \\
+              \Downarrow \\
+              \text{Reflexica}
+              \end{array}
             $$
           </div>
           <p>
@@ -460,7 +441,7 @@ og_description: "An introduction and program of formal logic."
             If $\mathrm{T}$ is read ambitiously, as capturing proofhood, the same sentence becomes decisive. It is now a truth whose non-derivability separates proof from $\mathrm{T}$-derivation. Thus the diagonal is stronger than an objection to $\mathrm{T}$: it works whether $\mathrm{T}$ is treated as empty syntax or as ideal proof. In the first case it marks a limit; in the second it refutes the promotion.
           </p>
           <p>
-            The point is that the demand for a proof of the correct theory of proof is itself caught in the dispute it seeks to resolve. <span class="sc">Gödel's Theorem</span> is stable under both realism and antirealism, but it cannot neutrally choose between them, because the choice requires the very semantic authority under dispute.
+             This again looks like a <span class="sc">Reflection Principle</span> <a href="#reference-feferman-transfinite-progressions">[Feferman, 1962]</a>: The demand for a proof of the correct theory of proof is itself caught in the dispute it seeks to resolve. <span class="sc">Gödel's Theorem</span> is stable under both realism and antirealism, but it cannot neutrally choose between them, because the choice requires the very semantic authority under dispute.
           </p>
           <p>
             The diagonal construction therefore diagnoses a limit not only of $\mathrm{T}$, but of the attempt to adjudicate the status of proof from a position outside proof. Once a method is asked to certify the correct interpretation of method itself, it is no longer neutral.
@@ -492,10 +473,10 @@ og_description: "An introduction and program of formal logic."
             $$
           </div>
           <p>
-            The language is not an internal component of the transition table. In a Tarskian register, the distinction is between the machine's formal specification and a semantic extension assigned at the metalevel <a href="#reference-tarski-truth">[Gruber, 2016]</a>.
+            In a Tarskian register, the distinction is between the machine's formal specification and a semantic extension assigned at the metalevel <a href="#reference-tarski-truth">[Gruber, 2016]</a>.
           </p>
           <p>
-            A particular computation may witness that a string belongs to $L(\mathcal{M})$. The language itself, however, is not another term available to the computation. It is the extension obtained when the machine's activity is taken as a whole. A self-description remains a presentation of the rule; a stream of accepted strings remains a sequence of witnesses. Neither returns the extension as an object internal to the activity that constitutes it.
+            A particular computation may witness that a string belongs to $L(\mathcal{M})$, the language itself, however, is not another term available to the computation. It is the extension obtained when the machine's activity is taken as a whole. A self-description remains a presentation of the rule; a stream of accepted strings remains a sequence of witnesses. Neither returns the extension as an object internal to the activity that constitutes it.
           </p>
           <p>
             A related question posed to a human provides a second schematic transfer.
@@ -510,10 +491,7 @@ og_description: "An introduction and program of formal logic."
             A language model asked the same question may also return an estimate. Such an estimate should be understood as a locally generated response rather than a retrieved census. Neither the human nor the language-model case establishes an identity with <span class="sc">Gödelian Diagonalization</span>; each serves as a test of whether self-reference outside the strict diagonal case can reproduce a structurally related limit of self-survey.
           </p>
           <p>
-            The possible resonance with diagonalization appears only when that activity is required to yield its own closure. The machine–human–language-model comparison does not prove a common origin; it marks a question about recurrence: whether the demand presupposes a separation between the local procedure and the semantic extension constituted by taking that procedure as a whole.
-          </p>
-          <p>
-            The cases above share no substrate, method, or historical contact at the relevant points. What they may share is a configuration, and that possibility, rather than an established identity, is what <span class="sc">Reflexica</span> proposes to examine. Recurrent self-relation, whether through self-survey or self-similar expansion, may coincide with a formation limit of related form.
+            The possible resonance with diagonalization appears only when that activity is required to yield its own closure. The machine–human–language-model comparison does not prove a common origin; it marks a question about recurrence: whether the demand presupposes a separation between the local procedure and the semantic extension constituted by taking that procedure as a whole. The cases above share no substrate, method, or historical contact at the relevant points. What they may share is a configuration, and that possibility, rather than an established identity, is what <span class="sc">Reflexica</span> proposes to examine. Recurrent self-relation, whether through self-survey or self-similar expansion, may coincide with a formation limit of related form.
           </p>
           <p>
             Euclid's list cannot witness its own totality; the construction opens onto what the list excludes. The Newcomb agent cannot occupy the external position from which its action is a neutral fact; the predictor's model internalizes that action, and the unwitnessed future governs the formation of the decision. Mackie's error-theoretic diagnosis cannot be established by producing the moral property whose absence it identifies; the non-exhibitability is not an obstacle to the argument but its operative core. Gödel's system cannot witness its own truth predicate from within the relevant register; the diagonal sentence places the system in relation to a gap it cannot close from either side. The halting machine asked to decide its own behavior does not merely fail; it becomes entangled with the cases its own operation has generated.
@@ -564,6 +542,9 @@ og_description: "An introduction and program of formal logic."
             </li>
             <li id="reference-godel">
               K. Gödel. "Über formal unentscheidbare Sätze der Principia Mathematica und verwandter Systeme I." <i>Monatshefte für Mathematik und Physik</i> 38 (1931): 173–198. <a href="https://doi.org/10.1007/BF01700692" target="_blank" rel="noopener noreferrer">DOI</a>.
+            </li>
+            <li id="reference-feferman-transfinite-progressions">
+              S. Feferman. "Transfinite Recursive Progressions of Axiomatic Theories." <i>The Journal of Symbolic Logic</i> 27, no. 3 (1962): 259–316. <a href="https://doi.org/10.2307/2964649" target="_blank" rel="noopener noreferrer">DOI</a>.
             </li>
             <li id="reference-boolos-provability">
               G. Boolos. <i>The Logic of Provability</i>. Cambridge University Press, Cambridge, 1993. ISBN 9780521483254. <a href="https://doi.org/10.1017/CBO9780511625183" target="_blank" rel="noopener noreferrer">DOI</a>.
