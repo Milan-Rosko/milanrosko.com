@@ -446,12 +446,12 @@ og_description: "An introduction and program of formal logic."
           <p>
             The diagonal construction therefore diagnoses a limit not only of $\mathrm{T}$, but of the attempt to adjudicate the status of proof from a position outside proof. Once a method is asked to certify the correct interpretation of method itself, it is no longer neutral.
           </p>
-          <h3 id="self-reference-and-turing-zombie">3.4 Self-Reference and the Turing-Zombie</h3>
+          <h3 id="self-reference-schema">3.4 Self-Reference as a Schema</h3>
           <p>
-            The transfer from strict diagonalization to less formal settings is part of the program. A resonance across computation, linguistic competence, proof theory, and self-modeling is not yet evidence that these domains instantiate one phenomenon. The question is narrower: when does self-description become a demand that a local procedure close over the totality to which it belongs?
+            Our transfer from the strict diagonal case to less formal settings is the actual program. A structural resonance across algebra, computation, linguistic competence, and proof theory is not yet a proof that these domains instantiate one phenomenon. To assert such an identity without a witness would perform the totalizing move <span class="sc">Reflexica</span> is intended to omit.
           </p>
           <p>
-            Consider a <span class="sc">Turing machine</span> <a href="#reference-turing">[Turing, 1937]</a>
+            Consider, as a schematic case, a <span class="sc">Turing machine</span> <a href="#reference-turing">[Turing, 1937]</a>
           </p>
           <div class="mathjaxwrap">
             $$
@@ -467,13 +467,35 @@ og_description: "An introduction and program of formal logic."
             $$
           </div>
           <p>
-            In a Tarskian register, the distinction is between the machine's formal specification and a semantic extension assigned at the metalevel <a href="#reference-tarski-truth">[Gruber, 2016]</a>. A particular computation may witness that a string belongs to $L(\mathcal{M})$; the language itself is not another term available to the computation. It is the extension obtained when the machine's activity is taken as a whole.
+            In a Tarskian register, the distinction is between the machine's formal specification and a semantic extension assigned at the metalevel <a href="#reference-tarski-truth">[Gruber, 2016]</a>.
           </p>
           <p>
-            The same form appears in weaker empirical cases. A human asked, "How many words do you know?" may answer only by estimate, because the requested inventory would have to be produced by the very competence being inventoried. A language model asked the same question also returns a local response rather than a retrieved census. These cases do not establish an identity with Gödelian diagonalization. They mark the point at which self-description begins to resemble a demand for closure.
+            A particular computation may witness that a string belongs to $L(\mathcal{M})$, the language itself, however, is not another term available to the computation. It is the extension obtained when the machine's activity is taken as a whole. A self-description remains a presentation of the rule; a stream of accepted strings remains a sequence of witnesses. Neither returns the extension as an object internal to the activity that constitutes it.
           </p>
           <p>
-            The Lucas-Penrose argument against mechanism gives the sharper case. Let $T$ be any consistent, sufficiently expressive formal system proposed as a model of human mathematical reasoning. By Gödel's first incompleteness theorem, there is a sentence $G_T$ which says, informally, that $G_T$ is not provable in $T$. Under the relevant assumptions,
+            A related question posed to a human provides a second schematic transfer.
+          </p>
+          <div class="mathjaxlike" style="text-align: center;">
+            How many words do you know?
+          </div>
+          <p>
+            The question is well formed, but an exact answer need not be available to the subject. Producing one would require an exhaustive, fixed inventory of an evolving and context-sensitive linguistic competence; the survey would be conducted by the very system whose contents were being inventoried. What returns is often an estimate rather than a retrieved census.
+          </p>
+          <p>
+            A language model asked the same question may also return an estimate. Such an estimate should be understood as a locally generated response rather than a retrieved census. Neither the human nor the language-model case establishes an identity with <span class="sc">Gödelian Diagonalization</span>; each serves as a test of whether self-reference outside the strict diagonal case can reproduce a structurally related limit of self-survey.
+          </p>
+          <p>
+            The possible resonance with diagonalization appears only when that activity is required to yield its own closure. The machine–human–language-model comparison does not prove a common origin; it marks a question about recurrence: whether the demand presupposes a separation between the local procedure and the semantic extension constituted by taking that procedure as a whole. The cases above share no substrate, method, or historical contact at the relevant points. What they may share is a configuration, and that possibility, rather than an established identity, is what <span class="sc">Reflexica</span> proposes to examine. Recurrent self-relation, whether through self-survey or self-similar expansion, may coincide with a formation limit of related form.
+          </p>
+          <p>
+            Euclid's list cannot witness its own totality; the construction opens onto what the list excludes. The Newcomb agent cannot occupy the external position from which its action is a neutral fact; the predictor's model internalizes that action, and the unwitnessed future governs the formation of the decision. Mackie's error-theoretic diagnosis cannot be established by producing the moral property whose absence it identifies; the non-exhibitability is not an obstacle to the argument but its operative core. Gödel's system cannot witness its own truth predicate from within the relevant register; the diagonal sentence places the system in relation to a gap it cannot close from either side.
+          </p>
+          <h3 id="turing-zombie">3.5 The Turing-Zombie</h3>
+          <p>
+            The preceding section treated Gödelian diagonalization as a diagnostic case: the formal construction is stable, but the semantic authority assigned to it is not. The Lucas-Penrose argument against mechanism exploits precisely this instability.
+          </p>
+          <p>
+            In outline, the argument says: let $T$ be any consistent, sufficiently expressive formal system proposed as a model of human mathematical reasoning. By Gödel's first incompleteness theorem, there is a sentence $G_T$ which says, informally, that $G_T$ is not provable in $T$. Under the relevant assumptions,
           </p>
           <div class="mathjaxwrap">
             $$
@@ -481,22 +503,19 @@ og_description: "An introduction and program of formal logic."
             $$
           </div>
           <p>
-            Penrose's further move is that the human mathematician can nevertheless see that $G_T$ is true. If $T$ captured the mathematician's reasoning, then the mathematician would have access to a truth unavailable to the system alleged to model her. Hence, mind exceeds mechanism.
+            Penrose's further move is that the human mathematician can nevertheless see that $G_T$ is true. If $T$ really captured the mathematician's reasoning, then the mathematician would have access to a truth unavailable to the system alleged to model her. Hence, mind exceeds mechanism.
           </p>
           <p>
-            The standard reply is that the seeing is not free. To assert that $G_T$ is true, one must already be entitled to a semantic claim about $T$: roughly, that $T$ is sound for the relevant arithmetical domain. That entitlement is not supplied by $T$ itself. It is imported from outside the formal calculus. The argument therefore assumes, at the moment of insight, the semantic authority it later presents as disclosed by insight.
+            The standard reply is correct as far as it goes. The seeing is not free. To assert that $G_T$ is true, one must already be entitled to a semantic claim about $T$: roughly, that $T$ is sound for the relevant arithmetical domain. That entitlement is not supplied by $T$ itself. It is imported from outside the formal calculus. The argument therefore assumes, at the moment of insight, the very semantic authority it later presents as having been disclosed by insight.
           </p>
           <p>
-            This reply answers the validity of the argument, but not its phenomenological force. The subject does not ordinarily experience herself as assuming soundness and then deriving the truth of $G_T$. She experiences herself as seeing that $G_T$ is true. The missing premise has been identified, but the felt immediacy remains.
+            But this reply remains a reply about validity. It leaves untouched the phenomenological force of the episode. The subject does not ordinarily experience herself as assuming soundness and then deriving the truth of $G_T$. She experiences herself as seeing that $G_T$ is true. The missing premise has been identified, but the felt immediacy remains. That residue is what keeps the Lucas-Penrose argument alive even after the standard objection is understood.
           </p>
           <p>
-            The empirical analogue is a first-person halting problem. A system may produce a verdict about a procedure that is presented as its own, just as a subject may report that she sees the truth of $G_T$ for a system $T$ said to capture her reasoning. The report is an empirical event: it can be observed, repeated, compared, modeled, and perhaps mechanized. What it does not by itself supply is a witness that the reporting standpoint is identical with the procedure whose total correctness is being certified.
+            The Turing-Zombie construction targets that residue.
           </p>
           <p>
-            The difficulty is therefore not merely formal. In the formal case, diagonalization blocks a total decider from remaining closed under its own counterexample. In the empirical case, the same structure reappears as a problem of evidence: what would show that a system's first-person verdict is genuine self-substituted closure rather than a verdict produced from a standpoint in which the target procedure has already been externalized?
-          </p>
-          <p>
-            The <span class="sc">Turing-Zombie</span> construction makes this distinction explicit. It is a Turing machine $M$ with the relevant formal competence, effectively a theorem prover of the kind used in dependent type theory or the <span class="sc">Calculus of Inductive Constructions</span>. It can construct and verify the usual diagonal proof that there is no total Turing machine $H$ which decides, for arbitrary machines $x$ and inputs $y$, whether $x$ halts on $y$. Given a candidate decider $H$, $M$ can form the diagonal machine
+            A <span class="sc">Turing-Zombie</span> is not a system that merely imitates mathematical insight from the outside. It is a Turing machine $M$ with the relevant formal competence. It can construct and verify the usual diagonal proof that there is no total Turing machine $H$ which decides, for arbitrary machines $x$ and inputs $y$, whether $x$ halts on $y$. Given a candidate decider $H$, $M$ can form the diagonal machine
           </p>
           <div class="mathjaxwrap">
             $$
@@ -511,22 +530,37 @@ og_description: "An introduction and program of formal logic."
             Then $D_H(D_H)$ contradicts $H$ either way. If $H(D_H,D_H)$ says that $D_H$ halts, then $D_H$ loops. If $H(D_H,D_H)$ says that $D_H$ does not halt, then $D_H$ halts. Therefore no such total decider $H$ exists.
           </p>
           <p>
-            The Turing-Zombie understands this theorem in the only sense required here: it can construct the proof, verify its steps, and apply it to any externally presented candidate decider. Its blindness appears only when it is asked to occupy the impossible position itself, namely to be the total decider whose domain remains closed under the diagonal counterexample generated from that very decider. At that point there is no further stable output to produce, not because $M$ lacks the relevant formal faculty, but because the faculty itself generates the obstruction.
+            The Turing-Zombie fully understands this theorem in the only sense relevant here: it can construct the proof, verify its steps, and apply it to any externally presented candidate decider. Its blindness appears only when it is asked to occupy the impossible position itself: to be the total decider whose domain remains closed under the diagonal counterexample generated from that very decider. At that point there is no further stable output to produce. Not because $M$ lacks the relevant formal faculty, but because the faculty itself generates the obstruction.
           </p>
           <p>
-            The theorem does not say that a machine can never determine any fact about itself. Many particular self-facts are decidable. The obstruction concerns total closure: no procedure can decide halting for all machines and inputs while also remaining available to the diagonal construction over its own decision behavior.
+            This point must be stated carefully. The theorem does not say that a machine can never determine any fact about itself. Many particular self-facts are decidable. A machine may know, print, or prove that it halts on a given input, if it is built in the right way. The obstruction concerns total closure: no procedure can decide halting for all machines and inputs while also remaining available to the diagonal construction over its own decision behavior.
           </p>
           <p>
-            This weakens the intended Lucas-Penrose disanalogy. A system may reason correctly about an externally presented formal object from a stronger background standpoint, just as the Turing-Zombie reasons about an externally presented candidate decider. That does not show that the system has closed the diagonal loop on itself. If $T$ is the very system whose reasoning is being enacted, then the soundness needed to pass from non-provability to truth is precisely what cannot be generated from inside $T$ without strengthening the standpoint.
+            This is the sense in which the Turing-Zombie is diagnostically useful. Penrose needs a disanalogy: machines are trapped inside their formal limits, whereas minds can step outside and see what the system cannot prove. But the Turing-Zombie shows that the limit is not a defect of mechanism as opposed to mind. It is a structural fact about any system asked to close a diagonal construction over the totality to which it itself belongs.
           </p>
           <p>
-            Put in <span class="sc">Reflexica</span>'s terms: Penrose reads a local, witnessed act, a subject producing a confident verdict about a system $T$ said to model that subject's reasoning, as licensing a global claim that minds can close the relevant diagonal loop while machines cannot. The Turing-Zombie blocks that promotion. The local episode witnesses only that a system can produce the verdict when operating from a standpoint not identical with the object under evaluation.
+            The question then sharpens. When Penrose reports seeing $G_T$ to be true for a $T$ that is supposed to model his own reasoning, what exactly has happened?
           </p>
           <p>
-            This is the passage from local self-report to global self-closure. The local phenomenon may be fully real: the subject sees, the machine classifies, the model reports, the system stabilizes a verdict. The question is whether that event licenses the stronger claim that the system has closed the total domain to which the event itself belongs.
+            There are two witnessed possibilities. In the first, $T$ is treated as an external formal object. Then the mathematician may reason about $T$ from a stronger background standpoint, just as the Turing-Zombie reasons about an externally presented candidate decider. But then the conclusion is third-personal in substance, even if first-personal in grammar. It shows something about the object $T$ under background assumptions; it does not show that the subject has closed the diagonal loop on herself.
           </p>
           <p>
-            The self-application must also be limited. It would be another totalizing move to conclude that no confident report of Gödelian self-insight is ever genuine self-application. What survives is narrower: given a system that reports Gödelian self-insight with stable confidence, has any witnessed procedure been exhibited that distinguishes genuine self-substituted closure from the external-object move available to a Turing-Zombie? At present, no such procedure has been exhibited.
+            In the second, $T$ is not merely an external object but the very system whose reasoning is now being enacted. Then the soundness or correctness needed to pass from non-provability to truth is precisely what cannot be generated from inside $T$ without strengthening the standpoint. The alleged seeing cannot be both an internal act of $T$ and a warrant for the semantic soundness of $T$.
+          </p>
+          <p>
+            The fluency of the report therefore counts against the intended use of the report, not for it. A calm assertion, "I see that $G_T$ is true," is exactly what one expects when the subject has treated $T$ as an external object under a background correctness assumption. It is not what would distinguish successful first-person closure. Genuine self-substituted closure would require the very stable standpoint the diagonal construction denies.
+          </p>
+          <p>
+            Put in <span class="sc">Reflexica</span>'s terms: Penrose reads a local, witnessed act, a subject producing a confident verdict about a system $T$ said to model that subject's reasoning, as licensing a global claim: that minds, unlike machines, can close the relevant diagonal loop. The Turing-Zombie blocks that promotion. The local episode witnesses only that a system can produce the verdict when operating from a standpoint not identical with the object under evaluation. That is compatible with mechanism, with non-mechanism, and with ordinary mathematical practice. It does not license the stronger conclusion that the subject has occupied and overcome the self-referential limit.
+          </p>
+          <p>
+            This is stronger than the standard reply. The Putnam-Feferman style objection says that the soundness premise is unproved. The Turing-Zombie diagnosis says more: the very fluency of the alleged seeing is not evidence of successful closure. It is evidence that the diagonal case has been externalized. The moment the case is genuinely self-substituted, the calm verdict is no longer the thing to expect. The obstruction is not a missing premise that could be quietly supplied; it is the structural condition under which the episode becomes readable as insight in the first place.
+          </p>
+          <p>
+            The self-application must also be made explicit. One may now be tempted to generalize: no confident report of Gödelian self-insight is ever genuine self-application; every such report is merely the external-object move. That conclusion is not licensed here. It would convert one diagnostic construction into a claim about the completed totality of all possible mathematical insight, in every subject and every setting. That is precisely the <span class="sc">Reflexica</span> error.
+          </p>
+          <p>
+            What survives is narrower. Given a system that reports Gödelian self-insight with stable confidence, is there any witnessed procedure, available either to the system itself or to an observer examining it, that distinguishes genuine self-substituted closure from the external-object move available to a Turing-Zombie? At present, no such procedure has been exhibited. That absence does not prove that none could exist. It marks the point at which both closure claims must stop: not "mind exceeds mechanism," not "mind is only mechanism," but the unresolved boundary at which the local witness no longer licenses the global reading.
           </p>
           <h3 id="program">4 The Program</h3>
           <p>
