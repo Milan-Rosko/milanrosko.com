@@ -1,0 +1,43 @@
+Bekić’s Lemma and the Decomposition of Reflexive Fixed Points
+
+Reflexica treats self-reference as a structural condition: a system is reflexive when the object described is partly constituted by the act, language, or procedure of description. In such cases semantic stability is not immediate. The object cannot always be represented as a completed totality; it must either be semantically enlarged or syntactically decomposed.
+
+Bekić’s lemma provides a precise model for the second possibility. It states that, under appropriate fixed-point conditions, a simultaneous fixed point can be reduced to an ordered sequence of one-variable fixed points. For a mutually recursive system
+\[
+x = f(x,y), \qquad y = g(x,y),
+\]
+the solution need not be obtained as an opaque pair. One may first solve one equation parametrically and then solve the induced remaining equation. The mutual dependence is preserved, but serialized.
+
+This gives a criterion for decomposable reflexivity. A reflexive configuration often appears as semantic instability: the system refers to itself, depends on itself, or produces an invariant from which the generating distinctions cannot be immediately recovered. Bekić’s lemma shifts the question from whether the whole semantic object can be represented to whether its dependency structure can be decomposed.
+
+The relevant distinction is therefore not simply between self-reference and non-self-reference, but between decomposable and non-decomposable self-reference:
+\[
+\text{semantic circularity} \quad\leadsto\quad \text{ordered syntactic construction}.
+\]
+When decomposition succeeds, the system need not presuppose a completed external semantics. It can generate a syntax that records the internal order by which the fixed point is produced. Bekić’s lemma is thus a criterion of semantic reduction: reflexivity remains, but it is no longer opaque; it has acquired a dependency grammar.
+
+Gödel’s construction can be described in these terms. The Gödel sentence is a fixed point of a syntactic operation: it says, in effect, of itself that it is not provable in the relevant system. Its semantic force is unstable between at least two interpretations: as truth exceeding formal proof, or as a boundary internal to a proof-system. The formula alone does not neutrally decide between these readings. A Bekić-style analysis asks whether the instability can be decomposed into interacting components: proof, truth, coding, reflection, and interpretation. Where such decomposition is possible, semantic excess is partially converted into syntactic structure. Where it is not, the system faces an interpretive bifurcation.
+
+An analogous pattern occurs in algebra. A polynomial is given by symmetric functions of its roots. Its coefficients are invariant data generated from the roots whose recovery is sought:
+\[
+(r_1,\dots,r_n) \longrightarrow (r_1,\dots,r_n)/S_n
+\longrightarrow \text{coefficients} \longrightarrow \text{roots}.
+\]
+For degrees two, three, and four, the ambiguity introduced by symmetry can be decomposed into radical choices. The simultaneous ambiguity of the roots can be serialized by an admissible syntax. In this sense, radical solvability is a Bekić-like success.
+
+The general quintic marks the corresponding obstruction. Its Galois group contains a nonabelian simple component, so the ambiguity cannot be decomposed into the abelian layers required by radicals. The semantic object is not absent: the roots and splitting field exist. What fails is uniform recovery by the chosen syntax. The obstruction is non-decomposability relative to radical operations, not ignorance.
+
+The general lesson is that semantic stability depends on admissible decomposition. Bekić’s lemma supplies the positive case: mutual dependence can become ordered construction, and circularity can become syntax. Reflexica therefore does not treat every semantic instability as meaningless. It asks whether the instability admits a decomposition adequate to the syntax in question.
+
+This also clarifies interpretability in machine learning. An embedding vector does not have meaning in isolation; its role is fixed by relations among vectors, layers, activations, heads, losses, and data distributions. Interpretability often seeks a global map from internal states to human concepts. Reflexica instead predicts that such a map may fail to exist as a single semantic object. What may exist is a system of mutual dependencies.
+
+Sparse dictionaries, circuits, probes, and causal interventions should therefore be understood not simply as revealing a pre-existing semantic atlas, but as imposing or discovering decompositions of an unstable semantic field. The methodological directive is:
+\[
+\text{Do not demand a completed semantic picture.}
+\]
+\[
+\text{Search for decompositions of mutual dependence.}
+\]
+Where such decompositions succeed, one obtains better syntax. Where they fail, one has identified an obstruction relative to the chosen syntax.
+
+Bekić’s lemma is central to Reflexica because it formalizes the passage from reflexive semantics to reflexive syntactics. It identifies when self-reference can be made effective, and distinguishes circularity that can be unfolded from circularity that requires semantic expansion. The fixed point is not the conclusion of analysis, but the object whose decomposability must be tested.
