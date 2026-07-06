@@ -152,10 +152,13 @@ og_description: "An introduction and program of formal logic."
             The procedural, indeed constructive reading commits only to what that construction reaches, and no further. The existential reading permits the result to be expressed over a completed domain, the primes as a total collection, rather than as an indefinitely iterable extension operation. One reading foregrounds the construction by which a further prime divisor is obtained; the other licenses quantification over the resulting domain. Both readings are valid, though they carry different proof-theoretic and semantic commitments. We recall the <span class="sc">Tristram Shandy</span> paradox <a href="#reference-russell-principles-mathematics">[Russell, 1903]</a>.
           </p>
           <p>
-            Classically, this is cost-free: the existential formulation preserves the theorem while suppressing the difference between a proposition proved in a completed domain and a witness extracted from a construction. The contrast is between a classically accepted existential $\exists x:A\,P(x)$ and its constructive interpretation as data: an object $a:A$ together with evidence for $P(a)$. Under propositions-as-types, this is represented by an inhabitant of $\Sigma{x:A}P(x)$ <a href="#reference-howard-formulae-types">[Howard, 1980]</a>. The relevant distinction here is between proof-theoretic signatures <a href="#reference-gentzen-logical-deduction">[Gentzen, 1935]</a>. To establish that a number is <i>composite,</i> one produces a factor greater than one: a finite, extractable, checkable object. The witness supplies the computational content of the proof; in the case of compositeness, a factor pair $(a,b)$ is the finite object whose verification establishes the claim <a href="#reference-kleene-realizability">[Kleene, 1945]</a>. Numbers alone, in a constructive sense, do not carry such a witness; it must be decided for them.
+            Classically, this is cost-free: the existential formulation preserves the theorem while suppressing the difference between a proposition proved in a completed domain and a witness extracted from a construction. The contrast is between a classically accepted existential $\exists x:A\,P(x)$ and its constructive interpretation as data: an object $a:A$ together with evidence for $P(a)$. Under propositions-as-types, this is represented by an inhabitant of $\Sigma{x:A}P(x)$ <a href="#reference-howard-formulae-types">[Howard, 1980]</a>. The relevant distinction here is between proof-theoretic signatures <a href="#reference-gentzen-logical-deduction">[Gentzen, 1935]</a>. To establish that a number is <i>composite,</i> one produces a factor greater than one: a finite, extractable, checkable object. The witness supplies the computational content of the proof; in the case of compositeness, a factor pair $(a,b)$ is the finite object whose verification establishes the claim <a href="#reference-kleene-realizability">[Kleene, 1945]</a>. Numbers alone, in a constructive sense, do not carry such a witness; it must be decided for them. Consequently:
           </p>
+          <div class="mathjaxlike">
+            Compositeness is geometrically witnessable: a nontrivial rectangular arrangement exhibits a factorization directly. Primality, by contrast, is not witnessed by a positive factor-configuration of the same kind; it is established by the absence of such, through bounded exclusion.
+          </div>
           <p>
-            The asymmetry is visible geometrically in the simple case below:
+            The asymmetry is visible in the simple case below:
           </p>
           <div class="mathjaxwrap">
             $$
@@ -276,12 +279,12 @@ og_description: "An introduction and program of formal logic."
           <p>
             Whether the same passage recurs under more exact conditions is what the following sections investigate. That it appears in other phenomenological discussions suggests the pattern is not local to metaethics, though the complete image is what remains programmatic here.
           </p>
-          <h3 id="newcombs-problem">3.2 <span class="sc">Newcomb’s Problem</span></h3>
+          <h3 id="newcombs-problem">3.2 <span class="sc">Newcomb’s Problem</span> as a case</h3>
           <p>
-            We turn to a more structured case: <span class="sc">Newcomb’s Problem</span> <a href="#reference-nozick">[Nozick, 1969]</a>.
+            We turn to something more structured: <span class="sc">Newcomb’s Problem</span> <a href="#reference-nozick">[Nozick, 1969]</a>.
           </p>
           <p>
-            Here the issue is no longer objectivity, but the promotion of a locally stipulated predictor into a total evaluator over a class of evaluator-sensitive agents. Commonly treated within decision theory as a question of causal rationality, it is examined here through <span class="sc">Problem Critique</span>.
+            Here the issue is no longer objectivity, but the promotion of a (semi-locally) stipulated predictor into a total evaluator over a class of evaluator-sensitive agents. Commonly treated within decision theory as a question of causal rationality, it is examined here through <span class="sc">Problem Critique</span>.
           </p>
           <div class="mathjaxlike">
             The agent may either “one-box”, receiving $B$, or “two-box”, receiving $A+B$, where $A=1000\,\mathrm{USD}$ and $B\in\{0,10^6\}\,\mathrm{USD}$ has already been fixed by a predictor $P$. Specifically, $B=10^6\,\mathrm{USD}$ iff $P$ predicted one-boxing, and $B=0$ iff $P$ predicted two-boxing. Conditional on the value of $B$ being fixed, two-boxing strictly dominates one-boxing by $1000\,\mathrm{USD}$. However, let $C_1$ be the act of one-boxing and $C_2$ the act of two-boxing. If $p=\Pr(B=10^6\,\mathrm{USD}\mid C_1)$ and $q=\Pr(B=10^6\,\mathrm{USD}\mid C_2)$, then $\operatorname{EU}(C_1)=10^6p$ and $\operatorname{EU}(C_2)=1000+10^6q$. Hence one-boxing maximizes evidential expected utility iff $p-q>10^{-3}$.
