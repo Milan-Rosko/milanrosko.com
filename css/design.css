@@ -226,7 +226,7 @@ table{
   -webkit-overflow-scrolling: touch;
   font-weight: 500;
   border-radius: 0.5em;
-  padding: 1em;
+  padding: 2em;
   font-family: var(--fontmono);
   font-weight: 300;
   font-size: 0.75em;

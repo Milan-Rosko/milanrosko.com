@@ -296,37 +296,49 @@ og_description: "An introduction and program of formal logic."
             We turn to something more structured: <span class="sc">Newcomb’s Problem</span> <a href="#reference-nozick">[Nozick, 1969]</a>.
           </p>
           <p>
-            Here the issue is no longer objectivity, but the promotion of a (semi-locally) stipulated predictor into a total evaluator over a class of evaluator-sensitive agents. Commonly treated within decision theory as a question of causal rationality, it is examined here through <span class="sc">Problem Critique</span>.
+            Here the issue is predictive scope. The familiar story grants the predictor knowledge of the deliberation from which the choice emerges: whatever the agent thinks, the predictor has already classified the outcome of that thought and filled the opaque box accordingly. For a fixed agent in a fixed experiment, this is a coherent stipulation. The reflexive pressure appears when this casewise reliability is extended to every admissible decision procedure, including procedures in which the predictor’s own verdict enters the deliberation.
           </p>
           <div class="mathjaxlike">
             <p>
-              The agent may either “one-box”, receiving $B$, or “two-box”, receiving $A+B$, where $A=1000\,\mathrm{USD}$ and $B\in\{0,10^6\}\,\mathrm{USD}$ has already been fixed by a predictor $P$. Specifically, $B=10^6\,\mathrm{USD}$ iff $P$ predicted one-boxing, and $B=0$ iff $P$ predicted two-boxing.
+              NEWCOMB'S PROBLEM. Let there be two boxes. The transparent box contains $A=1000\,\mathrm{USD}$; the opaque box contains either $B=10^6\,\mathrm{USD}$ or $B=0$. Before the agent chooses, a predictor $P$ predicts whether the agent will take only the opaque box, $C_1$, or both boxes, $C_2$.
+            </p>
             <p>
-              Conditional on the value of $B$ being fixed, two-boxing strictly dominates one-boxing by $1000\,\mathrm{USD}$. However, let $C_1$ be the act of one-boxing and $C_2$ the act of two-boxing. If $p=\Pr(B=10^6\,\mathrm{USD}\mid C_1)$ and $q=\Pr(B=10^6\,\mathrm{USD}\mid C_2)$, then $\operatorname{EU}(C_1)=10^6p$ and $\operatorname{EU}(C_2)=1000+10^6q$.
+              It places $10^6\,\mathrm{USD}$ in the opaque box after predicting $C_1$, and nothing in it after predicting $C_2$. The agent then chooses without observing $B$:
+            </p>
+            $$
+              \begin{array}{c|cc}
+                &amp; B=10^6 &amp; B=0 \\
+                \hline
+                C_1 &amp; 10^6 &amp; 0 \\
+                C_2 &amp; 10^6+1000 &amp; 1000
+              \end{array}
+            $$
+            <p>
+              For either fixed value of $B$, $C_2$ pays exactly $1000\,\mathrm{USD}$ more than $C_1$. Let $p=\Pr(B=10^6\,\mathrm{USD}\mid C_1)$ and $q=\Pr(B=10^6\,\mathrm{USD}\mid C_2)$. Conditioning instead on the act gives $\operatorname{EU}(C_1)=10^6p$ and $\operatorname{EU}(C_2)=1000+10^6q$.
             </p>
           </div>
           <p>
-            <span class="sc">Causal Decision Theory</span> (CDT) <a href="#reference-lewis-causal-decision-theory">[Lewis, 1981]</a> treats $B$ as fixed and recommends $C_2$, two-boxing. <span class="sc">Evidential Decision Theory</span> (EDT) <a href="#reference-jeffrey-logic-decision">[Jeffrey, 1965]</a> treats the act as evidence about the predictor’s prior classification and recommends $C_1$, one-boxing, provided $p-q&gt;10^{-3}$. Neither calculation addresses a prior question: whether the object being optimized over is well-formed.
+            <span class="sc">Causal Decision Theory</span> (CDT) <a href="#reference-lewis-causal-decision-theory">[Lewis, 1981]</a> holds $B$ fixed under intervention and recommends $C_2$. <span class="sc">Evidential Decision Theory</span> (EDT) <a href="#reference-jeffrey-logic-decision">[Jeffrey, 1965]</a> conditions on the act and recommends $C_1$ whenever $p-q&gt;10^{-3}$. Both calculations take the joint relation among the prediction, the box content, and the act as given. <span class="sc">Problem Critique</span> asks what range of decision procedures that relation can coherently cover.
           </p>
           <p>
-            Observe how the problem hides an adversarial character, since the description being evaluated may itself be the decision procedure whose output is conditioned by that evaluation.
-          </p>
-          <p>
-            A sketch in <span class="sc">Provability Logic</span> <a href="#reference-boolos-provability">[Boolos, 1993]</a> makes the reflexive pressure explicit. Let $\Box A$ mean that the predictor’s theory establishes $A$, and let $\mathsf{O}$ state that the agent one-boxes. If $F$ specifies the agent’s response to such a verdict, then
+            The crucial quantifier is <i>whatever</i> the agent thinks. If the prediction claim ranges over an open-ended class of decision procedures, that class can contain procedures whose output depends on a representation of the prediction itself. Let $P(\ulcorner D\urcorner)\in\{C_1,C_2\}$ be the verdict that $P$ assigns to the procedure $D$. Once the class is closed under predictor-sensitive procedures, it contains the diagonal procedure
           </p>
           <div class="mathjaxlike">
             $$
-              \mathsf{O}\leftrightarrow F(\Box\mathsf{O}),\quad \Box\mathsf{O}\rightarrow\mathsf{O}, \quad \Box(\Box\mathsf{O}\rightarrow\mathsf{O})\rightarrow\Box\mathsf{O} \quad[\mathrm{GL}].
+              D_P^{\perp}=\begin{cases}
+                C_2 &amp; \text{if }P(\ulcorner D_P^{\perp}\urcorner)=C_1,\\
+                C_1 &amp; \text{if }P(\ulcorner D_P^{\perp}\urcorner)=C_2.
+              \end{cases}
             $$
           </div>
           <p>
-            Thus the relevant object is not an independently formed act subsequently classified by $P$, but a decision whose formation is already entangled with $P$’s verdict. The usual causal/evidential disagreement is therefore downstream of the first-order semantics. CDT treats the box content as fixed; EDT treats the act as evidence about the prior prediction. But both calculations presuppose that $P$’s verdict remains a well-formed object of evaluation even when the procedure evaluated takes that verdict into account. The problem is therefore a hidden oracle: a locally stipulated predictor is promoted into a total evaluator over a domain in which its own verdict enters the formation of what it evaluates.
+            If $P$ predicts $C_1$, this procedure chooses $C_2$; if $P$ predicts $C_2$, it chooses $C_1$. The predictor therefore fails on $D_P^{\perp}$ whichever verdict it returns. The obstruction belongs to the universal scope of the prediction claim: a predictor can be stipulated for a restricted class that prevents its verdict from entering the procedures it evaluates, but it cannot remain correct over an open-ended class closed under this predictor-relative construction.
           </p>
           <p>
-            A <span class="sc">Reflexica</span> aware <span class="sc">Problem Critique</span> rejects this promotion. The first-order mechanism is admissible; what is not licensed is the promotion of a locally stipulated evaluator into a total evaluator over an open-ended class of agents whose decisions are themselves conditioned by that evaluation. A reliable predictor may still be stipulated externally for a particular case, thence the unlicensed totalization is precisely the passage from local procedure to global closure at issue here.
+            <span class="sc">Newcomb’s Problem</span> is thus a local model of the wider promotion tracked by <span class="sc">Reflexica</span>. The ordinary experiment stipulates success for one agent under one information structure. Oraclehood appears when that local success is read as the ability to know the outcome of any deliberation, including deliberation about the predictor. At that point the prediction is part of the process it predicts, and the evaluator is being asked to close its domain under its own evaluation.
           </p>
           <p>
-            Note. A reliability class and payoff, they do not remove the obstruction. A stochastic predictor is no longer a claimed total decider, but it is still a claimed evaluator applied to agents whose acts may depend on that very evaluation. The restriction preserves prediction and decision theory inside the fixed model, while denying the promotion of a local predictor into a total evaluator for an open-ended class of evaluator-sensitive agents.
+            A stochastic predictor avoids contradiction by relinquishing total correctness. Its reliability and the resulting payoffs remain well-defined inside a fixed model, while the diagonal case marks the boundary beyond which local predictive success cannot be promoted into a total evaluator for predictor-sensitive agents.
           </p>
           <h3 id="diagonalization-diagnosis">3.3 Diagonalization and Diagnosis</h3>
           <p>
@@ -349,7 +361,7 @@ og_description: "An introduction and program of formal logic."
           </p>
           <div class="mathjaxwrap">
             $$
-              \mathsf{G}_{\mathrm{T}} \leftrightarrow \neg \operatorname{Prov}_{\mathrm{T}}(\ulcorner \mathsf{G}_{\mathrm{T}}\urcorner) \implies \mathrm{T} \nvdash \mathsf{G}_{\mathrm{T}}.
+              \mathsf{G}_{\mathrm{T}} \iff \neg \operatorname{Prov}_{\mathrm{T}}(\ulcorner \mathsf{G}_{\mathrm{T}}\urcorner) \implies \mathrm{T} \nvdash \mathsf{G}_{\mathrm{T}}.
             $$
           </div>
           <p>
@@ -358,10 +370,8 @@ og_description: "An introduction and program of formal logic."
           <p>
             In the <i>antirealist</i> picture, <span class="sc">Gödel’s Incompleteness Theorems</span> remain a genuine formal result. They show that a sufficiently strong effective proof system cannot, on pain of inconsistency, prove its <span class="sc">Gödel Sentence</span>, but the antirealist does not thereby have to accept the further claim
           </p>
-          <div class="mathjaxwrap">
-            $$
-            \mathsf{G}_{\mathrm{T}} \text{ is true but unprovable}.
-            $$
+          <div class="mathjaxlike" style="text-align: center;">
+              $\mathsf{G}_{\mathrm{T}}$ is true but unprovable.
           </div>
           <p>
             That claim requires a notion of arithmetic truth that outruns proof or warrant. Yet such a notion is precisely what the antirealist rejects or refuses to treat as primitive. For the antirealist, then, <span class="sc">Incompleteness</span> is deflated. It becomes a theorem about the already (intuitionistically) internalized limits of a given formal system, not a revelation of an independently obtaining arithmetical fact. In this sense $\mathsf{G}_{\mathrm{T}}$ is or could be vacuous with respect to realism, because the semantic surplus needed for the realist conclusion has already been disallowed. The theorem still marks a boundary, it does not by itself license a stronger metaphysics of arithmetic truth.
@@ -385,28 +395,26 @@ og_description: "An introduction and program of formal logic."
           </p>
           <div class="mathjaxwrap">
             $$
-              \mathsf{G}_{\mathrm{T}} \leftrightarrow \neg \operatorname{Prov}_{\mathrm{T}}(\ulcorner \mathsf{G}_{\mathrm{T}}\urcorner).
+              \mathsf{G}_{\mathrm{T}} \iff \neg \operatorname{Prov}_{\mathrm{T}}(\ulcorner \mathsf{G}_{\mathrm{T}}\urcorner).
             $$
           </div>
           <p>
             The <span class="sc">Second Incompleteness Theorem</span> is central here: the formal diagonal does not decide between these readings, since it can be accepted in both regimes. What changes is the semantic promissory authority granted to the sentence after the formal result has been obtained.
           </p>
-          <div class="mathjaxwrap">
-            $$
-              \text{What is the status of }M?
-            $$
+          <div class="mathjaxlike" style="text-align: center;">
+            What is the status of $M$?
           </div>
           <p>
             If $M$ is treated antirealistically, then it cannot prove the existence of arithmetic truth beyond proof, since such truth is not admitted as an independent target. If $M$ is treated realistically, then it already presupposes the semantic excess it was meant to establish. $M$ is then exactly what cannot be neutrally supplied, and $\mathsf{G}_{\mathrm{T}}$ bleeds into our meta theory:
           </p>
           <div class="mathjaxlike" style="text-align: center;">
-              Realism vs Antirealism<br>
+              Realism vs Antirealism is decided by $M$<br>
               $\Downarrow$<br>
-              Need a proof-method whose authority is neutral<br>
+              $M$ is a proof-method<br>
               $\Downarrow$<br>
               But proof-methods are themselves interpreted inside the dispute<br>
               $\Downarrow$<br>
-              Second Incompleteness Theorem applies in both regimes<br>
+              The SECOND INCOMPLETENESS THEOREM applies in both regimes<br>
               $\Downarrow$<br>
               Formal boundary or semantic excess<br>
               $\Downarrow$<br>
@@ -429,7 +437,7 @@ og_description: "An introduction and program of formal logic."
           </p>
           <div class="mathjaxwrap">
             $$
-              x = f(x,y),\; y = g(x,y),
+              x = f(x,y),\quad y = g(x,y),
             $$
           </div>
           <p>
@@ -498,7 +506,10 @@ og_description: "An introduction and program of formal logic."
             The empirical analogue is a first-person halting problem. A system may produce a verdict about a procedure that is presented as its own, just as a subject may report that she sees the truth of $\mathsf{G}_{\mathrm{T}}$ for a system $\mathrm{T}$ said to capture her reasoning. The report is an empirical event: it can be observed, and perhaps mechanized. What it does not by itself supply is a witness that the reporting standpoint is identical with the procedure whose total correctness is being certified.
           </p>
           <p>
-            The difficulty is therefore not merely formal. In the formal case, diagonalization blocks a total decider from remaining closed under its own counterexample. In the empirical case, the same structure reappears as a problem of evidence: Is a system’s first-person verdict genuine self-substituted closure rather than a verdict in which the target procedure has already been externalized?
+            In the formal case, diagonalization blocks a total decider from remaining closed under its own counterexample. In the empirical case, the same structure reappears as a problem of evidence: Is a system’s first-person verdict genuine self-substituted closure rather than a verdict in which the target procedure has already been externalized?
+          </p>
+          <p>
+            A <span class="sc">Large Language Model</span> supplies the trivial argument. Realized by a <span class="sc">Turing Machine</span>, it can nevertheless form, state, and defend a judgment about whether a mechanistic system recognizes its own limits <a href="#reference-brown-language-models">[Brown et al., 2020]</a>, including a first-person judgment that it has done so. The occurrence of that judgment is therefore compatible with mechanism by construction. What remains unwitnessed is the identity between the procedure producing the verdict and the total procedure whose correctness the verdict purports to certify.
           </p>
           <p>
             The <span class="sc">Turing-Zombie</span> construction makes this distinction explicit. It is a <span class="sc">Turing Machine</span> $\mathcal{Z}$ with the relevant formal competence, effectively a theorem prover of the kind used in <span class="sc">Dependent Type Theory</span> <a href="#reference-martin-lof">[Martin-Löf, 1984]</a> or the <span class="sc">Calculus of Inductive Constructions</span> <a href="#reference-rocq-cic">[Rocq Development Team, 2025]</a>. It can construct and verify the usual diagonal proof that there is no total <span class="sc">Turing Machine</span> $\mathcal{H}$ which decides, for arbitrary machines $x$ and inputs $y$, whether $x$ halts on $y$. Given a candidate decider $\mathcal{H}$, $\mathcal{Z}$ can form the diagonal machine
@@ -581,7 +592,7 @@ og_description: "An introduction and program of formal logic."
             In classical semantics, $S(25)$ denotes a definite integer. But that ontological determinacy does not supply epistemic access to it. The gap between a completed object and a procedure for reaching it is precisely what <span class="sc">Reflexica</span> has been naming throughout.
           </p>
           <p>
-            The lesson generalizes. Any proposed escape from a reflexive totalization, a function, an oracle, a growth rate, or a bound placed beyond ordinary search, faces the same dilemma. If it is computable, it cannot decide the totality it was introduced to close. If it is uncomputable, it has not grounded the closure; it has reproduced the closure one level up. There is no totalization-free floor inside recursive computation. Section 6 reaches the same conclusion for AI oraclehood, but here the obstruction has already appeared inside arithmetic.
+            We see again: any proposed escape from a reflexive totalization, a function, an oracle, a growth rate, or a bound placed beyond ordinary search, faces the same dilemma. If it is computable, it cannot decide the totality it was introduced to close. If it is uncomputable, it has not grounded the closure; it has reproduced the closure one level up. There is no totalization-free floor inside recursive computation. Section 6 reaches the same conclusion for AI oraclehood, but here the obstruction has already appeared inside arithmetic.
           </p>
           <h3 id="program">4 The Program</h3>
           <p>
@@ -625,7 +636,7 @@ og_description: "An introduction and program of formal logic."
             $P(x)$ is locally performable $\rightsquigarrow$ $T(P)$ is globally assertible $\rightsquigarrow$ $P$ becomes entangled with its own totalization.
           </div>
           <p>
-            <span class="sc">Reflexica</span>’s purpose is to give a single name to a pattern that currently has none: a locally witnessed procedure quietly promoted into a claim about a completed domain, and the obstruction that surfaces long after that promotion is made. Self-modeling systems encounter versions of this behavior: a proof system’s reflection on its own consistency, a moral theory’s diagnosis of an error it cannot itself instantiate, a predictor’s totalization over agents whose choices are conditioned by the prediction.
+            We consider to give a single name to a pattern that currently has none: a locally witnessed procedure quietly promoted into a claim about a completed domain, and the obstruction that surfaces long after that promotion is made. Self-modeling systems encounter versions of this behavior: a proof system’s reflection on its own consistency, a moral theory’s diagnosis of an error it cannot itself instantiate, a predictor’s totalization over agents whose choices are conditioned by the prediction.
           </p>
           <p>
             Without shared vocabulary, they read as unrelated local difficulties rather than instances of one structure. <span class="sc">Reflexica</span> supplies that vocabulary and, with it, a discipline: a claim of completed closure is admissible only where the procedure producing it actually witnesses that closure, not merely where the domain is convenient to treat as settled.
@@ -717,9 +728,6 @@ og_description: "An introduction and program of formal logic."
             <li id="reference-feferman-transfinite-progressions">
               S. Feferman. "Transfinite Recursive Progressions of Axiomatic Theories." <i>The Journal of Symbolic Logic</i> 27, no. 3 (1962): 259–316. <a href="https://doi.org/10.2307/2964649" target="_blank" rel="noopener noreferrer">DOI</a>.
             </li>
-            <li id="reference-boolos-provability">
-              G. Boolos. <i>The Logic of Provability</i>. Cambridge University Press, Cambridge, 1993. ISBN 9780521483254. <a href="https://doi.org/10.1017/CBO9780511625183" target="_blank" rel="noopener noreferrer">DOI</a>.
-            </li>
             <li id="reference-boolos-burgess-jeffrey">
               G. S. Boolos, J. P. Burgess, and R. C. Jeffrey. <i>Computability and Logic</i>. 5th ed. Cambridge University Press, Cambridge, 2007. <a href="https://doi.org/10.1017/CBO9781139164931" target="_blank" rel="noopener noreferrer">DOI</a>.
             </li>
@@ -731,6 +739,9 @@ og_description: "An introduction and program of formal logic."
             </li>
             <li id="reference-putnam-shadows-review">
               H. Putnam. "Book Review: Shadows of the Mind." <i>Bulletin of the American Mathematical Society</i> 32, no. 3 (1995): 370–374. <a href="https://doi.org/10.1090/s0273-0979-1995-00606-3" target="_blank" rel="noopener noreferrer">DOI</a>.
+            </li>
+            <li id="reference-brown-language-models">
+              T. B. Brown et al. "Language Models are Few-Shot Learners." <i>Advances in Neural Information Processing Systems</i> 33 (2020). <a href="https://papers.nips.cc/paper/2020/hash/1457c0d6bfcb4967418bfb8ac142f64a-Abstract.html" target="_blank" rel="noopener noreferrer">Proceedings</a>.
             </li>
             <li id="reference-heyting-intuitionistische-grundlegung">
               A. Heyting. "Die intuitionistische Grundlegung der Mathematik." <i>Erkenntnis</i> 2 (1931): 106–115. <a href="https://doi.org/10.1007/BF02028143" target="_blank" rel="noopener noreferrer">DOI</a>.
