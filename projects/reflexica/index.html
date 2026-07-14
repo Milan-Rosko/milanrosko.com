@@ -512,49 +512,47 @@ og_description: "An introduction and program of formal logic."
           <p>
             The conclusion that no confident report of Gödelian self-insight ever constitutes genuine self-application would itself be another totalizing inference. What survives is narrower: given a system that reports Gödelian self-insight with stable confidence, has any witnessed procedure been exhibited that distinguishes genuine self-substituted closure from the external-object procedure available to a <span class="sc">Turing-Zombie</span>? At present, no such procedure has been exhibited. That would be the <span class="sc">Queer Object</span>.
           </p>
-          <h3 id="goldbach-busy-beaver">3.5 Totalization of and by Escape</h3>
+          <h3 id="goldbach-busy-beaver">3.5 Escape by Totalization</h3>
           <p>
-            The pattern traced so far recurs inside the apparatus that seems best placed to escape it. Yedidia and Aaronson gave a 4,888-state construction of this kind <a href="#reference-yedidia-aaronson">[Yedidia and Aaronson, 2016]</a>; subsequent reductions produced a 27-state version, later reduced to a 25-state machine and formally checked in Lean 4 <a href="#reference-goldbach-tm25">[Leng, 2025]</a>.
-          </p>
-          <p>
-            The conjecture’s two truth values are not symmetric. If Goldbach is <em>false</em>, the machine halts at some finite step: a single counterexample, locally witnessable in Euclid’s sense. This is a $\Sigma_1$ condition. If Goldbach is <em>true</em>, the machine never halts. But non-halting is not itself witnessed by any finite computation. It is a $\Pi_1$ condition: a totality claim, closed only by completing an uncompletable search.
+            Let $G$ denote Goldbach’s conjecture, and let $C(m)$ be the decidable predicate stating that $m$ is an even integer greater than $2$ that is not the sum of two primes. A Turing machine $\mathcal{G}$ can test the even integers in sequence and halt upon finding the first $m$ for which $C(m)$ holds. Concrete encodings include a 4,888-state machine constructed by Yedidia and Aaronson <a href="#reference-yedidia-aaronson">[Yedidia and Aaronson, 2016]</a> and a later 25-state machine verified in Lean 4 <a href="#reference-goldbach-tm25">[Leng, 2025]</a>. The exact count depends upon the chosen machine convention and is not essential to the argument; what matters is that some fixed finite encoding exists.
           </p>
           <div class="mathjaxwrap">
             $$
-              \neg G \iff \exists n\,H(n)\quad [\Sigma_1] \quad G \iff \forall n\,\neg H(n)\quad [\Pi_1]
+              \mathcal{G}\mathord{\downarrow}
+              \iff \exists m\,C(m)
+              \iff \neg G
+              \quad [\Sigma^0_1],
+              \qquad
+              \mathcal{G}\mathord{\uparrow}
+              \iff \forall m\,\neg C(m)
+              \iff G
+              \quad [\Pi^0_1].
             $$
           </div>
           <p>
-            Here $H(n)$ says that the Goldbach-search machine has halted by stage $n$. The asymmetry is the point: a counterexample is a local witness; the absence of all counterexamples is not.
+            The two outcomes are operationally asymmetric. If Goldbach is false, a finite computation eventually supplies a counterexample. If Goldbach is true, no finite initial segment of the search witnesses the absence of every counterexample.
           </p>
           <p>
-            It is tempting to think the busy beaver function supplies the missing ground. If $S(25)$ were known, one could run the 25-state Goldbach machine for $S(25)$ steps. If it had not halted by then, it never would, and Goldbach would be settled. On this reading, the totalization is not fictitious, only large. The busy beaver function appears to hand us a completed bound.
+            Busy Beaver appears to supply the missing bound. Fix a one-tape, two-symbol, blank-input machine convention, let $\mathcal{B}_n$ be its finite class of $n$-state machines, and let $S(n)$ be the greatest number of steps taken by any member of $\mathcal{B}_n$ that eventually halts <a href="#reference-rado">[Radó, 1962]</a>. If $\mathcal{G}$ has $n$ states under that same convention and $S(n)$ is known, then running $\mathcal{G}$ for $S(n)$ steps decides Goldbach: failure to halt by that bound entails that it never halts.
           </p>
           <p>
-            But this only moves the totalization upward. The function $S(n)$ is not computable. It is defined by surveying all halting $n$-state machines and taking the greatest halting time among them <a href="#reference-rado">[Radó, 1962]</a>. Thus $S(n)$ is itself a closure over halting behavior. To know $S(25)$ is already to have completed the relevant halting analysis for every 25-state machine.
+            The inference is valid, but the bound is not an independent solution. If $T(x,k)$ states that $x$ halts after exactly $k$ steps, then certifying an exact value requires both a machine attaining the bound and an upper bound on every halting machine in the class:
           </p>
           <div class="mathjaxwrap">
             $$
-            T(x,k)\equiv x\text{ halts exactly at stage }k
-            \quad [\Delta^0_0]
-            $$
-            $$
-            \mathrm{Halt}(x)\iff \exists k\,T(x,k)\; [\Sigma^0_1],
-            \quad
-            \mathrm{NoHalt}(x)\iff \forall k\,\neg T(x,k)\; [\Pi^0_1]
-            $$
-            $$
-            S(n)=s\iff
-            \exists x\,(|x|=n\wedge T(x,s))
-            \ \wedge\
-            \forall x\forall k\,((|x|=n\wedge T(x,k))\to k\le s).
+              S(n)=s
+              \iff
+              \bigl(\exists x\in\mathcal{B}_n\,T(x,s)\bigr)
+              \;\wedge\;
+              \bigl(\forall x\in\mathcal{B}_n\,\forall k\,
+              (T(x,k)\rightarrow k\le s)\bigr).
             $$
           </div>
           <p>
-            So the apparent escape repeats the structure it was meant to overcome. The truth of Goldbach requires a non-halting fact about a particular search machine; the busy beaver bound requires halting and non-halting facts about the entire finite space of machines of the same size. The finite description of the space does not make its semantic classification recursively available.
+            The class $\mathcal{B}_n$ is syntactically finite, but its finite description does not furnish that semantic upper bound. The function $S$ is not computable: there is no uniform procedure that produces $S(n)$ from $n$. This does not make every particular value unknowable, nor does it show that $S(25)$ can never be determined. It shows that merely invoking $S(n)$ does not supply a general method of closure. A proof of the relevant value must still perform the work that the appeal to Busy Beaver seemed to avoid.
           </p>
           <p>
-            In classical semantics, $S(25)$ denotes a definite integer. But that ontological determinacy does not supply epistemic access to it. The gap between a completed object and a procedure for reaching it is precisely what <span class="sc">Reflexica</span> has been naming throughout.
+            Busy Beaver therefore does not eliminate the original asymmetry; it packages enough halting information to overcome it. Classical semantics assigns $S(n)$ a definite integer, but that determinacy alone supplies neither the integer nor a proof of its value. In <span class="sc">Reflexica</span>’s terms, the completed bound licenses closure only after the bound has itself been warranted.
           </p>
           <h3 id="hole-proliferation">3.6 Hole Proliferation</h3>
           <p>
@@ -578,7 +576,10 @@ og_description: "An introduction and program of formal logic."
               Fourth, the spider cannot access an external standpoint from which the completed relation between web and tube can be surveyed without remainder. There is no point at which the spider can call its project finished.
             </p>
             <p>
-              Fifth, every strand drawn across a single existing opening divides it, replacing one hole with two. The attempt to eliminate the openings therefore proliferates them, creating a problem no spider, biological or artificial, can solve.
+              Fifth, every strand drawn across a single existing opening divides it, replacing one hole with two.
+            </p>
+            <p>
+              The attempt to eliminate the openings therefore proliferates them. Filling even the smallest open region would require a qualitatively different operation: the spider would have to lay down a surface rather than another strand. No spider, biological or artificial, can solve the problem by webbing alone.
             </p>
           </div>
           <p>
@@ -856,7 +857,7 @@ og_description: "An introduction and program of formal logic."
               A. Yedidia and S. Aaronson. "A Relatively Small Turing Machine Whose Behavior Is Independent of Set Theory." arXiv:1605.04343, 2016. <a href="https://doi.org/10.48550/arXiv.1605.04343" target="_blank" rel="noopener noreferrer">DOI</a>.
             </li>
             <li id="reference-goldbach-tm25">
-              Y. Leng. "goldbach_tm27." GitHub repository, 2025. <a href="https://github.com/Yijun-Leng/goldbach_tm27" target="_blank" rel="noopener noreferrer">[GitHub]</a>.
+              Y. Leng. "goldbach_tm: Goldbach Conjecture = 25-State Turing Machine." GitHub repository, 2025. <a href="https://github.com/lengyijun/goldbach_tm" target="_blank" rel="noopener noreferrer">[GitHub]</a>.
             </li>
             <li id="reference-turing-ordinal-logics">
               A. M. Turing. "Systems of Logic Based on Ordinals." <i>Proceedings of the London Mathematical Society</i>, Series 2, 45, no. 1 (1939): 161–228.
