@@ -261,7 +261,7 @@
     canvas.setAttribute("role", "img");
     canvas.setAttribute(
       "aria-label",
-      "A generative web growing strand by strand inside a circular tube"
+      "A generative spider web growing strand by strand across the open end of a hollow pipe"
     );
     context = canvas.getContext("2d");
     if (!context) return;
