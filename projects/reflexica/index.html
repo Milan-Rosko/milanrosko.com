@@ -11,44 +11,35 @@ og_description: "An introduction and program of formal logic."
   <link rel="stylesheet" href="../../style.css">
   <script src="../../js/mathjaxconfig.js"></script>
   <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
   {% include meta.html %}
   <style>
-    .reflexica-world {
+    .spider-web-figure {
+      box-sizing: border-box;
+      width: 100%;
+    }
+
+    .spider-web-world {
       position: relative;
       width: 100%;
-      max-width: 50%;
-      aspect-ratio: 1;
+      aspect-ratio: 32 / 27;
       margin: 0 auto;
       overflow: hidden;
-      /*mix-blend-mode: lighten;*/
       background: transparent;
     }
 
-    #container {
+    #spider-web-container {
       position: absolute;
-      width: 75%;
-      height: 75%;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      inset: 0;
       display: block;
-      pointer-events: none;
       background: transparent;
     }
 
-    #container canvas {
+    #spider-web-container canvas {
       display: block;
       width: 100%;
       height: 100%;
-      pointer-events: none;
       background: transparent;
-    }
-
-    .reflexica-figure {
-      box-sizing: border-box;
-      width: 100%;
+      pointer-events: none;
     }
   </style>
 </head>
@@ -128,12 +119,12 @@ og_description: "An introduction and program of formal logic."
     </div>
 
     <div class="grid-item d-w-9 m-w-9" id="illustration"><span class="nr"></span>
-      <div class="grid-item-content reflexica-figure">
-        <div class="box reflexica-world">
-          <div id="container" aria-label="Reflexica shader fractal animation"></div>
+      <div class="grid-item-content spider-web-figure">
+        <div class="box spider-web-world">
+          <div id="spider-web-container" aria-label="Generative spider web growing inside a circular tube"></div>
         </div>
         <div class="caption">
-          Illustration: Chromostereopsis is associated with a visual illusion in which red-blue chromatic contrast may be perceived as depth displacement.
+          Illustration: THE SPIDER IN THE TUBE. Each new strand is constrained by the web already in place. REFLEXICA asks: Under what conditions would these holes count as the same hole?
         </div>
       </div>
     </div>
@@ -429,40 +420,7 @@ og_description: "An introduction and program of formal logic."
           <p>
             We have to diagnose a limit, not only of $\mathrm{T}$, but of the attempt to adjudicate the status of proof from a position outside proof. Once a method is asked to certify the correct interpretation of method itself, it is no longer neutral.
           </p>
-          <h3 id="bekic-decomposition">3.4 <span class="sc">Bisection</span> instead of semantics</h3>
-          <p>
-            <span class="sc">Bekić’s Lemma</span> <a href="#reference-bekic">[Bekić, 1984]</a> gives the positive counterpart to diagonal obstruction. It says, in effect, that a simultaneous fixed point can sometimes be replaced by an ordered sequence of one-variable fixed points. For a mutually recursive system
-          </p>
-          <div class="mathjaxwrap">
-            $$
-              x = f(x,y),\quad y = g(x,y),
-            $$
-          </div>
-          <p>
-            the pair need not be treated as one opaque semantic whole. Under the relevant fixed-point conditions, one solves one equation parametrically and then solves the induced remaining equation. The dependence is not removed; it is given an order.
-          </p>
-          <p>
-            This supplies the useful criterion. A reflexive configuration often appears as semantic instability: the system refers to itself, depends on itself, or produces an invariant from which its generating distinctions cannot be recovered. <span class="sc">Bisection</span> asks whether that dependency can be made sequential:
-          </p>
-          <div class="mathjaxlike" style="text-align: center;">
-            Semantic circularity $\;\leadsto\;$ ordered syntactic construction.
-          </div>
-          <p>
-            When it succeeds, no completed external semantics is needed in advance. The system acquires a syntax that records how the fixed point is produced. The circularity remains, but it is no longer opaque. Church’s $\lambda$-calculus makes the boundary vivid: it does not first resolve the reflexivity of self-application in a completed semantics; it operationalizes it. What appears as a reflexive black box becomes traversable through reduction, and this finite syntactic discipline is sufficient for computational universality <a href="#reference-church-unsolvable">[Church, 1936]</a>.
-          </p>
-          <p>
-            The same distinction may transfer to machine-learning interpretability. An embedding vector has no meaning in isolation; its role is fixed by relations and distributions. A global map from internal states to human concepts may fail to exist as a single semantic object. Interventions are therefore proposed decompositions of a mutually dependent semantic field, not disclosures of a pre-existing atlas.
-          </p>
-          <p>
-            The methodological directive is consequently:
-          </p>
-          <div class="mathjaxlike" style="text-align: center;">
-            Search for decompositions of mutual dependence.
-          </div>
-          <p>
-            <span class="sc">Bekić’s Lemma</span> is central to <span class="sc">Reflexica</span> because it makes the alternative precise: can an apparently reflexive whole be decomposed into ordered syntactic dependencies, or does the demand for closure remain? We may isolate particular neural functions, circuits, and mechanisms without thereby obtaining a complete picture of the brain. <span class="sc">Reflexica</span> asks whether that missing whole is merely an unfinished achievement of inquiry, or whether there is no complete semantic picture to be recovered from the local accounts—a closure presumed by the question but not witnessed by its procedures.
-          </p>
-          <h3 id="self-reference-and-turing-zombie">3.5 The <span class="sc">Turing-Zombie</span></h3>
+          <h3 id="self-reference-and-turing-zombie">3.4 The <span class="sc">Turing-Zombie</span></h3>
           <p>
             The transfer from strict diagonalization to less formal settings is part of the program. A resonance across computation, linguistic competence, proof theory, and self-modeling is not yet evidence that these domains instantiate one phenomenon. The question is narrower: when does self-description become a demand that a local procedure close over the totality to which it belongs?
           </p>
@@ -545,7 +503,7 @@ og_description: "An introduction and program of formal logic."
           <p>
             The self-application would be another totalizing inference to conclude that no confident report of Gödelian self-insight is ever genuine self-application. What survives is narrower: given a system that reports Gödelian self-insight with stable confidence, has any witnessed procedure been exhibited that distinguishes genuine self-substituted closure from the external-object procedure available to a <span class="sc">Turing-Zombie</span>? At present, no such procedure has been exhibited. Such would be the queer object.
           </p>
-          <h3 id="goldbach-busy-beaver">3.6 Totalization of and by Escape</h3>
+          <h3 id="goldbach-busy-beaver">3.5 Totalization of and by Escape</h3>
           <p>
             The pattern traced so far recurs inside the apparatus that seems best placed to escape it. Yedidia and Aaronson gave a 4,888-state construction of this kind <a href="#reference-yedidia-aaronson">[Yedidia and Aaronson, 2016]</a>; subsequent reductions produced a 27-state version, later reduced to a 25-state machine and formally checked in Lean4 <a href="#reference-goldbach-tm25">[Leng, 2025]</a>.
           </p>
@@ -589,9 +547,32 @@ og_description: "An introduction and program of formal logic."
           <p>
             In classical semantics, $S(25)$ denotes a definite integer. But that ontological determinacy does not supply epistemic access to it. The gap between a completed object and a procedure for reaching it is precisely what <span class="sc">Reflexica</span> has been naming throughout.
           </p>
+          <h3 id="program">3.6 Fixed-Point Proliferation</h3>
           <p>
-            We see again: any proposed escape from a reflexive totalization, a function, an oracle, a growth rate, or a bound placed beyond ordinary search, faces the same dilemma. If it is computable, it cannot decide the totality it was introduced to close. If it is uncomputable, it has not grounded the closure; it has reproduced the closure one level up. There is no totalization-free floor inside recursive computation. Section 6 reaches the same conclusion for AI oraclehood, but here the obstruction has already appeared inside arithmetic.
+            Consider the following allegory.
           </p>
+          <div class="mathjaxlike">
+            <h4>The Spider in the Tube</h4>
+            <p>
+              A spider weaves a web inside a long tube. It progresses by attaching strands to selected points along the surrounding circumference. The first strands make a substantial difference as they establish orientation as they create a usable local structure. As the spider continues, the web becomes denser and its control of the nearby region increases.
+            </p>
+            <p>
+              The process has notable features. First, the marginal difference made by each additional strand tends to diminish. Later strands refine an already intricate structure. They may improve stability or resolution, but the improvement becomes increasingly incremental and, from a sufficiently distant perspective, almost negligible.
+            </p>
+            <p>
+              Second, the exact attachment points are not uniquely determined. The spider could have anchored a strand slightly to the left or right and still produced an operationally adequate web. Many distinct networks can support similar movement and represent the same surrounding tube. The individual points of fixation are therefore partly contingent, even where the resulting structure is highly constrained.
+            </p>
+            <p>
+              Third, the web represents genuine progress and remains useful; nevertheless, no finite arrangement of strands will ever cover up the tube, and no particular configuration is forced as its uniquely correct articulation. Each extension is made from within the existing web, using the positions and tensions established by earlier extensions.
+            </p>
+            <p>
+              Fourth, the spider cannot access an external standpoint from which the completed relation between web and tube can be surveyed without remainder. There is no point at which the spider can call its project finished.
+            </p>
+            <p>
+              Fifth, with every completed strand, there will be more holes.
+            </p>
+          </div>
+
           <h3 id="program">4 The Program</h3>
           <p>
             Classical totalities and completed domains are undeniably productive; <span class="sc">Reflexica</span> asks what is added when local procedures are mistakenly read as completed, and what forms of obstruction have to appear.
@@ -699,7 +680,7 @@ og_description: "An introduction and program of formal logic."
             The coming years will not merely show whether AI becomes more capable, they will show whether increasing capability begins to flatten, proliferate alternatives, or displace the closure question rather than resolve it. If it does, then even extraordinary mathematical discoveries will not be counterexamples but will demonstrate that AI can extend inquiry with increasing force, while still failing to close the reflexive semantic totality.
           </p>
           <p>
-            <span class="sc">Reflexica</span> is <i>falsified</i> once a “logical” <span class="sc">Queer Object</span> is discovered or constructed.
+            <span class="sc">Reflexica</span> is <i>falsified</i> once a “logical” <span class="sc">Queer Object</span> is discovered or constructed. One that cannot be adequately simulated by intuitionistic means, yet still provides effectivity.
           </p>
           </div>
         </div>
@@ -845,6 +826,6 @@ og_description: "An introduction and program of formal logic."
       </div>
     </div>
   </div>
-  <script src="./reflexica.js"></script>
+  <script src="./spider.js"></script>
 </body>
 </html>

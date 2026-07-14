@@ -411,10 +411,10 @@ ul > li::before {
   padding: 2em 0;
   margin: auto;
   line-height: 2;
-  text-align: center;
+  text-align: left;
   pointer-events: none;
   font-weight: 400;
-  width: 80%;
+  width: 60%;
 }
 
 

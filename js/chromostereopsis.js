@@ -91,6 +91,8 @@ var container,
   material,
   mesh,
   resizeObserver,
+  intersectionObserver,
+  isInView = false,
   startTime = Date.now();
 
 function init() {
@@ -130,14 +132,38 @@ function init() {
     resizeObserver.observe(container);
   }
 
+  if (window.IntersectionObserver) {
+    intersectionObserver = new IntersectionObserver(function (entries) {
+      isInView = entries[entries.length - 1].isIntersecting;
+      updateAnimationState();
+    });
+    intersectionObserver.observe(container);
+  } else {
+    isInView = true;
+  }
+
   resize();
-  animate();
+  updateAnimationState();
 }
 
 function animate() {
-  animationId = requestAnimationFrame(animate);
+  animationId = null;
+  if (!isInView || document.hidden) return;
+
   material.uniforms.time.value = (Date.now() - startTime) / 1000.0;
   renderer.render(scene, camera);
+  animationId = requestAnimationFrame(animate);
+}
+
+function updateAnimationState() {
+  if (isInView && !document.hidden) {
+    if (animationId === null || animationId === undefined) {
+      animationId = requestAnimationFrame(animate);
+    }
+  } else if (animationId !== null && animationId !== undefined) {
+    cancelAnimationFrame(animationId);
+    animationId = null;
+  }
 }
 
 function resize() {
@@ -155,3 +181,4 @@ function resize() {
 
 window.addEventListener("load", init);
 window.addEventListener("resize", resize);
+document.addEventListener("visibilitychange", updateAnimationState);

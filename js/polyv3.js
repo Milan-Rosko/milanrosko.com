@@ -90,18 +90,30 @@ var container,
   geometry,
   material,
   mesh,
+  resizeObserver,
+  intersectionObserver,
+  isInView = false,
+  initialized = false,
   startTime = Date.now();
 
 function init() {
-  container = document.getElementById("container");
-  if (!container || !window.THREE) return;
+  if (initialized || !window.THREE) return;
+
+  container =
+    document.getElementById("anim-container1") ||
+    document.getElementById("container");
+  if (!container) return;
+
+  initialized = true;
+  container.style.width = "100%";
+  container.style.aspectRatio = "1 / 1";
 
   scene = new THREE.Scene();
 
-  camera = new THREE.PerspectiveCamera(75, 1, 1, 2);
+  camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 2);
   camera.position.z = 1;
 
-  geometry = new THREE.PlaneGeometry(10, 10);
+  geometry = new THREE.PlaneGeometry(2, 2);
   uniforms = {
     time: { type: "f", value: 1.0 },
     resolution: { type: "v2", value: new THREE.Vector2() }
@@ -120,31 +132,90 @@ function init() {
     alpha: true,
     antialias: true
   });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
   renderer.setClearColor(0x000000, 0);
   container.appendChild(renderer.domElement);
 
+  if (window.ResizeObserver) {
+    resizeObserver = new ResizeObserver(resize);
+    resizeObserver.observe(container);
+  }
+
+  if (window.IntersectionObserver) {
+    intersectionObserver = new IntersectionObserver(function (entries) {
+      isInView = entries[entries.length - 1].isIntersecting;
+      updateAnimationState();
+    });
+    intersectionObserver.observe(container);
+  } else {
+    isInView = true;
+  }
+
   resize();
-  animate();
+  updateAnimationState();
+}
+
+function loadThreeAndInit() {
+  if (window.THREE) {
+    init();
+    return;
+  }
+
+  var existingScript = document.querySelector("script[data-polyv3-three]");
+  if (existingScript) {
+    existingScript.addEventListener("load", init, { once: true });
+    return;
+  }
+
+  var threeScript = document.createElement("script");
+  threeScript.src =
+    "https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js";
+  threeScript.async = true;
+  threeScript.setAttribute("data-polyv3-three", "");
+  threeScript.addEventListener("load", init, { once: true });
+  document.head.appendChild(threeScript);
 }
 
 function animate() {
-  animationId = requestAnimationFrame(animate);
+  animationId = null;
+  if (!isInView || document.hidden) return;
+
   material.uniforms.time.value = (Date.now() - startTime) / 1000.0;
   renderer.render(scene, camera);
+  animationId = requestAnimationFrame(animate);
+}
+
+function updateAnimationState() {
+  if (isInView && !document.hidden) {
+    if (animationId === null || animationId === undefined) {
+      animationId = requestAnimationFrame(animate);
+    }
+  } else if (animationId !== null && animationId !== undefined) {
+    cancelAnimationFrame(animationId);
+    animationId = null;
+  }
 }
 
 function resize() {
   if (!container || !renderer || !camera || !material) return;
 
-  var width = container.clientWidth || window.innerWidth;
-  var height = container.clientHeight || window.innerHeight;
+  var bounds = container.getBoundingClientRect();
+  var width = Math.round(bounds.width);
+  var height = Math.round(bounds.height);
 
-  camera.aspect = width / height;
-  camera.updateProjectionMatrix();
-  material.uniforms.resolution.value.x = width;
-  material.uniforms.resolution.value.y = height;
-  renderer.setSize(width, height);
+  if (width < 1 || height < 1) return;
+
+  renderer.setSize(width, height, false);
+  renderer.getDrawingBufferSize(material.uniforms.resolution.value);
 }
 
-window.addEventListener("load", init);
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", loadThreeAndInit, {
+    once: true
+  });
+} else {
+  loadThreeAndInit();
+}
+
 window.addEventListener("resize", resize);
+document.addEventListener("visibilitychange", updateAnimationState);
