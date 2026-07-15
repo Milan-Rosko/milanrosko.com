@@ -24,11 +24,11 @@
   url           = {https://doi.org/10.48550/arXiv.2510.08934}
 }
 
-@misc{rosko2025primeconjectures,
-  title         = {{On the Realizability of Prime Conjectures in Heyting Arithmetic}},
+@misc{rosko2025intuitionisticprimes,
+  title         = {{An Intuitionistic Glance at Primes}},
   author        = {Rosko, M.},
   year          = {2025},
-  note          = {arXiv submission 2511.07774; listed in math.LO},
+  note          = {arXiv submission 2511.07774; listed in cs.LO, math.LO},
   url           = {https://doi.org/10.48550/arXiv.2511.07774}
 }
 
