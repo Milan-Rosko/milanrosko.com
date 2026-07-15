@@ -521,12 +521,12 @@ og_description: "An introduction and program of formal logic."
               \mathcal{G}\mathord{\downarrow}
               \iff \exists m\,C(m)
               \iff \neg G
-              \quad [\Sigma^0_1],
-              \qquad
+              \; [\Sigma^0_1],
+              \quad
               \mathcal{G}\mathord{\uparrow}
               \iff \forall m\,\neg C(m)
               \iff G
-              \quad [\Pi^0_1].
+              \; [\Pi^0_1].
             $$
           </div>
           <p>
@@ -612,13 +612,21 @@ og_description: "An introduction and program of formal logic."
             This principle closes the space of alternatives without supplying a construction of either alternative. An operational uncertainty is exchanged for semantic determinacy and a residual uncertainty about access. The system may reason effectively with the assumption that the answer is fixed even when it cannot yet identify, prove or compute that answer.
           </p>
           <p>
-            This exchange is extraordinarily productive. It permits stable calculation with limits, infinite domains and ideal objects. It allows unresolved cases to participate in proofs before their individual status is known. But it does not eliminate uncertainty as such. It relocates uncertainty from the existence of a determinate object or truth value to questions of representation, classification, proof and accessibility.
+            This exchange is extraordinarily productive, as we already acknowledged. It realizes stable calculation with limits, infinite domains and ideal objects. It allows unresolved cases to participate in proofs before their individual status is known. But it does not eliminate uncertainty as such. It relocates it from the existence of a determinate object or truth value to questions of representation.
           </p>
           <p>
-            Such problems are therefore seldom left untouched. Each is compressed into a stronger semantic object, and that stronger object supports more exact questions. The circumference becomes $2\pi r$, but $\pi$ acquires its own arithmetic classification. General equations become objects of field and group theory, but solvability divides into increasingly precise structural cases. The continuum becomes a completed domain, but its subsets and cardinal structure generate propositions whose status depends upon the surrounding axioms.
+            Such problems are therefore seldom left untouched. Each is compressed into a stronger semantic object, and that stronger object supports more exact questions. The circumference becomes $2\pi r$, but $\pi$ acquires its own arithmetic classification. General equations become objects of field and group theory, but solvability divides into increasingly precise structural cases. The continuum becomes a completed domain, but its subsets and cardinal structure generate propositions whose status depends upon the surrounding axioms. Yet, there seems to be a residue:
           </p>
+          <div class="mathjaxlike" style="text-align: center;">
+            $$
+            \begin{gathered}
+              \gamma = 0.57721\,56649\,01532\,86060\,65120\,90082\,40243\,10421\,59335\,93992\ldots \\
+              \operatorname{Rational}(\gamma) \lor \neg\operatorname{Rational}(\gamma)
+            \end{gathered}
+            $$
+          </div>
           <p>
-            Intuitionism is important because it keeps the missing construction visible. It does not deny semantics; it declines to identify semantic determinacy with an antecedently completed bivalent assignment. A proposition may remain open where neither it nor its negation has been constructed.
+            Intuitionism is important because it keeps the missing construction visible. It does not deny semantics; but it does not affirm it either. It declines to identify semantic determinacy with an antecedently completed bivalent assignment. A proposition may remain open where neither it nor its negation has been constructed.
           </p>
           <p>
             Because this opening is internal to the framework, classical semantics can itself be internalized. Excluded middle may be added locally, or classical reasoning may be represented through translation, without being treated as the unique background within which every possible form of reasoning must already reside. Intuitionism can therefore contain classical closure as one effective configuration of the web while preserving the distinction between a semantic fixation and a witnessed construction.
@@ -630,9 +638,8 @@ og_description: "An introduction and program of formal logic."
             The intellectual condition of the mid-2020s can thus be described neither as failure nor as convergence. It is a condition of expanding local control without corresponding global closure. The web is denser than before, its strands are stronger, and its local regions are mapped with unprecedented precision. At the same time, the number of visible openings has increased.
           </p>
           <p>
-            <span class="sc">Reflexica</span> interprets this not as an unfortunate delay before the final theory, but as evidence about the morphology of reflective inquiry. Once a problem includes the standards by which its own closure is to be assessed, each successful closure becomes another object within the problem. Every strand fixes something. Every fixation changes the web. Every change divides the remaining space.
+            <span class="sc">Reflexica</span> interprets this not as an unfortunate delay before the final theory, but as evidence about the morphology of reflective inquiry. Once a problem includes the standards by which its own closure is to be assessed, each successful closure becomes another object within the problem.
           </p>
-
           <h3 id="program">4 The Program</h3>
           <p>
             Classical totalities and completed domains are undeniably productive; <span class="sc">Reflexica</span> asks what is added when local procedures are mistakenly read as completed, and what forms of obstruction must appear.
@@ -743,27 +750,209 @@ og_description: "An introduction and program of formal logic."
             Future data points should show not merely whether AI becomes more capable, but whether increasing capability begins to flatten, proliferate alternatives, or displace the closure question rather than resolve it. If it does, then even extraordinary mathematical discoveries will not be counterexamples but will demonstrate that intelligence in general can extend inquiry with increasing force, while still failing to close the reflexive semantic totality.
           </p>
           <p>
-            The falsification condition is operational. A counterexample must exhibit a finitely specified computational object $Q$ implementing a decision procedure, a class $\mathcal{D}$ of finitely described systems or problems, a nontrivial semantic property $\varnothing\subsetneq S\subsetneq\mathcal{D}$ and a terminating certificate verifier $V$, all fixed before evaluation, such that:
+            The prior question is whether <span class="sc">Reflexica</span> can be falsified at all. A useful first step is not to construct a purported falsifier, but to calibrate the phenomenon in a setting where the object theory, the stronger standpoint and the claimed closure can be distinguished exactly. Global normalization provides such a case. It locates <span class="sc">Reflexica</span> not in the syntactic shape of an absence proposition, which can always be wrapped in another constructor, but in a relation between standpoints.
           </p>
-          <ol>
-            <li>
-              $\mathcal{D}$ contains a description of $Q$ and is closed under procedures whose behavior depends on the verdicts of $Q$, including the relevant $Q$-relative diagonal construction.
-            </li>
-            <li>
-              The decision procedure implemented by $Q$ halts on every input in $\mathcal{D}$ and correctly decides membership in $S$.
-            </li>
-            <li>
-              Every positive or negative verdict is accompanied by a finite certificate that $V$ checks under fixed, public rules.
-            </li>
-            <li>
-              These conditions continue to hold for the $Q$-relative diagonal case generated from the description of $Q$ itself.
-            </li>
-            <li>
-              The verification of totality and correctness assumes neither an oracle for $S$ nor the closure claim being tested.
-            </li>
-          </ol>
+          <div class="mathjaxlike">
+            <p>
+              THE RF-COMPLETENESS PROBLEM
+            </p>
+            <p>
+              Fix a versioned kernel specification $\mathcal{K}$, including its signature, typing rules, universe discipline and reduction system. The specification contains no assumed constants: every admitted global declaration has a body accepted by the permitted constructive kernel, whether that body is transparent or opaque, and the normalization and canonical-form arguments account for all such declarations. Let
+              $$
+                \mathrm{T}:=\mathsf{CIC}_{\mathcal{K}}.
+              $$
+              The Rocq/Coq implementation checks judgments of $\mathrm{T}$; the correctness of that implementation is a separate empirical and formal question. Fix also a constructive metatheory $\mathrm{M}$ together with an interpretation of $\mathrm{T}$ in $\mathrm{M}$:
+              $$
+                \mathrm{T}\hookrightarrow\mathrm{M}.
+              $$
+            </p>
+            <p>
+              For a proposition $P:\mathsf{Prop}_{\mathrm{T}}$, write $[\![P]\!]_{\mathrm{M}}$ for its interpretation in $\mathrm{M}$ and define
+              $$
+                \begin{aligned}
+                  \mathsf{ExtInh}_{\mathrm{M}}(P)
+                  &amp;:=[\![P]\!]_{\mathrm{M}},\\[1ex]
+                  \mathsf{IntInh}_{\mathrm{T}}(P)
+                  &amp;:=\sum_{t:\mathsf{Term}_{\mathrm{T}}}
+                  (\mathrm{T}\vdash t:P).
+                \end{aligned}
+              $$
+              Let $\mathsf{OpGen}_{\mathrm{T}}(P)$ state that $P$ presents a closure claim canonically generated by the typing, reduction or other fixed operational judgments of $\mathrm{T}$. This is a relation between $P$ and the operations of $\mathrm{T}$, not a requirement on the superficial constructor shape of $P$.
+            </p>
+            <p>
+              In the programmatic sense used here, define
+              $$
+                \begin{aligned}
+                  \mathsf{RFComplete}_{\mathrm{M}}(\mathrm{T},P)
+                  &:=
+                  \mathsf{OpGen}_{\mathrm{T}}(P)
+                  \times
+                  \mathsf{ExtInh}_{\mathrm{M}}(P)
+                  \times
+                  \bigl(\mathsf{IntInh}_{\mathrm{T}}(P)\to\bot_{\mathrm{M}}\bigr),\\[1ex]
+                  \mathsf{RFComp}_{\mathrm{M}}(\mathrm{T})
+                  &:=
+                  \sum_{P:\mathsf{Prop}_{\mathrm{T}}}
+                  \mathsf{RFComplete}_{\mathrm{M}}(\mathrm{T},P).
+                \end{aligned}
+              $$
+              The <span class="sc">RF-Completeness Problem</span> is the inhabitation problem
+              $$
+                \boxed{\;?\;:\;\mathsf{RFComp}_{\mathrm{M}}(\mathrm{T})\;}.
+              $$
+              “Complete” is used here in this programmatic sense. No claim is yet made that every <span class="sc">Reflexica</span> problem reduces to such a proposition.
+            </p>
+            <p>
+              The leading candidate is the internal normalization proposition
+              $$
+                \mathsf{norm}_{\mathrm{T}}
+                :=
+                \prod_{\Gamma,t,A}
+                \bigl(
+                  \mathsf{Typing}_{\mathrm{T}}(\Gamma,t,A)
+                  \to
+                  \mathsf{SN}_{\mathrm{T}}(t)
+                \bigr).
+              $$
+              Define the external normalization theorem separately:
+              $$
+                \mathsf{Norm}^{\mathrm{ext}}_{\mathrm{M}}(\mathrm{T})
+                :=
+                \prod_{\Gamma,t,A}
+                \bigl(
+                  \mathsf{Typing}^{\mathrm{ext}}_{\mathrm{T}}(\Gamma,t,A)
+                  \to
+                  \mathsf{SN}^{\mathrm{ext}}_{\mathrm{T}}(t)
+                \bigr).
+              $$
+              These are connected by an explicit adequacy witness
+              $$
+                \alpha_{\mathsf{norm}}:
+                [\![\mathsf{norm}_{\mathrm{T}}]\!]_{\mathrm{M}}
+                \leftrightarrow
+                \mathsf{Norm}^{\mathrm{ext}}_{\mathrm{M}}(\mathrm{T}).
+              $$
+              Thus an external normalization proof
+              $$
+                \nu_{\mathrm{ext}}:
+                \mathsf{Norm}^{\mathrm{ext}}_{\mathrm{M}}(\mathrm{T})
+              $$
+              supplies the external inhabitant
+              $$
+                \alpha_{\mathsf{norm}}^{-1}(\nu_{\mathrm{ext}})
+                :
+                [\![\mathsf{norm}_{\mathrm{T}}]\!]_{\mathrm{M}}.
+              $$
+              The adequacy witness prevents the identification of the internal formula with the external normalization theorem from carrying an unexpressed representability assumption.
+            </p>
+            <p>
+              The object-language and metatheoretic consistency claims must be kept distinct. Let $\mathsf{con}_{\mathrm{T}}$ be the internal consistency proposition and let $\mathsf{Con}_{\mathrm{M}}(\mathrm{T})$ state in $\mathrm{M}$ that $\mathrm{T}$ is consistent. The expected argument has the form
+              $$
+                d:
+                \mathrm{T}\vdash
+                \mathsf{norm}_{\mathrm{T}}
+                \to
+                \mathsf{con}_{\mathrm{T}},
+              $$
+              from which composition with the fixed derivation gives the primitive proof transformation
+              $$
+                d_*:
+                \mathsf{IntInh}_{\mathrm{T}}(\mathsf{norm}_{\mathrm{T}})
+                \to
+                \mathsf{IntInh}_{\mathrm{T}}(\mathsf{con}_{\mathrm{T}}).
+              $$
+              The operative second-incompleteness statement is itself required in $\mathrm{M}$:
+              $$
+                \mathrm{M}\vdash
+                g_2:
+                \mathsf{Con}_{\mathrm{M}}(\mathrm{T})
+                \to
+                \bigl(
+                  \mathsf{IntInh}_{\mathrm{T}}(\mathsf{con}_{\mathrm{T}})
+                  \to\bot_{\mathrm{M}}
+                \bigr),
+              $$
+              under the usual representability and derivability conditions. An external normalization proof, together with subject reduction and the canonical-form analysis for the empty proposition, may establish
+              $$
+                c_{\mathrm{T}}:\mathsf{Con}_{\mathrm{M}}(\mathrm{T}).
+              $$
+              Strong normalization alone would not exclude a primitive normal constant of type $\bot$; the axiom-free specification and canonical-form theorem do that work. The required internal non-inhabitation is then the term
+              $$
+                \lambda h.\,
+                g_2(c_{\mathrm{T}})(d_*(h))
+                :
+                \mathsf{IntInh}_{\mathrm{T}}(\mathsf{norm}_{\mathrm{T}})
+                \to\bot_{\mathrm{M}}.
+              $$
+              If
+              $$
+                o_{\mathsf{norm}}:
+                \mathsf{OpGen}_{\mathrm{T}}(\mathsf{norm}_{\mathrm{T}})
+              $$
+              records the canonical operational origin of normalization, the complete separation is exhibited by
+              $$
+                \left(
+                  o_{\mathsf{norm}},
+                  \alpha_{\mathsf{norm}}^{-1}(\nu_{\mathrm{ext}}),
+                  \lambda h.\,g_2(c_{\mathrm{T}})(d_*(h))
+                \right)
+                :
+                \mathsf{RFComplete}_{\mathrm{M}}
+                (\mathrm{T},\mathsf{norm}_{\mathrm{T}}).
+              $$
+            </p>
+            <p>
+              The separation is preserved under $\mathrm{T}$-definable equivalences whose interpretations are validated in $\mathrm{M}$, provided that $\mathsf{OpGen}_{\mathrm{T}}$ is stable under those equivalences. Schematically, if
+              $$
+                \mathrm{T}\vdash P\to Q,
+                \qquad
+                \mathrm{T}\vdash Q\to P,
+              $$
+              and
+              $$
+                \mathrm{M}\vdash
+                \mathsf{OpGen}_{\mathrm{T}}(P)
+                \leftrightarrow
+                \mathsf{OpGen}_{\mathrm{T}}(Q),
+              $$
+              then
+              $$
+                \mathrm{M}\vdash
+                \mathsf{RFComplete}_{\mathrm{M}}(\mathrm{T},P)
+                \leftrightarrow
+                \mathsf{RFComplete}_{\mathrm{M}}(\mathrm{T},Q).
+              $$
+              This gives representation resistance under admissible equivalence rather than under arbitrary repackaging. The content of the separation lies in the relation
+              $$
+                \begin{array}{ccc}
+                  \mathrm{T}
+                  &amp;\text{performs}&amp;
+                  \text{typing and reduction}\\[1ex]
+                  \mathrm{M}
+                  &amp;\text{certifies}&amp;
+                  \text{global normalization of }\mathrm{T}\\[1ex]
+                  \mathrm{T}
+                  &amp;\text{cannot internalize}&amp;
+                  \text{that same global certification.}
+                \end{array}
+              $$
+              The solution in $\mathrm{M}$ does not eliminate the closure question absolutely. It explains why that question is not closed at the level where it arose, while making the corresponding question available for $\mathrm{M}$:
+              $$
+                \mathrm{T}
+                \xrightarrow{\text{external closure}}
+                \mathrm{M}
+                \xrightarrow{\text{new closure question}}
+                \mathrm{M}^{+}
+                \xrightarrow{}
+                \cdots
+              $$
+            </p>
+            <p>
+              The normalization separation is therefore a canonical calibration case, not yet a falsifier of <span class="sc">Reflexica</span>. A genuine falsifier would have to close the normalization standpoint without silently replacing the system whose closure was at issue, and its warrant would have to remain valid after that purported closure was internalized. The present construction neither supplies nor rules out such a broader event; it makes the demanded achievement precise enough to investigate.
+            </p>
+          </div>
           <p>
-            A tuple $(Q,\mathcal{D},S,V)$ satisfying these conditions would constitute a logical <span class="sc">Queer Object</span> and would falsify <span class="sc">Reflexica</span>. Faster search, broader synthesis or stronger performance on any fixed collection of locally checkable tasks would not by itself meet this criterion.
+            In simple terms, the <span class="sc">RF-Completeness Problem</span> asks whether there is a proposition canonically generated by a constructive system whose closure can be established externally, while that same closure cannot be internalized by the system.
           </p>
           </div>
         </div>
