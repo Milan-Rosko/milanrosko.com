@@ -17,7 +17,7 @@ keywords: "CSS2Letter, DIN A4, text composer, CSS pagination, PDF"
             <a class="toc-item" href="#navigation"><span class="toc-key">1</span><span class="toc-text">Navigation</span></a>
             <a class="toc-item" href="#overview"><span class="toc-key">2</span><span class="toc-text">Overview</span></a>
             <a class="toc-item" href="#din-proportion"><span class="toc-key">3</span><span class="toc-text">DIN Proportion</span></a>
-            <a class="toc-item" href="#project-files"><span class="toc-key">4</span><span class="toc-text">Project Files</span></a>
+            <a class="toc-item" href="#compose-letter"><span class="toc-key">4</span><span class="toc-text">Compose a Letter</span></a>
         </div>
     </div>
 
@@ -41,7 +41,7 @@ keywords: "CSS2Letter, DIN A4, text composer, CSS pagination, PDF"
                             Overview <a href="#overview">#</a>
                         </li>
                         <li>
-                            Project files <a href="#project-files">#</a>
+                            Compose a letter <a href="#compose-letter">#</a>
                         </li>
                         <li>
                             Composer template <a href="./composer/index.html" target="_blank" rel="noopener noreferrer">.html</a>
@@ -61,10 +61,10 @@ keywords: "CSS2Letter, DIN A4, text composer, CSS pagination, PDF"
                         Overview
                     </h2>
                     <p>
-                        CSS2Letter is a source-first DIN A4 text composer. There is no separate authoring interface: the letter is composed by editing <code>composer/index.html</code> directly and refreshing it in the browser. The sender, recipient, metadata, and paragraph-coded letter text all remain visible in the HTML.
+                        CSS2Letter is a DIN A4 letter composed directly in HTML. Open <code>composer/index.html</code> in a text editor and change the sender, recipient, reference fields, subject, date, and footer in their existing HTML elements.
                     </p>
                     <p>
-                        This is a small example of <i>moldable development</i>: the writer works on the inspectable artifact that shapes the document instead of adapting the document to a fixed editor. Content, typography, spacing, and page geometry remain exposed as source. Paragraph codes control pagination, so the division into sheets is recomputed after the text changes; the browser then produces the print-ready PDF.
+                        Write the letter body inside <code>&lt;main id="body-main"&gt;</code>, using one <code>&lt;p&gt;...&lt;/p&gt;</code> element for each paragraph. Paragraph classes remain attached when the pagination engine moves or divides text across sheets. Save the HTML, refresh it in the browser, and use Print to produce the PDF.
                     </p>
                 </div>
             </div>
@@ -85,43 +85,34 @@ keywords: "CSS2Letter, DIN A4, text composer, CSS pagination, PDF"
             </div>
         </div>
 
-        <div class="grid-item d-w-9 m-w-9" id="project-files"><span class="nr"></span>
+        <div class="grid-item d-w-9 m-w-9" id="compose-letter"><span class="nr"></span>
             <div class="grid-item-content">
                 <div class="box monobox">
                     <h2>
-                        Project Files
+                        Compose a Letter
                     </h2>
                     <p>
-                        The project consists of a website page and a self-contained composer:
+                        Work in a local copy of <code>composer/index.html</code>. This single HTML file is both the letter template and the editable letter; there is no separate content file.
                     </p>
-                    <ul>
+                    <ol>
                         <li>
-                            <code>index.html</code> presents this overview, navigation, and project references.
+                            Replace the text in the address window, information block, subject, date, and footer.
                         </li>
                         <li>
-                            <code>css2letter.css</code> contains the recursive DIN proportion illustration.
+                            Find <code>&lt;main id="body-main"&gt;</code> and write the letter there. Put each paragraph in its own <code>&lt;p&gt;...&lt;/p&gt;</code> element.
                         </li>
                         <li>
-                            <code>composer/index.html</code> is the editable composition source. It contains the sender, recipient, metadata, letter paragraphs, DIN 5008 template, and print command.
+                            Add a class directly to a paragraph when needed, for example <code>&lt;p class="signature-name"&gt;...&lt;/p&gt;</code>. Pagination retains the class when it moves or splits the paragraph.
                         </li>
                         <li>
-                            <code>composer/styles/din5008.css</code> controls A4 geometry, typography, letter fields, screen preview, and PDF print output.
+                            Save the HTML and open or refresh it in the browser. Pages are created automatically from the HTML content.
                         </li>
                         <li>
-                            <code>composer/scripts/pagination.js</code> measures the available page area and moves or divides content across additional sheets.
+                            Select Print to produce the finished A4 PDF.
                         </li>
-                        <li>
-                            <code>composer/scripts/letter-engine.js</code> waits for fonts and mathematics, then starts pagination for the HTML letter content.
-                        </li>
-                        <li>
-                            <code>composer/assets/logo.png</code> and <code>signature.png</code> provide the visible letterhead artwork.
-                        </li>
-                        <li>
-                            <code>composer/assets/reference/din.png</code> and <code>mr.png</code> are visual references for template development.
-                        </li>
-                    </ul>
+                    </ol>
                     <p>
-                        Open the composer template <a href="./composer/index.html" target="_blank" rel="noopener noreferrer">.html</a> or inspect the source project <a href="https://github.com/Milan-Rosko/trinkets/tree/main/css2letter" target="_blank" rel="noopener noreferrer">GitHub</a>.
+                        Open the composer example <a href="./composer/index.html" target="_blank" rel="noopener noreferrer">.html</a> or get the source files from <a href="https://github.com/Milan-Rosko/trinkets/tree/main/css2letter" target="_blank" rel="noopener noreferrer">GitHub</a>.
                     </p>
                 </div>
             </div>
