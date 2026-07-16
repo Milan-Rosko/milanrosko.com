@@ -16,8 +16,10 @@ keywords: "CSS2Letter, DIN A4, DIN 5008, HTML letter template, CSS pagination, P
         <div class="toc">
             <a class="toc-item" href="#navigation"><span class="toc-key">1</span><span class="toc-text">Navigation</span></a>
             <a class="toc-item" href="#overview"><span class="toc-key">2</span><span class="toc-text">Overview</span></a>
-            <a class="toc-item" href="#din-proportion"><span class="toc-key">3</span><span class="toc-text">DIN Proportion</span></a>
-            <a class="toc-item" href="#compose-letter"><span class="toc-key">4</span><span class="toc-text">Compose a Letter</span></a>
+            <a class="toc-item" href="#din-proportion"><span class="toc-key">3</span><span class="toc-text">Trivia</span></a>
+            <a class="toc-item" href="#compose-letter"><span class="toc-key">4</span><span class="toc-text">Tutorial</span></a>
+            <a class="toc-item" href="#use-case"><span class="toc-key">5</span><span class="toc-text">Use case</span></a>
+
         </div>
     </div>
 
@@ -81,30 +83,42 @@ keywords: "CSS2Letter, DIN A4, DIN 5008, HTML letter template, CSS pagination, P
 
         <div class="grid-item d-w-9 m-w-9" id="compose-letter"><span class="nr"></span>
             <div class="grid-item-content">
-                <div class="box contentbox">
+                <div class="box monobox">
                     <h2>
-                        Usage
+                        Tutorial
                     </h2>
                     <p>
-                        (i) Clone or download the repo <a href="https://github.com/Milan-Rosko/trinkets/tree/main/css2letter" target="_blank" rel="noopener noreferrer">GitHub</a> and open <code>blank.html</code> in a text editor. (ii) Replace the placeholder sender, recipient, reference, date, letterhead, and footer information. (iii) Write or insert the letter inside
-                    </p>
-                    <div class="mathjaxlike" style="text-align: center;">
-                        &lt;main id="body-main"&gt
-                    </div>
-                    <p>
-                        and place each paragraph in its own &lt;p&gt; element so the pagination engine can treat it as a coherent block. (iii) Save the file and open it in a current browser. Continuation pages and page numbers are generated automatically when the content exceeds one page. (iv) Use the browser’s Print command to print the document or save it as a PDF.
+                        (i) Clone or download the repo <a href="https://github.com/Milan-Rosko/trinkets/tree/main/css2letter" target="_blank" rel="noopener noreferrer">GitHub</a> and open <i>blank.html</i> in a text editor. (Alternatively, you can try with your developer tools of your browser to edit the letter directly.)
                     </p>
                     <p>
-                        Alternatively you can try with your developer tools of your browser to edit the letter directly.
+                        (ii) Replace the placeholders for <i>sender, recipient, reference, etc.</i>
                     </p>
                     <p>
-                        CSS2Letter is intended as a moldable foundation rather than a closed document generator. The letter remains an ordinary HTML document, so its content, components, and semantics can be changed without learning a proprietary template language.
+                        (iii) Write or insert the letter inside <i>&lt;main id="body-main"&gt;</i> and place each paragraph in its own <i>&lt;p&gt;</i> element so the pagination engine can treat it as a coherent block.
                     </p>
                     <p>
-                        Page geometry, typography, spacing, fold marks, address fields, letterhead, and footer layout are controlled by CSS. The pagination code is kept separate from the document content, making it possible to modify the visual system without rebuilding the composition logic.
+                        (iv) Save the file and open it in a current browser. Continuation pages and page numbers are generated automatically when the content exceeds one page.
                     </p>
                     <p>
-                        The current implementation is deliberately compact. It can serve as a finished letter template, a starting point for organization-specific stationery, a agentic tool, or an experimental base for browser-native paged documents.
+                        (v) Use the <i>print button</i> (or browser’s Print command) to print the document or save it as a PDF.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="grid-item d-w-9 m-w-9" id="use-case"><span class="nr"></span>
+            <div class="grid-item-content">
+                <div class="box contentbox">
+                    <h2>
+                        Use Case
+                    </h2>
+                    <p>
+                        <i>CSS2Letter</i> is intended as a moldable foundation rather than a closed document generator. The letter remains an ordinary HTML document, so its content, components, and semantics can be changed without learning a proprietary template language.
+                    </p>
+                    <p>
+                        The graphical elements are entirely controlled by CSS. The pagination code is kept separate from the document content, making it possible to modify the visual system without rebuilding the composition logic.
+                    </p>
+                    <p>
+                        The current implementation is deliberately compact. It can serve as a finished letter template, a starting point for organization-specific stationery, an agentic tool, or an experimental base for browser-native paged documents.
                     </p>
                 </div>
             </div>
