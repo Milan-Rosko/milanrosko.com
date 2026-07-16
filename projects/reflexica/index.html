@@ -48,7 +48,7 @@ og_description: "An introduction and program of formal logic."
     <h1>Manuscript: What is <span class="sc">Reflexica</span>?</h1>
     <div class="toc">
       <a class="toc-item" href="#navigation"><span class="toc-key">1</span><span class="toc-text">Navigation</span></a>
-      <a class="toc-item" href="#abstract"><span class="toc-key">2</span><span class="toc-text">Abstract</span></a>
+      <a class="toc-item" href="#abstract"><span class="toc-key">2</span><span class="toc-text">Overview</span></a>
       <a class="toc-item" href="#illustration"><span class="toc-key">3</span><span class="toc-text">Illustration</span></a>
       <a class="toc-item" href="#reflexica"><span class="toc-key">4</span><span class="toc-text">What is <span class="sc">Reflexica</span>?</span></a>
       <a class="toc-item" href="#purpose"><span class="toc-key">5</span><span class="toc-text">Purpose</span></a>
@@ -107,7 +107,7 @@ og_description: "An introduction and program of formal logic."
       <div class="grid-item-content">
         <div class="box monobox">
           <h2>
-            Abstract
+            Overview
           </h2>
           <p>
             We propose a programmatic study of a recurring pattern in logic-adjacent fields: the movement by which thought passes from local operation to projected totality. In some such cases, a locally witnessed procedure is quietly reified into a claim about a completed domain or a self-standing object.
@@ -161,7 +161,7 @@ og_description: "An introduction and program of formal logic."
             To establish that a number is <i>composite</i>, one produces a factor greater than one: a finite, extractable, checkable object. The witness supplies the computational content of the proof; in the case of <span class="sc">Compositeness</span>, a factor pair $(a,b)$ is the finite object whose verification establishes the claim <a href="#reference-kleene-realizability">[Kleene, 1945]</a>. Numbers alone, in a constructive sense, do not carry such a witness; their <span class="sc">Compositeness</span> must be decided separately. Consequently:
           </p>
           <div class="mathjaxlike">
-            <span class="sc">Compositeness</span> is geometrically witnessable, as a nontrivial rectangular arrangement exhibits a factorization directly. <span class="sc">Primality</span>, by contrast, is not witnessed by a positive factor-configuration of the same kind; it is established by the absence of such a configuration, through bounded exclusion.
+            <span class="sc">Compositeness</span> is geometrically witnessable, as a nontrivial rectangular arrangement exhibits a factorization directly. <span class="sc">Primality</span>, by contrast, is not witnessed by a positive factor-configuration of the same kind. Its defining content excludes every such configuration. This exclusion may itself admit a finite positive proof object, but that object witnesses the exclusion; it is not a divisor-like constituent whose presence makes the number prime.
           </div>
           <p>
             Consider the asymmetry in the simple case below:
@@ -193,10 +193,10 @@ og_description: "An introduction and program of formal logic."
             $$
           </div>
           <p>
-            The left arrangement displays a nontrivial factorization directly, whereas the right admits no corresponding nontrivial rectangular arrangement. No configuration of seven units exposes a nontrivial divisor, because there is none to exhibit. <span class="sc">Primality</span> must be established by exhaustive elimination, carried as a conclusion rather than read off as a positive configuration. The absence marks a lack of factor structure, independent of any gap in knowledge.
+            The left arrangement displays a nontrivial factorization directly, whereas the right admits no corresponding nontrivial rectangular arrangement. No configuration of seven units exposes a nontrivial divisor, because there is none to exhibit. Trial division establishes <span class="sc">Primality</span> by exhaustive bounded elimination; a <span class="sc">Pratt Certificate</span> establishes it more economically through a succinct, recursively checkable proof object <a href="#reference-pratt-primality-certificate">[Pratt, 1975]</a>. The certificate does not reverse the asymmetry: it positively witnesses a proof that no nontrivial divisor exists, rather than supplying a positive factor-configuration that constitutes primality. It changes how exclusion is certified, not the exclusionary content of what is certified. Nor does checking a certificate discover the prime candidate or generate the certificate; verification must be distinguished from finding.
           </p>
           <p>
-            The lack of nontrivial factors is carried through <span class="sc">Coprimality</span>, as a number differing by one from a common multiple of the assigned primes. Any assigned prime that measured both numbers would also measure their unit difference; none can therefore measure the constructed number. Whether that number is prime or is measured by another prime, the assigned multitude is refuted as exhaustive. The result is a reusable refutation schema, not an existential claim over a completed domain.
+            The lack of nontrivial factors is carried through <span class="sc">Coprimality</span>, as a number differing by one from a common multiple of the assigned primes. Any assigned prime that measured both numbers would also measure their unit difference; none can therefore measure the constructed number. Whether that number is prime or is measured by another prime, the assigned multitude is refuted as exhaustive. The immediate result is a reusable refutation schema rather than a claim about a completed totality. This does not, however, place the existential formulation outside intuitionistic mathematics. Because divisibility below the constructed number is decidable, bounded search can produce a prime divisor $q$ together with evidence that $q$ is distinct from every assigned prime. The schema can therefore inhabit an intuitionistically valid existential without treating the primes as a completed domain. The dividing line is not between refutation and existential syntax, but between a constructed witness over an open-ended type and quantification interpreted over a completed totality.
           </p>
           <p>
             The contemporary restatement promotes this into a positive claim over the domain of primes. This introduces no immediate contradiction, but “conservative” has a meaning distinct from a proved conservative-extension theorem: the promotion preserves local practice while altering the semantic status of the object introduced. Its apparent harmlessness makes the transition easy to absorb.
@@ -759,6 +759,9 @@ og_description: "An introduction and program of formal logic."
             </li>
             <li id="reference-euclid">
               Euclid. <i>The Thirteen Books of Euclid's Elements</i>. Vol. II, Books III–IX. Translated with introduction and commentary by T. L. Heath. 2nd ed. Dover Publications, 1956. ISBN 9780486600895. <a href="https://www.claymath.org/library/historical/euclid/book09.html" target="_blank" rel="noopener noreferrer">[Clay Mathematics Institute]</a>.
+            </li>
+            <li id="reference-pratt-primality-certificate">
+              V. R. Pratt. "Every Prime Has a Succinct Certificate." <i>SIAM Journal on Computing</i> 4, no. 3 (1975): 214–220. <a href="https://doi.org/10.1137/0204018" target="_blank" rel="noopener noreferrer">DOI</a>.
             </li>
             <li id="reference-russell-principles-mathematics">
               B. Russell. <i>The Principles of Mathematics</i>. Cambridge University Press, Cambridge, 1903. See Section 340, "The paradox of Tristram Shandy," pp. 358–359. <a href="https://doi.org/10.4324/9780203864760" target="_blank" rel="noopener noreferrer">DOI</a>.
