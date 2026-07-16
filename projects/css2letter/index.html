@@ -16,8 +16,8 @@ keywords: "CSS2Letter, DIN A4, text composer, CSS pagination, PDF"
         <div class="toc">
             <a class="toc-item" href="#navigation"><span class="toc-key">1</span><span class="toc-text">Navigation</span></a>
             <a class="toc-item" href="#overview"><span class="toc-key">2</span><span class="toc-text">Overview</span></a>
-            <a class="toc-item" href="#project-files"><span class="toc-key">3</span><span class="toc-text">Project Files</span></a>
-            <a class="toc-item" href="#din-proportion"><span class="toc-key">4</span><span class="toc-text">DIN Proportion</span></a>
+            <a class="toc-item" href="#din-proportion"><span class="toc-key">3</span><span class="toc-text">DIN Proportion</span></a>
+            <a class="toc-item" href="#project-files"><span class="toc-key">4</span><span class="toc-text">Project Files</span></a>
         </div>
     </div>
 
@@ -47,10 +47,10 @@ keywords: "CSS2Letter, DIN A4, text composer, CSS pagination, PDF"
                             Overview <a href="#overview">#</a>
                         </li>
                         <li>
-                            Project files <a href="#project-files">#</a>
+                            DIN proportion <a href="#din-proportion">#</a>
                         </li>
                         <li>
-                            DIN proportion <a href="#din-proportion">#</a>
+                            Project files <a href="#project-files">#</a>
                         </li>
                     </ul>
                 </div>
@@ -69,6 +69,21 @@ keywords: "CSS2Letter, DIN A4, text composer, CSS pagination, PDF"
                     <p>
                         Pagination is controlled by paragraph codes. Break, continuation, and spacing rules belong to paragraph roles rather than fixed page positions, so the division into sheets can be recomputed after the text changes.
                     </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-item d-w-9 m-w-9" id="din-proportion"><span class="nr"></span>
+            <div class="grid-item-content">
+                <div class="box animbox din-a4" role="img" aria-describedby="din-caption">
+                    <span class="din-size din-a5" aria-hidden="true"></span>
+                    <span class="din-size din-a6" aria-hidden="true"></span>
+                    <span class="din-size din-a7" aria-hidden="true"></span>
+                    <span class="din-size din-a8" aria-hidden="true"></span>
+                    <span class="din-fill" aria-hidden="true"></span>
+                </div>
+                <div class="caption" id="din-caption">
+                    Illustration: DIN A paper preserves the ratio 1:&radic;2 under halving. An A4 sheet therefore contains A5, A6, and the subsequent formats in the same proportion.
                 </div>
             </div>
         </div>
@@ -118,20 +133,6 @@ keywords: "CSS2Letter, DIN A4, text composer, CSS pagination, PDF"
             </div>
         </div>
 
-        <div class="grid-item d-w-9 m-w-9" id="din-proportion"><span class="nr"></span>
-            <div class="grid-item-content">
-                <div class="box animbox din-a4" role="img" aria-describedby="din-caption">
-                    <span class="din-size din-a5" aria-hidden="true"></span>
-                    <span class="din-size din-a6" aria-hidden="true"></span>
-                    <span class="din-size din-a7" aria-hidden="true"></span>
-                    <span class="din-size din-a8" aria-hidden="true"></span>
-                    <span class="din-fill" aria-hidden="true"></span>
-                </div>
-                <div class="caption" id="din-caption">
-                    Illustration: DIN A paper preserves the ratio 1:&radic;2 under halving. An A4 sheet therefore contains A5, A6, and the subsequent formats in the same proportion.
-                </div>
-            </div>
-        </div>
     </div>
 </body>
 </html>
