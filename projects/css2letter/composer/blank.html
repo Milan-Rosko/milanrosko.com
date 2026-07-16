@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="A customizable, printable DIN 5008-style A4 letter with automatic browser pagination."
+  />
+  <title>CSS2Letter · Composer</title>
+  <link rel="stylesheet" media="all" href="./assets/styles/din5008.css" />
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      startup: {
+        typeset: false
+      }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+
+<body>
+  <div class="screen-only" style="width:210mm;margin:0 auto 8mm;display:flex;justify-content:flex-end;gap:6mm;">
+    <button type="button" onclick="window.print()">Print</button>
+  </div>
+  <div id="print-root">
+    <section class="page page--first">
+      <div class="print-area">
+        <!-- === PAGE 1 === -->
+        <div class="mark falz1"></div>
+        <div class="mark loch"></div>
+        <div class="mark falz2"></div>
+
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <div class="box3"></div>
+
+        <!-- Letterhead: replace the placeholder and the two text fields. -->
+        <header class="logo-header">
+          <div class="logo logo-placeholder">Logo</div>
+          <div class="logo-copy">
+            <div class="logo-name">Sender name</div>
+            <div class="logo-role">Sender role or department</div>
+          </div>
+        </header>
+
+        <!-- Address window: the return line stays above the recipient address. -->
+        <div class="window">
+          <address class="return">Sender name · Street address · Postal code and city</address>
+          <div class="note">Recipient:</div>
+          <address class="recipient">Recipient name
+Street address
+Postal code and city
+Country</address>
+        </div>
+
+        <!-- Reference and contact fields. Add or remove dt/dd pairs as needed. -->
+        <dl class="info" id="info-block">
+          <dt>Your ref.:</dt><dd>Recipient reference</dd>
+          <dt>Our ref.:</dt><dd>Sender reference</dd>
+          <dt>Office:</dt><dd>Office or department</dd>
+          <dt>Phone:</dt><dd>Phone number</dd>
+          <dt>Email:</dt><dd>Email address</dd>
+          <dt>Reply to:</dt><dd>Contact person</dd>
+        </dl>
+
+        <div class="subject">Subject</div>
+        <div class="date">Place, date</div>
+
+        <!-- Letter content: replace each descriptive line with the letter text. -->
+        <main id="body-main">
+          <p>Salutation</p>
+          <p>Letter body</p>
+          <p>Complimentary close</p>
+          <div class="signature signature--placeholder">Signature</div>
+          <p class="signature-name">Sender name</p>
+        </main>
+
+        <div class="pageno" data-total="1"></div>
+
+        <!-- Footer: three columns for postal, contact, and business details. -->
+        <footer class="footer">
+          <address class="column">
+            Sender name<br>
+            Street address<br>
+            Postal code and city
+          </address>
+          <div class="column">
+            Phone number<br>
+            Email address<br>
+            Website
+          </div>
+          <div class="column">
+            Business details<br>
+            Registration details<br>
+            Tax number
+          </div>
+        </footer>
+      </div>
+    </section>
+  </div>
+  <!-- Layout engine (pagination), then letter engine. -->
+  <script src="./assets/scripts/pagination.js"></script>
+  <script src="./assets/scripts/letter-engine.js"></script>
+</body>
+
+</html>

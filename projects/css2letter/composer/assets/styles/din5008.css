@@ -80,7 +80,7 @@ time, mark, audio, video {
 		content: "";
 		position: absolute;
 		inset: 0;
-		/* background: url("../assets/reference/din.png") no-repeat 0 0 / var(--page-w) var(--page-h); */
+		/* background: url("../reference/din.webp") no-repeat 0 0 / var(--page-w) var(--page-h); */
 		opacity: 0.35;
 		pointer-events: none;
 		z-index: 5;
@@ -204,6 +204,18 @@ i {
 	image-rendering: crisp-edges;
 }
 
+/* Text-only placeholders used by the neutral composer template. */
+.logo-placeholder {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	box-sizing: border-box;
+	border: 0.1mm solid currentColor;
+	font-family: var(--fontmono);
+	font-size: var(--fs-footer);
+	image-rendering: auto;
+}
+
 .logo-copy{
 	position: relative;
 	left: 10mm;
@@ -264,6 +276,12 @@ i {
 	font-family: var(--fontmono);
 	font-size: var(--fs-window);
 	white-space: pre-line;
+}
+
+.return,
+.recipient,
+.footer address {
+	font-style: normal;
 }
 
 .info {
@@ -364,7 +382,12 @@ li {
 	height: 20mm;
 	display: block;
 	margin: 3mm 0 2mm -1mm;
-	background: url("../assets/signature.png") no-repeat left center / contain;
+	background: url("../signature.png") no-repeat left center / contain;
+}
+
+.signature--placeholder {
+	background: none;
+	font-style: italic;
 }
 
 .pageno:after {

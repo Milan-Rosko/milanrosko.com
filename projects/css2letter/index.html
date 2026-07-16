@@ -1,7 +1,7 @@
 ---
 title: "CSS2Letter"
-description: "A local DIN A4 text composer with paragraph-coded pagination and browser-to-PDF output."
-keywords: "CSS2Letter, DIN A4, text composer, CSS pagination, PDF"
+description: "A DIN 5008 HTML letter template with automatic pagination and browser-to-PDF output."
+keywords: "CSS2Letter, DIN A4, DIN 5008, HTML letter template, CSS pagination, PDF"
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -38,16 +38,7 @@ keywords: "CSS2Letter, DIN A4, text composer, CSS pagination, PDF"
                     </p>
                     <ul>
                         <li>
-                            Overview <a href="#overview">#</a>
-                        </li>
-                        <li>
-                            Compose a letter <a href="#compose-letter">#</a>
-                        </li>
-                        <li>
-                            Composer template <a href="./composer/index.html" target="_blank" rel="noopener noreferrer">.html</a>
-                        </li>
-                        <li>
-                            Source repository <a href="https://github.com/Milan-Rosko/trinkets/tree/main/css2letter" target="_blank" rel="noopener noreferrer">GitHub</a>
+                            How to use CSS2Letter <a href="#compose-letter">#</a>
                         </li>
                     </ul>
                 </div>
@@ -61,10 +52,13 @@ keywords: "CSS2Letter, DIN A4, text composer, CSS pagination, PDF"
                         Overview
                     </h2>
                     <p>
-                        CSS2Letter is a DIN A4 letter composed directly in HTML. Open <code>composer/index.html</code> in a text editor and change the sender, recipient, reference fields, subject, date, and footer in their existing HTML elements.
+                        CSS2Letter is a browser-based DIN 5008-style A4 letter composer built with plain HTML, CSS, and JavaScript. It includes a neutral starting document and a populated example, automatically creates continuation pages, and can be printed or exported to PDF directly from the browser.
                     </p>
                     <p>
-                        Write the letter body inside <code>&lt;main id="body-main"&gt;</code>, using one <code>&lt;p&gt;...&lt;/p&gt;</code> element for each paragraph. Paragraph classes remain attached when the pagination engine moves or divides text across sheets. Save the HTML, refresh it in the browser, and use Print to produce the PDF.
+                        Its pagination is aware of the document structure. Ordinary <code>&lt;p&gt;</code> elements are kept intact: when a paragraph no longer fits in the remaining space, it is moved to the next page instead of being cut at the page boundary. A paragraph is split only as a fallback when it is taller than an entire page body.
+                    </p>
+                    <p>
+                        Preview the blank letter <a href="./composer/blank.html" target="_blank" rel="noopener noreferrer">.html</a> or view the example <a href="./composer/example.html" target="_blank" rel="noopener noreferrer">.html</a>.
                     </p>
                 </div>
             </div>
@@ -87,32 +81,27 @@ keywords: "CSS2Letter, DIN A4, text composer, CSS pagination, PDF"
 
         <div class="grid-item d-w-9 m-w-9" id="compose-letter"><span class="nr"></span>
             <div class="grid-item-content">
-                <div class="box monobox">
+                <div class="box contentbox">
                     <h2>
-                        Compose a Letter
+                        Usage
                     </h2>
                     <p>
-                        Work in a local copy of <code>composer/index.html</code>. This single HTML file is both the letter template and the editable letter; there is no separate content file.
+                        (i) Clone or download the repo <a href="https://github.com/Milan-Rosko/trinkets/tree/main/css2letter" target="_blank" rel="noopener noreferrer">GitHub</a> and open <code>blank.html</code> in a text editor. (ii) Replace the placeholder sender, recipient, reference, date, letterhead, and footer information. (iii) Write or insert the letter inside
                     </p>
-                    <ol>
-                        <li>
-                            Replace the text in the address window, information block, subject, date, and footer.
-                        </li>
-                        <li>
-                            Find <code>&lt;main id="body-main"&gt;</code> and write the letter there. Put each paragraph in its own <code>&lt;p&gt;...&lt;/p&gt;</code> element.
-                        </li>
-                        <li>
-                            Add a class directly to a paragraph when needed, for example <code>&lt;p class="signature-name"&gt;...&lt;/p&gt;</code>. Pagination retains the class when it moves or splits the paragraph.
-                        </li>
-                        <li>
-                            Save the HTML and open or refresh it in the browser. Pages are created automatically from the HTML content.
-                        </li>
-                        <li>
-                            Select Print to produce the finished A4 PDF.
-                        </li>
-                    </ol>
+                    <div class="mathjaxlike" style="text-align: center;">
+                        &lt;main id="body-main"&gt
+                    </div>
                     <p>
-                        Open the composer example <a href="./composer/index.html" target="_blank" rel="noopener noreferrer">.html</a> or get the source files from <a href="https://github.com/Milan-Rosko/trinkets/tree/main/css2letter" target="_blank" rel="noopener noreferrer">GitHub</a>.
+                        and place each paragraph in its own &lt;p&gt; element so the pagination engine can treat it as a coherent block. (iii) Save the file and open it in a current browser. Continuation pages and page numbers are generated automatically when the content exceeds one page.                         (iv) Use the browser’s Print command to print the document or save it as a PDF.
+                    </p>
+                    <p>
+                        CSS2Letter is intended as a moldable foundation rather than a closed document generator. The letter remains an ordinary HTML document, so its content, components, and semantics can be changed without learning a proprietary template language.
+                    </p>
+                    <p>
+                        Page geometry, typography, spacing, fold marks, address fields, letterhead, and footer layout are controlled by CSS. The pagination code is kept separate from the document content, making it possible to modify the visual system without rebuilding the composition logic.
+                    </p>
+                    <p>
+                        The current implementation is deliberately compact. It can serve as a finished letter template, a starting point for organization-specific stationery, a agentic tool, or an experimental base for browser-native paged documents.
                     </p>
                 </div>
             </div>
