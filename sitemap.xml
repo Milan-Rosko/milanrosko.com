@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://milanrosko.com/</loc>
-    <lastmod>2026-06-20</lastmod>
+    <lastmod>2026-07-16</lastmod>
   </url>
   <url>
     <loc>https://milanrosko.com/projects/publications/</loc>
@@ -31,6 +31,10 @@
   <url>
     <loc>https://milanrosko.com/projects/cistercian/</loc>
     <lastmod>2026-05-28</lastmod>
+  </url>
+  <url>
+    <loc>https://milanrosko.com/projects/css2letter/</loc>
+    <lastmod>2026-07-16</lastmod>
   </url>
   <url>
     <loc>https://milanrosko.com/impressum.html</loc>
