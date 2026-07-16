@@ -232,8 +232,8 @@
   window.paginateWhenReady = paginateWhenReady;
   window.updateTotalPages = updateTotalPages;
 
-  // The letter-engine owns the initial trigger (after it has injected
-  // content and MathJax has typeset). We only handle re-layout events here.
+  // The letter-engine owns the initial trigger after MathJax has typeset.
+  // We only handle re-layout events here.
   window.addEventListener("resize", repaginate);
   window.addEventListener("beforeprint", paginateDropIn);
 })();

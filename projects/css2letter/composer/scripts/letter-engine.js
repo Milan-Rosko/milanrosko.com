@@ -83,22 +83,25 @@
   }
 
   async function render(content) {
-    if (!content) return;
+    // If `content` is provided, inject it. Otherwise the page is assumed
+    // to contain hand-written HTML already, and we just run MathJax +
+    // pagination over the existing DOM.
+    if (content) {
+      setText(".return", content.window?.returnLine);
+      setText(".note", content.window?.note);
+      setText(".recipient", content.window?.recipient);
+      setText(".subject", content.subject);
+      setText(".date", content.date);
 
-    setText(".return", content.window?.returnLine);
-    setText(".note", content.window?.note);
-    setText(".recipient", content.window?.recipient);
-    setText(".subject", content.subject);
-    setText(".date", content.date);
+      populateInfoBlock(content);
 
-    populateInfoBlock(content);
-
-    const main = document.getElementById("body-main");
-    appendParagraphs(main, content.bodyParagraphs);
-    appendList(main, content.bodyBullets);
-    appendParagraphs(main, content.postListParagraphs);
-    appendParagraphs(main, content.closingParagraphs);
-    appendSignature(main, content);
+      const main = document.getElementById("body-main");
+      appendParagraphs(main, content.bodyParagraphs);
+      appendList(main, content.bodyBullets);
+      appendParagraphs(main, content.postListParagraphs);
+      appendParagraphs(main, content.closingParagraphs);
+      appendSignature(main, content);
+    }
 
     await waitForFonts();
     await typesetMath();

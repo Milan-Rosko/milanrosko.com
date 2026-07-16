@@ -11,6 +11,7 @@
     margin: 2em auto;
     aspect-ratio: 1 / 1.4142135624;
     overflow: hidden;
+    isolation: isolate;
     color: var(--color-main);
     background: transparent;
     animation: din-reverse-colors var(--din-cycle) steps(1, end) infinite;
@@ -78,9 +79,8 @@
     background: var(--color-bg);
     transform: scale(1);
     transform-origin: left top;
-    animation:
-        din-fill-sheet var(--din-run) ease-in-out infinite,
-        din-fill-colors var(--din-cycle) steps(1, end) infinite;
+    will-change: opacity, transform;
+    animation: din-fill-cycle var(--din-cycle) ease-in-out infinite;
 }
 
 @keyframes din-reveal-a5 {
@@ -103,35 +103,52 @@
     36%, 100% { opacity: 1; }
 }
 
-@keyframes din-fill-sheet {
-    0%, 29% {
-        opacity: 0;
-        transform: scale(1);
-    }
-
-    35%, 49% {
+/*
+ * Keep the expanding fill over the sheet while its background changes.
+ * The covered handoffs prevent independently composited animations from
+ * exposing a frame between the 3 s fill reset and the 6 s color reversal.
+ */
+@keyframes din-fill-cycle {
+    0%, 0.49% {
         opacity: 1;
-        transform: scale(1);
-    }
-
-    92%, 100% {
-        opacity: 1;
+        background: var(--color-bg);
         transform: scale(4);
     }
-}
 
-/* Change the fill color only while the sheet is invisible. */
-@keyframes din-fill-colors {
-    0% {
-        background: var(--color-bg);
-    }
-
-    1%, 50% {
+    0.5%, 14.5% {
+        opacity: 0;
         background: var(--color-main);
+        transform: scale(1);
     }
 
-    51%, 100% {
+    17.5%, 24.5% {
+        opacity: 1;
+        background: var(--color-main);
+        transform: scale(1);
+    }
+
+    46%, 50.5% {
+        opacity: 1;
+        background: var(--color-main);
+        transform: scale(4);
+    }
+
+    50.51%, 64.5% {
+        opacity: 0;
         background: var(--color-bg);
+        transform: scale(1);
+    }
+
+    67.5%, 74.5% {
+        opacity: 1;
+        background: var(--color-bg);
+        transform: scale(1);
+    }
+
+    96%, 100% {
+        opacity: 1;
+        background: var(--color-bg);
+        transform: scale(4);
     }
 }
 

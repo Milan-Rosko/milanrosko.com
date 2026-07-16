@@ -61,7 +61,7 @@ keywords: "CSS2Letter, DIN A4, text composer, CSS pagination, PDF"
                         Overview
                     </h2>
                     <p>
-                        CSS2Letter is a source-first DIN A4 text composer. There is no separate authoring interface: the text is composed simply by editing the HTML composition's source and refreshing it in the browser. The example keeps the editable letter copy in <code>composer/scripts/letter-content.js</code>, loaded directly by <code>composer/index.html</code>.
+                        CSS2Letter is a source-first DIN A4 text composer. There is no separate authoring interface: the letter is composed by editing <code>composer/index.html</code> directly and refreshing it in the browser. The sender, recipient, metadata, and paragraph-coded letter text all remain visible in the HTML.
                     </p>
                     <p>
                         This is a small example of <i>moldable development</i>: the writer works on the inspectable artifact that shapes the document instead of adapting the document to a fixed editor. Content, typography, spacing, and page geometry remain exposed as source. Paragraph codes control pagination, so the division into sheets is recomputed after the text changes; the browser then produces the print-ready PDF.
@@ -102,19 +102,16 @@ keywords: "CSS2Letter, DIN A4, text composer, CSS pagination, PDF"
                             <code>css2letter.css</code> contains the recursive DIN proportion illustration.
                         </li>
                         <li>
-                            <code>composer/index.html</code> is the source-level entry point for the composition and defines the DIN 5008 letter template and print command.
+                            <code>composer/index.html</code> is the editable composition source. It contains the sender, recipient, metadata, letter paragraphs, DIN 5008 template, and print command.
                         </li>
                         <li>
                             <code>composer/styles/din5008.css</code> controls A4 geometry, typography, letter fields, screen preview, and PDF print output.
                         </li>
                         <li>
-                            <code>composer/scripts/letter-content.js</code> is the editable composition source: it contains the sender, recipient, metadata, and paragraph-coded letter text.
-                        </li>
-                        <li>
                             <code>composer/scripts/pagination.js</code> measures the available page area and moves or divides content across additional sheets.
                         </li>
                         <li>
-                            <code>composer/scripts/letter-engine.js</code> renders the content, waits for fonts and mathematics, and starts pagination.
+                            <code>composer/scripts/letter-engine.js</code> waits for fonts and mathematics, then starts pagination for the HTML letter content.
                         </li>
                         <li>
                             <code>composer/assets/logo.png</code> and <code>signature.png</code> provide the visible letterhead artwork.
