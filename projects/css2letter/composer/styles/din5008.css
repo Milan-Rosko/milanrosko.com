@@ -1,0 +1,425 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,300;0,400;0,500;1,400&display=swap');
+
+button,hr,input{overflow:visible}audio,canvas,progress,video{display:inline-block}progress,sub,sup{vertical-align:baseline}html{font-family:"IBM Plex Mono",monospace;line-height:1.15;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0} menu,article,aside,details,footer,header,nav,section{display:block}h1{font-size:2em;margin:.67em 0}figcaption,figure,main{display:block}figure{margin:1em 40px}hr{box-sizing:content-box;height:0}code,kbd,pre,samp{font-family:"IBM Plex Mono",monospace;font-size:1em}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:bolder}dfn{font-style:italic}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative}sub{bottom:-.25em}sup{top:-.5em}audio:not([controls]){display:none;height:0}img{border-style:none}svg:not(:root){overflow:hidden}button,input,optgroup,select,textarea{font-family:"IBM Plex Mono",monospace;font-size:100%;line-height:1.15;margin:0}button,input{}button,select{text-transform:none}[type=submit], [type=reset],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:ButtonText dotted 1px}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}progress{}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}[hidden],template{display:none}
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	vertical-align: baseline;
+}
+
+:root {
+	/* Fonts */
+	--fontmono: 'IBM Plex Mono';
+	--fontmodern: 'Latin Modern Roman', 'Latin Modern', 'CMU Serif', serif;
+
+	/* Type scale — named by role, not by size */
+	--fs-body: 3mm;       /* main body text */
+	--fs-window: 3.1mm;   /* recipient, subject, date, signature name */
+	--fs-label: 2.8mm;    /* info block, page number, logo name */
+	--fs-footer: 2.2mm;   /* footer, return line, logo role */
+
+	/* Page */
+	--page-w: 210mm;
+	--page-h: 297mm;
+
+	/* Margins */
+	--m-left: 25mm;       /* DIN 5008 body left */
+	--m-right: 20mm;
+	--m-edge: 15mm;       /* logo/footer/page gutter */
+
+	/* Letterhead */
+	--head-top: 6.5mm;
+
+	/* Address window */
+	--addr-top: 50mm;
+	--addr-w: 80mm;
+	--addr-h: 40mm;
+
+	/* Right info block + subject + date */
+	--info-right: 10mm;
+	--info-top: 50mm;
+	--info-w: 75mm;
+	--subject-top: 100mm;
+	--subject-w: 80mm;
+
+	/* Fold and punch marks — DIN 5008 */
+	--falz1: 105mm;
+	--loch: 148.5mm;
+	--falz2: 210mm;
+
+	/* Body */
+	--body-top: 110mm;
+	--body-top-next: 45mm;
+	--line: 5mm;
+	--body-lines-first: 31;   /* 31 × 5mm = 155mm */
+	--body-lines-next: 44;    /* 44 × 5mm = 220mm */
+
+	/* Footer / page number */
+	--footer-bottom: 10mm;
+	--pageno-bottom: 25mm;
+}
+
+
+@media screen {
+	.page::before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		/* background: url("../assets/reference/din.png") no-repeat 0 0 / var(--page-w) var(--page-h); */
+		opacity: 0.35;
+		pointer-events: none;
+		z-index: 5;
+	}
+	.print-area {
+		position: relative;
+		z-index: 10;
+	}
+}
+
+/* ---------- PAGE SIZE (print) ---------- */
+@page {
+	size: 210mm 297mm;
+	margin: 0mm;
+}
+
+/* ---------- SCREEN PREVIEW ---------- */
+body {
+	background: #f3f4f6;
+	margin: 0;
+	padding: 24px 12px;
+	counter-reset: pageno;
+	font-family: var(--fontmodern);
+	font-weight: 300;
+}
+
+/* single A4 sheet preview */
+.page {
+	width: var(--page-w);
+	height: var(--page-h);
+	background: #fff;
+	margin: 0 auto 12mm;
+	box-shadow: 0 6px 22px rgba(0,0,0,.12);
+	position: relative;
+	overflow: hidden;
+	counter-increment: pageno;
+}
+
+/* normal-flow anchor to keep Chrome/Safari stable */
+.print-area {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+/* ---------- DIN 5008 VARIABLES (Form B default) ---------- */
+
+b {
+	font-weight: 400;
+}
+
+i {
+	font-style: italic;
+}
+
+.mark {
+      position: absolute;
+      left: 0mm;
+      width: 8mm;
+      height: 0.1mm;
+      background: #111;
+      opacity: .55;
+}
+.mark.falz1 {
+	top: var(--falz1);
+}
+.mark.falz2 {
+	top: var(--falz2);
+}
+.mark.loch {
+      top: var(--loch);
+      left: 2mm;
+      width: 4mm;
+      height: 4mm;
+      background: transparent;
+      border: 0.1mm solid #111;
+      border-radius: 50%;
+      opacity: .55;
+      transform: translateY(-50%);
+
+}
+
+/* Diagnostic rectangles — uncomment the border to visualise safe areas. */
+.box1{
+	position: absolute;
+	top: 20mm;
+	bottom: 20mm;
+	left: var(--m-edge);
+	right: var(--m-edge);
+	/*
+	border: 0.1mm solid black;
+	*/
+
+}
+
+.box2{
+	position: absolute;
+	top: 5mm;
+	bottom: 230mm;
+	left: var(--m-edge);
+	right: var(--m-edge);
+}
+
+.logo-header{
+	position: absolute;
+	left: var(--m-edge);
+	top: var(--head-top);
+	width: 58mm;
+	font-size: var(--fs-label);
+	line-height: 1;
+}
+
+.logo{
+	position: absolute;
+	width: 32px;
+	height: 32px;
+	display: block;
+	object-fit: contain;
+	/* Keep the low-res mark crisp instead of smoothing the pixel grid. */
+	image-rendering: pixelated;
+	image-rendering: crisp-edges;
+}
+
+.logo-copy{
+	position: relative;
+	left: 10mm;
+	top: 1.5mm;
+
+}
+
+.logo-name{
+	margin: -0.25mm 0 0.5mm 0;
+}
+
+.logo-role{
+	font-size: var(--fs-footer);
+}
+
+.footer {
+	position: absolute;
+	left: var(--m-edge);
+	right: var(--m-right);
+	bottom: var(--footer-bottom);
+	line-height: 1.3;
+	font-family: var(--fontmono);
+	font-size: var(--fs-footer);
+	display: flex;
+	justify-content: space-between;
+}
+
+.column{
+	align-items: start;
+}
+
+.window{
+	position: absolute;
+	left: var(--m-left);
+	top: var(--addr-top);
+	width: var(--addr-w);
+	height: var(--addr-h);
+	font-family: var(--fontmono);
+}
+.return{
+	position: absolute;
+	top: -3mm;
+	white-space: pre-line;
+	font-size: var(--fs-footer);
+}
+
+.note {
+	position: absolute;
+	top: 5mm;
+	font-family: var(--fontmono);
+	font-size: var(--fs-window);
+	white-space: pre-line;
+}
+
+.recipient {
+	position: absolute;
+	top: 15mm;
+	font-family: var(--fontmono);
+	font-size: var(--fs-window);
+	white-space: pre-line;
+}
+
+.info {
+	position: absolute;
+	right: var(--info-right);
+	top: var(--info-top);
+	width: var(--info-w);
+	font-family: var(--fontmono);
+	font-weight: 300;
+	font-size: var(--fs-label);
+	line-height: 0.5;
+}
+
+.date {
+	position: absolute;
+	right: var(--info-right);
+	top: var(--subject-top);
+	width: var(--info-w);
+	font-family: var(--fontmono);
+	font-weight: 300;
+	font-size: var(--fs-window);
+}
+
+.subject {
+	position: absolute;
+	left: var(--m-left);
+	top: var(--subject-top);
+	width: var(--subject-w);
+	font-family: var(--fontmono);
+	font-weight: 400;
+	font-size: var(--fs-window);
+}
+
+dt {
+	float:left;
+	width: 30mm;
+}
+dd {
+	margin:0 0 2mm 5mm;
+}
+
+/* body text start */
+main {
+	position: absolute;
+	left: var(--m-left);
+	right: var(--m-right);
+	top: var(--body-top);
+	height: calc(var(--line) * var(--body-lines-first));
+	font-family: var(--fontmono);
+	font-size: var(--fs-body);
+	font-weight: 300;
+	line-height: var(--line);
+	display: flow-root;          /* stops margin-collapsing surprises */
+}
+
+.page--second main,
+.page--next main {
+	top: var(--body-top-next);
+	height: calc(var(--line) * var(--body-lines-next));
+}
+
+/* ensure margins don’t “leak” beyond main’s box */
+main > :first-child {
+	margin-top: 0;
+}
+
+main > :last-child  {
+	margin-bottom: 0;
+}
+
+h1 {
+	font-family: var(--fontmono);
+	margin: 0 0 5mm 0;
+	font-weight: 400;
+}
+
+p {
+	margin: 0 0 var(--line) 0;
+	font-family: var(--fontmono);
+	/* text-align: justify; */
+}
+
+.signature-name {
+	margin: 0;
+}
+
+ul {
+	margin: 0 0 var(--line) 5mm; padding: 0;
+}
+
+li {
+	margin: 0;
+}
+
+.signature{
+	position: relative;
+	width: 44mm;
+	height: 20mm;
+	display: block;
+	margin: 3mm 0 2mm -1mm;
+	background: url("../assets/signature.png") no-repeat left center / contain;
+}
+
+.pageno:after {
+	position: absolute;
+	right: var(--m-right);
+	bottom: var(--pageno-bottom);
+	font-family: var(--fontmono);
+	font-size: var(--fs-label);
+	content: "Page " counter(pageno) " of " attr(data-total);
+}
+
+/* ---------- PRINT RULES ---------- */
+@media print {
+
+	html, body {
+	margin: 0 !important;
+	padding: 0 !important;
+	background: #fff !important;
+	}
+
+	/* Remove screen UI and everything except print-root from layout */
+	body > :not(#print-root) {
+		display: none !important;
+	}
+	.screen-only {
+		display: none !important;
+	}
+
+	/* Important: DO NOT fix the container; allow natural multi-page flow */
+	#print-root {
+		width: auto !important;
+		margin: 0 !important;
+	}
+
+	/* ensure each .page becomes an actual printed page */
+	.page {
+		margin: 0 !important;
+		box-shadow: none !important;
+		break-after: page;
+		page-break-after: always;
+	}
+	.page:last-child {
+		break-after: auto;
+		page-break-after: auto;
+	}
+
+	/* keep basic typographic pagination sane */
+	p, li {
+		orphans: 3;
+		widows: 3;
+	}
+
+	* {
+		-webkit-print-color-adjust: exact;
+		print-color-adjust: exact;
+	}
+
+}

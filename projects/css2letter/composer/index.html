@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="A printable DIN 5008-style A4 letter with automatic browser pagination."
+  />
+  <title>CSS2Letter · DIN 5008 A4 Letter</title>
+  <link rel="stylesheet" media="all" href="./styles/din5008.css" />
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      startup: {
+        typeset: false
+      }
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</head>
+
+<body>
+  <div class="screen-only" style="width:210mm;margin:0 auto 8mm;display:flex;justify-content:flex-end;gap:6mm;">
+    <button type="button" onclick="window.print()">Print</button>
+  </div>
+  <div id="print-root">
+    <section class="page page--first">
+      <div class="print-area">
+        <!-- === PAGE 1 === -->
+        <div class="mark falz1"></div>
+        <div class="mark loch" ></div>
+        <div class="mark falz2" ></div>
+
+        <div class="box1"></div>
+        <div class="box2"></div>
+        <div class="box3"></div>
+
+        <header class="logo-header">
+          <img class="logo" src="./assets/logo.png" alt="" />
+          <div class="logo-copy">
+            <div class="logo-name">
+              Walt Disney
+            </div>
+            <div class="logo-role">
+              Animator & Producer
+            </div>
+          </div>
+        </header>
+        <div class="window">
+          <div class="return" data-key="returnLine"></div>
+          <div class="note" data-key="note"></div>
+          <div class="recipient" data-key="recipient"></div>
+        </div>
+        <dl class="info" id="info-block"></dl>
+        <div class="subject" data-key="subject"></div>
+        <div class="date" data-key="date"></div>
+        <main id="body-main"></main>
+        <div class="pageno" data-total="2"></div>
+        <div class="footer">
+          <div class="column">
+            ACME Studio<br>
+            Hyperion Ave.<br>
+            Los Angeles, California
+          </div>
+          <div class="column">
+            Phone: +1 555 0108<br>
+            File: Letter Demo
+          </div>
+          <div class="column">
+            Sender: Walt Disney<br>
+            Recipient: Albert Einstein<br>
+            Template: CSS2Letter
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- Data, then layout engine (pagination), then content engine. -->
+  <script src="./scripts/letter-content.js"></script>
+  <script src="./scripts/pagination.js"></script>
+  <script src="./scripts/letter-engine.js"></script>
+</body>
+
+</html>
