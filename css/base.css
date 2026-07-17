@@ -28,6 +28,7 @@ button,hr,input{overflow:visible}audio,canvas,progress,video{display:inline-bloc
   --color-main-secondary-dark: #263932;
   --color-terminalbg: #263932;
   --color-terminalhi: #66a070;
+  --color-terminal2: #787;
   --color-terminal: #66a070;
   --color-link-external: #3e8a3b;
   --color-link-external-10: #3e8a3b10;

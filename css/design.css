@@ -207,7 +207,7 @@ table{
 }
 
 .mathjaxwrap {
-  color: var(--color-white-44);
+  color: var(--color-terminal2);
   border: var(--color-main-secondary-22) solid 1px;
   background: var(--color-main-secondary-10);
   max-width: 100%;
@@ -219,7 +219,7 @@ table{
 }
 
 .mathjaxlike {
-  color: var(--color-white-44);
+  color: var(--color-terminal2);
   border: var(--color-main-secondary-22) solid 1px;
   background: var(--color-main-secondary-10);
   max-width: 100%;
