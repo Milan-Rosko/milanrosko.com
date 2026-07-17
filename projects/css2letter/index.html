@@ -8,7 +8,9 @@ keywords: "CSS2Letter, DIN A4, DIN 5008, HTML letter template, CSS pagination, P
 <head>
     <link rel="stylesheet" href="../../style.css">
     <link rel="stylesheet" href="css2letter.css">
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     {% include meta.html %}
+
 </head>
 <body>
     <div class="introduction">
@@ -54,7 +56,7 @@ keywords: "CSS2Letter, DIN A4, DIN 5008, HTML letter template, CSS pagination, P
                         Overview
                     </h2>
                     <p>
-                        CSS2Letter is a browser-based DIN 5008-style A4 letter composer built with plain HTML, CSS, and JavaScript. It includes a neutral starting document and a populated example, automatically creates continuation pages, and can be printed or exported to PDF directly from the browser.
+                        CSS2Letter is a browser-based DIN 5008-style A4 letter composer built with plain HTML, CSS, and JavaScript. It includes a neutral starting document and a populated <i>(MathJax)</i> example, automatically creates continuation pages, and can be printed or exported to PDF directly from the browser.
                     </p>
                     <p>
                         Its pagination is aware of the document structure. Ordinary <code>&lt;p&gt;</code> elements are kept intact: when a paragraph no longer fits in the remaining space, it is moved to the next page instead of being cut at the page boundary. A paragraph is split only as a fallback when it is taller than an entire page body.
@@ -119,6 +121,18 @@ keywords: "CSS2Letter, DIN A4, DIN 5008, HTML letter template, CSS pagination, P
                     </p>
                     <p>
                         The current implementation is deliberately compact. It can serve as a finished letter template, a starting point for organization-specific stationery, an agentic tool, or an experimental base for browser-native paged documents.
+                    </p>
+                    <p>
+                        A major advantage of this HTML-based approach is that the document can use the broader JavaScript ecosystem directly. Libraries for mathematical notation, diagrams, syntax highlighting, data visualization, annotations, or other forms of semantic markup can be loaded like they would be on any ordinary web page.
+                    </p>
+                    <p>
+                        The project includes a small <i>MathJax</i> integration as an example. It allows <i>LaTeX</i> expressions to remain readable and editable in the source while being rendered as properly typeset notation in the final letter, like the example bellow:
+                    </p>
+                    <div class="mathjaxwrap">
+                        $$\frac{w}{h/2} \approx \sqrt{2}:1$$
+                    </div>
+                    <p>
+                        Other libraries, such as Mermaid for diagrams, can be integrated in the same way without changing the pagination model or introducing a separate document format.
                     </p>
                 </div>
             </div>
