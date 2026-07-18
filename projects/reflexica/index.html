@@ -297,9 +297,8 @@ og_description: "An introduction and program of formal logic."
             Here the issue is predictive scope. The familiar story grants the predictor knowledge of the deliberation from which the choice emerges: whatever the agent thinks, the predictor has already classified the outcome of that thought and filled the opaque box accordingly. For a fixed agent in a fixed experiment, this is a coherent stipulation. The reflexive pressure appears when this casewise reliability is extended to every admissible decision procedure, including procedures in which the predictor’s own verdict enters the deliberation.
           </p>
           <div class="mathjaxlike">
-            <h4>
-              Newcomb’s Problem
-            </h4>
+            <p style="text-align: center;">NEWCOMB’S PROBLEM</p>
+
             <p>
               Let there be two boxes. The transparent box contains $A=1000\,\mathrm{USD}$; the opaque box contains either $B=10^6\,\mathrm{USD}$ or $B=0$. Before the agent chooses, a predictor $P$ predicts whether the agent will take only the opaque box, $C_1$, or both boxes, $C_2$.
             </p>
@@ -360,10 +359,13 @@ og_description: "An introduction and program of formal logic."
           <p>
             For a sufficiently strong, effectively axiomatized theory $\mathrm{T}$, the <span class="sc">Diagonal Lemma</span> <a href="#reference-boolos-burgess-jeffrey">[Boolos et al., 2007]</a> yields a sentence $\mathsf{G}_{\mathrm{T}}$ such that
           </p>
-          <div class="mathjaxwrap">
-            $$
-              \mathrm{T}\vdash \mathsf{G}_{\mathrm{T}} \leftrightarrow \neg \operatorname{Prov}_{\mathrm{T}}(\ulcorner \mathsf{G}_{\mathrm{T}}\urcorner).
-            $$
+          <div class="mathjaxlike">
+            <p style="text-align: center;">DIAGONAL LEMMA</p>
+            <p>
+              $$
+                \mathrm{T}\vdash \mathsf{G}_{\mathrm{T}} \leftrightarrow \neg \operatorname{Prov}_{\mathrm{T}}(\ulcorner \mathsf{G}_{\mathrm{T}}\urcorner).
+              $$
+            </p>
           </div>
           <p>
             This equivalence is formalized within $\mathrm{T}$. The unprovability claim is a separate metatheoretic consequence: for the standard Gödel construction, consistency of $\mathrm{T}$ yields
@@ -397,16 +399,7 @@ og_description: "An introduction and program of formal logic."
             $$
           </div>
           <p>
-            Here $\mathsf{G}_{\mathrm{T}}$ is not merely a boundary theorem about $\mathrm{T}$. It becomes a method for showing that <span class="sc">Arithmetic Truth</span> exceeds any given sufficiently strong effective formal system. $\mathsf{G}_{\mathrm{T}}$ is then read as an arithmetical truth not captured by the proof system whose <span class="sc">Provability Predicate</span> it mentions.
-          </p>
-          <p>
-            Thus $\mathsf{G}_{\mathrm{T}}$ is invariant across the dispute, but its semantics are not. The invariant construction is
-          </p>
-          <div class="mathjaxwrap">
-            $$
-              \mathrm{T}\vdash \mathsf{G}_{\mathrm{T}} \leftrightarrow \neg \operatorname{Prov}_{\mathrm{T}}(\ulcorner \mathsf{G}_{\mathrm{T}}\urcorner).
-            $$
-          </div>
+            Here $\mathsf{G}_{\mathrm{T}}$ is not merely a boundary theorem about $\mathrm{T}$. It becomes a method for showing that <span class="sc">Arithmetic Truth</span> exceeds any given sufficiently strong effective formal system. $\mathsf{G}_{\mathrm{T}}$ is then read as an arithmetical truth not captured by the proof system whose <span class="sc">Provability Predicate</span> it mentions. Hence $\mathsf{G}_{\mathrm{T}}$ is invariant across the dispute, but its semantics are not.
           <p>
             The <span class="sc">Second Incompleteness Theorem</span> adds a related internal limit: under the usual representability and derivability conditions, consistency of $\mathrm{T}$ implies $\mathrm{T}\nvdash\operatorname{Con}(\mathrm{T})$. Neither this result nor the formal diagonal decides between these readings, since both can be accepted in either regime. What changes is the semantic promissory authority granted to the sentence after the formal result has been obtained.
           </p>
@@ -417,17 +410,18 @@ og_description: "An introduction and program of formal logic."
             If $Q$ is treated antirealistically, then it cannot warrant the existence of <span class="sc">Arithmetic Truth</span> beyond proof, since such truth is not admitted as an independent target. If $Q$ is treated realistically, then it already presupposes the semantic excess it was meant to establish. $Q$ is then exactly what cannot be neutrally supplied, and $\mathsf{G}_{\mathrm{T}}$ bleeds into our metatheory:
           </p>
           <div class="mathjaxlike" style="text-align: center;">
-              <span class="sc">Realism</span> versus <span class="sc">Antirealism</span> is to be decided by $Q$<br>
-              $\Downarrow$<br>
-              $Q$ must confer warrant without presupposing either semantics<br>
-              $\Downarrow$<br>
-              But every available warrant is interpreted within the dispute<br>
-              $\Downarrow$<br>
-              The diagonal therefore does not select a neutral semantics<br>
-              $\Downarrow$<br>
-              $Q$ constitutes a <span class="sc">Queer Object</span><br>
-              $\Downarrow$<br>
-              Could we even recognize $Q$?
+            <p style="text-align: center;">METALOGICAL PROBLEM</p>
+            Realism $\lor$ Antirealism is to be decided by $Q$<br>
+            $\Downarrow$<br>
+            $Q$ must confer warrant without presupposing either semantics<br>
+            $\Downarrow$<br>
+            But every available warrant is interpreted within the dispute<br>
+            $\Downarrow$<br>
+            The diagonal therefore does not select a neutral semantics<br>
+            $\Downarrow$<br>
+            $Q$ constitutes a <span class="sc">Queer Object</span><br>
+            $\Downarrow$<br>
+            Could we even recognize $Q$?
           </div>
           <p>
             If $\mathrm{T}$ is read modestly, as a formal calculus, $\mathsf{G}_{\mathrm{T}}$ merely says: this sentence is not derivable in $\mathrm{T}$. Under the usual consistency assumptions, that is a true boundary statement about $\mathrm{T}$. If $\mathrm{T}$ is read ambitiously, as capturing proofhood, the same sentence becomes decisive. It is now a truth whose non-derivability separates proof from $\mathrm{T}$-derivation. Thus the diagonal is stronger than an objection to $\mathrm{T}$: it works whether $\mathrm{T}$ is treated as empty syntax or as ideal proof. In the first case it marks a limit; in the second it refutes the promotion.
@@ -568,7 +562,7 @@ og_description: "An introduction and program of formal logic."
             Consider the following allegory.
           </p>
           <div class="mathjaxlike">
-            <h4>The Spider in the Tube</h4>
+            <p style="text-align: center;">THE SPIDER IN THE TUBE</p>
             <p>
               A spider weaves a web across the open end of a hollow pipe. It progresses by attaching strands to selected points along the pipe’s rim. The first strands make a substantial difference by establishing orientation and creating a usable local structure. As the spider continues, the web becomes denser and its control of the nearby region increases.
             </p>
@@ -610,9 +604,12 @@ og_description: "An introduction and program of formal logic."
             The classical <span class="sc">Law of Excluded Middle</span> contributes to this process as a form of semantic compression. For a proposition $P$ concerning a completed domain,
           </p>
           <div class="mathjaxlike" style="text-align: center;">
-            $$
-            P \lor \neg P
-            $$
+            <p style="text-align: center;">LAW OF THE EXCLUDED MIDDLE</p>
+            <p>
+              $$
+              P \lor \neg P
+              $$
+            </p>
           </div>
           <p>
             This principle closes the space of alternatives without supplying a construction of either alternative. An operational uncertainty is exchanged for semantic determinacy and a residual uncertainty about access. The system may reason effectively with the assumption that the answer is fixed even when it cannot yet identify, prove or compute that answer. This exchange realizes stable calculation with limits, infinite domains and ideal objects. It allows unresolved cases to participate in proofs before their individual status is known. But it does not eliminate uncertainty as such.
@@ -653,10 +650,27 @@ og_description: "An introduction and program of formal logic."
             local cognition $\longrightarrow$ projected totality $\longrightarrow$ reflexive instability
           </div>
           <p>
-            or more explicitly:
+            explicitly:
           </p>
           <div class="mathjaxlike" style="text-align: center;">
             $P(x)$ is locally performable $\rightsquigarrow$ $T(P)$ is globally assertible $\rightsquigarrow$ $P$ becomes entangled with its own totalization.
+          </div>
+          <p>
+            or even more explicitly, as a formal schema:
+          </p>
+          <div class="mathjaxlike" style="text-align: center;">
+            <p style="text-align: center;">REFLEXICA SCHEMA</p>
+            <p>
+              $$
+              \begin{array}{ccc}
+              \underbrace{\forall x \in D_{\mathrm{loc}} \; \exists w \; W(x,w)}_{\mathrm{locally\ witnessed\ procedure}}
+              &
+              \nRightarrow
+              &
+              \underbrace{\exists F \colon D \to W \; \forall x \in D \; W(x,F(x))}_{\mathrm{totalization}}
+              \end{array}
+              $$
+            </p>  
           </div>
           <p>
             We propose to give a single name to a pattern that currently has none: a locally witnessed procedure quietly promoted into a claim about a completed domain, and the obstruction that surfaces long after that promotion is made. Self-modeling systems encounter versions of this behavior: a proof system’s reflection on its own consistency, a moral theory’s diagnosis of an error it cannot itself instantiate, a predictor’s totalization over agents whose choices are conditioned by the prediction.
@@ -693,9 +707,13 @@ og_description: "An introduction and program of formal logic."
             If a recursively realized AI system could provide closure on reflexive semantic problems, then the constructivist or antirealist restriction would fail. There would exist a neutral procedure capable of deciding, from within computation, the very semantic totalities whose closure <span class="sc">Constructivism</span> denies. But <span class="sc">Reflexica</span> assumes that the realism-antirealism dispute is not decidable without producing a <span class="sc">Queer Object</span>. Therefore, AI cannot provide closure on reflexive semantic problems.
           </p>
           <p>
-            The relevant formal analogue is <span class="sc">Rice’s Theorem</span> <a href="#reference-rice">[Rice, 1953]</a>. Let $\mathcal{PC}$ denote the class of <span class="sc">Partial Computable Functions</span>.
+            We recall <span class="sc">Rice’s Theorem</span> <a href="#reference-rice">[Rice, 1953]</a>.
           </p>
-          <div class="mathjaxwrap">
+          <div class="mathjaxlike">
+            <p style="text-align: center;">RICE’S THEOREM</p>
+            <p style="text-align: center;">
+              Let $\mathcal{PC}$ denote the class of partial computable functions.
+            </p>
             $$
             \varnothing \subsetneq S \subsetneq \mathcal{PC}
             \quad\Longrightarrow\quad
@@ -888,9 +906,7 @@ og_description: "An introduction and program of formal logic."
             More simply: what a single falsifier of <span class="sc">Reflexica</span> would have to achieve.
           </p>
           <div class="mathjaxlike">
-            <p>
-              <h4>Metalogical Falsifiability Problem (DRAFT)</h4>
-            </p>
+            <p style="text-align: center;">METALOGICAL FALSIFIABILITY PROBLEM (DRAFT)</p>
             <p>
               Let $\mathsf{CW}(P)$ mean that $P$ has constructive warrant in the open-ended sense at issue, rather than merely that $P$ is provable in one fixed constructive system. A candidate falsifier has the schematic form
               $$
@@ -933,25 +949,17 @@ og_description: "An introduction and program of formal logic."
               $$
                 S_x\Longrightarrow\mathbb{N}\models A.
               $$
-              It then need not transform a solution into constructive evidence for $A$. But its authority now depends upon the standard-model conception of truth whose independence from warrant is under dispute. The proposed falsifier therefore faces the dilemma
-              $$
-                \begin{array}{ll}
-                  \text{the bridge is constructive}
-                  &\Longrightarrow
-                  A\text{ acquires constructive warrant},\\[1ex]
-                  \text{the bridge is merely semantic}
-                  &\Longrightarrow
-                  \text{realist semantic authority is presupposed}.
-                \end{array}
-              $$
-              The missing <span class="sc">Queer Object</span> is thus not principally an unusual sentence. It is a neutral, non-warranting truth-transmitter: a bridge which escapes both branches.
+              It then need not transform a solution into constructive evidence for $A$. But its authority now depends upon the standard-model conception of truth whose independence from warrant is under dispute. The proposed falsifier therefore faces the dilemma<br>
+            </p>
+            <p style="text-align: center;">
+              The bridge is constructive $\Longrightarrow$ $A$ acquires constructive warrant,<br>
+              The bridge is merely semantic $\Longrightarrow$ realistm is presupposed.
             </p>
             <p>
+              The missing <span class="sc">Queer Object</span> is thus not principally an unusual sentence. It is a neutral, non-warranting truth-transmitter: a bridge which escapes both branches.
               Relative separation is coherent but insufficient. For a fixed constructive theory $C$, one may have
               $$
-                \mathbb{N}\models A
-                \quad\text{and}\quad
-                C\nvdash A.
+                \mathbb{N}\models A\;\land\;C\nvdash A.
               $$
             <span class="sc">Gödelian Sentences</span> supply cases of this kind under the appropriate assumptions, but a constructive metatheory which establishes the two claims thereby supplies a stronger warrant. It refutes only the identification of truth with provability in $C$, not the identification of truth with possible warrant.
             </p>
@@ -959,20 +967,11 @@ og_description: "An introduction and program of formal logic."
               For a constructive kernel $\mathrm{T}$ interpreted in a constructive metatheory $\mathrm{M}$, let $\mathsf{norm}_{\mathrm{T}}$ be its internal global-normalization proposition and let $\mathsf{IntInh}_{\mathrm{T}}(P)$ be the type of coded $\mathrm{T}$-derivations of $P$. The relevant obligations would establish, in $\mathrm{M}$,
               $$
                 [\![\mathsf{norm}_{\mathrm{T}}]\!]_{\mathrm{M}}
-                \quad\text{and}\quad
+                \;\land\;
                 \mathsf{IntInh}_{\mathrm{T}}(\mathsf{norm}_{\mathrm{T}})
                 \to\bot_{\mathrm{M}},
               $$
-              together with the adequacy of the normalization proposition. These obligations would show that $\mathrm{M}$ closes an operational question which $\mathrm{T}$ cannot close internally. They would not close the standpoint itself:
-              $$
-                \mathrm{T}
-                \xrightarrow{\mathrm{M}\text{-certified closure}}
-                \mathrm{M}
-                \xrightarrow{\text{new closure question}}
-                \mathrm{M}^{+}
-                \xrightarrow{}
-                \cdots
-              $$
+              together with the adequacy of the normalization proposition. These obligations would show that $\mathrm{M}$ closes an operational question which $\mathrm{T}$ cannot close internally. 
             </p>
             <p>
               Is there an independently specified problem $x$ whose verified solution compels assent to the truth of a fixed arithmetical sentence $A$, although it supplies no constructive warrant for $A$, and where that compulsion does not presuppose a realist semantics for $\mathbb{N}$?
