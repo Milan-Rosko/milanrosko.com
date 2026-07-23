@@ -201,6 +201,12 @@ og_description: "An introduction and program of formal logic."
           <p>
             The contemporary restatement promotes this into a positive claim over the domain of primes. This introduces no immediate contradiction, but “conservative” has a meaning distinct from a proved conservative-extension theorem: the promotion preserves local practice while altering the semantic status of the object introduced. Its apparent harmlessness makes the transition easy to absorb.
           </p>
+          <div class="mathjaxlike">
+            <p style="text-align: center;">INTUITIONISTIC STORY<p>
+            <p>
+              <b>Nature:</b> These humans are asking me whether pairs of prime numbers that differ by two continue to occur—<i>forever,</i> as they call it—but I don’t know what any of this means.
+            </p>
+          </div>
           <h3 id="characterization">2 Characterization</h3>
           <p>
             By the early 20th century, tensions of this kind could no longer be dismissed as quirks <a href="#reference-godel">[Gödel, 1931]</a> <a href="#reference-heyting-intuitionistische-grundlegung">[Heyting, 1931]</a>. A theory may be locally impeccable and still carry a commitment in the way its existential conclusions are understood: a commitment that exceeds what the underlying procedure licenses. The difficulty is that the classical statement also functions as an epistemic posture: a benign promissory reification.
@@ -209,12 +215,21 @@ og_description: "An introduction and program of formal logic."
             This pattern recurs wherever local witness is taken to license global closure. It does not impair mathematics or the sciences as they are ordinarily practiced, but it can become consequential at the periphery, where reflexivity, hard problems, foundational questions and metamathematical phenomena converge. There, the unexamined passage from local witness to global closure begins to carry relevant structural weight.
           </p>
           <p>
+            When a source repeatedly generates intelligibility, an agent is liable to treat that productivity as evidence that the source discloses the underlying semantic totality. We therefore might have to live with a tendency toward semantic inflation. 
+          </p>
+          <div class="mathjaxlike">
+            <p style="text-align: center;">SEMANTIC INFLATION</p>
+            <p>
+              Semantic inflation is the systematic tendency to infer semantic authority from semantic productivity. When a semantic source repeatedly succeeds in organizing experience, agents become disposed to treat that source as disclosing the underlying semantic totality, despite lacking any standpoint from which such authority could be established.
+            </p>
+          </div>
+          <p>
             Within the <span class="sc">Brouwer-Heyting-Kolmogorov Interpretation</span>, this is already acknowledged implicitly: absurdity $\bot$ is a proposition admitting no construction, while a construction of $\neg A$ is a procedure that transforms any assumed construction of $A$ into absurdity <a href="#reference-troelstra-van-dalen">[Troelstra and van Dalen, 1988]</a>. The question proper to <span class="sc">Reflexica</span> begins later: What happens if an absence, once stabilized as obstruction, becomes available for promotion into a semantic primitive?
           </p>
           <p>
-            It thus becomes clear that <span class="sc">Reflexica</span> demands no replacement of existing foundations or calculi, including <span class="sc">Intuitionistic Type Theory</span> <a href="#reference-martin-lof">[Martin-Löf, 1984]</a> and constructive mathematics more generally <a href="#reference-beeson-informal-foundations">[Beeson, 1985]</a>. <span class="sc">Homotopy Type Theory</span> <a href="#reference-hott">[Univalent Foundations Program, 2013]</a> warrants particular attention, but <span class="sc">Reflexica</span> begins from the rigor these traditions already impose and does not contest it.
+            It thus becomes clear that <span class="sc">Reflexica</span> demands no replacement of existing foundations or calculi, including <span class="sc">Intuitionistic Type Theory</span> <a href="#reference-martin-lof">[Martin-Löf, 1984]</a> and constructive mathematics more generally <a href="#reference-beeson-informal-foundations">[Beeson, 1985]</a>. <span class="sc">Homotopy Type Theory</span> <a href="#reference-hott">[Univalent Foundations Program, 2013]</a> warrants particular attention, but <span class="sc">Reflexica</span> begins from the rigor these traditions already impose and does not contest it. Rather, it gives that rigor an outward-directed aggression by deriving empirical predictions from structural constraints—precisely in a domain that classical logic tends to saturate with closure claims.
           </p>
-          <h3>2.1 The <span class="sc">Zeroth World</span></h3>
+          <h3>2.1 The Zeroth World</h3>
           <p>
             The term “<span class="sc">Reflexica</span>” is an antiphrasis derived from <span class="sc">Impagliazzo’s Five Worlds Taxonomy</span> for average-case complexity <a href="#reference-impagliazzo">[Impagliazzo, 1995]</a>; it projects a missing “uninhabited world.”
           </p>
@@ -230,9 +245,47 @@ og_description: "An introduction and program of formal logic."
           <p>
             At a specific threshold, a theory might produce what functions as an essence claim after its intended closure has already been reached, or seek a proposition that restores transitivity the system has quietly lost. Neither operation announces itself as a departure; each reads as ordinary mathematical practice. It is this readability that allows the passage to go unmarked. We can invent words for something we have not yet found, but if it is not to be found, we are reflecting. This reflection will be indistinguishable from genuine search. The closer we move to the void, the harder it becomes to distinguish genuine search from reflection.
           </p>
+          <p>
+            The recurrent promotion from local witness to global closure is not merely an incidental error.
+          </p>
+          <p>
+            No agent can access a semantic totality from a position external to it, because the agent, its interpretive procedures, and the act of interpretation are themselves parts of the domain to be interpreted. Nor can this difficulty be removed by a sufficiently detailed self-model. Any self-description is produced by a current state of the agent and therefore becomes another event within the totality that the description purports to contain. The agent may obtain increasingly powerful local knowledge of itself, but it cannot convert itself into an external observer of its own complete semantic situation.
+          </p>
+          <p>
+            It suffices, then, for an agent to inhabit a purely logical world: a world in which its available semantic constructions can appear complete without being identical to the structures they purport to exhaust. At the formal level, even the simplest attempted identification must already fail syntactically.
+          </p>
+          <div class="mathjaxlike">
+            <p style="text-align: center;">
+              PROPOSITIONAL OMNISCIENCE PARADOX
+            </p>
+            <p>
+              Let $|A|$ denote the number of nodes in the finite formula tree of $A$. Since implication contributes an additional constructor, we have
+              $$
+                |A \to \bot| = 1 + |A| + |\bot| > |A|.
+              $$
+              Hence $A$ and $A \to \bot$ have different finite tree sizes and therefore cannot be syntactically identical.
+            </p>
+          </div>          
+          <p>
+            The limitation is <i>a priori</i> arithmetic rather than computational. Its characteristic form is genuinely $\Pi_3$: for every proposed semantic source or self-model, there exists a reflexive circumstance under which, for every attempted completion, the agent remains unable to certify that the source exhausts the semantic totality. The obstruction is therefore $\forall\exists\forall$-shaped, not merely a consequence of finite computational resources.
+          </p>
+          <p>
+            Logics, constructed systems, and human cognition are organized under the same structural constraint. No agent can obtain a semantic standpoint outside the totality that includes the agent itself. There is therefore no final external criterion by which the authority of a semantic source could be calibrated. Reflexica predicts semantic inflation because every agent interprets from within the semantic field it seeks to understand. For every proposed semantic account, there exists a reflexive circumstance in which every attempted completion remains internal to the very totality it purports to exhaust. Since an agent cannot fully access itself as part of that field, it cannot access the semantic totality against which its local sources would be finally measured. It therefore tends to mistake whatever provides stable local intelligibility for a privileged account of the whole.
+          </p>
+          <p>
+            Humans nevertheless require stable semantic orientation. They therefore rely upon semantic sources: language, memory, culture, science, institutions, biography, and technical representation. Reflexica predicts that these sources are not merely used but systematically reified. In the absence of semantic totality, the source itself comes to function as reality. Human disagreement over meaning is consequently not explained primarily by different access to a shared semantic totality. It arises because different agents become anchored to different semantic sources, each of which appears complete from within the reflexive perspective that produced it.
+          </p>
+          <div class="mathjaxlike">
+            The theologian elevates revelation.<br>
+            The psychologist elevates biography.<br>
+            The anthropologist elevates culture.<br>
+            The economist elevates incentives.<br>
+            The physicist elevates local physical law.<br>
           </div>
-          <div id="methodology">
-          <h3>2.2 Methodology</h3>
+          <p>
+            Every successful semantic practice exhibits an endogenous tendency toward semantic absolutization. Agents lacking access to global semantic structure, that is all agents, will systematically overestimate the authority of whichever semantic sources most successfully organize their local experience. The absence of an external semantic anchor creates a persistent tendency to mistake explanatory success for semantic completeness.
+          </p>
+          <h3 id="methodology">2.2 Methodology</h3>
           <p>
             We propose some core methodological principles:
           </p>
@@ -270,9 +323,7 @@ og_description: "An introduction and program of formal logic."
               <span class="sc">Bisection</span> <a href="#reference-bekic">[Bekić, 1984]</a>, as an exemplary method, asks whether a fixed point can be decomposed into an ordered dependency construction. Where it succeeds, semantic reduction can be discussed;
             </li>
           </ul>
-          </div>
-          <div id="cases-resonances">
-          <h3>3 Topics</h3>
+          <h3 id="cases-resonances">3 Topics</h3>
           <p>
             The following cases proceed from a sensitizing pattern through structured and formal cases, then widen into schematic extensions: local practice encounters an absence or obstruction; that local condition is stabilized or reified; and a demand for semantic closure is then placed upon it.
           </p>
@@ -586,14 +637,14 @@ og_description: "An introduction and program of formal logic."
             </p>
           </div>
           <p>
-            This gives the spider allegory three operational correspondences.
+            Three operational correspondences,
           </p>
           <div class="mathjaxwrap">
             $$
             \begin{aligned}
               \text{strand} &amp;\longleftrightarrow \text{closure} \\
               \text{anchor point} &amp;\longleftrightarrow \text{contingent theoretical commitment} \\
-              \text{smaller holes} &amp;\longleftrightarrow \text{increasingly local problems}
+              \text{smaller holes} &amp;\longleftrightarrow \text{increasingly local problems}.
             \end{aligned}
             $$
           </div>
@@ -607,7 +658,7 @@ og_description: "An introduction and program of formal logic."
             <p style="text-align: center;">LAW OF THE EXCLUDED MIDDLE</p>
             <p>
               $$
-              P \lor \neg P
+                P \lor \neg P
               $$
             </p>
           </div>
@@ -618,29 +669,23 @@ og_description: "An introduction and program of formal logic."
             Constructive logic neither denies nor affirms semanticity. It declines to identify determinacy with an antecedently completed bivalent assignment. A proposition may remain open where neither it nor its negation has been constructed. In this respect, it resembles a computer.
           </p>
           <p>
-            The intellectual condition of the mid-2020s can thus be described neither as failure nor as convergence. It is a condition of expanding local control without corresponding global closure. The web is denser than before, its strands are stronger, and its local regions are mapped with unprecedented precision. At the same time, the number of visible openings has increased.
-          </p>
-          <p>
-            <span class="sc">Reflexica</span> interprets this not as an unfortunate delay before the final theory, but as evidence about the morphology of reflective inquiry. Once a problem includes the standards by which its own closure is to be assessed, each successful closure becomes another object within the problem.
+            The intellectual and scientific milieu of the mid-2020s can thus be described as condition of expanding local control without corresponding global closure. The web is denser than before, its strands are stronger, and its local regions are mapped with unprecedented precision. At the same time, the number of openings has increased. This is not as an unfortunate delay before the final theory, but as evidence about the morphology of reflective inquiry. Once a problem includes the standards by which its own closure is to be assessed, each successful closure becomes another object within the problem.
           </p>
           <h3 id="program">4 The Program</h3>
           <p>
-            For this reason, <span class="sc">Reflexica</span> is not an ultrafinitist program. It does not reject the use of idealized transfinite domains; its question concerns the point at which such objects are treated as licensed by a local procedure that does not itself witness the relevant closure.
-          </p>
-          <p>
-            The program extends the diagnostic beyond formal mathematics without treating the extension as automatic. Its central task is to ask whether empirical cases exhibit disciplined analogues of classical undecidability, witness failure, and closure obstruction. A proper question is consequently:
+            For this reason, <span class="sc">Reflexica</span> is not an ultrafinitist program. It is silent on the use of idealized transfinite domains; its question concerns the point at which such objects are treated as licensed by a local procedure that does not itself witness the relevant closure. The program extends the diagnostic beyond formal mathematics without treating the extension as automatic. Its central task is to ask whether empirical cases exhibit disciplined analogues of classical undecidability, witness failure, and closure obstruction. A proper question is consequently:
           </p>
           <div class="mathjaxlike" style="text-align: center;">
-            Under what conditions would these count as the same phenomenon?
+            Under what conditions is the Reflexica structure preserved across two or more domains?
           </div>
           <p>
-            To assert their identity in advance would transform a series of bounded observations into an unwitnessed totality claim, which is the very passage <span class="sc">Reflexica</span> seeks to mark. We identify a frontier at which formal logic, metamathematics, and self-modeling systems converge on a question that none of them, separately, has the resources to settle.
+            To assert their identity in advance would convert a series of bounded correspondences into an unwitnessed claim of total unity, the very passage <span class="sc">Reflexica</span> seeks to mark. What can be identified, instead, is a frontier at which formal logic, metamathematics, and self-modeling systems converge upon a common obstruction, while none of them, taken separately, possesses the resources to establish that this obstruction is globally identical across all its instances.
           </p>
           <p>
-            Hence, the final question becomes:
+            Hence the final question becomes:
           </p>
           <div class="mathjaxlike" style="text-align: center;">
-            Is <span class="sc">Reflexica</span> inherited?
+            Is <span class="sc">Reflexica</span> inherited under translation?
           </div>
           <h3 id="purpose">5 Philosophy and Purpose</h3>
           <p>
@@ -656,24 +701,68 @@ og_description: "An introduction and program of formal logic."
             $P(x)$ is locally performable $\rightsquigarrow$ $T(P)$ is globally assertible $\rightsquigarrow$ $P$ becomes entangled with its own totalization.
           </div>
           <p>
-            or even more explicitly, as a formal schema:
+            or even more explicitly,
           </p>
-          <div class="mathjaxlike" style="text-align: center;">
-            <p style="text-align: center;">REFLEXICA SCHEMA</p>
-            <p>
-              $$
-              \begin{array}{ccc}
-              \underbrace{\forall x \in D_{\mathrm{loc}} \; \exists w \; W(x,w)}_{\mathrm{locally\ witnessed\ procedure}}
-              &
-              \nRightarrow
-              &
-              \underbrace{\exists F \colon D \to W \; \forall x \in D \; W(x,F(x))}_{\mathrm{totalization}}
-              \end{array}
-              $$
-            </p>  
-          </div>
+<div class="mathjaxlike" style="text-align: center;">
+  <p>REFLEXICA SCHEMA</p>
+
+  <p>
+    For a projected domain $D$ with locally witnessed subdomain $D_{\mathrm{loc}} \subseteq D$, witness space $\mathcal{W}$, adequacy relation $W(x,w)$, and constructor $\Delta \colon (D \to \mathcal{W}) \to D$.
+  </p>
+  <p>
+     Write  $x_F := \Delta(F)$ for the case generated relative to a proposed total witness-assignment $F$.
+  </p>
+  <p>
+    $$
+      \underbrace{
+        \forall x \in D_{\mathrm{loc}}\;
+        \exists w \in \mathcal{W}\;
+        W(x,w)
+      }_{\mathrm{local\ witnessability}}
+      \quad \rightsquigarrow \quad
+      \underbrace{
+        \exists F \colon D \to \mathcal{W}\;
+        \forall x \in D\;
+        W\!\left(x,F(x)\right)
+      }_{\mathrm{projected\ totality}}
+    $$
+  </p>
+
+  <p>
+    Yet, under reflexive closure,
+  </p>
+
+  <p>
+    $$
+      \underbrace{
+        \forall F \colon D \to \mathcal{W}\;
+        \neg W\!\left(
+          \Delta(F),
+          F\!\left(\Delta(F)\right)
+        \right)
+      }_{\mathrm{reflexive\ instability}}
+    $$
+  </p>
+
+  <p>
+    Hence,
+  </p>
+
+  <p>
+    $$
+        \forall x \in D_{\mathrm{loc}}\;
+        \exists w \in \mathcal{W}\;
+        W(x,w)
+        \quad \not\to \quad
+        \exists F \colon D \to \mathcal{W}\;
+        \forall x \in D\;
+        W\!\left(x,F(x)\right)
+    $$
+  </p>
+</div>
+
           <p>
-            We propose to give a single name to a pattern that currently has none: a locally witnessed procedure quietly promoted into a claim about a completed domain, and the obstruction that surfaces long after that promotion is made. Self-modeling systems encounter versions of this behavior: a proof system’s reflection on its own consistency, a moral theory’s diagnosis of an error it cannot itself instantiate, a predictor’s totalization over agents whose choices are conditioned by the prediction.
+            We propose to give a single name to a pattern that has none: a locally witnessed procedure quietly promoted into a claim about a completed domain, and the obstruction that surfaces long after that promotion is made. Self-modeling systems encounter versions of this behavior: a proof system’s reflection on its own consistency, a moral theory’s diagnosis of an error it cannot itself instantiate, a predictor’s totalization over agents whose choices are conditioned by the prediction.
           </p>
           <p>
             Without shared vocabulary, they read as unrelated local difficulties rather than instances of one structure. <span class="sc">Reflexica</span> supplies that vocabulary and, with it, a discipline: a claim of completed closure is admissible only where the procedure producing it actually witnesses that closure, not merely where the domain is convenient to treat as settled.
@@ -992,7 +1081,7 @@ og_description: "An introduction and program of formal logic."
             Contemporary AI research often interprets limitations as temporary deficits of scale, architecture, data, or training. When a system fails to solve, evaluate, explain, or predict some class of cases, the default assumption is frequently that a more capable successor will eventually overcome the deficiency. Local improvements are then projected toward global competence: broader task performance becomes general intelligence, increasingly accurate evaluation becomes reliable self-assessment, and recursive improvement becomes eventual self-mastery.
           </p>
           <p>
-            <span class="sc">Reflexica</span> challenges this projection. A system may become able to model more of its own behavior and correct more of its own errors, but it cannot form a closed semantic model of itself. We therefore accord logical limitative results priority over mere technological improvement unless and until a <span class="sc">Queer Object</span> is demonstrated: advances in computation may expand what systems can do, but they cannot overturn impossibility results whose assumptions remain in force.
+            <span class="sc">Reflexica</span> challenges this projection. A system may become able to model more of its own behavior and correct more of its own errors, but it cannot form a closed semantic model of itself. We therefore accord logical limitative results priority over mere technological improvement unless and until a <span class="sc">Queer Object</span> is demonstrated: advances in computation may expand what systems can do, but they cannot overturn impossibility results derived from first principles whose assumptions remain in force.
           </p>
           <h3>Note on Expository Compression</h3>
           <p>
