@@ -263,6 +263,10 @@ a[href^="http"]:focus-visible {
   font-family: var(--fontlmcaps);
 }
 
+.uppercase{
+    text-transform: uppercase;
+}
+
 .mono{
     font-family: var(--fontmono);
     font-weight: 300;
