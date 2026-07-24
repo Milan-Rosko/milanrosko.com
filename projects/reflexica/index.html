@@ -505,7 +505,7 @@ og_description: "An introduction and program of formal logic."
             This is the specific contribution of <span class="sc">Reflexica</span>. In the Gödel case, the local achievements are exact: $\mathrm{T}$ proves the fixed-point equivalence, the metatheory proves a conditional non-derivability result, and stronger theories may supply further warrants. The promotion occurs when this extensible sequence is treated as disclosing, from a neutral standpoint, the completed semantic authority of <span class="sc">Arithmetic Truth</span>. A <span class="sc">Reflection Principle</span> may extend what can be proved <a href="#reference-feferman-transfinite-progressions">[Feferman, 1962]</a>; its productivity does not by itself certify the uniquely correct interpretation of proof. The diagnostic concerns that further passage, not the limit theorem alone.
           </p>
           <p>
-            Nor does Gödel automatically generalize to ethics, cognition, prediction, or self-modeling. Each extension must independently show that a locally successful procedure is being asked to certify a total domain that includes the standards of its own success, and that no witness licenses the resulting closure. A resemblance to diagonalization is insufficient. <span class="sc">Reflexica</span> is intended as a structural diagnosis of such promotions, not as a universal corollary of <span class="sc">Incompleteness</span>.
+            Nor does Gödel automatically generalize to ethics, cognition, prediction, or self-modeling. Each extension must independently show that a locally successful procedure is being asked to certify a total domain that includes the standards of its own success, and that no witness licenses the resulting closure. A resemblance to diagonalization is insufficient.
           </p>
           <p>
             The limit at issue is therefore not only a limit of $\mathrm{T}$, but a limit on adjudicating the status of proof from a position outside proof. The <span class="sc">Turing-Zombie</span> sharpens this problem: can a system’s first-person verdict witness that the procedure producing a local judgment is identical with the total procedure whose correctness that judgment claims to certify?
@@ -587,69 +587,33 @@ og_description: "An introduction and program of formal logic."
             <p>
               A total binary evaluator always returns exactly one of the values $0$ and $1$:
               $$
-              \operatorname{Tot}_{2}(h)
-              :\!\iff
-              \forall e\,\forall x\,
-              \exists! b\,
-              \left[
-              b<2
-              \wedge
-              \operatorname{Out}(h,\langle e,x\rangle,b)
-              \right].
+                \operatorname{Tot}_{2}(h):\!\iff\forall e\,\forall x\,\exists! b\,\left[b<2\wedge\operatorname{Out}(h,\langle e,x\rangle,b)\right].
               $$
               It correctly evaluates $C$ when
               $$
-              \operatorname{Eval}_{C}(h)
-              :\!\iff
-              \operatorname{Tot}_{2}(h)
-              \wedge
-              \forall e\,\forall x
-              \left[
-              C(e)
-              \rightarrow
-              \left(
-              \operatorname{Out}(h,\langle e,x\rangle,1)
-              \leftrightarrow
-              \operatorname{Halt}(e,x)
-              \right)
-              \right].
+                \operatorname{Eval}_{C}(h):\!\iff\operatorname{Tot}_{2}(h)\wedge\forall e\,\forall x\left[C(e)\rightarrow\left(\operatorname{Out}(h,\langle e,x\rangle,1)\leftrightarrow\operatorname{Halt}(e,x)\right)\right].
               $$
               For codes in $C$, output $1$ therefore means halting and output $0$ means non-halting. The claim is not that $h$ simulates these machines, but that it totally decides their halting semantics.
             </p>
             <p>
               From any proposed evaluator $h$, a uniform compiler constructs a machine $\mathcal{D}_h$ with code $d(h)$:
               $$
-              \mathcal{D}_h(x):
-              \quad
-              \begin{cases}
-              \text{halt}, &amp; \text{if }\mathcal{M}_h(\langle x,x\rangle)=0,\\
-              \text{run forever}, &amp; \text{if }\mathcal{M}_h(\langle x,x\rangle)=1.
-              \end{cases}
+              \mathcal{D}_h(x):\quad\begin{cases}\text{halt}, &amp; \text{if }\mathcal{M}_h(\langle x,x\rangle)=0,\\\text{run forever}, &amp; \text{if }\mathcal{M}_h(\langle x,x\rangle)=1.\end{cases}
               $$
               The function $d$ is primitive recursive. This is a compilation result: $\mathcal{D}_h$ need not print, contain, or inspect its own source code.
             </p>
             <p>
               Now suppose that $h$ is correct for $C$ and that its claimed domain also contains the compiled machine: $C(d(h))$. Put $d=d(h)$. Correctness says that $h$ returns $1$ on $\langle d,d\rangle$ exactly when $\mathcal{D}_h(d)$ halts. The construction says that $\mathcal{D}_h(d)$ halts exactly when $h$ returns $0$ on that same input. Hence
               $$
-              \begin{aligned}
-              \operatorname{Out}(h,\langle d,d\rangle,1)
-              &amp;\leftrightarrow \operatorname{Halt}(d,d),\\
-              \operatorname{Halt}(d,d)
-              &amp;\leftrightarrow \operatorname{Out}(h,\langle d,d\rangle,0),\\
-              \operatorname{Out}(h,\langle d,d\rangle,0)
-              &amp;\leftrightarrow
-              \neg\operatorname{Out}(h,\langle d,d\rangle,1).
-              \end{aligned}
+                \begin{aligned}
+                  \operatorname{Out}(h,\langle d,d\rangle,1)&amp;\leftrightarrow \operatorname{Halt}(d,d),\\
+                  \operatorname{Halt}(d,d)&amp;\leftrightarrow \operatorname{Out}(h,\langle d,d\rangle,0),\\
+                  \operatorname{Out}(h,\langle d,d\rangle,0)&amp;\leftrightarrow\neg\operatorname{Out}(h,\langle d,d\rangle,1).
+                \end{aligned}
               $$
               Thus $\operatorname{Halt}(d,d)\leftrightarrow\neg\operatorname{Halt}(d,d)$. The evaluator reverses the behavior it claims to decide. Therefore
               $$
-              \mathrm{T}\vdash
-              \forall h
-              \left[
-              \operatorname{Eval}_{C}(h)
-              \rightarrow
-              \neg C(d(h))
-              \right].
+                \mathrm{T}\vdash\forall h\left[\operatorname{Eval}_{C}(h)\rightarrow\neg C(d(h))\right].
               $$
             </p>
             <p>
