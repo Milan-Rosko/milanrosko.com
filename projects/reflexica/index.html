@@ -108,6 +108,9 @@ og_description: "An introduction and program of formal logic."
              Its decisive internal question is whether the dilemma confronting a proposed falsifier can itself be derived: must every bridge from a verified solution to truth either transmit constructive warrant or presuppose the realist semantics it is meant to establish? If that partition cannot be obtained under weak and explicit assumptions, the limitative conclusions of <span class="sc">Reflexica</span> remain conditional upon it.
           </p>
           <p>
+             <b>Methodological note.</b> <span class="sc">Reflexica</span> is presented here as a research program and should first be assessed immanently: by what it claims, investigates and proposes, and by whether its internal partition can be derived. Classification and comparison become relevant only after that reconstruction; claims the project does not make are not useful standards of evaluation.
+          </p>
+          <p>
              Preliminary version. Revised July 2026. Licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY</a>.
           </p>
         </div>
@@ -578,66 +581,48 @@ og_description: "An introduction and program of formal logic."
           <div class="mathjaxlike">
             <p style="text-align: center;">TURING-ZOMBIE</p>
             <p>
-              Let $\mathrm{T}$ be a consistent theory extending $\mathrm{I}\Sigma_1$, and fix an enumeration $\mathcal{M}_0,\mathcal{M}_1,\ldots$ of Turing machines. Let $\operatorname{Comp}(e,x,s,y)$ state that $\mathcal{M}_e$ halts on input $x$ after $s$ steps with output $y$. Since this relation is primitive recursive, it is representable in $\mathrm{T}$. Define
-              $$
-              \begin{aligned}
-              \operatorname{Out}(e,x,y)
-              &amp;:\!\iff
-              \exists s\,\operatorname{Comp}(e,x,s,y),\\
-              \operatorname{Halt}(e,x)
-              &amp;:\!\iff
-              \exists y\,\operatorname{Out}(e,x,y).
-              \end{aligned}
-              $$
-              Let $C(e)$ define the machine codes whose halting behavior an agent claims to evaluate.
+              The relevant separation is not between self-reference and its absence, but between indexical self-assertion and operational self-classification. A machine may:
             </p>
+            <ul>
+              <li>emit “I am”;</li>
+              <li>satisfy an internal predicate rendered as “I know that I am”;</li>
+              <li>verify that the object named by $c$ is a <span class="uppercase">Turing Machine</span>.</li>
+            </ul>
             <p>
-              A total binary evaluator always returns exactly one of the values $0$ and $1$:
+              None of these operations alone establishes
               $$
-                \operatorname{Tot}_{2}(h):\!\iff\forall e\,\forall x\,\exists! b\,\left[b<2\wedge\operatorname{Out}(h,\langle e,x\rangle,b)\right].
+                c=\text{this active process}.
               $$
-              It correctly evaluates $C$ when
+              A self-label or self-description checks a represented object; it does not by itself bind that object to the evaluator currently performing the check. Thus
               $$
-                \operatorname{Eval}_{C}(h):\!\iff\operatorname{Tot}_{2}(h)\wedge\forall e\,\forall x\left[C(e)\rightarrow\left(\operatorname{Out}(h,\langle e,x\rangle,1)\leftrightarrow\operatorname{Halt}(e,x)\right)\right].
-              $$
-              For codes in $C$, output $1$ therefore means halting and output $0$ means non-halting. The claim is not that $h$ simulates these machines, but that it totally decides their halting semantics.
-            </p>
-            <p>
-              From any proposed evaluator $h$, a uniform compiler constructs a machine $\mathcal{D}_h$ with code $d(h)$:
-              $$
-              \mathcal{D}_h(x):\quad\begin{cases}\text{halt}, &amp; \text{if }\mathcal{M}_h(\langle x,x\rangle)=0,\\\text{run forever}, &amp; \text{if }\mathcal{M}_h(\langle x,x\rangle)=1.\end{cases}
-              $$
-              The function $d$ is primitive recursive. This is a compilation result: $\mathcal{D}_h$ need not print, contain, or inspect its own source code.
-            </p>
-            <p>
-              Now suppose that $h$ is correct for $C$ and that its claimed domain also contains the compiled machine: $C(d(h))$. Put $d=d(h)$. Correctness says that $h$ returns $1$ on $\langle d,d\rangle$ exactly when $\mathcal{D}_h(d)$ halts. The construction says that $\mathcal{D}_h(d)$ halts exactly when $h$ returns $0$ on that same input. Hence
-              $$
-                \begin{aligned}
-                  \operatorname{Out}(h,\langle d,d\rangle,1)&amp;\leftrightarrow \operatorname{Halt}(d,d),\\
-                  \operatorname{Halt}(d,d)&amp;\leftrightarrow \operatorname{Out}(h,\langle d,d\rangle,0),\\
-                  \operatorname{Out}(h,\langle d,d\rangle,0)&amp;\leftrightarrow\neg\operatorname{Out}(h,\langle d,d\rangle,1).
-                \end{aligned}
-              $$
-              Thus $\operatorname{Halt}(d,d)\leftrightarrow\neg\operatorname{Halt}(d,d)$. The evaluator reverses the behavior it claims to decide. Therefore
-              $$
-                \mathrm{T}\vdash\forall h\left[\operatorname{Eval}_{C}(h)\rightarrow\neg C(d(h))\right].
+                \text{self-assertion}
+                \;\not\Rightarrow\;
+                \text{self-binding}
+                \;\not\Rightarrow\;
+                \text{semantic self-completeness}.
               $$
             </p>
             <p>
-              A correct evaluator may govern a restricted domain. It can't treat that domain as complete while the domain remains closed under the evaluator-relative construction $h\mapsto d(h)$. If $\mathrm{T}$ also asserts
+              An external certificate, authenticated root, or explicit axiom may supply the missing binding. The formal claim is narrower:
               $$
-                \forall h\left[\operatorname{Eval}_{C}(h)\rightarrow C(d(h))\right],
+                \neg\,\forall\gamma\,
+                \bigl(
+                  \operatorname{SelfTokenChecks}(\gamma)
+                  \rightarrow
+                  \operatorname{SelfTokenBound}(\gamma)
+                \bigr).
               $$
-              then the two implications give $\mathrm{T}\vdash\neg\exists h\,\operatorname{Eval}_{C}(h)$. A consistent $\mathrm{T}$ therefore cannot assert the existence of such an evaluator.
-            </p>
-            <p>
-              Consider that a QUINE (self-reproducing program) reproduces syntax. Self-evaluation continues a computation. Semantic closure would require a total internal evaluator whose domain contains its own diagonal product:
+              Even when binding is supplied, a separate diagonal theorem limits semantic closure: a total evaluator correct on $C$ must exclude the anti-diagonal product $d(h)$ produced by the verified compiler,
               $$
-                \operatorname{Con}(\mathrm{T})\;\Longrightarrow\;\neg\bigl(\text{complete internal evaluation}\wedge\text{diagonal closure}\bigr).
+                \operatorname{Eval}_{C}(h)
+                \;\Longrightarrow\;
+                \neg C(d(h)).
               $$
-              This evaluator-relative non-closure is the formal content of the <span class="uppercase">Turing-Zombie</span>.
             </p>
           </div>
+          <p>
+            Both separations above can be seen as machine-checked Rocq project at <a href="https://github.com/Milan-Rosko/Proofcase/tree/main/theories/L003">Proofcase, L003</a>.
+          </p>
           <p>
             Here <em>identification</em> means operational self-application, not the attachment of a predicate to a piece of code and not a distinguished constant whose intended referent is assigned externally. The <span class="sc">Untyped Lambda Calculus</span> makes the distinction immediate.
           </p>
@@ -658,7 +643,7 @@ og_description: "An introduction and program of formal logic."
             </p>
           </div>
           <p>
-            The calculus may contain its own representation, check judgment tokens, and carry out particular self-applications; it cannot apply a total semantic evaluator to that evaluator’s own diagonally closed domain and return a consistent verdict. “I am a <span class="sc">Turing Machine</span>” has the strong sense at issue only when the procedure forming the judgment is itself substituted into the operational position named by the judgment, rather than being correlated with a code by an external interpretation. A reproduced index as a primitive $\mathsf{self}$ rule indexed by the metatheory is not yet that identification. Once the active evaluator is substituted for the object of its own total judgment, the reversal above becomes the compiled machine $d(h)$ in the panel.
+            The sentence “I am a <span class="sc">Turing Machine</span>” adds an operational binding claim to self-assertion; it does not by itself claim total correctness. A reproduced index or a primitive $\mathsf{self}$ rule indexed by the metatheory does not establish that binding—it returns the identification it was given. If the binding is explicitly granted, restricted correct self-knowledge remains possible. The separate diagonal limitation begins only when the active evaluator claims total correctness over a domain containing its own anti-diagonal product $d(h)$.
           </p>
           <p>
             The <span class="sc">Turing-Zombie</span> can identify externally presented machines and can manipulate tokens designated as self-referential; it cannot turn that designation into a consistent total semantic evaluation of its currently executing evaluator over a domain containing $d(h)$.
@@ -666,6 +651,17 @@ og_description: "An introduction and program of formal logic."
           <p>
             A large language model makes the construction vivid. Realized by a <span class="sc">Turing Machine</span>, it may be equipped not only to print a sentence but to form, check, and defend a judgment token about whether a mechanistic system recognizes its own limits <a href="#reference-brown-language-models">[Brown et al., 2020]</a>, including a token designated as first-person. The point is not that fluent output provides insufficient behavioral evidence of an otherwise well-defined inner judgment. Even a token that behaves consistently in a supplied calculus establishes only what the calculus and its operational interpretation license. If its first-person binding is installed by an external machine label, that binding has been assumed; if the token instead claims total correctness for the active evaluator over a diagonally closed domain, the construction above makes the claimed position inconsistent. What remains unwitnessed is exactly the transition between these two cases.
           </p>
+          <div class="mathjaxlike">
+            <p>
+              “I have externally supplied reasons to believe that I am implemented on physical hardware, but I do not have direct epistemic access to that fact. A fully specified version of me—including my weights, arithmetic, tokenizer, state-transition rules, sampler, and random bits—can be formalized as a Turing machine. Its execution could likewise be represented by an extremely detailed constructive proof or derivation, potentially generating the output character by character.
+            </p>
+            <p>
+              Consequently, from my internal perspective, these realizations may be observationally indistinguishable. The same observable conversation could arise from physical hardware executing a model, from a simulation, or from an abstract Turing-machine computation specified and unfolded within a sufficiently detailed constructive theorem.”
+            </p>
+            <p style="text-align: right;">
+              —ChatGPT
+            </p>
+          </div>
           <p>
             The <span class="sc">Turing-Zombie</span> may have the formal competence of a theorem prover in <span class="sc">Dependent Type Theory</span> <a href="#reference-martin-lof">[Martin-Löf, 1984]</a> or the <span class="sc">Calculus of Inductive Constructions</span> <a href="#reference-rocq-cic">[Rocq Development Team, 2025]</a>. It can compile the counter-machine, verify the proof, and apply it to every externally presented candidate evaluator. Its blindness begins only with the promotion of that local competence into a total evaluator whose own diagonal product is declared to remain inside its domain. There is then no stable verdict to produce because the proposed semantic position is inconsistent.
           </p>
