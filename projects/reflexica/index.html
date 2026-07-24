@@ -206,10 +206,10 @@ og_description: "An introduction and program of formal logic."
           <div class="mathjaxwrap">
             $$
             \begin{array}{ll}
-            1+1+1 &amp; \qquad 1+1+1\\
-            1+1+1 &amp; \qquad 1+1+1\\
-            1+1+1 &amp; \qquad 1+0+0\\[2ex]
-            \exists \, \mathrm{d}_{i} >1 &amp; \qquad ?
+            1+1+1 &amp; \quad\quad 1+1+1\\
+            1+1+1 &amp; \quad\quad 1+1+1\\
+            1+1+1 &amp; \quad\quad 1+0+0\\[2ex]
+            \exists \, \mathrm{d}_{i} >1 &amp; \quad\quad ?
             \end{array}
             $$
           </div>
@@ -668,7 +668,7 @@ og_description: "An introduction and program of formal logic."
               then the two implications give $\mathrm{T}\vdash\neg\exists h\,\operatorname{Eval}_{C}(h)$. A consistent $\mathrm{T}$ therefore cannot assert the existence of such an evaluator.
             </p>
             <p>
-              A quine reproduces syntax. Self-simulation continues a computation. Semantic closure would require a total internal evaluator whose domain contains its own diagonal product:
+              Consider that a QUINE (self-reproducing program) reproduces syntax. Self-evaluation continues a computation. Semantic closure would require a total internal evaluator whose domain contains its own diagonal product:
               $$
               \operatorname{Con}(\mathrm{T})
               \;\Longrightarrow\;
@@ -703,7 +703,10 @@ og_description: "An introduction and program of formal logic."
             </p>
           </div>
           <p>
-            The calculus may contain its own representation, check judgment tokens, and carry out particular self-applications; it cannot apply a total semantic evaluator to that evaluator’s own diagonally closed domain and return a consistent verdict. “I am a <span class="sc">Turing Machine</span>” has the strong sense at issue only when the procedure forming the judgment is itself substituted into the operational position named by the judgment, rather than being correlated with a code by an external interpretation. A reproduced index, a transition table, a printed sentence, or a primitive $\mathsf{self}$ rule indexed by the metatheory is not yet that identification. Once the active evaluator is substituted for the object of its own total judgment, the lambda-calculus reversal above becomes the compiled machine $d(h)$ in the panel. The <span class="sc">Turing-Zombie</span> can identify externally presented machines and can manipulate tokens designated as self-referential; it cannot turn that designation into a consistent total semantic evaluation of its currently executing evaluator over a domain containing $d(h)$.
+            The calculus may contain its own representation, check judgment tokens, and carry out particular self-applications; it cannot apply a total semantic evaluator to that evaluator’s own diagonally closed domain and return a consistent verdict. “I am a <span class="sc">Turing Machine</span>” has the strong sense at issue only when the procedure forming the judgment is itself substituted into the operational position named by the judgment, rather than being correlated with a code by an external interpretation. A reproduced index as a primitive $\mathsf{self}$ rule indexed by the metatheory is not yet that identification. Once the active evaluator is substituted for the object of its own total judgment, the reversal above becomes the compiled machine $d(h)$ in the panel.
+          </p>
+          <p>
+            The <span class="sc">Turing-Zombie</span> can identify externally presented machines and can manipulate tokens designated as self-referential; it cannot turn that designation into a consistent total semantic evaluation of its currently executing evaluator over a domain containing $d(h)$.
           </p>
           <p>
             A large language model makes the construction vivid. Realized by a <span class="sc">Turing Machine</span>, it may be equipped not only to print a sentence but to form, check, and defend a judgment token about whether a mechanistic system recognizes its own limits <a href="#reference-brown-language-models">[Brown et al., 2020]</a>, including a token designated as first-person. The point is not that fluent output provides insufficient behavioral evidence of an otherwise well-defined inner judgment. Even a token that behaves consistently in a supplied calculus establishes only what the calculus and its operational interpretation license. If its first-person binding is installed by an external machine label, that binding has been assumed; if the token instead claims total correctness for the active evaluator over a diagonally closed domain, the construction above makes the claimed position inconsistent. What remains unwitnessed is exactly the transition between these two cases.
@@ -845,7 +848,7 @@ og_description: "An introduction and program of formal logic."
             Beeson gives the informal form of <span class="sc">Church’s Thesis</span> <a href="#reference-beeson-informal-foundations">[Beeson, 1985]</a>:
           </p>
           <div class="mathjaxlike">
-            <p style="text-align: center;">CHURCH’S THESIS</p>
+            <p style="text-align: center;">BEESON-CHURCH THESIS</p>
             <p>
               Every rule is reducible to a recursive rule.
             </p>
@@ -969,12 +972,12 @@ og_description: "An introduction and program of formal logic."
             Kolmogorov did not provide stochastic semantics with a foundation; he exhibited the constructive residue left after its semantic authority had been removed.
           </p>
           <p>
-            The residue preserves the r.e./co-r.e. asymmetry. Let
+            The residue preserves the $\Sigma_n^0$/$\Pi_n^0$ asymmetry. Let
           </p>
           <div class="mathjaxwrap">
             $$
               H=\bigl\{\langle M,x\rangle:M(x)\downarrow\bigr\},
-              \qquad
+              \quad
               \overline H=\bigl\{\langle M,x\rangle:M(x)\uparrow\bigr\}.
             $$
           </div>
@@ -983,10 +986,12 @@ og_description: "An introduction and program of formal logic."
           </p>
           <div class="mathjaxwrap">
             $$
-              \bigl\{
-                \text{positive witnesses},
+              \Bigl\{
+                \begin{array}{c}
+                \text{positive witnesses},\\
                 \text{unwitnessed negative cases}
-              \bigr\}
+                \end{array}
+              \Bigr\}
               \longmapsto
               \text{one total probability representation}.
             $$
