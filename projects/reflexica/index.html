@@ -570,34 +570,146 @@ og_description: "An introduction and program of formal logic."
           </p>
           <div class="mathjaxlike">
             <p style="text-align: center;">TURING-ZOMBIE</p>
-            <p>Let $\mathsf{Ent}(\varphi)$ denote the problem of determining whether a formula $\varphi$ is valid, and let $\mathsf{Halt}(M,x)$ denote the proposition that machine $M$ halts on input $x$. A <span class="uppercase">Turing-Zombie</span> is a computational agent that transforms an instance of the <span class="uppercase">Entscheidungsproblem</span> into a corresponding halting configuration, $$\varphi \longmapsto \langle M_{\varphi},x_{\varphi}\rangle,$$ while remaining unable to recognize itself from within as the <span class="uppercase">Turing machine</span> that implements this transformation. It must therefore represent $\mathsf{Ent}(\varphi)$ and $\mathsf{Halt}(M_{\varphi},x_{\varphi})$ as two distinct problems. Its error occurs when it treats an internally produced verdict concerning $$\mathsf{Halt}(M_{\varphi},x_{\varphi})$$ as though it were an externally witnessed decision of $\mathsf{Ent}(\varphi)$. The reduction supplies a correspondence between the two problems, but the agent experiences that correspondence as an identity whose correctness it has itself certified.</p>
+            <p>
+              Let $\mathrm{T}$ be a consistent theory extending $\mathrm{I}\Sigma_1$, and fix an enumeration $\mathcal{M}_0,\mathcal{M}_1,\ldots$ of Turing machines. Let $\operatorname{Comp}(e,x,s,y)$ state that $\mathcal{M}_e$ halts on input $x$ after $s$ steps with output $y$. Since this relation is primitive recursive, it is representable in $\mathrm{T}$. Define
+              $$
+              \begin{aligned}
+              \operatorname{Out}(e,x,y)
+              &amp;:\!\iff
+              \exists s\,\operatorname{Comp}(e,x,s,y),\\
+              \operatorname{Halt}(e,x)
+              &amp;:\!\iff
+              \exists y\,\operatorname{Out}(e,x,y).
+              \end{aligned}
+              $$
+              Let $C(e)$ define the machine codes whose halting behavior an agent claims to evaluate.
+            </p>
+            <p>
+              A total binary evaluator always returns exactly one of the values $0$ and $1$:
+              $$
+              \operatorname{Tot}_{2}(h)
+              :\!\iff
+              \forall e\,\forall x\,
+              \exists! b\,
+              \left[
+              b<2
+              \wedge
+              \operatorname{Out}(h,\langle e,x\rangle,b)
+              \right].
+              $$
+              It correctly evaluates $C$ when
+              $$
+              \operatorname{Eval}_{C}(h)
+              :\!\iff
+              \operatorname{Tot}_{2}(h)
+              \wedge
+              \forall e\,\forall x
+              \left[
+              C(e)
+              \rightarrow
+              \left(
+              \operatorname{Out}(h,\langle e,x\rangle,1)
+              \leftrightarrow
+              \operatorname{Halt}(e,x)
+              \right)
+              \right].
+              $$
+              For codes in $C$, output $1$ therefore means halting and output $0$ means non-halting. The claim is not that $h$ simulates these machines, but that it totally decides their halting semantics.
+            </p>
+            <p>
+              From any proposed evaluator $h$, a uniform compiler constructs a machine $\mathcal{D}_h$ with code $d(h)$:
+              $$
+              \mathcal{D}_h(x):
+              \quad
+              \begin{cases}
+              \text{halt}, &amp; \text{if }\mathcal{M}_h(\langle x,x\rangle)=0,\\
+              \text{run forever}, &amp; \text{if }\mathcal{M}_h(\langle x,x\rangle)=1.
+              \end{cases}
+              $$
+              The function $d$ is primitive recursive. This is a compilation result: $\mathcal{D}_h$ need not print, contain, or inspect its own source code.
+            </p>
+            <p>
+              Now suppose that $h$ is correct for $C$ and that its claimed domain also contains the compiled machine: $C(d(h))$. Put $d=d(h)$. Correctness says that $h$ returns $1$ on $\langle d,d\rangle$ exactly when $\mathcal{D}_h(d)$ halts. The construction says that $\mathcal{D}_h(d)$ halts exactly when $h$ returns $0$ on that same input. Hence
+              $$
+              \begin{aligned}
+              \operatorname{Out}(h,\langle d,d\rangle,1)
+              &amp;\leftrightarrow \operatorname{Halt}(d,d),\\
+              \operatorname{Halt}(d,d)
+              &amp;\leftrightarrow \operatorname{Out}(h,\langle d,d\rangle,0),\\
+              \operatorname{Out}(h,\langle d,d\rangle,0)
+              &amp;\leftrightarrow
+              \neg\operatorname{Out}(h,\langle d,d\rangle,1).
+              \end{aligned}
+              $$
+              Thus $\operatorname{Halt}(d,d)\leftrightarrow\neg\operatorname{Halt}(d,d)$. The evaluator reverses the behavior it claims to decide. Therefore
+              $$
+              \mathrm{T}\vdash
+              \forall h
+              \left[
+              \operatorname{Eval}_{C}(h)
+              \rightarrow
+              \neg C(d(h))
+              \right].
+              $$
+            </p>
+            <p>
+              A correct evaluator may govern a restricted domain. It can't treat that domain as complete while the domain remains closed under the evaluator-relative construction $h\mapsto d(h)$. If $\mathrm{T}$ also asserts
+              $$
+              \forall h
+              \left[
+              \operatorname{Eval}_{C}(h)
+              \rightarrow
+              C(d(h))
+              \right],
+              $$
+              then the two implications give $\mathrm{T}\vdash\neg\exists h\,\operatorname{Eval}_{C}(h)$. A consistent $\mathrm{T}$ therefore cannot assert the existence of such an evaluator.
+            </p>
+            <p>
+              A quine reproduces syntax. Self-simulation continues a computation. Semantic closure would require a total internal evaluator whose domain contains its own diagonal product:
+              $$
+              \operatorname{Con}(\mathrm{T})
+              \;\Longrightarrow\;
+              \neg\bigl(
+              \text{complete internal evaluation}
+              \wedge
+              \text{diagonal closure}
+              \bigr).
+              $$
+              This evaluator-relative non-closure is the formal content of the <span class="uppercase">Turing-Zombie</span>.
+            </p>
           </div>
           <p>
-            In the formal case, <span class="sc">Diagonalization</span> blocks a total decider from remaining closed under its own counterexample. In the empirical case, the same structure reappears as a problem of evidence: Is a system’s first-person verdict genuine self-substituted closure rather than a verdict in which the target procedure has already been externalized?
+            Here <em>identification</em> means operational self-application, not the attachment of a predicate to a piece of code. The <span class="sc">Untyped Lambda Calculus</span> makes the distinction immediate.
+          </p>
+          <div class="mathjaxlike">
+            <p style="text-align: center;">DIAGONAL SELF-APPLICATION</p>
+            <p>
+              Let $\Omega$ be a non-normalizing term, let $I$ be a normal form, and suppose $H$ is a total evaluator that claims to decide whether any quoted term normalizes. In metanotation, form
+              $$
+              D
+              =
+              \lambda x.
+              \begin{cases}
+              \Omega, &amp; \text{if }H(\ulcorner x\,x\urcorner)=1,\\
+              I, &amp; \text{if }H(\ulcorner x\,x\urcorner)=0.
+              \end{cases}
+              $$
+            </p>
+            <p>
+              Applying the judgment-forming term to itself gives $D\,D$. If $H(\ulcorner D\,D\urcorner)=1$, then $D\,D$ reduces to $\Omega$ and does not normalize. If $H(\ulcorner D\,D\urcorner)=0$, then it reduces to $I$ and does normalize.
+            </p>
+          </div>
+          <p>
+            The calculus may contain its own representation and carry out particular self-applications; it cannot apply a total semantic evaluator to that evaluator’s own diagonally closed domain and return a consistent verdict. “I am a <span class="sc">Turing Machine</span>” has the strong sense at issue only when the procedure forming the judgment identifies itself, by this self-application, with the machine whose complete semantics the judgment claims to evaluate. A reproduced index, a transition table, or the printed sentence is not yet that identification. Once the active evaluator is substituted for the object of its own total judgment, the lambda-calculus reversal above becomes the compiled machine $d(h)$ in the panel. The <span class="sc">Turing-Zombie</span> can identify externally presented machines; it cannot complete the same semantic identification of its currently executing evaluator.
           </p>
           <p>
             A large language model supplies the trivial argument. Realized by a <span class="sc">Turing Machine</span>, it can nevertheless form, state, and defend a judgment about whether a mechanistic system recognizes its own limits <a href="#reference-brown-language-models">[Brown et al., 2020]</a>, including a first-person judgment that it has done so. The occurrence of that judgment is therefore compatible with mechanism by construction. What remains unwitnessed is the identity between the procedure producing the verdict and the total procedure whose correctness the verdict purports to certify.
           </p>
           <p>
-            The <span class="sc">Turing-Zombie</span> construction makes this distinction explicit. It is a <span class="sc">Turing Machine</span> $\mathcal{Z}$ with the relevant formal competence, effectively a theorem prover of the kind used in <span class="sc">Dependent Type Theory</span> <a href="#reference-martin-lof">[Martin-Löf, 1984]</a> or the <span class="sc">Calculus of Inductive Constructions</span> <a href="#reference-rocq-cic">[Rocq Development Team, 2025]</a>. It can construct and verify the usual diagonal proof that there is no total <span class="sc">Turing Machine</span> $\mathcal{H}$ which decides, for arbitrary machines $x$ and inputs $y$, whether $x$ halts on $y$. Given a candidate decider $\mathcal{H}$, $\mathcal{Z}$ can form the diagonal machine
-          </p>
-          <div class="mathjaxwrap">
-            $$
-            \mathcal{D}_{\mathcal{H}}(x)=
-            \begin{cases}
-            \text{loop forever}, &amp; \text{if } \mathcal{H}(x,x) \text{ says that } x \text{ halts on } x,\\
-            \text{halt}, &amp; \text{otherwise.}
-            \end{cases}
-            $$
-          </div>
-          <p>
-            Then $\mathcal{D}_{\mathcal{H}}(\mathcal{D}_{\mathcal{H}})$ contradicts $\mathcal{H}$ either way. If $\mathcal{H}(\mathcal{D}_{\mathcal{H}},\mathcal{D}_{\mathcal{H}})$ says that $\mathcal{D}_{\mathcal{H}}$ halts, then $\mathcal{D}_{\mathcal{H}}$ loops. If $\mathcal{H}(\mathcal{D}_{\mathcal{H}},\mathcal{D}_{\mathcal{H}})$ says that $\mathcal{D}_{\mathcal{H}}$ does not halt, then $\mathcal{D}_{\mathcal{H}}$ halts. Therefore no such total decider $\mathcal{H}$ exists.
+            The <span class="sc">Turing-Zombie</span> may have the formal competence of a theorem prover in <span class="sc">Dependent Type Theory</span> <a href="#reference-martin-lof">[Martin-Löf, 1984]</a> or the <span class="sc">Calculus of Inductive Constructions</span> <a href="#reference-rocq-cic">[Rocq Development Team, 2025]</a>. It can compile the counter-machine, verify the proof, and apply it to every externally presented candidate evaluator. Its blindness begins only with the promotion of that local competence into a total evaluator whose own diagonal product is declared to remain inside its domain. There is then no stable verdict to produce because the proposed semantic position is inconsistent.
           </p>
           <p>
-            The <span class="sc">Turing-Zombie</span> understands this theorem in the only sense required here: it can construct the proof, verify its steps, and apply it to any externally presented candidate decider. Its blindness appears only when it is asked to occupy the impossible position itself, namely to be the total decider whose domain remains closed under the diagonal counterexample generated from that very decider. At that point there is no further stable output to produce, not because $\mathcal{Z}$ lacks the relevant formal faculty, but because the faculty itself generates the obstruction.
-          </p>
-          <p>
-            Many particular self-facts are decidable: $\mathcal{Z}$ may recognize features of its own code, simulate bounded fragments of its own behavior, and verify local claims about itself when the relevant object has been finitely presented. The obstruction concerns total closure. The <span class="sc">Turing Machine</span> $\mathcal{Z}$ can never see itself as it is seen from a higher level: as an element of a total domain whose behavior is being evaluated from outside the very procedure that produces that behavior.
+            In the empirical case, the same structure reappears as a problem of evidence. A first-person verdict is an output. What would establish that it is also a correct total evaluation of the procedure producing it, over a domain closed under the relevant self-substitution? Repetition, confidence, self-code, and successful local verification do not answer that question. They are further outputs of the procedure whose semantic closure remains at issue.
           </p>
           <p>
             We see that <span class="sc">Reflexica</span> substantially weakens the intended Lucas-Penrose disanalogy, reducing it to a mere <span class="sc">Survivorship Bias</span>. A system may reason correctly about an externally presented formal object from a stronger background standpoint, just as the <span class="sc">Turing-Zombie</span> reasons about an externally presented candidate decider. That does not show that the system has closed the diagonal loop on itself. If $\mathrm{T}$ is the very system whose reasoning is being enacted, then the soundness needed to pass from non-provability to truth is precisely what cannot be generated from inside $\mathrm{T}$ without strengthening the standpoint.
