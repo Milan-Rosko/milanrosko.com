@@ -103,10 +103,10 @@ og_description: "An introduction and program of formal logic."
       </div>
     </div>
 
-    <div class="grid-item d-w-6 m-w-9" id="abstract"><span class="nr"></span>
+    <div class="grid-item d-w-6 m-w-9"><span class="nr"></span>
       <div class="grid-item-content">
         <div class="box monobox">
-          <h2>
+          <h2 id="abstract">
             Overview
           </h2>
           <p>
@@ -133,13 +133,65 @@ og_description: "An introduction and program of formal logic."
       </div>
     </div>
 
-    <div class="grid-item d-w-9 m-w-9" id="reflexica"><span class="nr"></span>
+    <div class="grid-item d-w-9 m-w-9"><span class="nr"></span>
+      <div class="grid-item-content">
+        <div class="box monobox">
+          <h2 id="contents">Contents</h2>
+          <ul>
+            <li>
+              Introduction <a href="#introduction">#</a>
+            </li>
+            <li>
+              Characterization <a href="#characterization">#</a>
+              <ul>
+                <li>Reflection mistaken as Authority <a href="#reflection-mistaken-as-authority">#</a></li>
+                <li>The Zeroth World <a href="#zeroth-world">#</a></li>
+                <li>Methodology <a href="#methodology">#</a></li>
+              </ul>
+            </li>
+            <li>
+              Topics <a href="#cases-resonances">#</a>
+              <ul>
+                <li>Error Theory as a sensitizing pattern <a href="#mackie-sensitizing-pattern">#</a></li>
+                <li>Newcomb’s Problem as a case <a href="#newcombs-problem">#</a></li>
+                <li>Diagonalization and Diagnosis <a href="#diagonalization-diagnosis">#</a></li>
+                <li>The Turing-Zombie <a href="#self-reference-and-turing-zombie">#</a></li>
+                <li>Escape by Totalization <a href="#goldbach-busy-beaver">#</a></li>
+                <li>Hole Proliferation <a href="#hole-proliferation">#</a></li>
+              </ul>
+            </li>
+            <li>
+              The Program <a href="#program">#</a>
+            </li>
+            <li>
+              Philosophy and Purpose <a href="#purpose">#</a>
+            </li>
+            <li>
+              Prediction or Falsification <a href="#prediction-or-falsification">#</a>
+            </li>
+            <li>
+              References <a href="#future-references">#</a>
+            </li>
+            <li>
+              Appendix <a href="#metalogical-falsifiability">#</a>
+              <ul>
+                <li>Falsifiability as a stated problem <a href="#falsifiability-as-stated-problem">#</a></li>
+                <li>Why Reflexica Matters for AI <a href="#reflexica-matters-for-ai">#</a></li>
+                <li>Note on Expository Compression <a href="#expository-compression">#</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-item d-w-9 m-w-9"><span class="nr"></span>
       <div class="grid-item-content">
         <div class="box contentbox numbered-text">
-          <h2>What is Reflexica?</h2>
+          <h2 id="reflexica">What is Reflexica?</h2>
           <h3 id="introduction">1 Introduction</h3>
           <p>
-            We begin from an intuitionistic standpoint <a href="#reference-brouwer-intuitionism-formalism">[Brouwer, 1913]</a> and observe that Book IX, Proposition 20 of Euclid’s <i>Elements</i> <a href="#reference-euclid">[Euclid, 1956]</a> does not claim a completed set of primes. It supplies an extension rule:
+            We begin from an intuitionistic standpoint <a href="#reference-brouwer-intuitionism-formalism">[Brouwer, 1913]</a> and observe that Book IX, Proposition 20 of Euclid’s <i>Elements</i> <a href="#reference-euclid">[Euclid, 1956]</a> does not claim a completed set of primes. It supplies a proto-constructive procedural method as an argument:
           </p>
           <div class="mathjaxlike" style="text-align: center;">
             “Therefore $G$ is not the same with any one of the numbers $A, B,$ and $C$. And by hypothesis it is prime. Therefore the prime numbers $A, B, C,$ and $G$ have been found which are more than the assigned multitude of $A, B,$ and $C$.”
@@ -148,7 +200,7 @@ og_description: "An introduction and program of formal logic."
             From any assigned finite multitude of primes, one constructs a number coprime to every member of that multitude. The proposition is an iterable and open-ended procedure before the contemporary presentation converts it into a claim about a completed domain. The difference concerns metamathematical commitment.
           </p>
           <p>
-            We recall the <span class="sc">Tristram Shandy Paradox</span> <a href="#reference-russell-principles-mathematics">[Russell, 1903]</a>, and see that a procedural (or proto-constructive) reading commits only to what that construction reaches, and no further. The existential reading permits the result to be expressed over a completed domain, the primes as a total collection, rather than as an indefinitely iterable extension operation.
+            We recall the <span class="sc">Tristram Shandy Paradox</span> <a href="#reference-russell-principles-mathematics">[Russell, 1903]</a>, and see that a procedural reading commits only to what that construction reaches, and no further. The existential reading permits the result to be expressed over a completed domain, the primes as a total collection, rather than as an indefinitely iterable extension operation.
           </p>
           <p>
             Classically, this (inherently more practical) passage to a completed domain is treated as cost-free: the existential formulation preserves the theorem while suppressing the difference between a proposition proved in a completed domain and a witness extracted from a construction. Still, one can make a distinction is in different proof-theoretic signatures of these formulations <a href="#reference-gentzen-logical-deduction">[Gentzen, 1935]</a>: between a classically accepted existential $\exists x:A\,P(x)$ and its constructive interpretation as data: an object $a:A$ together with evidence for $P(a)$. Under <span class="sc">Propositions-as-Types</span>, this is represented by an inhabitant of $\Sigma_{x:A} P(x)$ <a href="#reference-howard-formulae-types">[Howard, 1980]</a>.
@@ -204,7 +256,7 @@ og_description: "An introduction and program of formal logic."
             </p>
           </div>
           <h3 id="characterization">2 Characterization</h3>
-          <h3>2.1 Reflection mistaken as Authority</h3>
+          <h3 id="reflection-mistaken-as-authority">2.1 Reflection mistaken as Authority</h3>
           <p>
             By the early 20th century, tensions of this kind could no longer be dismissed as quirks <a href="#reference-godel">[Gödel, 1931]</a> <a href="#reference-heyting-intuitionistische-grundlegung">[Heyting, 1931]</a>. A theory may be locally impeccable and still carry a commitment in the way its existential conclusions are understood: a commitment that exceeds what the underlying procedure licenses. The difficulty is that the classical statement also functions as an epistemic posture: a benign promissory reification.
           </p>
@@ -226,7 +278,7 @@ og_description: "An introduction and program of formal logic."
           <p>
             It thus becomes clear that <span class="sc">Reflexica</span> demands no replacement of existing foundations or calculi, including <span class="sc">Intuitionistic Type Theory</span> <a href="#reference-martin-lof">[Martin-Löf, 1984]</a> and constructive mathematics more generally <a href="#reference-beeson-informal-foundations">[Beeson, 1985]</a>. <span class="sc">Homotopy Type Theory</span> <a href="#reference-hott">[Univalent Foundations Program, 2013]</a> warrants particular attention, but <span class="sc">Reflexica</span> begins from the rigor these traditions already impose and does not contest it. Rather, it gives that rigor an outward-directed aggression by deriving empirical predictions from structural constraints—precisely in a domain that classical logic tends to saturate with closure claims.
           </p>
-          <h3>2.2 The Zeroth World</h3>
+          <h3 id="zeroth-world">2.2 The Zeroth World</h3>
           <p>
             The term “<span class="sc">Reflexica</span>” is an antiphrasis derived from <span class="sc">Impagliazzo’s Five Worlds Taxonomy</span> for average-case complexity <a href="#reference-impagliazzo">[Impagliazzo, 1995]</a>; it projects a missing “uninhabited world.”
           </p>
@@ -358,14 +410,7 @@ og_description: "An introduction and program of formal logic."
           <div class="mathjaxlike">
             <p style="text-align: center;">HALTING</p>
             <p>
-              $$
-                H(M,x)=
-                \begin{cases}
-                  1, &amp; \text{if }M\text{ eventually halts on }x,\\
-                  0, &amp; \text{if }M\text{ runs forever on }x.
-                \end{cases}
-              $$
-              The <span class="uppercase">Halting Problem</span> asks whether one algorithm can compute $H$ for every machine-input pair. No such algorithm exists.
+              Given a <span class="sc">Turing Machine</span> $M$ and an input $x$, $M$ <i>halts on</i> $x$ if its computation reaches a halting configuration after finitely many transition steps. We write $M(x)\downarrow$.
             </p>
           </div>
           <p>
@@ -817,10 +862,10 @@ og_description: "An introduction and program of formal logic."
     </div>
 
 
-    <div class="grid-item d-w-9 m-w-9" id="future-references"><span class="nr"></span>
+    <div class="grid-item d-w-9 m-w-9"><span class="nr"></span>
       <div class="grid-item-content">
         <div class="box contentbox">
-          <h2>References</h2>
+          <h2 id="future-references">References</h2>
           <ul class="nanoscript">
             <li id="reference-brouwer-intuitionism-formalism">
               L. E. J. Brouwer. "Intuitionism and Formalism." <i>Bulletin of the American Mathematical Society</i> 20, no. 2 (1913): 81–96. <a href="https://doi.org/10.1090/S0002-9904-1913-02440-6" target="_blank" rel="noopener noreferrer">DOI</a>.
@@ -962,11 +1007,11 @@ og_description: "An introduction and program of formal logic."
       </div>
     </div>
 
-    <div class="grid-item d-w-9 m-w-9" id="metalogical-falsifiability"><span class="nr"></span>
+    <div class="grid-item d-w-9 m-w-9"><span class="nr"></span>
       <div class="grid-item-content">
         <div class="box contentbox">
-          <h2>Appendix</h2>
-          <h3>Falsifiability as a stated problem</h3>
+          <h2 id="metalogical-falsifiability">Appendix</h2>
+          <h3 id="falsifiability-as-stated-problem">Falsifiability as a stated problem</h3>
           <p>
             The <span class="sc">Problem of Metalogical Falsifiability</span> asks whether there could be a falsifier whose force is recognizable without either constituting constructive warrant for its conclusion or presupposing the realist semantics it is meant to establish.
           </p>
@@ -1051,7 +1096,7 @@ og_description: "An introduction and program of formal logic."
           <p>
             This is a preliminary problem draft. It does not necessarily resolve the problem, nor is it necessarily adequate to its intended purpose.
           </p>
-          <h3>Why <span class="sc">Reflexica</span> Matters for AI</h3>
+          <h3 id="reflexica-matters-for-ai">Why <span class="sc">Reflexica</span> Matters for AI</h3>
           <p>
             The formal ingredients of <span class="sc">Reflexica</span> are not wholly new, limits on self-prediction are established results. The novelty lies in application: these results remain systematically under-integrated into the dominant conceptual models of artificial intelligence and cognition.
           </p>
@@ -1061,7 +1106,7 @@ og_description: "An introduction and program of formal logic."
           <p>
             <span class="sc">Reflexica</span> challenges this projection. A system may become able to model more of its own behavior and correct more of its own errors, but it cannot form a closed semantic model of itself. Note that what is impossible is not self-modelling simpliciter, but some specified combination of correctness, adequacy. We therefore accord logical limitative results priority over mere technological improvement unless and until a <span class="sc">Queer Object</span> is demonstrated. Advances in computation may expand what systems can do, but they cannot overturn impossibility results derived from first principles whose assumptions remain in force.
           </p>
-          <h3>Note on Expository Compression</h3>
+          <h3 id="expository-compression">Note on Expository Compression</h3>
           <p>
             The prose above moves rapidly across logic, computation, epistemology, decision theory, and philosophy of mind by design. The recurring structure becomes visible through juxtaposition; treating each case exhaustively before proceeding to the next would conceal the pattern the program is intended to isolate. The compression is therefore expository and programmatic, while the formal relations among particular cases remain to be established individually.
           </p>
