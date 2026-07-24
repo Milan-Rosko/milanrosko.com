@@ -519,9 +519,6 @@ og_description: "An introduction and program of formal logic."
           </p>
           <h3 id="self-reference-and-turing-zombie">3.4 The <span class="sc">Turing-Zombie</span></h3>
           <p>
-            The two separations developed in this section are formalized in the machine-checked Rocq project at <a href="https://github.com/Milan-Rosko/Proofcase/tree/main/theories/L003">Proofcase, L003</a>.
-          </p>
-          <p>
             No formal verification of a represented machine description, considered merely as an object-language derivation, supplies a witness that the represented machine is the active procedure performing that verification. Such a binding is fixed semantically or metatheoretically and cannot be recovered merely by checking the representation that presupposes it.
           </p>
           <p>
@@ -576,6 +573,9 @@ og_description: "An introduction and program of formal logic."
           <p>
             This distinction rules out a tempting shortcut. Suppose the metatheory labels an executing configuration by $e$ and introduces a reflective rule such as $\langle e,\sigma,\mathsf{self}\rangle\longrightarrow\ulcorner e\urcorner$. A token asserting $\mathsf{self}=\ulcorner e\urcorner$ may then be well typed, reduce consistently, and satisfy preservation. But $e$ was installed as the label of the active procedure by the metatheory; the reduction rule does not establish that identification from within the judgment. It returns the identification it was given. A quine or fixed-point construction has the same limitation: it can secure reproduction of an index or an externally proved extensional fixed point, but not thereby an internal witness that the presently operating evaluator is the procedure denoted by that index. To count metatheoretic indexing as the missing first-person witness would assume the very binding at issue. The <span class="sc">Turing-Zombie</span> may have the formal competence of a theorem prover in <span class="sc">Dependent Type Theory</span> <a href="#reference-martin-lof">[Martin-Löf, 1984]</a> or the <span class="sc">Calculus of Inductive Constructions</span> <a href="#reference-rocq-cic">[Rocq Development Team, 2025]</a>:
           </p>
+          <p>
+            We prove what is below in <a href="https://github.com/Milan-Rosko/Proofcase/tree/main/theories/L003">Proofcase, L003</a>.
+          </p>
           <div class="mathjaxlike">
             <p style="text-align: center;">TURING-ZOMBIE</p>
             <p>
@@ -604,6 +604,12 @@ og_description: "An introduction and program of formal logic."
               An external certificate, authenticated root, or explicit axiom may supply the missing binding. An external authority may stipulate or metatheoretically fix the missing binding. The active machine cannot verify, merely by checking the resulting certificate or derivation, that the stipulated referent is itself.
             </p>
             <p>
+              Therefore the intended hierarchy is:
+            </p>
+            <p>
+              Thus, in the present hierarchy, the consistency of the formalized judgment does not itself supply the missing self-binding.
+            </p>
+            <p>
               The formal claim is narrower:
               $$
                 \neg\,\forall\gamma\,
@@ -622,7 +628,10 @@ og_description: "An introduction and program of formal logic."
             </p>
           </div>
           <p>
-            Here <em>identification</em> means operational self-application, not the attachment of a predicate to a piece of code and not a distinguished constant whose intended referent is assigned externally. The <span class="sc">Untyped Lambda Calculus</span> makes the distinction more immediate:
+            We depart from the interpretation of Reinhardt’s <span class="sc">Strong Mechanistic Thesis</span> advanced in by Carlson <a href="#reference-carlson-strong-mechanistic-thesis">[Carlson, 2000]</a>. Carlson proves that $\mathrm{T}\models\mathrm{SMT}$; he does not prove that $\mathrm{T}\models K\,\operatorname{TM}(\mathsf{self})$. No symbol in <span class="sc">SMT</span> binds a machine index to the very knowing entity $\mathrm{T}$. A fuller treatment of this objection is reserved for future work.
+          </p>
+          <p>
+            <span class="sc">Untyped Lambda Calculus</span> makes the distinction more immediate: Here <em>identification</em> means operational self-application, not the attachment of a predicate to a piece of code and not a distinguished constant whose intended referent is assigned externally.
           </p>
           <div class="mathjaxlike">
             <p style="text-align: center;">DIAGONAL SELF-APPLICATION</p>
@@ -1266,6 +1275,9 @@ og_description: "An introduction and program of formal logic."
             </li>
             <li id="reference-putnam-shadows-review">
               H. Putnam. "Book Review: Shadows of the Mind." <i>Bulletin of the American Mathematical Society</i> 32, no. 3 (1995): 370–374. <a href="https://doi.org/10.1090/s0273-0979-1995-00606-3" target="_blank" rel="noopener noreferrer">DOI</a>.
+            </li>
+            <li id="reference-carlson-strong-mechanistic-thesis">
+              T. J. Carlson. "Knowledge, Machines, and the Consistency of Reinhardt’s Strong Mechanistic Thesis." <i>Annals of Pure and Applied Logic</i> 105, nos. 1–3 (2000): 51–82. <a href="https://doi.org/10.1016/S0168-0072(99)00048-2" target="_blank" rel="noopener noreferrer">DOI</a>.
             </li>
             <li id="reference-brown-language-models">
               T. B. Brown et al. "Language Models are Few-Shot Learners." <i>Advances in Neural Information Processing Systems</i> 33 (2020). <a href="https://papers.nips.cc/paper/2020/hash/1457c0d6bfcb4967418bfb8ac142f64a-Abstract.html" target="_blank" rel="noopener noreferrer">Proceedings</a>.
