@@ -102,13 +102,10 @@ og_description: "An introduction and program of formal logic."
             We propose a programmatic study of a recurring pattern in logic-adjacent fields: the movement by which thought passes from local operation to projected totality. In some such cases, a locally witnessed procedure is quietly reified into a claim about a completed domain or a self-standing object.
           </p>
           <p>
-             <span class="sc">Reflexica</span> asks whether, in any given case, a local witness has been illicitly converted into closure, or whether the formulation of a problem already presupposes the closure it asks a procedure to establish.
+             REFLEXICA asks whether, in any given case, a local witness has been illicitly converted into closure, or whether the formulation of a problem already presupposes the closure it asks a procedure to establish.
           </p>
           <p>
-             Its decisive internal question is whether the dilemma confronting a proposed falsifier can itself be derived: must every bridge from a verified solution to truth either transmit constructive warrant or presuppose the realist semantics it is meant to establish? If that partition cannot be obtained under weak and explicit assumptions, the limitative conclusions of <span class="sc">Reflexica</span> remain conditional upon it.
-          </p>
-          <p>
-             <b>Methodological note.</b> <span class="sc">Reflexica</span> is presented here as a research program and should first be assessed immanently: by what it claims, investigates and proposes, and by whether its internal partition can be derived. Classification and comparison become relevant only after that reconstruction; claims the project does not make are not useful standards of evaluation.
+             Its decisive internal question is whether the dilemma confronting a proposed falsifier can itself be derived: must every bridge from a verified solution to truth either transmit constructive warrant or presuppose the realist semantics it is meant to establish? If that partition cannot be obtained under weak and explicit assumptions, the limitative conclusions of REFLEXICA remain conditional upon it.
           </p>
           <p>
              Preliminary version. Revised July 2026. Licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY</a>.
@@ -522,6 +519,12 @@ og_description: "An introduction and program of formal logic."
           </p>
           <h3 id="self-reference-and-turing-zombie">3.4 The <span class="sc">Turing-Zombie</span></h3>
           <p>
+            The two separations developed in this section are formalized in the machine-checked Rocq project at <a href="https://github.com/Milan-Rosko/Proofcase/tree/main/theories/L003">Proofcase, L003</a>.
+          </p>
+          <p>
+            No formal verification of a represented machine description, considered merely as an object-language derivation, supplies a witness that the represented machine is the active procedure performing that verification. Such a binding is fixed semantically or metatheoretically and cannot be recovered merely by checking the representation that presupposes it.
+          </p>
+          <p>
             The transfer from strict <span class="sc">Diagonalization</span> to less formal settings is part of the program. A resonance across computation, linguistic competence, proof theory, and self-modeling is not yet evidence that these domains instantiate one phenomenon. The question is narrower: when does self-description become a demand that a local procedure close over the totality to which it belongs?
           </p>
           <p>
@@ -598,7 +601,48 @@ og_description: "An introduction and program of formal logic."
               $$
             </p>
             <p>
-              An external certificate, authenticated root, or explicit axiom may supply the missing binding. The formal claim is narrower:
+              An external certificate, authenticated root, or explicit axiom may supply the missing binding. An external authority may stipulate or metatheoretically fix the missing binding. The active machine cannot verify, merely by checking the resulting certificate or derivation, that the stipulated referent is itself.
+            </p>
+            <p>
+              Therefore the intended hierarchy is:
+            </p>
+            <table>
+              <tbody>
+                <tr>
+                  <td>“I am”</td>
+                  <td>— an admissible token or judgment;</td>
+                </tr>
+                <tr>
+                  <td>“I know I am”</td>
+                  <td>— satisfaction of an internal epistemic predicate;</td>
+                </tr>
+                <tr>
+                  <td>“The object denoted by $c$ is a TM”</td>
+                  <td>— formally checkable;</td>
+                </tr>
+                <tr>
+                  <td>“$c$ denotes this active process”</td>
+                  <td>— not internally checkable;</td>
+                </tr>
+                <tr>
+                  <td>“I know I am a TM”</td>
+                  <td>— requires precisely that unavailable binding.</td>
+                </tr>
+              </tbody>
+            </table>
+            <blockquote cite="https://www.sciencedirect.com/science/article/pii/S0168007299000482">
+              <p>
+                “Reinhardt's strong mechanistic thesis, a formalization of ‘I know I am a Turing machine’, is shown to be consistent with Epistemic Arithmetic.”
+              </p>
+              <footer>
+                —Timothy J. Carlson, <a href="https://www.sciencedirect.com/science/article/pii/S0168007299000482" target="_blank" rel="noopener noreferrer"><i>Knowledge, Machines, and the Consistency of Reinhardt’s Strong Mechanistic Thesis</i></a> (2000)
+              </footer>
+            </blockquote>
+            <p>
+              Thus, in the present hierarchy, the consistency of the formalized judgment does not itself supply the missing self-binding.
+            </p>
+            <p>
+              The formal claim is narrower:
               $$
                 \neg\,\forall\gamma\,
                 \bigl(
@@ -615,9 +659,6 @@ og_description: "An introduction and program of formal logic."
               $$
             </p>
           </div>
-          <p>
-            Both separations above can be seen in the machine-checked Rocq project at <a href="https://github.com/Milan-Rosko/Proofcase/tree/main/theories/L003">Proofcase, L003</a>.
-          </p>
           <p>
             Here <em>identification</em> means operational self-application, not the attachment of a predicate to a piece of code and not a distinguished constant whose intended referent is assigned externally. The <span class="sc">Untyped Lambda Calculus</span> makes the distinction more immediate:
           </p>
@@ -1433,7 +1474,7 @@ og_description: "An introduction and program of formal logic."
               $$
                 \mathbb{N}\models A\;\land\;C\nvdash A.
               $$
-            <span class="sc">Gödelian Sentences</span> supply cases of this kind under the appropriate assumptions, but a constructive metatheory which establishes the two claims thereby supplies a stronger warrant. It refutes only the identification of truth with provability in $C$, not the identification of truth with possible warrant.
+            <span class="uppercase">Gödel Sentences</span> supply cases of this kind under the appropriate assumptions, but a constructive metatheory which establishes the two claims thereby supplies a stronger warrant. It refutes only the identification of truth with provability in $C$, not the identification of truth with possible warrant.
             </p>
             <p>
               For a constructive kernel $\mathrm{T}$ interpreted in a constructive metatheory $\mathrm{M}$, let $\mathsf{norm}_{\mathrm{T}}$ be its internal global-normalization proposition and let $\mathsf{IntInh}_{\mathrm{T}}(P)$ be the type of coded $\mathrm{T}$-derivations of $P$. The relevant obligations would establish, in $\mathrm{M}$,
