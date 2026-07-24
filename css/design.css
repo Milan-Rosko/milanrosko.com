@@ -235,6 +235,29 @@ table{
   font-size: 0.8em;
 }
 
+.numbered-text {
+  counter-reset: paragraph;
+}
+
+.numbered-text > p {
+  counter-increment: paragraph;
+  position: relative;
+  /* No padding-right */
+}
+
+.numbered-text > p::after {
+  content: counter(paragraph);
+
+  position: absolute;
+  top: -1em;
+  right: -1em;
+
+  width: max-content;
+  font-size: 0.65em;
+  line-height: 1;
+  text-align: initial;
+  pointer-events: none;
+}
 
 .unicodedark {
   color: var(--color-tertiary-hi) !important;

@@ -139,19 +139,22 @@ og_description: "An introduction and program of formal logic."
           <h2>What is Reflexica?</h2>
           <h3 id="introduction">1 Introduction</h3>
           <p>
-            We begin from an intuitionistic standpoint <a href="#reference-brouwer-intuitionism-formalism">[Brouwer, 1913]</a> and observe that Book IX, Proposition 20 of Euclid’s <i>Elements</i> <a href="#reference-euclid">[Euclid, 1956]</a> does not claim a completed set of primes. It supplies an extension rule:
+            We begin from an intuitionistic standpoint <a href="#reference-brouwer-intuitionism-formalism">[Brouwer, 1913]</a> and observe that Book IX, Proposition 20 of Euclid’s <i>Elements</i> <a href="#reference-euclid">[Euclid, 1956]</a> does not claim a completed set of primes.
+          </p>
+          <p>
+            It supplies an extension rule:
           </p>
           <div class="mathjaxlike" style="text-align: center;">
             “Therefore $G$ is not the same with any one of the numbers $A, B,$ and $C$. And by hypothesis it is prime. Therefore the prime numbers $A, B, C,$ and $G$ have been found which are more than the assigned multitude of $A, B,$ and $C$.”
           </div>
           <p>
-            From any assigned finite multitude of primes, one constructs a number coprime to every member of that multitude. The proposition is an iterable and open-ended procedure before the contemporary presentation converts it into a claim about a completed domain. The difference concerns metamathematical commitment.
+            From any assigned finite multitude of primes, one constructs a number coprime to every member of that multitude. The proposition is an iterable and open-ended procedure before the contemporary presentation converts it into a claim about a completed domain. The difference concerns metamathematical commitment rather than attitude.
           </p>
           <p>
-            We recall the <span class="sc">Tristram Shandy Paradox</span> <a href="#reference-russell-principles-mathematics">[Russell, 1903]</a>, and see that a procedural (or proto-constructive) reading commits only to what that construction reaches, and no further. The existential reading permits the result to be expressed over a completed domain, the primes as a total collection, rather than as an indefinitely iterable extension operation.
+            We recall the <span class="sc">Tristram Shandy Paradox</span> <a href="#reference-russell-principles-mathematics">[Russell, 1903]</a>, and see that the procedural (or proto-constructive) reading commits only to what that construction reaches, and no further. The existential reading permits the result to be expressed over a completed domain, the primes as a total collection, rather than as an indefinitely iterable extension operation. One reading foregrounds the construction by which a further prime divisor is obtained; the other licenses quantification over the resulting domain. Both readings are valid, though they carry different proof-theoretic and semantic commitments.
           </p>
           <p>
-            Classically, this (inherently more practical) passage to a completed domain is treated as cost-free: the existential formulation preserves the theorem while suppressing the difference between a proposition proved in a completed domain and a witness extracted from a construction. Still, one can make a distinction is in different proof-theoretic signatures of these formulations <a href="#reference-gentzen-logical-deduction">[Gentzen, 1935]</a>: between a classically accepted existential $\exists x:A\,P(x)$ and its constructive interpretation as data: an object $a:A$ together with evidence for $P(a)$. Under <span class="sc">Propositions-as-Types</span>, this is represented by an inhabitant of $\Sigma_{x:A} P(x)$ <a href="#reference-howard-formulae-types">[Howard, 1980]</a>.
+            Classically, this (inherently more practical) passage to a completed domain is treated as cost-free: the existential formulation preserves the theorem while suppressing the difference between a proposition proved in a completed domain and a witness extracted from a construction. The contrast is between a classically accepted existential $\exists x:A\,P(x)$ and its constructive interpretation as data: an object $a:A$ together with evidence for $P(a)$. Under <span class="sc">Propositions-as-Types</span>, this is represented by an inhabitant of $\Sigma_{x:A} P(x)$ <a href="#reference-howard-formulae-types">[Howard, 1980]</a>. The relevant distinction is encoded in the different proof-theoretic signatures of these formulations <a href="#reference-gentzen-logical-deduction">[Gentzen, 1935]</a>.
           </p>
           <p>
             To establish that a number is <i>composite</i>, one produces a factor greater than one: a finite, extractable, checkable object. The witness supplies the computational content of the proof; in the case of <span class="sc">Compositeness</span>, a factor pair $(a,b)$ is the finite object whose verification establishes the claim <a href="#reference-kleene-realizability">[Kleene, 1945]</a>. Numbers alone, in a constructive sense, do not carry such a witness; their <span class="sc">Compositeness</span> (as a predicate) must be decided separately. Consequently:
@@ -192,15 +195,15 @@ og_description: "An introduction and program of formal logic."
             The left arrangement displays a nontrivial factorization directly, whereas the right admits no corresponding nontrivial rectangular arrangement. No configuration of seven units exposes a nontrivial divisor, because there is none to exhibit. Trial division establishes <span class="sc">Primality</span> by exhaustive bounded elimination; a <span class="sc">Pratt Certificate</span> establishes it more economically through a succinct, recursively checkable proof object <a href="#reference-pratt-primality-certificate">[Pratt, 1975]</a>, but it does not reverse the asymmetry, it is a proof that no nontrivial divisor exists, rather than supplying a positive factor-configuration that constitutes constructive primality.
           </p>
           <p>
-            <span class="sc">Coprimality</span> supplies the exclusion: the constructed number differs by one from a common multiple of the assigned primes, so none of them can divide it. Whether it is prime or has another prime divisor, the assigned multitude is refuted. This remains intuitionistically valid: decidable bounded search can produce a prime divisor $q$ distinct from every assigned prime. The dividing line is not existential syntax, but the difference between constructing a witness over an open-ended type and interpreting quantification over a completed totality.
+            An exclusion is provided through <span class="sc">Coprimality</span>: the constructed number differs by one from a common multiple of the assigned primes. Any assigned prime that measured both numbers would also measure their unit difference; none can therefore measure the constructed number. Whether that number is prime or is measured by another prime, the assigned multitude is refuted in a reusable refutation schema. This does not, however, place the existential formulation outside intuitionistic mathematics. Because divisibility below the constructed number is decidable, bounded search can produce a prime divisor $q$ together with evidence that $q$ is distinct from every assigned prime. The schema can therefore inhabit an intuitionistically valid existential without treating the primes as a completed domain. The dividing line is not between refutation and existential syntax, but between a constructed witness over an open-ended type and quantification interpreted over a completed totality.
           </p>
           <p>
             The contemporary restatement promotes this into a positive claim over the domain of primes. This introduces no immediate contradiction, but “conservative” has a meaning distinct from a proved conservative-extension theorem: the promotion preserves local practice while altering the semantic status of the object introduced. Its apparent harmlessness makes the transition easy to absorb.
           </p>
           <div class="mathjaxlike">
-            <p style="text-align: center;">INTUITIONISTIC FABLE<p>
+            <p style="text-align: center;">INTUITIONISTIC STORY<p>
             <p>
-              <b>Nature:</b> These humans are asking me whether pairs of prime numbers that differ by two continue to occur—<i>forever,</i> as they call it—but I don’t really know what any of this means.
+              <b>Nature:</b> These humans are asking me whether pairs of prime numbers that differ by two continue to occur—<i>forever,</i> as they call it—but I don’t know what any of this means.
             </p>
           </div>
           <h3 id="characterization">2 Characterization</h3>
@@ -267,7 +270,7 @@ og_description: "An introduction and program of formal logic."
             Logics, reifications, and human cognition are organized under the same structural constraint. No agent can obtain a semantic standpoint outside the totality that includes the agent itself. There is therefore no final external criterion by which the authority of a semantic source could be calibrated.
           </p>
           <p>
-            Humans nevertheless require stable semantic orientation, or closure. They therefore rely upon semantic sources: language, memory, culture, science, institutions, biography, and technical representation. These sources might not merely be used but systematically reified. In the absence of semantic totality, the source itself comes to function as reality. Disagreement over non-constructive content is consequently not explained primarily by different access to a shared truth. It must arise because different agents become anchored to different semantics, each of which appears complete from within the reflexive perspective that produced it.
+            Humans nevertheless require stable semantic orientation, or closure. They therefore rely upon semantic sources: language, memory, culture, science, institutions, biography, and technical representation. These sources might not merely be used but systematically reified. In the absence of semantic totality, the source itself comes to function as reality. Disagreement over non constructive content is consequently not explained primarily by different access to a shared truth. It must arrise because different agents become anchored to different semantics, each of which appears complete from within the reflexive perspective that produced it.
           </p>
           <div class="mathjaxlike">
             The theologian elevates revelation.<br>
@@ -325,51 +328,14 @@ og_description: "An introduction and program of formal logic."
           <p>
             Mackie’s <span class="sc">Error Theory</span> <a href="#reference-mackie">[Mackie, 1977]</a> serves here as an introductory idea, rather than a formal case. The progression it illustrates is this: philosophical practice encounters an absence, stabilizes that absence through its own internal demands, and at some threshold there is a longing for a semantic object. Mackie’s <span class="sc">Argument from Queerness</span>, which we interpret as a form of logical induction, names the strangeness of the moral properties that realist discourse appears to require, properties that are neither straightforwardly natural nor straightforwardly constructed.
           </p>
-          <div class="mathjaxlike">
-            <p style="text-align: center;">ERROR THEORY AND ARGUMENT FROM QUEERNESS</p>
-            <p>
-              <span class=" ">Error Theory</span> combines cognitivism with an error thesis: ordinary affirmative moral judgments purport to state objective moral facts, but the objective values they presuppose do not exist. Such judgments are therefore systematically false or have no truth value.
-            </p>
-            <p>
-              Objective moral values, if they existed, would be metaphysically unlike anything else in the universe and would require a correspondingly unusual faculty by which they could be known. Their metaphysical and epistemological queerness therefore counts against their existence.
-            </p>
-          </div>
           <p>
-            We consider this to be the <span class="sc">Reflexica</span> moment: If Mackie’s diagnosis is correct, it cannot be confirmed by producing the objective moral property whose existence it denies; its correctness therefore cannot take the form of a positive witness for the very object whose absence it asserts.
+            We consider this to be the <span class="sc">Reflexica</span> moment: If Mackie’s diagnosis is correct, it cannot be confirmed by producing the objective moral property whose existence it denies; its correctness therefore cannot take the form of a positive witness for the very object whose absence it asserts. In the strict BHK sense <a href="#reference-troelstra-van-dalen">[Troelstra and van Dalen, 1988]</a>, however, the absence of such a witness is not itself a construction of absurdity. A constructive refutation would have to supply a procedure that takes any purported witness of the objective moral property to contradiction. Whether Mackie’s argument supplies such a procedure is a further question. The absence is not merely a gap in the inventory but becomes theoretically active inside the practice it diagnoses.
           </p>
           <p>
-            In the strict BHK sense <a href="#reference-troelstra-van-dalen">[Troelstra and van Dalen, 1988]</a>, the absence of such a witness is not itself a construction of absurdity.
-          </p>
-          <div class="mathjaxlike">
-            <p style="text-align: center;">BROUWER–HEYTING–KOLMOGOROV INTERPRETATION</p>
-            <p>
-              The meaning of a proposition is given by what counts as its construction. A construction of $A \wedge B$ supplies constructions of both; one of $A \vee B$ selects and constructs one alternative; one of $A \to B$ transforms any construction of $A$ into one of $B$; one of $\exists x\,A(x)$ supplies a witness $a$ and a construction of $A(a)$; and one of $\forall x\,A(x)$ supplies a method that constructs $A(a)$ for any given $a$.
-            </p>
-            <p>
-              Absurdity $\bot$ admits no construction, and $\neg A$ abbreviates $A \to \bot$.
-            </p>
-          </div>
-          <p>
-            If Mackie is right, no objective moral property exists that could appear as a positive witness for his theory; any such object would instead refute it. Yet the nonappearance of that object is not itself a construction of its nonexistence. <span class="sc">Error Theory</span> is therefore asymmetrical: a <span class="sc">Queer Object</span> could prove Mackie wrong, but if he is right, no corresponding object can prove him right. The absence becomes theoretically active because it also withholds the kind of object that could close the diagnosis.
+            We immediately see this pattern in how the <span class="sc">Halting Predicate</span> behaves <a href="#reference-turing">[Turing, 1937]</a>. Once a computation halts, its completed run supplies a finite, positive witness of that fact. If it does not <i>halt</i>, however, no finite stage certifies that it never will: at every unfinished stage, the computation may yet halt. Non-halting is therefore not established by the local procedure in the way halting is; it remains an open-ended claim whose closure requires more than the run itself supplies.
           </p>
           <p>
-            We immediately see this pattern in the <span class="sc">Halting Predicate</span> <a href="#reference-turing">[Turing, 1937]</a>. Once a computation halts, its completed run supplies a finite, positive witness of that fact. If it does not <i>halt</i>, however, no finite stage certifies that it never will: at every unfinished stage, the computation may yet halt. Non-halting is therefore not established by the local procedure in the way halting is; it remains an open-ended claim whose closure requires more than the run itself supplies.
-          </p>
-          <div class="mathjaxlike">
-            <p style="text-align: center;">HALTING</p>
-            <p>
-              $$
-                H(M,x)=
-                \begin{cases}
-                  1, &amp; \text{if }M\text{ eventually halts on }x,\\
-                  0, &amp; \text{if }M\text{ runs forever on }x.
-                \end{cases}
-              $$
-              The <span class="uppercase">Halting Problem</span> asks whether one algorithm can compute $H$ for every machine-input pair. No such algorithm exists.
-            </p>
-          </div>
-          <p>
-            Whether the same passage recurs under more exact conditions is what the following sections investigate. Its appearance in other phenomenological discussions suggests that the pattern is not local to metaethics.
+            Whether the same passage recurs under more exact conditions is what the following sections investigate. Its appearance in other phenomenological discussions suggests that the pattern is not local to metaethics, though the full claim remains programmatic.
           </p>
           <h3 id="newcombs-problem">3.2 <span class="sc">Newcomb’s Problem</span> as a case</h3>
           <p>
@@ -424,54 +390,95 @@ og_description: "An introduction and program of formal logic."
           </p>
           <h3 id="diagonalization-diagnosis">3.3 <span class="sc">Diagonalization</span> and Diagnosis</h3>
           <p>
-            The preceding case has the shape that <span class="sc">Diagonalization</span> can make exact: an evaluator is applied to a description whose behavior depends on that evaluation. <span class="sc">Incompleteness</span> is the canonical formal case <a href="#reference-godel">[Gödel, 1931]</a>. Its role here is not to supply a master theorem for <span class="sc">Reflexica</span>, but to isolate a case in which a formal result and its semantic interpretation can be separated with unusual precision.
+            The preceding case has the same abstract shape that <span class="sc">Diagonalization</span> makes exact: an evaluator is applied to a description whose behavior depends on that evaluation. The canonical formal case is, of course, <span class="sc">Incompleteness</span> <a href="#reference-godel">[Gödel, 1931]</a>.
           </p>
           <p>
-            On a broadly constructive or antirealist reading, mathematical assertion remains tied to construction or some admissible form of warrant <a href="#reference-heyting-intuitionistische-grundlegung">[Heyting, 1931]</a> <a href="#reference-kleene-realizability">[Kleene, 1945]</a> <a href="#reference-dummett-philosophical-basis">[Dummett, 1975]</a>. On a realist reading, arithmetic truth is determinate independently of proof <a href="#reference-dummett-truth">[Dummett, 2001]</a> <a href="#reference-frege-thought">[Frege, 1918]</a>. The dispute is not over the existence of the formal construction, but over what entitles its sentence to be read as a truth about a completed domain.
+            This topic is central to <span class="sc">Reflexica</span> because it binds a formal self-referential construction to the semantic question of what its sentence is entitled to mean. Only after this pause do the two readings become visible:
           </p>
           <p>
-            For a sufficiently strong, effectively axiomatized theory $\mathrm{T}$, the <span class="sc">Diagonal Lemma</span> <a href="#reference-boolos-burgess-jeffrey">[Boolos et al., 2007]</a> yields a sentence $\mathsf{G}_{\mathrm{T}}$. The formal core needed here is compact:
+            On an antirealist or broadly constructive picture, <span class="sc">Arithmetic Truth</span> does not outrun construction or some admissible form of realization <a href="#reference-heyting-intuitionistische-grundlegung">[Heyting, 1931]</a> <a href="#reference-kleene-realizability">[Kleene, 1945]</a> <a href="#reference-dummett-philosophical-basis">[Dummett, 1975]</a>. In a way, <span class="sc">Incompleteness</span> is already internalized: A mathematical proposition is not treated as determinately true independently of the means by which it can be established.
+          </p>
+          <p>
+            On a realist (classical) picture, <span class="sc">Arithmetic Truth</span> has an essence independent of proof or warrant <a href="#reference-dummett-truth">[Dummett, 2001]</a> <a href="#reference-frege-thought">[Frege, 1918]</a>. $\mathbb{N}$ forms a determinate domain, and arithmetic sentences have determinate truth-values whether or not a given proof system can establish them.
+          </p>
+          <p>
+            Notice how we do not get to stand outside both pictures and inspect, from a neutral position, which one is true. Any argument for one picture over the other must itself appeal to some warrant-conferring object. Let that object be denoted by $Q$. $Q$ must encode a proof method, or otherwise confer warrant. It must determine whether arithmetic is to be understood realistically or antirealistically. To “decide” between <span class="sc">Realism</span> and <span class="sc">Antirealism</span>, we would need an object whose authority is not already being interpreted realistically or antirealistically. But no such neutral $Q$ is available. If $Q$ is understood antirealistically, it cannot establish semantic excess over proof, since such excess is precisely what the antirealist refuses. If $Q$ is understood realistically, then it already assumes the semantic authority it was supposed to justify.
+          </p>
+          <p>
+            For a sufficiently strong, effectively axiomatized theory $\mathrm{T}$, the <span class="sc">Diagonal Lemma</span> <a href="#reference-boolos-burgess-jeffrey">[Boolos et al., 2007]</a> yields a sentence $\mathsf{G}_{\mathrm{T}}$ such that
           </p>
           <div class="mathjaxlike">
-            <p style="text-align: center;">DIAGONAL LEMMA AND DIAGONAL ARGUMENT</p>
+            <p style="text-align: center;">DIAGONAL LEMMA</p>
             <p>
               $$
-                \begin{array}{lll}
-                  \mathrm{T}&amp;\vdash&amp;\mathsf{G}_{\mathrm{T}} \leftrightarrow \neg \operatorname{Prov}_{\mathrm{T}}(\ulcorner \mathsf{G}_{\mathrm{T}}\urcorner),\\[1ex]
-                  \operatorname{Con}(\mathrm{T})&amp;\Longrightarrow&amp;\mathrm{T} \nvdash \mathsf{G}_{\mathrm{T}}.
-                \end{array}
+                \mathrm{T}\vdash \mathsf{G}_{\mathrm{T}} \leftrightarrow \neg \operatorname{Prov}_{\mathrm{T}}(\ulcorner \mathsf{G}_{\mathrm{T}}\urcorner).
               $$
             </p>
           </div>
           <p>
-            The first line is an internal fixed-point equivalence; the second is a metatheoretic consequence for the standard Gödel construction. Neither line, by itself, says that $\mathsf{G}_{\mathrm{T}}$ is true in $\mathbb{N}$. Both readings can accept this formal core. Given an independently warranted soundness claim, the realist can further read $\mathsf{G}_{\mathrm{T}}$ as true but unprovable in $\mathrm{T}$; the antirealist need not interpret the result as a truth that exceeds every possible warrant. The formal object is shared, while its semantic authority is not.
+            This equivalence is formalized within $\mathrm{T}$. The unprovability claim is a separate metatheoretic consequence: for the standard Gödel construction, consistency of $\mathrm{T}$ yields
+          </p>
+          <div class="mathjaxwrap">
+            $$
+              \operatorname{Con}(\mathrm{T}) \Longrightarrow \mathrm{T} \nvdash \mathsf{G}_{\mathrm{T}}.
+            $$
+          </div>
+          <p>
+            $\mathsf{G}_{\mathrm{T}}$ is stable across the dispute. Both sides can recognize the internal diagonal equivalence and its conditional metatheoretic consequence. The disagreement concerns what follows from them.
           </p>
           <p>
-            <span class="sc">Incompleteness</span> and semantic inflation are therefore not the same phenomenon. Incompleteness establishes a boundary for a specified formal system. Semantic inflation begins when that boundary is made to disclose a semantic totality: a relative failure of derivation becomes evidence for an independently completed realm of truth, or the success of a stronger standpoint becomes authority over proof as such. <span class="sc">Reflexica</span> does not deny that a realist interpretation may license this reading. It asks whether the relevant authority has been supplied by the construction or inherited from the completed-domain semantics through which the construction is interpreted.
+            In the <i>antirealist</i> picture, <span class="sc">Gödel’s Incompleteness Theorems</span> remain genuine formal results. They show that a sufficiently strong effective proof system cannot, on pain of inconsistency, prove its <span class="sc">Gödel Sentence</span>, but the antirealist does not thereby have to accept the further claim
+          </p>
+          <div class="mathjaxlike" style="text-align: center;">
+              $\mathsf{G}_{\mathrm{T}}$ is true but unprovable.
+          </div>
+          <p>
+            That claim requires a notion of <span class="sc">Arithmetic Truth</span> that outruns proof or warrant. Yet such a notion is precisely what the antirealist rejects or refuses to treat as primitive. For the antirealist, then, <span class="sc">Incompleteness</span> is deflated. It becomes a theorem about the already (intuitionistically) internalized limits of a given formal system, not a revelation of an independently obtaining arithmetical fact. In this sense $\mathsf{G}_{\mathrm{T}}$ is or could be vacuous with respect to <span class="sc">Realism</span>, because the semantic surplus needed for the realist conclusion has already been disallowed. The theorem still marks a boundary; it does not by itself license a stronger metaphysics of <span class="sc">Arithmetic Truth</span>.
           </p>
           <p>
-            Let $Q$ denote a warrant capable of deciding between the realist and antirealist readings without already belonging to either. $Q$ cannot merely restate the formal result, since that result is common to both readings. If its authority is constructive, it does not establish a truth that exceeds possible warrant; if its authority is realist, it presupposes the semantic excess it was meant to establish. This does not prove that no neutral $Q$ could exist. It specifies what such an object would have to escape.
+            In the <i>realist</i> picture, the same construction has greater force. If there is a determinate <span class="sc">Standard Model of Arithmetic</span>, and if $\mathrm{T}$ is sound with respect to that model, then $\mathsf{G}_{\mathrm{T}}$ is true because what it says is the case. It says that it is not $\mathrm{T}$-provable, and, under the relevant assumptions, it is not $\mathrm{T}$-provable.
+          </p>
+          <p>
+            So the same formal construction now yields the proper separation
+          </p>
+          <div class="mathjaxwrap">
+            $$
+              \operatorname{Thm}(\mathrm{T}) \subsetneq \operatorname{Th}(\mathbb{N}).
+            $$
+          </div>
+          <p>
+            Here $\mathsf{G}_{\mathrm{T}}$ is not merely a boundary theorem about $\mathrm{T}$. It becomes a method for showing that <span class="sc">Arithmetic Truth</span> exceeds any given sufficiently strong effective formal system. $\mathsf{G}_{\mathrm{T}}$ is then read as an arithmetical truth not captured by the proof system whose <span class="sc">Provability Predicate</span> it mentions. Hence $\mathsf{G}_{\mathrm{T}}$ is invariant across the dispute, but its semantics are not.
+          <p>
+            The <span class="sc">Second Incompleteness Theorem</span> adds a related internal limit: under the usual representability and derivability conditions, consistency of $\mathrm{T}$ implies $\mathrm{T}\nvdash\operatorname{Con}(\mathrm{T})$. Neither this result nor the formal diagonal decides between these readings, since both can be accepted in either regime. What changes is the semantic promissory authority granted to the sentence after the formal result has been obtained.
+          </p>
+          <div class="mathjaxlike" style="text-align: center;">
+            What is the status of $Q$?
+          </div>
+          <p>
+            If $Q$ is treated antirealistically, then it cannot warrant the existence of <span class="sc">Arithmetic Truth</span> beyond proof, since such truth is not admitted as an independent target. If $Q$ is treated realistically, then it already presupposes the semantic excess it was meant to establish. $Q$ is then exactly what cannot be neutrally supplied, and $\mathsf{G}_{\mathrm{T}}$ bleeds into our metatheory:
           </p>
           <div class="mathjaxlike" style="text-align: center;">
             <p style="text-align: center;">METALOGICAL PROBLEM</p>
-            The formal result is shared<br>
+            Realism $\lor$ Antirealism is to be decided by $Q$<br>
             $\Downarrow$<br>
-            Realist and antirealist readings diverge<br>
+            $Q$ must confer warrant without presupposing either semantics<br>
             $\Downarrow$<br>
-            $Q$ must decide without presupposing either semantics<br>
+            But every available warrant is interpreted within the dispute<br>
             $\Downarrow$<br>
-            Every available warrant is interpreted within the dispute<br>
+            The diagonal therefore does not select a neutral semantics<br>
             $\Downarrow$<br>
-            A neutral $Q$ would constitute a <span class="uppercase">Queer Object</span>
+            $Q$ constitutes a <span class="sc">Queer Object</span><br>
+            $\Downarrow$<br>
+            Could we even recognize $Q$?
           </div>
           <p>
-            This is the specific contribution of <span class="sc">Reflexica</span>. In the Gödel case, the local achievements are exact: $\mathrm{T}$ proves the fixed-point equivalence, the metatheory proves a conditional non-derivability result, and stronger theories may supply further warrants. The promotion occurs when this extensible sequence is treated as disclosing, from a neutral standpoint, the completed semantic authority of <span class="sc">Arithmetic Truth</span>. A <span class="sc">Reflection Principle</span> may extend what can be proved <a href="#reference-feferman-transfinite-progressions">[Feferman, 1962]</a>; its productivity does not by itself certify the uniquely correct interpretation of proof. The diagnostic concerns that further passage, not the limit theorem alone.
+            If $\mathrm{T}$ is read modestly, as a formal calculus, $\mathsf{G}_{\mathrm{T}}$ merely says: this sentence is not derivable in $\mathrm{T}$. Under the usual consistency assumptions, that is a true boundary statement about $\mathrm{T}$. If $\mathrm{T}$ is read ambitiously, as capturing proofhood, the same sentence becomes decisive. It is now a truth whose non-derivability separates proof from $\mathrm{T}$-derivation. Thus the diagonal is stronger than an objection to $\mathrm{T}$: it works whether $\mathrm{T}$ is treated as empty syntax or as ideal proof. In the first case it marks a limit; in the second it refutes the promotion.
           </p>
           <p>
-            Nor does Gödel automatically generalize to ethics, cognition, prediction, or self-modeling. Each extension must independently show that a locally successful procedure is being asked to certify a total domain that includes the standards of its own success, and that no witness licenses the resulting closure. A resemblance to diagonalization is insufficient. <span class="sc">Reflexica</span> is intended as a structural diagnosis of such promotions, not as a universal corollary of <span class="sc">Incompleteness</span>.
+            This again seems to be a <span class="sc">Reflection Principle</span> <a href="#reference-feferman-transfinite-progressions">[Feferman, 1962]</a>: the demand for a proof of the correct theory of proof is itself caught in the dispute it seeks to resolve. Gödel’s theorem is stable under both <span class="sc">Realism</span> and <span class="sc">Antirealism</span>, but it cannot neutrally choose between them, because the choice requires the very semantic authority under dispute.
           </p>
           <p>
-            The limit at issue is therefore not only a limit of $\mathrm{T}$, but a limit on adjudicating the status of proof from a position outside proof. The <span class="sc">Turing-Zombie</span> sharpens this problem: can a system’s first-person verdict witness that the procedure producing a local judgment is identical with the total procedure whose correctness that judgment claims to certify?
+            We have to diagnose a limit, not only of $\mathrm{T}$, but of the attempt to adjudicate the status of proof from a position outside proof. Once a method is asked to certify the correct interpretation of method itself, it is no longer neutral.
           </p>
           <h3 id="self-reference-and-turing-zombie">3.4 The <span class="sc">Turing-Zombie</span></h3>
           <p>
@@ -605,7 +612,7 @@ og_description: "An introduction and program of formal logic."
             The class $\mathcal{B}_n$ is syntactically finite, but its finite description does not furnish that semantic upper bound. The function $S$ is not computable: there is no uniform procedure that produces $S(n)$ from $n$. This does not make every particular value unknowable, nor does it show that $S(25)$ can never be determined. It shows that merely invoking $S(n)$ does not supply a general method of closure. A proof of the relevant value must still perform the work that the appeal to <span class="sc">Busy Beaver</span> seemed to avoid.
           </p>
           <p>
-            <span class="sc">Busy Beaver</span> therefore does not eliminate the original asymmetry; it packages enough halting semantics to <i>seemingly</i> overcome it: We assign $S(n)$ a definite integer, but that determinacy alone supplies neither the integer nor a proof of its value. In <span class="sc">Reflexica</span>’s terms, the completed bound licenses closure only after the bound has itself been warranted.
+            <span class="sc">Busy Beaver</span> therefore does not eliminate the original asymmetry; it packages enough halting information to overcome it. Classical semantics assigns $S(n)$ a definite integer, but that determinacy alone supplies neither the integer nor a proof of its value. In <span class="sc">Reflexica</span>’s terms, the completed bound licenses closure only after the bound has itself been warranted.
           </p>
           <h3 id="hole-proliferation">3.6 Hole Proliferation</h3>
           <p>
@@ -634,11 +641,18 @@ og_description: "An introduction and program of formal logic."
             <p>
               The attempt to eliminate the openings therefore proliferates them. Filling even the smallest open region would require a qualitatively different operation: the spider would have to lay down a surface rather than another strand. No spider, biological or artificial, can solve the problem by webbing alone.
             </p>
-            <p style="text-align: center;">
-                  strand $\longleftrightarrow$ closure<br>
-                  anchor point $\longleftrightarrow$ contingent theoretical commitment<br>
-                  smaller holes $\longleftrightarrow$ increasingly local problems.<br>
-            </p>
+          </div>
+          <p>
+            Three operational correspondences,
+          </p>
+          <div class="mathjaxwrap">
+            $$
+            \begin{aligned}
+              \text{strand} &amp;\longleftrightarrow \text{closure} \\
+              \text{anchor point} &amp;\longleftrightarrow \text{contingent theoretical commitment} \\
+              \text{smaller holes} &amp;\longleftrightarrow \text{increasingly local problems}.
+            \end{aligned}
+            $$
           </div>
           <p>
             The oldest mathematical problems already exhibit this pattern. Incommensurable magnitudes, the exhaustion of the circle, the <span class="sc">Continuum</span> and the solution of equations repeatedly exceeded the available operations. Mathematics progressed not only by continuing those operations, but by changing the semantic regime in which their results were understood. An indefinitely extensible approximation became a limit; an incommensurable magnitude became a real number; an unsolved construction became an object classified within a stronger theory.
@@ -661,7 +675,7 @@ og_description: "An introduction and program of formal logic."
             Constructive logic neither denies nor affirms semanticity. It declines to identify determinacy with an antecedently completed bivalent assignment. A proposition may remain open where neither it nor its negation has been constructed. In this respect, it resembles a computer.
           </p>
           <p>
-            The intellectual and scientific milieu of the mid-2020s can thus be described as a condition of expanding realist local control without corresponding global closure. The web is denser than before, its strands are stronger, and its local regions are mapped with unprecedented precision. At the same time, the number of openings has increased. This should not be understood as an unfortunate delay before the final theory, but as evidence about the morphology of reflective inquiry. Once a problem includes the standards by which its own closure is to be assessed, each successful closure becomes another object within the problem.
+            The intellectual and scientific milieu of the mid-2020s can thus be described as a condition of expanding local control without corresponding global closure. The web is denser than before, its strands are stronger, and its local regions are mapped with unprecedented precision. At the same time, the number of openings has increased. This should not be understood as an unfortunate delay before the final theory, but as evidence about the morphology of reflective inquiry. Once a problem includes the standards by which its own closure is to be assessed, each successful closure becomes another object within the problem.
           </p>
           <h3 id="program">4 The Program</h3>
           <p>
