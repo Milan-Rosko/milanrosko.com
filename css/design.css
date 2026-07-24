@@ -257,6 +257,7 @@ table{
   line-height: 1;
   text-align: initial;
   pointer-events: none;
+  opacity: 0.2;
 }
 
 .unicodedark {
