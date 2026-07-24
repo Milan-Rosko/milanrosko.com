@@ -619,25 +619,14 @@ og_description: "An introduction and program of formal logic."
             <p>
               A correct evaluator may govern a restricted domain. It can't treat that domain as complete while the domain remains closed under the evaluator-relative construction $h\mapsto d(h)$. If $\mathrm{T}$ also asserts
               $$
-              \forall h
-              \left[
-              \operatorname{Eval}_{C}(h)
-              \rightarrow
-              C(d(h))
-              \right],
+                \forall h\left[\operatorname{Eval}_{C}(h)\rightarrowC(d(h))\right],
               $$
               then the two implications give $\mathrm{T}\vdash\neg\exists h\,\operatorname{Eval}_{C}(h)$. A consistent $\mathrm{T}$ therefore cannot assert the existence of such an evaluator.
             </p>
             <p>
               Consider that a QUINE (self-reproducing program) reproduces syntax. Self-evaluation continues a computation. Semantic closure would require a total internal evaluator whose domain contains its own diagonal product:
               $$
-              \operatorname{Con}(\mathrm{T})
-              \;\Longrightarrow\;
-              \neg\bigl(
-              \text{complete internal evaluation}
-              \wedge
-              \text{diagonal closure}
-              \bigr).
+                \operatorname{Con}(\mathrm{T})\;\Longrightarrow\;\neg\bigl(\text{complete internal evaluation}\wedge\text{diagonal closure}\bigr).
               $$
               This evaluator-relative non-closure is the formal content of the <span class="uppercase">Turing-Zombie</span>.
             </p>
@@ -650,13 +639,11 @@ og_description: "An introduction and program of formal logic."
             <p>
               Let $\Omega$ be a non-normalizing term, let $I$ be a normal form, and suppose $H$ is a total evaluator that claims to decide whether any quoted term normalizes. In metanotation, form
               $$
-              D
-              =
-              \lambda x.
-              \begin{cases}
-              \Omega, &amp; \text{if }H(\ulcorner x\,x\urcorner)=1,\\
-              I, &amp; \text{if }H(\ulcorner x\,x\urcorner)=0.
-              \end{cases}
+                D=\lambda x.
+                \begin{cases}
+                  \Omega, &amp; \text{if }H(\ulcorner x\,x\urcorner)=1,\\
+                  I, &amp; \text{if }H(\ulcorner x\,x\urcorner)=0.
+                \end{cases}
               $$
             </p>
             <p>
@@ -690,15 +677,7 @@ og_description: "An introduction and program of formal logic."
           </p>
           <div class="mathjaxwrap">
             $$
-              \mathcal{G}\mathord{\downarrow}
-              \iff \exists m\,C(m)
-              \iff \neg G
-              \; [\Sigma^0_1],
-              \quad
-              \mathcal{G}\mathord{\uparrow}
-              \iff \forall m\,\neg C(m)
-              \iff G
-              \; [\Pi^0_1].
+              \mathcal{G}\mathord{\downarrow}\iff \exists m\,C(m)\iff \neg G\; [\Sigma^0_1],\quad\mathcal{G}\mathord{\uparrow}\iff \forall m\,\neg C(m)\iff G\; [\Pi^0_1].
             $$
           </div>
           <p>
@@ -718,12 +697,7 @@ og_description: "An introduction and program of formal logic."
           </p>
           <div class="mathjaxwrap">
             $$
-              S(n)=s
-              \iff
-              \bigl(\exists x\in\mathcal{B}_n\,T(x,s)\bigr)
-              \;\wedge\;
-              \bigl(\forall x\in\mathcal{B}_n\,\forall k\,
-              (T(x,k)\rightarrow k\le s)\bigr).
+              S(n)=s\iff\bigl(\exists x\in\mathcal{B}_n\,T(x,s)\bigr)\;\wedge\;\bigl(\forall x\in\mathcal{B}_n\,\forall k\,(T(x,k)\rightarrow k\le s)\bigr).
             $$
           </div>
           <p>
@@ -865,12 +839,8 @@ og_description: "An introduction and program of formal logic."
           <div class="mathjaxwrap">
             $$
               \begin{aligned}
-                \text{recurrent predictive success}
-                &amp;\longrightarrow
-                \text{increased operational warrant},\\
-                \text{recurrent predictive success}
-                &amp;\not\Rightarrow
-                \text{witnessed semantic completion}.
+                \text{recurrent predictive success}&amp;\longrightarrow\text{increased operational warrant},\\
+                \text{recurrent predictive success}&amp;\not\Rightarrow\text{witnessed semantic completion}.
               \end{aligned}
             $$
           </div>
@@ -895,13 +865,7 @@ og_description: "An introduction and program of formal logic."
           </p>
           <div class="mathjaxwrap">
             $$
-              \text{finite state}
-              \longrightarrow
-              \text{represented weights}
-              \longrightarrow
-              \text{finite selection}
-              \longrightarrow
-              \text{finite output}.
+              \text{finite state}\longrightarrow\text{represented weights}\longrightarrow\text{finite selection}\longrightarrow\text{finite output}.
             $$
           </div>
           <p>
@@ -921,11 +885,7 @@ og_description: "An introduction and program of formal logic."
           <div class="mathjaxwrap">
             $$
               \begin{array}{c}
-                \text{randomness as semantic source}\\
-                \Downarrow\\
-                \text{absence of a shorter effective description}\\
-                \Downarrow\\
-                \text{a property relative to the descriptive procedure}.
+                \text{randomness as semantic source}\\\Downarrow\\\text{absence of a shorter effective description}\\\Downarrow\\\text{a property relative to the descriptive procedure}.
               \end{array}
             $$
           </div>
@@ -937,9 +897,7 @@ og_description: "An introduction and program of formal logic."
           </p>
           <div class="mathjaxwrap">
             $$
-              H=\bigl\{\langle M,x\rangle:M(x)\downarrow\bigr\},
-              \quad
-              \overline H=\bigl\{\langle M,x\rangle:M(x)\uparrow\bigr\}.
+              H=\bigl\{\langle M,x\rangle:M(x)\downarrow\bigr\},\quad\overline H=\bigl\{\langle M,x\rangle:M(x)\uparrow\bigr\}.
             $$
           </div>
           <p>
@@ -987,11 +945,7 @@ og_description: "An introduction and program of formal logic."
           </p>
           <div class="mathjaxwrap">
             $$
-              \text{recursive transformations}
-              +
-              \text{compressed human inscriptions}
-              +
-              \text{effective selection}.
+              \text{recursive transformations}+\text{compressed human inscriptions}+\text{effective selection}.
             $$
           </div>
           <p>
@@ -1006,11 +960,7 @@ og_description: "An introduction and program of formal logic."
               A recursively realized machine can exhibit semantic productivity without exhibiting a witness of total semantic authority.
             </p>
             $$
-              \operatorname{Recursive}(M)
-              \wedge
-              \operatorname{SemanticProductivity}(M)
-              \wedge
-              \neg\operatorname{WitnessedTotalAuthority}(M).
+              \operatorname{Recursive}(M)\wedge\operatorname{SemanticProductivity}(M)\wedge\neg\operatorname{WitnessedTotalAuthority}(M).
             $$
           </div>
           <p>
@@ -1045,11 +995,7 @@ og_description: "An introduction and program of formal logic."
           <div class="mathjaxwrap">
             $$
               \begin{array}{c}
-                \text{classical compression}\\
-                \Downarrow\\
-                \text{effective realization}\\
-                \Downarrow\\
-                \text{stochasticity invoked as the residual source}\\
+                \text{classical compression}\\\Downarrow\\\text{effective realization}\\\Downarrow\\\text{stochasticity invoked as the residual source}\\
                 \Downarrow\\
                 \text{Kolmogorov returns randomness to effective description}\\
                 \Downarrow\\
@@ -1204,9 +1150,7 @@ og_description: "An introduction and program of formal logic."
               Let $\mathcal{PC}$ denote the class of partial computable functions.
             </p>
             $$
-            \varnothing \subsetneq S \subsetneq \mathcal{PC}
-            \quad\Longrightarrow\quad
-            \{e : \varphi_e \in S\}\ \text{is undecidable}.
+              \varnothing \subsetneq S \subsetneq \mathcal{PC}\quad\Longrightarrow\quad\{e : \varphi_e \in S\}\ \text{is undecidable}.
             $$
           </div>
           <p>
@@ -1403,14 +1347,8 @@ og_description: "An introduction and program of formal logic."
               Let $\mathsf{CW}(P)$ mean that $P$ has constructive warrant in the open-ended sense at issue, rather than merely that $P$ is provable in one fixed constructive system. A candidate falsifier has the schematic form
               $$
                 \begin{aligned}
-                  \mathsf{QO}(x,A):={}&amp;
-                  \mathsf{CW}(S_x)
-                  \wedge
-                  \mathsf{NeutralBridge}(S_x,A)\\[2ex]
-                  &amp;{}\wedge
-                  \mathbb{N}\models A
-                  \wedge
-                  \neg\mathsf{CW}(A).
+                  \mathsf{QO}(x,A):={}&amp;\mathsf{CW}(S_x)\wedge\mathsf{NeutralBridge}(S_x,A)\\[2ex]
+                  &amp;{}\wedge\mathbb{N}\models A\wedge\neg\mathsf{CW}(A).
                 \end{aligned}
               $$
               Here $\mathsf{NeutralBridge}(S_x,A)$ must license the passage from a verified solution of $x$ to the singular truth of $A$ without already assuming a realist semantics for $\mathbb{N}$ and without itself supplying a constructive warrant for $A$. The last conjunct therefore demands more than $C\nvdash A$ for some fixed system $C$: the truth of $A$ must genuinely exceed, rather than merely outrun, the procedure used to establish it.
@@ -1418,20 +1356,12 @@ og_description: "An introduction and program of formal logic."
             <p>
               The immediate obstruction is closure under application. If the solution and the bridge are constructively warranted, then
               $$
-                \mathsf{CW}(S_x),
-                \quad
-                \mathsf{CW}(S_x\to A)
-                \quad\Longrightarrow\quad
-                \mathsf{CW}(A).
+                \mathsf{CW}(S_x),\quad\mathsf{CW}(S_x\to A)\quad\Longrightarrow\quad\mathsf{CW}(A).
               $$
               Consequently,
               $$
                 \neg\Bigl(
-                  \mathsf{CW}(S_x)
-                  \wedge
-                  \mathsf{CW}(S_x\to A)
-                  \wedge
-                  \neg\mathsf{CW}(A)
+                  \mathsf{CW}(S_x)\wedge\mathsf{CW}(S_x\to A)\wedge\neg\mathsf{CW}(A)
                 \Bigr).
               $$
               This obstruction is prior to arithmetic, <span class="sc">Incompleteness</span> and <span class="sc">Truth Undefinability</span>. It follows from the constructive meaning of implication as a method which transforms a warrant for its antecedent into a warrant for its consequent.
@@ -1458,10 +1388,7 @@ og_description: "An introduction and program of formal logic."
             <p>
               For a constructive kernel $\mathrm{T}$ interpreted in a constructive metatheory $\mathrm{M}$, let $\mathsf{norm}_{\mathrm{T}}$ be its internal global-normalization proposition and let $\mathsf{IntInh}_{\mathrm{T}}(P)$ be the type of coded $\mathrm{T}$-derivations of $P$. The relevant obligations would establish, in $\mathrm{M}$,
               $$
-                [\![\mathsf{norm}_{\mathrm{T}}]\!]_{\mathrm{M}}
-                \;\land\;
-                \mathsf{IntInh}_{\mathrm{T}}(\mathsf{norm}_{\mathrm{T}})
-                \to\bot_{\mathrm{M}},
+                [\![\mathsf{norm}_{\mathrm{T}}]\!]_{\mathrm{M}}\;\land\;\mathsf{IntInh}_{\mathrm{T}}(\mathsf{norm}_{\mathrm{T}})\to\bot_{\mathrm{M}},
               $$
               together with the adequacy of the normalization proposition. These obligations would show that $\mathrm{M}$ closes an operational question which $\mathrm{T}$ cannot close internally.
             </p>
