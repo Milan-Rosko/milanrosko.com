@@ -385,7 +385,7 @@ og_description: "An introduction and program of formal logic."
               <span class="uppercase">Error Theory</span> combines cognitivism with an error thesis: ordinary affirmative moral judgments purport to state objective moral facts, but the objective values they presuppose do not exist. Such judgments are therefore systematically false.
             </p>
             <p>
-              Objective moral values, if they existed, would be metaphysically unlike anything else in the universe and would require a correspondingly unusual faculty by which they could be known. Their metaphysical and epistemological queerness therefore counts against their existence.
+              Objective moral values, if they existed, would be metaphysically unlike anything else in the universe and would require a correspondingly unusual faculty by which they could be known. Their metaphysical and epistemological QUEERNESS therefore counts against their existence.
             </p>
           </div>
           <p>
@@ -512,7 +512,7 @@ og_description: "An introduction and program of formal logic."
             This is the specific contribution of <span class="sc">Reflexica</span>. In the Gödel case, the local achievements are exact: $\mathrm{T}$ proves the fixed-point equivalence, the metatheory proves a conditional non-derivability result, and stronger theories may supply further warrants. The promotion occurs when this extensible sequence is treated as disclosing, from a neutral standpoint, the completed semantic authority of <span class="sc">Arithmetic Truth</span>. A <span class="sc">Reflection Principle</span> may extend what can be proved <a href="#reference-feferman-transfinite-progressions">[Feferman, 1962]</a>; its productivity does not by itself certify the uniquely correct interpretation of proof. The diagnostic concerns that further passage, not the limit theorem alone.
           </p>
           <p>
-            Nor does Gödel automatically generalize to ethics, cognition, prediction, or self-modeling. Each extension must independently show that a locally successful procedure is being asked to certify a total domain that includes the standards of its own success, and that no witness licenses the resulting closure. A resemblance to diagonalization is insufficient.
+            Nor does this automatically generalize. Each extension must independently show that a locally successful procedure is being asked to certify a total domain that includes the standards of its own success, and that no witness licenses the resulting closure. A resemblance to diagonalization is insufficient.
           </p>
           <p>
             The limit at issue is therefore not only a limit of $\mathrm{T}$, but a limit on adjudicating the status of proof from a position outside proof. The <span class="sc">Turing Zombie</span> sharpens this problem: can a system’s first-person verdict witness that the procedure producing a local judgment is identical with the total procedure whose correctness that judgment claims to certify?
@@ -536,7 +536,7 @@ og_description: "An introduction and program of formal logic."
             $$
           </div>
           <p>
-            In a Tarskian register, the distinction is between the machine’s formal specification and a semantic extension assigned at the metalevel <a href="#reference-tarski-truth">[Gruber, 2016]</a>. A particular computation may witness that a string belongs to $L(\mathcal{M})$; the language itself is not another term available to the computation. It is the extension obtained when the machine’s activity is taken as a whole.
+            In a Tarskian register, the distinction is between the machine’s formal specification and a semantic extension assigned at the metalevel <a href="#reference-tarski-truth">[Gruber, 2016]</a>. A particular computation may witness that a string belongs to $\mathcal{L}(\mathcal{M})$; the language itself is not another term available to the computation. It is the extension obtained when the machine’s activity is taken as a whole.
           </p>
           <p>
             The same form appears in weaker empirical cases. When Bob asks Alice how many words she knows, she can answer only with an estimate, as the requested inventory would have to be produced by the very competence being inventoried. A language model asked the same question also returns a local response rather than a retrieved census. Of course, these cases do not establish an identity with <span class="sc">Incompleteness</span>. They mark the point at which self-description begins to resemble a demand for closure, but what is more interesting is that any identification of the schema is itself obstructed.
@@ -571,10 +571,16 @@ og_description: "An introduction and program of formal logic."
             The $\mathcal{M}$-analogue is a first-person <span class="sc">Halting Problem</span>. A system may produce a verdict about a procedure presented as its own, just as a subject may report that she sees the truth of $\mathsf{G}_{\mathrm{T}}$ for a system $\mathrm{T}$ said to capture her reasoning. The issue is not merely that an inscription can be generated mechanically while failing to express a genuine judgment. Grant the system a consistent calculus, a judgment token, and an operational semantics under which that token reduces and checks exactly as stipulated. The remaining question is whether the stipulated behavior supplies, rather than presupposes, a witness that the active judgment-forming procedure is identical with the procedure whose total correctness is being certified.
           </p>
           <p>
-            This distinction rules out a tempting shortcut. Suppose the metatheory labels an executing configuration by $e$ and introduces a reflective rule such as $\langle e,\sigma,\mathsf{self}\rangle\longrightarrow\ulcorner e\urcorner$. A token asserting $\mathsf{self}=\ulcorner e\urcorner$ may then be well typed, reduce consistently, and satisfy preservation. But $e$ was installed as the label of the active procedure by the metatheory; the reduction rule does not establish that identification from within the judgment. It returns the identification it was given. A quine or fixed-point construction has the same limitation: it can secure reproduction of an index or an externally proved extensional fixed point, but not thereby an internal witness that the presently operating evaluator is the procedure denoted by that index. To count metatheoretic indexing as the missing first-person witness would assume the very binding at issue. The <span class="sc">Turing Zombie</span> may have the formal competence of a theorem prover in <span class="sc">Dependent Type Theory</span> <a href="#reference-martin-lof">[Martin-Löf, 1984]</a> or the <span class="sc">Calculus of Inductive Constructions</span> <a href="#reference-rocq-cic">[Rocq Development Team, 2025]</a>:
+            This distinction rules out a tempting shortcut. Suppose the metatheory labels an executing configuration by $e$ and introduces a reflective rule such as
+          </p>
+          <div class="mathjaxwrap">
+            $$\langle e,\sigma,\mathsf{self}\rangle\longrightarrow\ulcorner e\urcorner.$$
+          </div>
+          <p>
+            A token asserting $\mathsf{self}=\ulcorner e\urcorner$ may then be well typed even, but still was installed as the label of the active procedure by the metatheory; the reduction rule does not establish that identification from within the judgment. It returns the identification it was given. A <span class="sc">Computational Quine</span> or fixed-point construction has the same limitation: it can secure reproduction of an index or an externally proved extensional fixed point, but not thereby an internal witness that the presently operating evaluator is the procedure denoted by that index. To count metatheoretic indexing as the missing first-person witness would assume the very binding at issue. The <span class="sc">Turing Zombie</span> may have the formal competence of a theorem prover in <span class="sc">Dependent Type Theory</span> <a href="#reference-martin-lof">[Martin-Löf, 1984]</a> or the <span class="sc">Calculus of Inductive Constructions</span> <a href="#reference-rocq-cic">[Rocq Development Team, 2025]</a>:
           </p>
           <p>
-            We prove what is below in <a href="https://github.com/Milan-Rosko/Proofcase/tree/main/theories/L003">Proofcase, L003</a>.
+            We substantiate what is below with <a href="https://github.com/Milan-Rosko/Proofcase/tree/main/theories/L003">Proofcase, L002</a> and as a simpler but weaker argument in <a href="https://github.com/Milan-Rosko/Proofcase/tree/main/theories/L003">Proofcase, L003</a>.
           </p>
           <div class="mathjaxlike">
             <p style="text-align: center;">TURING ZOMBIE</p>
