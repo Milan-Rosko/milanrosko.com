@@ -945,7 +945,7 @@ og_description: "An introduction and program of formal logic."
           <p>
               A recursively realized machine can show semantic productivity without a witness of total semantic authority.
           </p>
-          <div class="mathjaxlike">
+          <div class="mathjaxwrap">
             $$
               \operatorname{Recursive}(M)\wedge\operatorname{SemanticProductivity}(M)\wedge\neg\operatorname{WitnessedTotalAuthority}(M).
             $$
@@ -1124,29 +1124,29 @@ og_description: "An introduction and program of formal logic."
             <p>
               Write $x_F := \Delta(F)$ for the case generated relative to a proposed total witness-assignment $F$.
             </p>
-            <p>
+            <div class="mathjaxwrap">
               $$
                 \underbrace{ \forall x \in D_{\mathrm{loc}}\; \exists w \in \mathcal{W}\; W(x,w)}_{\mathrm{local\ witnessability}}
                 \quad \rightsquigarrow \quad
                 \underbrace{\exists F \colon D \to \mathcal{W}\; \forall x \in D\; W\!\left(x,F(x)\right)}_{\mathrm{projected\ totality}}
               $$
-            </p>
+            </div>
             <p>
               Yet, under reflexive closure,
             </p>
-            <p>
+            <div class="mathjaxwrap">
               $$
                 \underbrace{\forall F \colon D \to \mathcal{W}\;\neg W\!\left(\Delta(F),F\!\left(\Delta(F)\right)\right)}_{\mathrm{reflexive\ instability}}
               $$
-            </p>
+            </div>
             <p>
               Hence,
             </p>
-            <p>
+            <div class="mathjaxwrap">
               $$
                 \forall x \in D_{\mathrm{loc}}\; \exists w \in \mathcal{W}\; W(x,w) \quad \not\to \quad \exists F \colon D \to \mathcal{W}\; \forall x \in D\; W\!\left(x,F(x)\right)
               $$
-            </p>
+            </div>
           </div>
           <p>
             We give one name to a pattern that can almost have no name. A locally witnessed procedure quietly becomes a claim about a completed domain. An obstruction appears long after this promotion. Self-modeling systems show versions of this pattern. Examples include a proof system that reflects on its consistency and a moral theory that cannot instantiate its diagnosed error. A predictor also forms a totality over agents whose choices depend on its prediction.
@@ -1394,6 +1394,20 @@ og_description: "An introduction and program of formal logic."
           <div class="mathjaxlike">
             <p style="text-align: center;">METALOGICAL FALSIFIABILITY PROBLEM (DRAFT)</p>
             <p>
+              The problem has three layers.
+            </p>
+            <ol>
+              <li>
+                <span class="uppercase">Reflexive layer.</span> If open-ended, warrant-based antirealism is correct, no result can refute it from a neutral standpoint. A constructive refutation becomes further warrant. A merely semantic refutation assumes realism.
+              </li>
+              <li>
+                <span class="uppercase">Hard-problem layer.</span> Choose an independently specified hard problem $x$. Ask whether a verified solution $S_x$ could force assent to a fixed arithmetical truth $A$ that has no possible constructive warrant. Such a result would falsify the antirealist thesis.
+              </li>
+              <li>
+                <span class="uppercase">Metalogical layer.</span> Could any result have this force? Its bridge from $S_x$ to $A$ must transmit truth without becoming a warrant and without presupposing the realist semantics under dispute.
+              </li>
+            </ol>
+            <p>
               Let $\mathsf{CW}(P)$ mean that $P$ has constructive warrant in the open-ended sense at issue, rather than merely that $P$ is provable in one fixed constructive system. A candidate falsifier has the schematic form
               $$
                 \begin{aligned}
@@ -1442,9 +1456,29 @@ og_description: "An introduction and program of formal logic."
               $$
               together with the adequacy of the normalization proposition. These obligations would show that $\mathrm{M}$ closes an operational question which $\mathrm{T}$ cannot close internally.
             </p>
-            <p>
-              The resulting question is whether there is an independently specified problem $x$ whose verified solution compels assent to the truth of a fixed arithmetical sentence $A$, although it supplies no constructive warrant for $A$, and where that compulsion does not presuppose a realist semantics for $\mathbb{N}$.
+            <p style="text-align: center;">
+              The question is therefore:
             </p>
+            <div class="mathjaxwrap">
+              $$
+                \boxed{
+                  \quad
+                  \begin{array}{c}
+                  \\[0.1em]
+                  \exists x\,\Bigl[
+                    \underbrace{\mathsf{CW}(S_x)}_{\text{verified solution}}
+                    \wedge
+                    \underbrace{\mathsf{NeutralBridge}(S_x,A)}_{\substack{\text{neither constructive warrant}\\\text{nor realist presupposition}}}
+                    \wedge
+                    \underbrace{\mathbb{N}\models A\wedge\neg\mathsf{CW}(A)}_{\text{truth beyond possible warrant}}
+                  \Bigr]\;?
+                  \\[0.1em]
+                  \\
+                  \end{array}
+                  \quad
+                }
+              $$
+            </div>
           </div>
           <p>
             The closure argument does not prove that no such case exists. It excludes only the two familiar forms of truth transmission. The main problem asks whether one can present a neutral third form. This form must not become another warrant or assume the conclusion.
