@@ -763,9 +763,11 @@ og_description: "An introduction and program of formal logic."
           </p>
           <div class="mathjaxwrap">
             $$
-              \text{act as though }D\text{ is complete}
-              \quad\not\Rightarrow\quad
+            \begin{array}{c}
+              \text{act as though }D\text{ is complete}\\
+                \cancel\Downarrow\\
               D\text{ has been witnessed as a completed semantic totality}.
+              \end{array}
             $$
           </div>
           <p>
@@ -790,7 +792,7 @@ og_description: "An introduction and program of formal logic."
             $$
               \begin{aligned}
                 \text{recurrent predictive success}&amp;\longrightarrow\text{increased operational warrant},\\
-                \text{recurrent predictive success}&amp;\not\Rightarrow\text{witnessed semantic completion}.
+                \text{recurrent predictive success}&amp;\cancel\longrightarrow\text{witnessed semantic completion}.
               \end{aligned}
             $$
           </div>
@@ -803,11 +805,13 @@ og_description: "An introduction and program of formal logic."
           <p>
             The stochastic escape treats the operation’s name as another source. It claims that the machine has no semantic structure and only samples from a learned distribution. As an effective description, this claim identifies part of the mechanism. As a semantic explanation, the claim treats the distribution as an extensional totality. This totality covers a projected space of possible continuations, including outputs never produced. It also covers negative conditions that no constructive procedure has settled.
           </p>
-          <div class="mathjaxwrap">
+          <div class="mathjaxlike">
             $$
-              \text{How does a recursive machine produce semantic discourse?}
-              \quad\longmapsto\quad
+            \begin{array}{c}
+              \text{How does a recursive machine produce semantic discourse?}\\
+                \Downarrow\\
               \text{It samples from a total probability structure over discourse.}
+            \end{array}
             $$
           </div>
           <p>
@@ -860,11 +864,11 @@ og_description: "An introduction and program of formal logic."
                   \text{positive cases with finite witnesses}\\
                   \text{negative cases without finite witnesses}
                 \end{array}
-              \right\}}_{\text{operational asymmetry}}
+              \right\}}_{\\[0.1em]\text{operational asymmetry}}
               \quad\longmapsto\quad
               \underbrace{
-                \text{one totalized stochastic representation}
-              }_{\text{extensional compression}}.
+                \text{total stochastic representation}
+              }_{\\[0.1em]\text{extensional compression}}.
             $$
           </div>
           <p>
@@ -936,7 +940,7 @@ og_description: "An introduction and program of formal logic."
               \quad\lor\quad
               \bigl(
                 \operatorname{SemanticProductivity}(M)
-                \not\Rightarrow
+                \cancel\Rightarrow
                 \operatorname{SemanticAuthority}(M)
               \bigr).
             $$
@@ -983,7 +987,7 @@ og_description: "An introduction and program of formal logic."
             $$
               \operatorname{ExplanatoryProductivity}
               \bigl(\mathrm{Reflexica},I_{\mathrm{loc}}\bigr)
-              \quad\not\Rightarrow\quad
+              \quad\cancel\Rightarrow\quad
               \operatorname{OneStructure}
               \bigl(\mathrm{Reflexica},I\bigr).
             $$
@@ -1097,9 +1101,9 @@ og_description: "An introduction and program of formal logic."
             </p>
             <div class="mathjaxwrap">
               $$
-                \underbrace{ \forall x \in D_{\mathrm{loc}}\; \exists w \in \mathcal{W}\; W(x,w)}_{\mathrm{local\ witnessability}}
+                \underbrace{ \forall x \in D_{\mathrm{loc}}\; \exists w \in \mathcal{W}\; W(x,w)}_{\\[0.1em]\mathrm{local\ witnessability}}
                 \quad \rightsquigarrow \quad
-                \underbrace{\exists F \colon D \to \mathcal{W}\; \forall x \in D\; W\!\left(x,F(x)\right)}_{\mathrm{projected\ totality}}
+                \underbrace{\exists F \colon D \to \mathcal{W}\; \forall x \in D\; W\!\left(x,F(x)\right)}_{\\[0.1em]\mathrm{projected\ totality}}
               $$
             </div>
             <p>
@@ -1107,7 +1111,7 @@ og_description: "An introduction and program of formal logic."
             </p>
             <div class="mathjaxwrap">
               $$
-                \underbrace{\forall F \colon D \to \mathcal{W}\;\neg W\!\left(\Delta(F),F\!\left(\Delta(F)\right)\right)}_{\mathrm{reflexive\ instability}}
+                \underbrace{\forall F \colon D \to \mathcal{W}\;\neg W\!\left(\Delta(F),F\!\left(\Delta(F)\right)\right)}_{\\[0.1em]\mathrm{reflexive\ instability}}
               $$
             </div>
             <p>
@@ -1115,7 +1119,7 @@ og_description: "An introduction and program of formal logic."
             </p>
             <div class="mathjaxwrap">
               $$
-                \forall x \in D_{\mathrm{loc}}\; \exists w \in \mathcal{W}\; W(x,w) \quad \not\to \quad \exists F \colon D \to \mathcal{W}\; \forall x \in D\; W\!\left(x,F(x)\right)
+                \forall x \in D_{\mathrm{loc}}\; \exists w \in \mathcal{W}\; W(x,w) \quad \cancel\implies \quad \exists F \colon D \to \mathcal{W}\; \forall x \in D\; W\!\left(x,F(x)\right)
               $$
             </div>
           </div>
@@ -1167,9 +1171,14 @@ og_description: "An introduction and program of formal logic."
             <p style="text-align: center;">
               Let $\mathcal{PC}$ denote the class of partial computable functions.
             </p>
-            $$
-              \varnothing \subsetneq S \subsetneq \mathcal{PC}\quad\Longrightarrow\quad\{e : \varphi_e \in S\}\ \text{is undecidable}.
-            $$
+          <div class="mathjaxwrap">
+              $$
+                \varnothing \subsetneq S \subsetneq \mathcal{PC}\quad\Longrightarrow\quad\{e : \varphi_e \in S\}
+              $$
+            </div>
+            <p style="text-align: center;">
+             is undecidable.
+            </p>
           </div>
           <p>
             <span class="sc">Rice’s Theorem</span> alone does not prove the <span class="sc">Reflexica</span> prediction. The demand on AI is not only a question about the extension of a partial computable function. However, the theorem shows the form of the obstruction. Once the demand requires semantic adjudication instead of syntactic manipulation, no general recursive decision procedure can satisfy it.
@@ -1418,7 +1427,7 @@ og_description: "An introduction and program of formal logic."
               $$
                 \mathbb{N}\models A\;\land\;C\nvdash A.
               $$
-            <span class="uppercase">Gödel Sentences</span> supply cases of this kind under the appropriate assumptions, but a constructive metatheory which establishes the two claims thereby supplies a stronger warrant. It refutes only the identification of truth with provability in $C$, not the identification of truth with possible warrant.
+              Diagonal sentences supply cases of this kind under the appropriate assumptions, but a constructive metatheory which establishes the two claims thereby supplies a stronger warrant. It refutes only the identification of truth with provability in $C$, not the identification of truth with possible warrant.
             </p>
             <p>
               For a constructive kernel $\mathrm{T}$ interpreted in a constructive metatheory $\mathrm{M}$, let $\mathsf{norm}_{\mathrm{T}}$ be its internal global-normalization proposition and let $\mathsf{IntInh}_{\mathrm{T}}(P)$ be the type of coded $\mathrm{T}$-derivations of $P$. The relevant obligations would establish, in $\mathrm{M}$,
@@ -1432,22 +1441,16 @@ og_description: "An introduction and program of formal logic."
             </p>
             <div class="mathjaxwrap">
               $$
-                \boxed{
-                  \quad
                   \begin{array}{c}
-                  \\[0.1em]
                   \exists x\,\Bigl[
-                    \underbrace{\mathsf{CW}(S_x)}_{\text{verified solution}}
+                    \underbrace{\mathsf{CW}(S_x)}_{\\[0.1em]\text{verified solution}}
                     \wedge
-                    \underbrace{\mathsf{NeutralBridge}(S_x,A)}_{\substack{\text{neither constructive warrant}\\\text{nor realist presupposition}}}
+                    \underbrace{\mathsf{NeutralBridge}(S_x,A)}_{\\[0.1em]\substack{\text{neither constructive warrant}\\[0.25em]\text{nor realist presupposition}}}
                     \wedge
-                    \underbrace{\mathbb{N}\models A\wedge\neg\mathsf{CW}(A)}_{\text{truth beyond possible warrant}}
+                    \underbrace{\mathbb{N}\models A\wedge\neg\mathsf{CW}(A)}_{\\[0.1em]\text{truth beyond}\\[0.25em]\text{possible warrant}}
                   \Bigr]\;?
-                  \\[0.1em]
                   \\
                   \end{array}
-                  \quad
-                }
               $$
             </div>
           </div>
