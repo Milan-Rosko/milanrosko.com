@@ -1003,7 +1003,18 @@ og_description: "An introduction and program of formal logic."
             The schema does not infer failure from the absence of a known witness. Each application must specify its domain, witness relation, and class of assignments, then establish the failure condition for its constructor. The cases examined here motivate this structure; their resemblance does not prove that they instantiate it identically.
           </p>
           <p>
-            The schema should be distinguished from <span class="sc">Lawvere’s Fixed-Point Theorem</span> <a href="#reference-lawvere-diagonal">[Lawvere, 1969]</a>. There, reflexivity is a hypothesis: given a point-surjective map $A \to B^A$, every endomap of $B$ has a fixed point. The <span class="sc">Reflexica</span> Schema does not assume it. It asks whether a system can witness its own reflexivity, or whether reflexivity is always supplied by the metatheory that interprets the system.
+            The schema should be distinguished from <span class="sc">Lawvere’s Fixed-Point Theorem</span> <a href="#reference-lawvere-diagonal">[Lawvere, 1969]</a>. There, reflexivity is a hypothesis:
+          </p>
+          <div class="mathjaxlike" style="text-align: center;">
+            <p style="text-align: center;">
+              LAWVERE'S FIXED-POINT THEOREM
+            </p>
+            <p>
+              Given a point-surjective map $A \to B^A$, every endomap of $B$ has a fixed point.
+            </p>
+          </div>
+          <p>
+            The <span class="sc">Reflexica</span> Schema does not assume it. It asks whether a system can witness its own reflexivity, or whether reflexivity is always supplied by the metatheory that interprets the system.
           </p>
           <h3 id="internal-problem">4.2 The Internal Problem</h3>
           <p>
@@ -1077,7 +1088,7 @@ og_description: "An introduction and program of formal logic."
             Heidegger’s claim that the sciences cannot use the <i>Nichts</i> as their object offers one interpretation of this boundary <a href="#reference-heidegger-what-is-metaphysics">[Heidegger, 1929]</a>. On the constructive interpretation proposed here, a system encounters the boundary when its demand for closure exceeds the witnesses it can produce. Where an effective description supports self-application, diagonalization may turn that demand against a proposed total evaluator. This is a condition to establish in each case, not a universal consequence of description as such.
           </p>
           <p>
-            <span class="sc">Reflexica</span> therefore speaks from within the constructive standpoint it employs. It does not claim that every possible description must exhibit the same limit, nor does it infer the nonexistence of semantic objects from the failure of a procedure intended to decide them. Either inference would repeat the promotion under examination.
+            <span class="sc">Reflexica</span> therefore speaks from within the constructive standpoint it employs. It does not claim that every possible description must exhibit the same limit, nor does it infer the nonexistence of semantic objects from the failure of a procedure intended to decide them, either inference would repeat the promotion under examination. Instead, reflexica looks inward and finds the culprit of commonality there. This is why it is inherently <i>intuitionistic</i>.
           </p>
           <h3 id="prediction-or-falsification">6 Adequacy and Falsification</h3>
           <p>
@@ -1090,7 +1101,9 @@ og_description: "An introduction and program of formal logic."
             Mere difficulty is therefore not evidence for <span class="sc">Reflexica</span>. Nor is independence from one axiomatic system, which establishes only a relative limitation. A genuine case must show that the demand for closure depends on a totality that includes, revises, or otherwise entangles the means by which closure is judged. This criterion separates a reflexive obstruction from an ordinary unsolved problem without pretending to decide the case in advance.
           </p>
           <div class="mathjaxlike">
-            <p style="text-align: center;">Prediction:</p>
+            <p style="text-align: center;">
+            Prediction:
+          </p>
             <p>
               As recursively implemented AI systems improve, they should extend mathematical competence on problems with fixed statements and independently checkable solutions. In cases designated as reflexive in advance, further competence should instead yield stronger local theorems, conditional results, barriers, and reformulations while exposing the dependence of the original criterion of closure.
             </p>
