@@ -5,6 +5,7 @@ Thumbs.db
 
 # --- Jekyll build output ---
 _site/
+_site.nosync/
 .jekyll-cache/
 .jekyll-metadata
 

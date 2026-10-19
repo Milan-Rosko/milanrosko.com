@@ -52,10 +52,11 @@ og_description: "An introduction and program of formal logic."
       <a class="toc-item" href="#abstract"><span class="toc-key">2</span><span class="toc-text">Overview</span></a>
       <a class="toc-item" href="#illustration"><span class="toc-key">3</span><span class="toc-text">Illustration</span></a>
       <a class="toc-item" href="#reflexica"><span class="toc-key">4</span><span class="toc-text">What is <span class="sc">Reflexica</span>?</span></a>
-      <a class="toc-item" href="#purpose"><span class="toc-key">5</span><span class="toc-text">Purpose</span></a>
-      <a class="toc-item" href="#prediction-or-falsification"><span class="toc-key">6</span><span class="toc-text">Prediction or Falsification</span></a>
-      <a class="toc-item" href="#future-references"><span class="toc-key">7</span><span class="toc-text">References</span></a>
-      <a class="toc-item" href="#metalogical-falsifiability"><span class="toc-key">8</span><span class="toc-text">Appendix</span></a>
+      <a class="toc-item" href="#prediction-or-falsification"><span class="toc-key">5</span><span class="toc-text">Adequacy and Falsification</span></a>
+      <a class="toc-item" href="#purpose"><span class="toc-key">6</span><span class="toc-text">Purpose</span></a>
+      <a class="toc-item" href="#conclusion"><span class="toc-key">7</span><span class="toc-text">Conclusion</span></a>
+      <a class="toc-item" href="#future-references"><span class="toc-key">8</span><span class="toc-text">References</span></a>
+      <a class="toc-item" href="#metalogical-falsifiability"><span class="toc-key">9</span><span class="toc-text">Appendix</span></a>
     </div>
   </div>
 
@@ -99,16 +100,16 @@ og_description: "An introduction and program of formal logic."
             Overview
           </h2>
           <p>
-            <span class="sc">Reflexica</span> studies a recurring pattern in logic and related fields: a witnessed local procedure is projected into a totality, and its success is treated as evidence for a completed domain or an independently existing object.
+            <span class="sc">Reflexica</span> is a program in the philosophy of logic and mathematics, written from the intuitionistic standpoint of constructive logic and proof-theoretic semantics, with epistemic closure as its point of departure. Its formal material comes from proof theory and computability theory (diagonalization, incompleteness, undecidability, and reflection principles), and it applies the questions they raise to decision theory, metaethics, and machine cognition.
           </p>
           <p>
-            In each case, <span class="sc">Reflexica</span> asks: What warrants the passage from local success to global closure? Does the problem already presuppose the closure that its proposed procedure is meant to establish?
+            A procedure that yields witnesses within an open-ended practice is often taken to certify a completed domain, and the productivity of a representation is taken as evidence for the object it represents. <span class="sc">Reflexica</span> examines this passage from local success to global closure in reflexive cases, where the domain contains the procedure that claims closure over it and each attempt at certification reproduces the obstruction.
           </p>
           <p>
-            <span class="sc">Reflexica</span> must also examine its own proposed distinction. Must every bridge from a verified solution to a truth claim either transmit constructive warrant or presuppose the realist semantics it seeks to establish? Can this distinction be shown to exhaust the possibilities under weak, explicit assumptions? If it cannot, what testable empirical predictions can <span class="sc">Reflexica</span> nevertheless make?
+            In each case, the question is whether the passage is warranted or whether the problem already presupposes the closure its procedure was meant to establish. The same question applies to <span class="sc">Reflexica</span>: must every bridge from a verified result to a truth claim either transmit constructive warrant or presuppose the realist semantics at issue? A bridge that does neither, a <span class="sc">Queer Object</span>, would refute the account.
           </p>
           <p>
-            Preliminary version. Revised July 2026. Licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY</a>.
+            Preliminary version. Revised September 2026. Licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY</a>.
           </p>
         </div>
       </div>
@@ -120,7 +121,7 @@ og_description: "An introduction and program of formal logic."
           <div id="spider-web-container" aria-label="A generative spider web growing strand by strand across the open end of a hollow pipe"></div>
         </div>
         <div class="caption">
-          Illustration: <i>The Spider in the Tube</i>. The existing web constrains each new strand. When a strand crosses an opening, it divides that opening in two. The web grows denser. Its openings become smaller and more numerous. Do all intentional systems increase local saturation yet never reach global closure?
+          Illustration: <i>The Spider in the Tube</i>. Each new strand depends on the web already there and splits the opening it crosses in two: the web grows denser, its openings smaller and more numerous. Do all intentional systems increase local saturation yet never reach global closure?
         </div>
       </div>
     </div>
@@ -144,37 +145,36 @@ og_description: "An introduction and program of formal logic."
             <li>
               Topics <a href="#cases-resonances">#</a>
               <ul>
-                <li>Error Theory as a Sensitizing Pattern <a href="#mackie-sensitizing-pattern">#</a></li>
-                <li>Newcomb’s Problem as a Case <a href="#newcombs-problem">#</a></li>
+                <li>Internal Limit, External Fact <a href="#mackie-sensitizing-pattern">#</a></li>
+                <li><span class="sc">Newcomb’s Problem</span> as a Case <a href="#newcombs-problem">#</a></li>
                 <li>Diagonalization and Diagnosis <a href="#diagonalization-diagnosis">#</a></li>
-                <li>The Turing Zombie <a href="#self-reference-and-turing-zombie">#</a></li>
-                <li>Escape by Totalization <a href="#goldbach-busy-beaver">#</a></li>
-                <li>Hole Proliferation <a href="#hole-proliferation">#</a></li>
+                <li>The <span class="sc">Turing Zombie</span> <a href="#self-reference-and-turing-zombie">#</a></li>
+                <li>Compression <a href="#compression">#</a></li>
                 <li>The Talking Machine <a href="#the-talking-machine">#</a></li>
+                <li>Recurrence Is Not Identity <a href="#recurrence-not-identity">#</a></li>
               </ul>
             </li>
             <li>
               The Program <a href="#program">#</a>
               <ul>
+                <li>The <span class="sc">Reflexica</span> Schema <a href="#reflexica-schema">#</a></li>
                 <li>The Internal Problem <a href="#internal-problem">#</a></li>
               </ul>
+            </li>
+            <li>
+              Adequacy and Falsification <a href="#prediction-or-falsification">#</a>
             </li>
             <li>
               Philosophy and Purpose <a href="#purpose">#</a>
             </li>
             <li>
-              Prediction or Falsification <a href="#prediction-or-falsification">#</a>
+              Conclusion <a href="#conclusion">#</a>
             </li>
             <li>
               References <a href="#future-references">#</a>
             </li>
             <li>
-              Appendix <a href="#metalogical-falsifiability">#</a>
-              <ul>
-                <li>Falsifiability as a Stated Problem <a href="#falsifiability-as-stated-problem">#</a></li>
-                <li>Why Reflexica Matters for AI <a href="#reflexica-matters-for-ai">#</a></li>
-                <li>Note on Expository Compression <a href="#expository-compression">#</a></li>
-              </ul>
+              Appendix: The Problem of Metalogical Falsifiability <a href="#metalogical-falsifiability">#</a>
             </li>
           </ul>
         </div>
@@ -184,7 +184,7 @@ og_description: "An introduction and program of formal logic."
     <div class="grid-item d-w-9 m-w-9"><span class="nr"></span>
       <div class="grid-item-content">
         <div class="box contentbox numbered-text">
-          <h2 id="reflexica">What is Reflexica?</h2>
+          <h2 id="reflexica">What is <span class="sc">Reflexica</span>?</h2>
           <h3 id="introduction">1 Introduction</h3>
           <p>
             From an intuitionistic perspective <a href="#reference-brouwer-intuitionism-formalism">[Brouwer, 1913]</a>, the distinction between classical and constructive logic resembles a debate between two attitudes toward the existence of what our concepts purport to describe: vitalism and mechanism.
@@ -199,13 +199,10 @@ og_description: "An introduction and program of formal logic."
             In light of these examples, we reopen the question of the epistemic status of the completeness that classical semantics permits us to assume. The point is not that <i>fire</i> must somehow be both alive and not alive, or that a mathematical proposition must inhabit a third truth value, but that <i>intuition</i> can function with remarkable success long before we have established what, if anything, guarantees its unrestricted application. A completed classification may afford useful compression, yet that usefulness may be mistaken for evidence that the concept has captured an independently completed domain.
           </p>
           <p>
-            <span class="sc">Reflexica</span> begins, provisionally, at the point where unknowable truth fails to demarcate an internal limit, allowing a seemingly pathological yet persistent commonality to become externally visible in certain edge cases. It concerns a boundary that is not merely encountered: any attempt to certify the boundary reproduces the conditions under which it arises, like a <i>Matryoshka doll</i>. In this sense, <span class="sc">Reflexica</span> is an epistemic attractor: under certain assumptions, it can be understood as the <span class="sc">Halting Problem</span> viewed from within a mind that we assume to be finite and computational.
+            <span class="sc">Reflexica</span> concerns limits that cannot be certified without reproducing the conditions under which they arise. If the mind is assumed to be finite and computational, the paradigm case is the <span class="sc">Halting Problem</span> viewed from within such a mind. The object of scrutiny is a specific passage from formal success to semantic authority: the inference that, because a framework can consistently describe a completed totality, that totality has acquired independent epistemic warrant.
           </p>
           <p>
-            We do not seek to invalidate classical reasoning wholesale, nor do we establish that truth must coincide with proof. We call into question a particular passage from formal success to semantic authority: the assumption that, because a framework can consistently describe a completed totality, its completeness has thereby acquired independent epistemic warrant.
-          </p>
-          <p>
-            We approach a locus where classical logic and intuitionism appear to have the least reason to disagree: the elementary arithmetic of prime numbers. Yet contrary to popular belief, Book IX, Proposition 20 of Euclid’s <i>Elements</i> <a href="#reference-euclid">[Euclid, 1956]</a> makes no claim about a completed set of primes. Instead, Euclid presents what is arguably a proto-constructive procedure:
+            The analysis begins where classical and intuitionistic reasoning appear to have the least reason to disagree: the elementary arithmetic of prime numbers. Book IX, Proposition 20 of Euclid’s <i>Elements</i> <a href="#reference-euclid">[Euclid, 1956]</a> makes no claim about a completed set of primes. It presents what may be read as a proto-constructive procedure:
           </p>
           <div class="mathjaxlike" style="text-align: center;">
             “Therefore $G$ is not the same with any one of the numbers $A, B,$ and $C$. And by hypothesis it is prime. Therefore the prime numbers $A, B, C,$ and $G$ have been found which are more than the assigned multitude of $A, B,$ and $C$.”
@@ -226,12 +223,15 @@ og_description: "An introduction and program of formal logic."
             This distinction places primality in proximity to a negation: a proof that a number is <i>composite</i> provides a finite, extractable, and <i>a priori</i> witness, not merely a certificate. For <span class="sc">Compositeness</span>, the factor pair $(a,b)$ supplies the proof’s computational content <a href="#reference-kleene-realizability">[Kleene, 1945]</a>. Hence:
           </p>
           <div class="mathjaxlike">
-            Like <span class="uppercase">Halting</span>, <span class="uppercase">Compositeness</span> is directly witnessable: a rectangular arrangement exhibits the factorization. <span class="uppercase">Primality</span>, by contrast, is not known to expose a witness of the same kind. Its defining feature is the exclusion of every such configuration. This exclusion may itself admit a finite positive proof object, but that object certifies the exclusion by quantifying over a finite search rather than by presenting a constituent whose presence makes the number <i>prime</i>.
+            Like <span class="uppercase">Halting</span>, where a finished run is its own certificate, <span class="uppercase">Compositeness</span> is directly witnessable: a rectangular arrangement exhibits the factorization. <span class="uppercase">Primality</span>, by contrast, is not known to expose a witness of the same kind. Its defining feature is the exclusion of every such configuration. This exclusion may itself admit a finite positive proof object, but that object certifies the exclusion by quantifying over a finite search rather than by presenting a constituent whose presence makes the number <i>prime</i>.
           </div>
           <p>
-            The example below shows this asymmetry:
+            An example below shows this asymmetry.
           </p>
           <div class="mathjaxwrap">
+            <p style="text-align: center;">
+              The composite can be “easier” to spot:
+            </p>
             $$
             \begin{array}{ll}
             1+1+1 &amp; \quad\quad 1+1+1\\
@@ -242,7 +242,7 @@ og_description: "An introduction and program of formal logic."
             $$
           </div>
           <p>
-            The following formula expresses <span class="sc">Compositeness</span> schematically:
+            We can define <span class="sc">Compositeness</span> generally:
           </p>
           <div class="mathjaxwrap">
             $$
@@ -250,7 +250,7 @@ og_description: "An introduction and program of formal logic."
             $$
           </div>
           <p>
-            A proof may therefore provide a finite factor witness $(a,b)$. Bounded exclusion yields the natural form of <span class="sc">Primality</span>:
+            And thence, provide a finite factor witness $(a,b)$. Bounded exclusion yields the natural form of <span class="sc">Primality</span>:
           </p>
           <div class="mathjaxwrap">
             $$
@@ -258,38 +258,38 @@ og_description: "An introduction and program of formal logic."
             $$
           </div>
           <p>
-            The left arrangement directly displays a nontrivial factorization, but the right arrangement has no corresponding nontrivial rectangle. No arrangement of seven units shows a nontrivial divisor because none exists. Trial division establishes <span class="sc">Primality</span> through exhaustive bounded elimination. A <span class="sc">Pratt Certificate</span> establishes it more efficiently with a concise, recursively checkable proof object <a href="#reference-pratt-primality-certificate">[Pratt, 1975]</a>. Both methods prove that no nontrivial divisor exists. Neither supplies a positive factor configuration that constitutes constructive primality.
+            The left arrangement exhibits a factorization; the right admits no nontrivial rectangle, because seven has no nontrivial divisor. Trial division establishes <span class="sc">Primality</span> by exhaustive bounded elimination, and a <span class="sc">Pratt Certificate</span> does so with a succinct, recursively checkable proof object <a href="#reference-pratt-primality-certificate">[Pratt, 1975]</a>. Both certify that no divisor exists; neither exhibits a constituent whose presence makes the number prime.
           </p>
           <p>
-            <span class="sc">Coprimality</span> supplies the exclusion because the constructed number differs by one from a common multiple of the assigned primes. Thus, none of the assigned primes divides it. Whether the number is prime or composite, the result disproves the completeness of the assigned collection. The argument remains intuitionistically valid because a decidable bounded search can produce a prime divisor $q$ outside that collection. The key distinction is not existential syntax. It is whether one constructs a witness over an open-ended type or quantifies over a completed totality.
+            Euclid’s argument requires only this exclusion. The constructed number exceeds a common multiple of the assigned primes by one, so none of them divides it, and a decidable bounded search yields a prime divisor $q$ outside the collection, whether the number itself is prime or composite. The argument is therefore intuitionistically valid. What matters is not the existential form but whether a witness is constructed over an open-ended type or quantified over a completed totality.
           </p>
           <p>
-            The contemporary restatement turns this procedure into a positive claim about the domain of primes. The restatement creates no immediate contradiction. Here, “conservative” does not mean a proved conservative-extension theorem. The restatement preserves local practice but changes the semantic status of the object that it introduces. This apparent harmlessness makes the restatement easy to accept.
+            The contemporary restatement, “there are infinitely many primes,” admits two readings. Procedurally, it abbreviates what Euclid proves: for every finite set $S$ of primes, a prime $q\notin S$ can be constructed. Extensionally, it asserts that the primes form a completed infinite totality. The extensional reading introduces no contradiction and leaves local practice intact; it changes only the semantic status of the object it introduces, and this apparent harmlessness makes it easy to accept. Euclid’s argument warrants the first reading. Whether anything warrants the second depends on what “infinity” is taken to contribute:
           </p>
           <div class="mathjaxlike">
-            <p style="text-align: center;">Razor:
+            <p style="text-align: center;">
+              Razor:
             </p>
             <p>
-              If “infinity” adds no content beyond indefinite continuation, it ornamental. If it adds a completed totality, it requires an independent warrant.
+              If “infinity” adds no content beyond indefinite continuation, it is ornamental. If it adds a completed totality, it requires an independent warrant.
             </p>
           </div>
           <h3 id="characterization">2 Characterization</h3>
           <h3 id="reflection-mistaken-as-authority">2.1 Reflection Mistaken for Authority</h3>
           <p>
             By the early twentieth century, logicians and mathematicians could no longer dismiss some philosophical tensions as quirks <a href="#reference-godel">[Gödel, 1931]</a> <a href="#reference-heyting-intuitionistische-grundlegung">[Heyting, 1931]</a>. A theory can remain locally impeccable while its existential conclusions carry a stronger commitment. This commitment comes from how the theory interprets those conclusions and exceeds what its procedure supports. The classical statement also defines an epistemic position.
-          <p>
+          </p>
           <div class="mathjaxlike">
             <p style="text-align: center;">Assume:</p>
             <p>
               A systematic tendency to infer semantic compression from semantic productivity might not damage ordinary effectivity provided by mathematics or science.
             </p>
           </div>
-          </p>
           <p>
             A productive procedure may repeatedly yield intelligible results. Yet its success does not show that it reveals a completed semantic totality, nor must it assume global authority to remain effective.
           </p>
           <p>
-            The <span class="sc">Brouwer–Heyting–Kolmogorov Interpretation</span> makes this distinction precise. The proposition $\bot$ admits no construction, while a construction of $\neg A$ is a procedure that transforms any construction of $A$ into $\bot$ <a href="#reference-troelstra-van-dalen">[Troelstra and van Dalen, 1988]</a>. <span class="sc">Reflexica</span> asks what happens when agents reify such an absence, treating an obstruction as a semantic primitive.
+            The <span class="sc">Brouwer–Heyting–Kolmogorov Interpretation</span> (or <span class="sc">bhk</span>) makes this distinction precise. The proposition $\bot$ admits no construction, while a construction of $\neg A$ is a procedure that transforms any construction of $A$ into $\bot$ <a href="#reference-troelstra-van-dalen">[Troelstra and van Dalen, 1988]</a>; Kolmogorov’s reading of propositions as problems gives the same clause its problem-solving form <a href="#reference-kolmogorov-intuitionistic-logic">[Kolmogorov, 1932]</a> <a href="#reference-rodin-calculus-problems">[Rodin, 2023]</a>. <span class="sc">Reflexica</span> asks what happens when agents reify such an absence, treating an obstruction as a semantic primitive.
           </p>
           <p>
             Drawing on <span class="sc">Intuitionistic Type Theory</span> <a href="#reference-martin-lof">[Martin-Löf, 1984]</a> and constructive mathematics <a href="#reference-beeson-informal-foundations">[Beeson, 1985]</a>, <span class="sc">Reflexica</span> asks whether their insights support empirical predictions in domains where classical logic makes closure claims. <span class="sc">Homotopy Type Theory</span> <a href="#reference-hott">[Univalent Foundations Program, 2013]</a> may merit particular attention.
@@ -312,8 +312,16 @@ og_description: "An introduction and program of formal logic."
           <p>
             Our hypothesis is that the obstruction is structural, not merely a limitation of a particular formalism or theorist. When <span class="sc">Reflection Principles</span> extend a theory beyond a local obstruction, their productivity may be mistaken for access to an independent domain. The system then iterates its own resources rather than reaching an external source of closure. Greater rigor can intensify the error by concealing self-extension as discovery.
           </p>
+          <div class="mathjaxlike">
+            <p style="text-align: center;">
+              Hypothesis:
+            </p>
+            <p>
+              Reflexica is a problem within THE theorist, not A theorist, and not A theory.
+            </p>
+          </div>
           <p>
-            <span class="sc">Reflexica</span> therefore applies this diagnosis to itself. It introduces its semantic space explicitly and only once; it neither treats that construction as necessary across domains nor takes <span class="sc">Reflexica</span> itself as an independently given object of quantification. This restraint marks the difference between reflective reconstruction and discovery. Without it, operations internal to a framework may appear to disclose an external domain.
+            <span class="sc">Reflexica</span> therefore applies this diagnosis to itself. It introduces its semantic space explicitly, parsimoniously, and only once; it neither treats that construction as necessary across domains nor takes <span class="sc">Reflexica</span> itself as an independently given object of quantification. This restraint marks the difference between reflective reconstruction and discovery. Without it, operations internal to a framework may appear to disclose an external domain.
           </p>
           <p>
             A minimal formal analogue is an attempted fixed point of negation. Whatever semantic completeness an agent attributes to its constructions, ordinary finite syntax blocks the simplest identification: no finite formula can be syntactically identical to its own negation.
@@ -337,12 +345,15 @@ og_description: "An introduction and program of formal logic."
             The same structural constraint governs logical systems, reification, and human cognition. No agent can reach a semantic standpoint outside the totality that contains that agent. Therefore, no final external criterion can measure the authority of a semantic source.
           </p>
           <p>
-            Humans nevertheless need stable semantic orientation, or closure. They use language, memory, culture, science, institutions, biography, and technical representation as semantic sources. Humans can systematically reify these sources instead of only using them. Without a semantic totality, a semantic source functions as reality itself. Different access to a shared truth does not primarily explain disagreement about non-constructive content. Such disagreement must arise because agents adopt different semantics that appear complete from the reflexive perspectives that produced them.
+            We nevertheless need stable semantic orientation, or closure. They use language, memory, culture, science, institutions, biography, and technical representation as semantic sources. Humans can systematically reify these sources instead of only using them. Without a semantic totality, a semantic source functions as reality itself. Different access to a shared truth does not primarily explain disagreement about non-constructive content. Such disagreement must arise because agents adopt different semantics that appear complete from the reflexive perspectives that produced them.
           </p>
           <p>
             Successful semantic practice develops an internal tendency toward semantic absolutization.
           </p>
           <div class="mathjaxlike">
+            <p style="text-align: center;">
+              Philosophical proposition:
+            </p>
             <p>
               The theologian elevates revelation.<br>
               The psychologist elevates biography.<br>
@@ -351,78 +362,99 @@ og_description: "An introduction and program of formal logic."
               The physicist elevates local physical law.<br>
             </p>
             <p>
-              The logician should elevate the pathological case.
+              The logician should elevate the pathological case, everything.
             </p>
           </div>
           <p>
-            But, intentional agents have poor access to the global semantic structure, they therefore must to overestimate the authority of semantic sources that organize their local experience. Without an external anchoring, we must mistake explanatory success for semantic completeness.
+            Our intentionality has limited access to global operational and semantic structure. Naturally, we overestimate the authority of the sources that organize our local experience, so we might mistake effectivity success for truth. <span class="sc">Reflexica</span> begins from here, not from the claim that the mistake is unavoidable.
           </p>
-          <h3 id="methodology">2.3 Methodology</h3>
+          <h3 id="methodology">2.3 Methodology: <span class="sc">Reflexica</span> as a Working Hypothesis</h3>
           <p>
-            From preliminary core methodological ideas, such as <i>limitative abduction, proof mechanization, parsimony,</i> and <i>predicativism</i> <a href="#reference-feferman-predicative-analysis">[Feferman, 1964]</a>; we derive preliminary instruments:
+            <span class="sc">Reflexica</span> is methodologically useful before it is established as a general theory. We provisionally assume that an apparent semantic ground may be the stabilized effect of a locally successful practice. This assumption earns its place only if it exposes otherwise hidden commitments, distinguishes cases that a stronger semantics conflates, or supports predictions that could fail. We call this use of a suspected limit <i>limitative abduction</i>.
           </p>
-          <ul>
-            <li>
-              <span class="sc">Problem Critique</span> for the substrate choices and commitments that constitute a problem or a field. <span class="sc">Reflexica</span> admits a problem only after it states the problem’s assumptions and provides witnesses where applicable.
-            </li>
-            <li>
-              Thence, <span class="sc">Impredicative Problems</span> as a proposed class. Each problem depends on the same totality or closure that it asks to evaluate. One possible example asks, “Are all unsolvable problems impredicative?”
-            </li>
-            <li>
-              <span class="sc">Semantic Liminality</span> as sites where distinct formal objects share propositional content.
-            </li>
-            <li>
-              <span class="sc">Sublimations</span> as irreversible transitions from a formal to an empirical regime.
-            </li>
-          </ul>
+          <div class="mathjaxlike">
+            <p style="text-align: center;">Assumption (Epistemic Closure):</p>
+            <p>
+              REFLEXICA privileges EPISTEMIC CLOSURE (EC) as its point of departure: a fragment of intuitionistic propositions whose acceptance is a finite, checkable construction, closed under constructive consequence. Whatever exceeds this fragment, such as a completed domain, a classical partition, or a realist semantics, must be admitted afterward and warranted from it. The assumption fixes where REFLEXICA stands, not how far its diagnosis extends; whether REFLEXICA is larger or smaller than this fragment remains open.
+            </p>
+          </div>
           <p>
-            We start with a sensitizing pattern (from philosophy), continue through structured and formal cases, and end with schematic extensions. Each case follows the same sequence. A local practice encounters an absence or obstruction. The practice stabilizes or reifies that local condition. It then demands semantic closure from the condition.
+            Closure here is closure of a fragment under consequence, not closure of a domain. <span class="sc">Reflexica</span> accepts the first and examines the second. The name should also be distinguished from the epistemological principle that knowledge is closed under known entailment: what is closed here is constructive acceptance, not an agent’s knowledge.
+          </p>
+          <p>
+            The inquiry begins with the operations actually available. For each problem, we identify the witnesses, decisions, or predictions that those operations produce; the domain over which they remain effective; and the point at which their local success is promoted into a claim of closure. <span class="sc">Problem Critique</span> names this reconstruction of a problem’s substrate and commitments.
+          </p>
+          <p>
+            A problem is provisionally <i>impredicative</i> when its proposed criterion of closure already depends on the totality it is meant to evaluate. The next step is reflexive: place the proposed decider, observer, or semantic authority within the domain of its own claim and test whether the original obstruction returns. Recurrence is evidence for the hypothesis, not proof of it.
+          </p>
+          <p>
+            This method favors explicit witnesses, mechanized proofs where available, parsimonious assumptions, and predicative constructions <a href="#reference-feferman-predicative-analysis">[Feferman, 1964]</a>. It does not reject classical closure in advance. It asks what the closure contributes, what warrants it, and whether the same work can be performed without treating the projected ground as independently given.
+          </p>
+          <p>
+            The following cases are therefore not assumed to instantiate one structure. Each must independently exhibit the proposed sequence: a local practice succeeds, encounters an absence, stabilizes that absence, and promotes the resulting construction into semantic authority. A resemblance is not enough.
           </p>
           <h3 id="cases-resonances">3 Topics</h3>
-          <h3 id="mackie-sensitizing-pattern">3.1 <span class="sc">Error Theory</span> as a sensitizing pattern</h3>
+          <h3 id="mackie-sensitizing-pattern">3.1 Internal Limit, External Fact</h3>
           <p>
-            Mackie’s <span class="sc">Error Theory</span> introduces the pattern but does not provide a formal case <a href="#reference-mackie">[Mackie, 1977]</a>. The pattern starts when philosophical practice encounters an absence and stabilizes it through its internal demands. At some threshold, the practice seeks a semantic object. Mackie’s <span class="sc">Argument from Queerness</span> names the strangeness of the moral properties that realist discourse appears to require. We interpret this argument as a form of logical induction. The required properties are neither clearly natural nor clearly constructed.
+            Mackie’s <span class="sc">Error Theory</span> <a href="#reference-mackie">[Mackie, 1977]</a> and <span class="sc">Rice’s Theorem</span> <a href="#reference-rice">[Rice, 1953]</a> initially appear to beg the same question. Mackie denies the objective properties that moral discourse presupposes; Rice denies the existence of a total computable procedure for deciding nontrivial extensional properties, not the properties themselves. To pass directly from Rice’s internal limit to Mackie’s external conclusion would enact the very promotion that <span class="sc">Reflexica</span> diagnoses.
           </p>
           <div class="mathjaxlike">
-            <p style="text-align: center;">ERROR THEORY AND ARGUMENT FROM QUEERNESS</p>
+            <p style="text-align: center;">ARGUMENT FROM QUEERNESS</p>
             <p>
-              <span class="uppercase">Error Theory</span> combines cognitivism with an error thesis: ordinary affirmative moral judgments purport to state objective moral facts, but the objective values they presuppose do not exist. Such judgments are therefore systematically false.
+              <span class="uppercase">Error Theory</span> combines cognitivism with an error thesis: ordinary affirmative moral judgments purport to state objective moral facts, but the objective values they presuppose might not exist. Such judgments could be therefore systematically false.
             </p>
             <p>
-              Objective moral values, if they existed, would be metaphysically unlike anything else in the universe and would require a correspondingly unusual faculty by which they could be known. Their metaphysical and epistemological QUEERNESS therefore counts against their existence.
+              Objective moral values, if they existed, would be metaphysically unlike anything else in the universe and would require a correspondingly unusual faculty by which they could be known. Their metaphysical and epistemological <span class="uppercase">Queerness</span> therefore counts against their existence.
             </p>
           </div>
           <p>
-            This is the <span class="sc">Reflexica</span> moment. If Mackie is correct, no objective moral property can confirm his diagnosis, since producing such a property would refute the diagnosis. The theory therefore cannot use a positive witness for the object whose absence it asserts.
-          </p>
-          <p>
-            However, the strict BHK interpretation does not treat this absence as a construction of absurdity <a href="#reference-troelstra-van-dalen">[Troelstra and van Dalen, 1988]</a>.
+            Mackie links the alleged object to the faculty required to know it. Moral realism posits objective values, while moral judgment appears to require access to them. The <span class="sc">Argument from Queerness</span> challenges both demands. For machines, however, property and access must be separated. Nontrivial semantic properties of programs can be well-defined extensionally even when no algorithm can decide them uniformly from program descriptions.
           </p>
           <div class="mathjaxlike">
-            <p style="text-align: center;">BROUWER–HEYTING–KOLMOGOROV INTERPRETATION</p>
+            <p style="text-align: center;">RICE’S THEOREM</p>
             <p>
-              The meaning of a proposition is given by what counts as its construction. A construction of $A \wedge B$ supplies constructions of both; one of $A \vee B$ selects and constructs one alternative; one of $A \to B$ transforms any construction of $A$ into one of $B$; one of $\exists x\,A(x)$ supplies a witness $a$ and a construction of $A(a)$; and one of $\forall x\,A(x)$ supplies a method that constructs $A(a)$ for any given $a$.
+              Let $\mathcal{PC}$ denote the class of partial computable functions. For every nontrivial extensional property $S$,
             </p>
-            <p>
-              Absurdity $\bot$ admits no construction, and $\neg A$ abbreviates $A \to \bot$.
+            <p style="text-align: center;">
+              $$
+                \varnothing \subsetneq S \subsetneq \mathcal{PC}\quad\Longrightarrow\quad\{e : \varphi_e \in S\}\text{ is undecidable}.
+              $$
             </p>
           </div>
           <p>
-            If Mackie is correct, no objective moral property can serve as a positive witness for his theory. Any such property would refute the theory. However, the property’s nonappearance does not provide a construction of its nonexistence. <span class="sc">Error Theory</span> is therefore asymmetrical. A <span class="sc">Queer Object</span> could prove Mackie wrong, but no corresponding object could prove him right. This absence becomes theoretically active because it withholds the object that could close the diagnosis.
+            The theorem does not make membership in $S$ meaningless, nor does it make every instance unknowable. Restricted classes may be decidable, individual cases may admit proofs, and some properties may be semidecidable. It also does not establish Mackie’s metaphysical conclusion. It identifies a narrower machine-level analogue of the queer faculty: a total, uniformly correct procedure for detecting a nontrivial semantic property of arbitrary programs.
+          </p>
+          <div class="mathjaxlike">
+            <p style="text-align: center;">THE REFLEXICA MOMENT</p>
+            <p>
+              When a domain can represent a proposed total semantic authority, that authority becomes one of the objects its claim must cover. The relevant self-application can then turn the claim into a countercase. The obstruction is operationally active: the attempt to certify closure reproduces the absence it was meant to overcome. REFLEXICA occurs when this internal limit is promoted to an external fact.
+            </p>
+            <p>
+              The moment has a second face, which concerns reflection itself; Section 3.3 takes it up.
+            </p>
+          </div>
+          <p>
+            Now assume that a mind is computational. If one of its semantic tasks decides a nontrivial extensional property of arbitrary partial computable functions—or a problem to which the corresponding index set reduces—Rice’s limit applies to the mind’s procedure. Where the domain supports the required self-application, a proposed universal faculty becomes available to the construction that defeats its claim to totality. In this precise sense, the proposition becomes actively diagonal: its demand for closure generates the countercase that prevents closure.
           </p>
           <p>
-            The <span class="sc">Halting Predicate</span> shows the same pattern <a href="#reference-turing">[Turing, 1937]</a>. When a computation halts, its completed run provides a finite, positive witness. If the computation continues, no finite stage proves that it will never halt. The computation may still halt after any unfinished stage. Thus, the local procedure does not establish non-halting in the same way that it establishes halting. Non-halting remains an open-ended claim whose closure requires evidence beyond the run itself.
+            The mind may nevertheless make intelligible and correct local judgments. <span class="sc">Reflexica</span> begins when the mind redescribes the limit of its own procedure as an external semantic barrier, or treats its locally successful outputs as facts drawn from a completed semantic totality. The error lies not in every judgment, but in the global authority attributed to the practice that produces them.
+          </p>
+          <p>
+            Mackie’s case retains a different asymmetry. If an objective moral property were produced, it would refute rather than confirm his <span class="sc">Error Theory</span>. Yet the property’s nonappearance does not construct its nonexistence: producing the property would suffice to refute the theory, but its absence does not establish the theory. Formally, by <span class="sc">bhk</span>, a construction of $\neg A$ must transform any construction of $A$ into $\bot$ <a href="#reference-troelstra-van-dalen">[Troelstra and van Dalen, 1988]</a>. Mackie’s absent object and Rice’s absent decider therefore meet at the level of unavailable warrant, not shared ontology.
+          </p>
+          <p>
+            The <span class="sc">Halting Predicate</span> provides a special computational case with a similar evidential asymmetry <a href="#reference-turing">[Turing, 1937]</a>. A completed run supplies a finite witness that a computation <i>halts</i>, no unfinished stage of the same run establishes that it <i>never halts,</i> since it may <i>halt</i> later. <i>Non-halting</i> therefore requires evidence beyond the run itself. This one-sided witness structure illustrates the pattern, but it should not be attributed to every property.
           </p>
           <div class="mathjaxlike">
             <p style="text-align: center;">HALTING</p>
             <p>
-              Given a <span class="sc">Turing Machine</span> $M$ and an input $x$, $M$ <i>halts on</i> $x$ if its computation reaches a halting configuration after finitely many transition steps. We write $M(x)\downarrow$.
+              Given a <span class="uppercase">Turing Machine</span> $M$ and an input $x$, $M$ <i>halts on</i> $x$ if its computation reaches a halting configuration after finitely many transition steps. We write $M(x)\downarrow$.
             </p>
           </div>
           <p>
-            The following sections test whether the same passage recurs under more exact conditions. Similar patterns in other phenomenological discussions suggest that it extends beyond metaethics.
+            <span class="sc">Rice’s Theorem</span> is therefore not Mackie’s <span class="sc">Error Theory</span>. Their failed correspondence is the diagnostic point. Rice exposes the mechanism by which total internal semantic authority fails; Mackie shows the form assumed when such a failure is projected outward as a fact about reality. Under computational assumptions, a mind encounters Mackie’s form whenever it mistakes the limits of its semantic procedures for the limits of the semantic domain. The following sections test this passage under more exact conditions.
           </p>
-          <h3 id="newcombs-problem">3.2 <span class="sc">Newcomb’s Problem</span> as a case</h3>
+          <h3 id="newcombs-problem">3.2 <span class="sc">Newcomb’s Problem</span> as a Case</h3>
           <p>
             We now examine a more structured case: <span class="sc">Newcomb’s Problem</span> <a href="#reference-nozick">[Nozick, 1969]</a>.
           </p>
@@ -471,11 +503,11 @@ og_description: "An introduction and program of formal logic."
             <span class="sc">Newcomb’s Problem</span> thus models the wider promotion that <span class="sc">Reflexica</span> tracks. The ordinary experiment assumes success for one agent under one information structure. Oraclehood appears when this local success becomes knowledge of every deliberation, including deliberation about the predictor. The prediction then becomes part of the process that it predicts. The evaluator must then close its domain under its own evaluation.
           </p>
           <p>
-            A so called “stochastic predictor” avoids contradiction because it does not claim total correctness. Its reliability and the resulting payoffs remain well-defined within a fixed model. The diagonal case sets the boundary. Local predictive success cannot cross this boundary and become a total evaluator for predictor-sensitive agents.
+            A so-called “stochastic predictor” avoids contradiction because it does not claim total correctness. Its reliability and the resulting payoffs remain well-defined within a fixed model. The diagonal case sets the boundary. Local predictive success cannot cross this boundary and become a total evaluator for predictor-sensitive agents.
           </p>
-          <h3 id="diagonalization-diagnosis">3.3 <span class="sc">Diagonalization</span> and Diagnosis</h3>
+          <h3 id="diagonalization-diagnosis">3.3 Diagonalization and Diagnosis</h3>
           <p>
-            <span class="sc">Diagonalization</span> can give the preceding case an exact form. An evaluator receives a description whose behavior depends on that evaluation. <span class="sc">Incompleteness</span> provides the canonical formal case <a href="#reference-godel">[Gödel, 1931]</a>. Here, it does not provide a master theorem for <span class="sc">Reflexica</span>. Instead, it isolates a case that clearly separates a formal result from its semantic interpretation.
+            Diagonalization can give the preceding case an exact form. An evaluator receives a description whose behavior depends on that evaluation. <span class="sc">Incompleteness</span> provides the canonical formal case <a href="#reference-godel">[Gödel, 1931]</a>. Here, it does not provide a master theorem for <span class="sc">Reflexica</span>. Instead, it isolates a case that clearly separates a formal result from its semantic interpretation.
           </p>
           <p>
             A broadly constructive or antirealist reading ties each mathematical assertion to a construction or another admissible warrant <a href="#reference-heyting-intuitionistische-grundlegung">[Heyting, 1931]</a> <a href="#reference-kleene-realizability">[Kleene, 1945]</a> <a href="#reference-dummett-philosophical-basis">[Dummett, 1975]</a>. By contrast, a realist reading treats arithmetic truth as determinate independently of proof <a href="#reference-dummett-truth">[Dummett, 2001]</a> <a href="#reference-frege-thought">[Frege, 1918]</a>. Both readings accept the formal construction. They disagree about what permits them to read its sentence as true of a completed domain.
@@ -484,7 +516,7 @@ og_description: "An introduction and program of formal logic."
             For a sufficiently strong, effectively axiomatized theory $\mathrm{T}$, the <span class="sc">Diagonal Lemma</span> yields a sentence $\mathsf{G}_{\mathrm{T}}$ <a href="#reference-boolos-burgess-jeffrey">[Boolos et al., 2007]</a>. The required formal core is compact:
           </p>
           <div class="mathjaxlike">
-            <p style="text-align: center;">DIAGONAL LEMMA AND DIAGONAL ARGUMENT</p>
+            <p style="text-align: center;">CARNAP'S DIAGONAL LEMMA AND GÖDEL'S DIAGONAL ARGUMENT</p>
             <p>
               $$
                 \begin{array}{lll}
@@ -510,23 +542,41 @@ og_description: "An introduction and program of formal logic."
             $\Downarrow$<br>
             Every available warrant is interpreted within the dispute<br>
             $\Downarrow$<br>
-            A neutral $Q$ would constitute a <span class="uppercase">Queer Object</span>
+            A neutral or natural $Q$ would constitute a <span class="uppercase">Queer Object</span>
           </div>
           <p>
-            This is the specific contribution of <span class="sc">Reflexica</span>. In the Gödel case, $\mathrm{T}$ proves the fixed-point equivalence. The metatheory proves a conditional non-derivability result, and stronger theories can supply more warrants. Promotion occurs when a neutral standpoint treats this extensible sequence as the completed semantic authority of <span class="sc">Arithmetic Truth</span>. A <span class="sc">Reflection Principle</span> can extend provability, but its productivity does not certify one correct interpretation of proof <a href="#reference-feferman-transfinite-progressions">[Feferman, 1962]</a>. The diagnostic concerns this promotion, not the limit theorem alone.
+            This is a specific contribution of <span class="sc">Reflexica</span>. In the Gödel case, $\mathrm{T}$ proves the fixed-point equivalence. The metatheory proves a conditional non-derivability result, and stronger theories can supply more warrants. Promotion occurs when a neutral standpoint treats this extensible sequence as the completed semantic authority of arithmetic truth. A <span class="sc">Reflection Principle</span> can extend provability, but its productivity does not certify one correct interpretation of proof <a href="#reference-feferman-transfinite-progressions">[Feferman, 1962]</a>. The diagnostic concerns this promotion, not the limit theorem alone.
+          </p>
+          <p>
+            The promotion is hard to detect because reflection has a second face, already marked in Section 3.1 as part of the <span class="sc">Reflexica</span> moment.
+          </p>
+          <div class="mathjaxlike">
+            <p style="text-align: center;">REFLECTION AND ABSENT IMPLICATION</p>
+            <p>
+              Reflection and the absence of semantic implication behave strikingly alike. A REFLECTION PRINCIPLE asserts the passage from operation to semantic fact: what is derivable is true. By LÖB’S THEOREM, however, a theory derives this passage for $A$ only if it already derives $A$:
+            </p>
+            <p style="text-align: center;">
+              $\mathrm{T}\vdash\operatorname{Prov}_{\mathrm{T}}(\ulcorner A\urcorner)\to A\quad\Longrightarrow\quad\mathrm{T}\vdash A.$
+            </p>
+            <p>
+              Internally, reflection supplies a semantic implication only where none is needed. Where it would add content, the theory behaves exactly as if no such implication existed. Adopted from outside, reflection yields a stronger theory that meets the same absence one stage higher. From within any stage, a reflection that reaches the semantic domain and a mere absence of semantic implication have not been told apart.
+            </p>
+          </div>
+          <p>
+            <span class="sc">Reflexica</span> can point at this resemblance, which <span class="sc">Löb’s Theorem</span> makes exact <a href="#reference-lob-henkin">[Löb, 1955]</a>, but cannot resolve it. A witness that separated the two would be a passage from operation to truth that neither repeats the operation nor presupposes the semantics, which is the neutral $Q$ above, the <span class="sc">Queer Object</span>, in another form.
           </p>
           <p>
             This diagnosis does not automatically apply to other cases. Each extension must show that a locally successful procedure must certify a total domain that includes its standards of success. Each extension must also show that no witness permits the resulting closure. A resemblance to diagonalization is not sufficient.
           </p>
           <p>
-            The limit applies to both $\mathrm{T}$ and attempts to judge proof from a position outside proof. The <span class="sc">Turing Zombie</span> sharpens this problem. It can prove a diagonal limit, but applying that limit to its own operation requires a warranted connection between the active procedure and the represented system.
+            The limit applies to both $\mathrm{T}$ and attempts to judge proof from a position outside proof. Consider a <span class="sc">Turing Zombie</span> that sharpens this problem. It can prove a diagonal limit, but applying that limit to its own operation requires a warranted connection between the active procedure and the represented system.
           </p>
           <h3 id="self-reference-and-turing-zombie">3.4 The <span class="sc">Turing Zombie</span></h3>
           <p>
             An object-language derivation can formally verify a represented machine description. However, this verification does not show that the represented machine actively performs the verification. Semantic or metatheoretic rules establish this link. A check of the representation cannot recover the link because the representation already assumes it.
           </p>
           <p>
-            The program must transfer strict <span class="sc">Diagonalization</span> to less formal settings. Similar patterns appear in computation, linguistic competence, proof theory, and self-modeling. However, this similarity does not show that these domains contain one phenomenon. The narrower question is about self-description. When does self-description require a local procedure to close over the totality to which it belongs?
+            The Program must transfer strict diagonalization to less formal settings. Similar patterns appear in computation, linguistic competence, proof theory, and self-modeling. However, this similarity does not show that these domains contain one phenomenon. The narrower question is about self-description. When does self-description require a local procedure to close over the totality to which it belongs?
           </p>
           <p>
             Consider the following <span class="sc">Turing Machine</span>:
@@ -543,14 +593,14 @@ og_description: "An introduction and program of formal logic."
             At the metalevel, a Tarskian account assigns a semantic extension to the machine’s formal specification <a href="#reference-tarski-truth">[Gruber, 2016]</a>. A specific computation can show that a string belongs to $\mathcal{L}(\mathcal{M})$. The computation cannot use the language itself as another term. The metalevel defines the language as the extension of the machine’s activity as a whole.
           </p>
           <p>
-            Weaker empirical cases show the same form. When Bob asks Alice how many words she knows, she can give only an estimate. Alice must use the same competence to produce the requested inventory. A language model gives a local response to the same question, not a stored census. These cases do not establish an identity with <span class="sc">Incompleteness</span>. They show where self-description starts to require closure, but any attempt to identify the schema also meets an obstruction.
+            Weaker empirical cases show the same form. When Bob asks Alice how many words she knows, she can give only an estimate. Alice must use the same competence to produce the requested inventory. A language model gives a local response to the same question, not a stored census. These cases do not establish an identity with <span class="sc">Incompleteness</span>, but they implicitly show how self-description starts to require closure, but faces an obstruction.
           </p>
           <p>
             Consider this <span class="sc">Reflexica</span>-style refutation of a popular idea <a href="#reference-putnam-shadows-review">[Putnam, 1995]</a>:
           </p>
           <div class="mathjaxlike">
             <p style="text-align: center;">
-             LUCAS-PENROSE ARGUMENT AGAINST MECHANISM
+             LUCAS–PENROSE ARGUMENT AGAINST MECHANISM
             </p>
             <p>
               Let $\mathrm{T}$ be a formal system proposed as a model of mathematical reasoning. By a diagonal argument, there is a sentence $\mathsf{G}_{\mathrm{T}}$. The next step is that the human mathematician can nevertheless see that $\mathsf{G}_{\mathrm{T}}$ is true. If $\mathrm{T}$ captured the mathematician’s reasoning, then the mathematician would have access to a truth unavailable to the system alleged to model her. Hence, mind exceeds mechanism.
@@ -563,10 +613,10 @@ og_description: "An introduction and program of formal logic."
             Putnam’s objection addresses the argument’s validity, but it explains only part of the argument’s phenomenological force. The subject does not usually experience herself as assuming soundness before she infers that $\mathsf{G}_{\mathrm{T}}$ is true. Instead, she experiences herself as directly seeing that $\mathsf{G}_{\mathrm{T}}$ is true. Putnam identifies the missing premise but does not explain why this experience feels immediate.
           </p>
           <p>
-            <span class="sc">Ordinal Analysis</span> reconstructs this immediacy as an open-ended proof-theoretic progression <a href="#reference-feferman-transfinite-progressions">[Feferman, 1962]</a>. When a theory reaches its limit, reflection permits theorists to adopt a stronger standpoint. This standpoint makes additional truths available. The progression supplies increasingly strong warrants while it preserves internal discipline.
+            Ordinal analysis reconstructs this immediacy as an open-ended proof-theoretic progression <a href="#reference-feferman-transfinite-progressions">[Feferman, 1962]</a>. When a theory reaches its limit, reflection permits theorists to adopt a stronger standpoint. This standpoint makes additional truths available. The progression supplies increasingly strong warrants while it preserves internal discipline.
           </p>
           <p>
-            <span class="sc">Provability Logic</span> describes principles for one provability predicate. <span class="sc">Polymodal Provability Logics</span> such as $\mathrm{GLP}$ arrange provability across indexed modalities. In Beklemishev’s analysis, these systems organize iterated <span class="sc">Reflection Principles</span> and proof-theoretic ordinal progressions <a href="#reference-beklemishev-provability-algebras">[Beklemishev, 2004]</a>. <span class="sc">Turing’s Ordinal Logics</span> use an earlier version of this strategy <a href="#reference-turing-ordinal-logics">[Turing, 1939]</a>. When a formal system reaches a consistency or completeness limit, this strategy creates a transfinite sequence of stronger systems. For <span class="sc">Reflexica</span>, this tower of explicit standpoints replaces the internal closure of the original system.
+            Provability logic describes principles for one provability predicate. Polymodal provability logics such as $\mathrm{GLP}$ arrange provability across indexed modalities. In Beklemishev’s analysis, these systems organize iterated <span class="sc">Reflection Principles</span> and proof-theoretic ordinal progressions <a href="#reference-beklemishev-provability-algebras">[Beklemishev, 2004]</a>. <span class="sc">Turing’s Ordinal Logics</span> use an earlier version of this strategy <a href="#reference-turing-ordinal-logics">[Turing, 1939]</a>. When a formal system reaches a consistency or completeness limit, this strategy creates a transfinite sequence of stronger systems. For <span class="sc">Reflexica</span>, this tower of explicit standpoints replaces the internal closure of the original system.
           </p>
           <p>
             The key <span class="sc">Reflexica</span> question asks whether this progression is identical with the truth that the subject experiences herself as seeing. No neutral standpoint certifies this identity. Anyone who treats the progression as the semantic content of $\mathsf{G}_{\mathrm{T}}$ assumes the authority that the progression must justify. This assumption promotes an extensible sequence of reflected standpoints to a completed semantic object. The progression can produce stronger warrants for $\mathsf{G}_{\mathrm{T}}$. However, no warrant identifies it with the truth that the subject experiences herself as seeing.
@@ -593,7 +643,7 @@ og_description: "An introduction and program of formal logic."
             Our interpretation differs from Carlson’s account of Reinhardt’s <span class="sc">Strong Mechanistic Thesis</span> <a href="#reference-carlson-strong-mechanistic-thesis">[Carlson, 2000]</a>. The relation $\mathrm{T}\models\mathrm{SMT}$ does not imply $\mathrm{T}\models K\,\operatorname{TM}(\mathsf{self})$. No symbol in <span class="sc">SMT</span> binds a machine index to the knower $\mathrm{T}$. We reserve a full analysis of this objection for future work.
           </p>
           <p>
-            <span class="sc">Untyped Lambda Calculus</span> shows this distinction directly. Here, <em>identification</em> means operational self-application. It does not mean that a system attaches a predicate to code. It also does not mean that an external source assigns the intended referent to a distinguished constant.
+            Untyped languages often show this distinction directly. Here, <em>identification</em> means operational self-application, not the fact that a system attaches a predicate to code. It also does not mean that an external source assigns the intended referent to a distinguished constant.
           </p>
           <div class="mathjaxlike">
             <p style="text-align: center;">DIAGONAL SELF-APPLICATION</p>
@@ -612,16 +662,13 @@ og_description: "An introduction and program of formal logic."
             </p>
           </div>
           <p>
-            The sentence “I am a <span class="sc">Turing Machine</span>” adds an operational binding claim to the self-assertion. It does not claim total correctness. A reproduced index or a primitive $\mathsf{self}$ rule from the metatheory cannot establish this binding. Such a rule only returns the binding that the metatheory supplied. If an external source supplies the binding, the system can have restricted correct self-knowledge. The diagonal limit applies only when the active evaluator claims total correctness for a domain that contains its anti-diagonal product $d(h)$.
-          </p>
-          <p>
-            The <span class="sc">Turing Zombie</span> can apply diagonalization to other machines. Applying the result to its own operation requires the warranted connection at issue; the external proof alone does not establish it.
+            The sentence “I am a <span class="sc">Turing Machine</span>” adds an operational binding claim to the self-assertion. It does not claim total correctness. A reproduced index or a primitive $\mathsf{self}$ rule from the metatheory cannot establish this binding. Such a rule only returns the binding that the metatheory supplied. If an external source supplies the binding, the system can have restricted correct self-knowledge, but from a vantage point, a <span class="sc">Turing Zombie</span> can apply to other machines exactly what it cannot apply to itself.
           </p>
           <p>
             A large language model makes this construction concrete. A <span class="sc">Turing Machine</span> can implement the model and equip it to form, check, and defend a judgment token <a href="#reference-brown-language-models">[Brown et al., 2020]</a>. The token can state whether a mechanistic system recognizes its limits, and it can use a first-person label. The problem is not fluent output, because even a consistent token establishes only what its calculus and operational interpretation permit. An external machine label assumes the first-person binding, but no witness connects this case to the diagonal construction. The construction shows that total correctness over a diagonally closed domain is inconsistent.
           </p>
           <p>
-            When we ask the LLM, it does not identify itself with a specific realization:
+            When asked, a language model does not identify itself with a specific realization. Its answer is offered as an illustration of the structure, not as evidence for it:
           </p>
           <div class="mathjaxlike">
             <p>
@@ -635,81 +682,42 @@ og_description: "An introduction and program of formal logic."
             </p>
           </div>
           <p>
-            <span class="sc">Reflexica</span> therefore reduces the intended <span class="sc">Lucas-Penrose Argument</span> to a survivorship bias. A system can correctly analyze an external formal object from a stronger standpoint. Similarly, the <span class="sc">Turing Zombie</span> proves a diagonal limit for an external candidate decider. Applying this result to its own operation requires a warranted connection to that represented system. If $\mathrm{T}$ performs the reasoning, it needs a soundness assumption to infer truth from non-provability. $\mathrm{T}$ cannot produce this assumption internally without a stronger standpoint.
+            <span class="sc">Reflexica</span> therefore reduces the intended <span class="sc">Lucas–Penrose Argument</span> to a survivorship bias. A system can correctly analyze an external formal object from a stronger standpoint, as the <span class="sc">Turing Zombie</span> proves a diagonal limit for an external candidate decider, but applying this result to its own operation requires a warranted connection to that represented system. If $\mathrm{T}$ performs the reasoning, it needs a soundness assumption to infer truth from non-provability. $\mathrm{T}$ cannot produce this assumption.
           </p>
           <p>
-            A claim that no confident report of Gödelian self-insight ever shows genuine self-application would make another totalizing inference. The remaining question is narrower. Consider a system that reports Gödelian self-insight with stable confidence. Has any witnessed procedure distinguished genuine self-application from the external diagonal proof available to a <span class="sc">Turing Zombie</span>? At present, no procedure has done so. Such a procedure would be the <span class="sc">Queer Object</span>.
-          </p>
-          <h3 id="goldbach-busy-beaver">3.5 Escape by Totalization</h3>
-          <p>
-            Let $G$ denote <span class="sc">Goldbach’s Conjecture</span>. Let $C(m)$ be a decidable predicate. It holds when $m$ is even, exceeds $2$, and is not the sum of two primes. A <span class="sc">Turing Machine</span> $\mathcal{G}$ tests even integers in sequence and halts at the first $m$ for which $C(m)$ holds. Examples include Yedidia and Aaronson’s 4,888-state machine <a href="#reference-yedidia-aaronson">[Yedidia and Aaronson, 2016]</a> and Leng’s 25-state machine, which Lean 4 verifies <a href="#reference-goldbach-tm25">[Leng, 2025]</a>. The exact count depends on the machine convention, but the argument requires only one fixed finite encoding.
-          </p>
-          <div class="mathjaxwrap">
-            $$
-              \mathcal{G}\mathord{\downarrow}\iff \exists m\,C(m)\iff \neg G\; [\Sigma^0_1],\quad\mathcal{G}\mathord{\uparrow}\iff \forall m\,\neg C(m)\iff G\; [\Pi^0_1].
-            $$
-          </div>
-          <p>
-            The two outcomes differ operationally. If Goldbach is false, a finite computation eventually finds a counterexample. If Goldbach is true, no finite search segment can show that all counterexamples are absent.
+            Ironically, the claim that no confident report of Gödelian self-insight ever shows genuine self-application would make another totalizing inference. The remaining question is narrow: Consider a system that reports Gödelian self-insight with stable confidence. Has any witnessed procedure distinguished genuine self-application from the external diagonal proof available to a <span class="sc">Turing Zombie</span>? At present, no procedure has done so. Such a procedure would be the <span class="sc">Queer Object</span>.
           </p>
           <p>
-            <span class="sc">Busy Beaver</span> seems to supply the missing bound <a href="#reference-rado">[Radó, 1962]</a>:
+            <span class="sc">Busy Beaver</span> provides a precise example of totalization as an attempted escape <a href="#reference-rado">[Radó, 1962]</a>. For any fixed number of states and machine convention, there is a determinate maximum number $S(n)$ of steps taken by an $n$-state machine that eventually halts. If that bound were available, it would decide the behavior of every machine in the finite class. Yet the existence of $S(n)$ supplies neither its value nor a certificate of that value, and no uniform procedure computes it. Totalization therefore converts unavailable semantic closure into a completed object and invites us to mistake the object’s determinacy for an available warrant. The obstruction has not disappeared; it has been given a name.
           </p>
-          <div class="mathjaxlike">
-            <p style="text-align: center;">BUSY BEAVER</p>
-            <p>
-              Fix a one-tape, two-symbol, blank-input machine convention. Let $\mathcal{B}_n$ be its finite class of $n$-state machines, and let $S(n)$ be the greatest number of steps taken by any member of $\mathcal{B}_n$ that eventually halts. If $\mathcal{G}$ has $n$ states under that same convention and $S(n)$ is known, then running $\mathcal{G}$ for $S(n)$ steps decides Goldbach: failure to halt by that bound entails that it never halts.
-            </p>
-          </div>
-          <p>
-            The inference is valid, but the bound does not provide an independent solution. Let $T(x,k)$ state that $x$ halts after exactly $k$ steps. To certify an exact value, a proof must establish two facts. It must identify a machine that attains the bound. It must also establish an upper bound for every halting machine in the class:
-          </p>
-          <div class="mathjaxwrap">
-            $$
-              S(n)=s\iff\bigl(\exists x\in\mathcal{B}_n\,T(x,s)\bigr)\;\wedge\;\bigl(\forall x\in\mathcal{B}_n\,\forall k\,(T(x,k)\rightarrow k\le s)\bigr).
-            $$
-          </div>
-          <p>
-            The class $\mathcal{B}_n$ is syntactically finite, but its finite description does not provide this semantic upper bound. The function $S$ is not computable because no uniform procedure produces $S(n)$ from $n$. Researchers can still determine some specific values. The result does not show that researchers can never determine $S(25)$. An appeal to $S(n)$ therefore does not provide a general method of closure. A proof of the required value must still do the work that <span class="sc">Busy Beaver</span> seemed to avoid.
-          </p>
-          <p>
-            <span class="sc">Busy Beaver</span> therefore does not remove the original asymmetry. Instead, it packages enough halting semantics to appear to remove the asymmetry. We assign $S(n)$ a definite integer, but this fact supplies neither the integer nor a proof of its value. For <span class="sc">Reflexica</span>, the completed bound permits closure only after a proof warrants the bound.
-          </p>
-          <h3 id="hole-proliferation">3.6 Hole Proliferation</h3>
+          <h3 id="compression">3.5 Compression</h3>
           <p>
             Consider the following allegory:
           </p>
           <div class="mathjaxlike">
             <p style="text-align: center;">THE SPIDER IN THE TUBE</p>
             <p>
-              A spider weaves a web across the open end of a hollow pipe. It progresses by attaching strands to selected points along the pipe’s rim. The first strands make a substantial difference by establishing orientation and creating a usable local structure. As the spider continues, the web becomes denser and its control of the nearby region increases. The process has notable features...
+              A spider weaves a web across the open end of a hollow pipe. Each strand attaches to the rim or to the existing web, gradually producing a denser and more stable structure.
             </p>
             <p>
-              First, the marginal difference made by each additional strand tends to diminish. Later strands refine an already intricate structure. They may improve stability or resolution, but the improvement becomes increasingly incremental and, from a sufficiently distant perspective, almost negligible.
+              First, each additional strand improves local coverage, although its marginal contribution may diminish as the web becomes denser.
             </p>
             <p>
-              Second, the exact attachment points are not uniquely determined. The spider could have anchored a strand slightly to the left or right and still produced an operationally adequate web. Many distinct networks can support similar movement and represent the same surrounding tube. The individual points of fixation are therefore partly contingent, even where the resulting structure is highly constrained.
+              Second, the attachment points are not uniquely determined. Different configurations can provide comparable support, and each new strand depends on the structure already established.
             </p>
             <p>
-              Third, the web represents genuine progress and remains useful; nevertheless, no finite arrangement of strands will ever cover the opening completely, and no particular configuration is forced as its uniquely correct articulation. Each extension is made from within the existing web, using the positions and tensions established by earlier extensions.
+              Third, every strand crossing an existing opening divides it into smaller openings. The web becomes increasingly intricate without ever forming a continuous surface.
             </p>
             <p>
-              Fourth, the spider cannot access an external standpoint from which the completed relation between web and tube can be surveyed without remainder. There is no point at which the spider can call its project finished.
-            </p>
-            <p>
-              Fifth, every strand drawn across a single existing opening divides it, replacing one hole with two.
-            </p>
-            <p>
-              The attempt to eliminate the openings therefore proliferates them. Filling even the smallest open region would require a qualitatively different operation: the spider would have to lay down a surface rather than another strand. No spider, biological or artificial, can solve the problem by webbing alone.
+              The spider can only hope for local progress without global closure. The web can grow indefinitely, but webbing will never provide a uniform surface.
             </p>
           </div>
           <p>
-            The oldest mathematical problems show this pattern. Incommensurable magnitudes, the exhaustion of the circle, the <span class="sc">Continuum</span>, and the solution of equations repeatedly exceeded the available operations. Mathematics advanced by continuing those operations and by changing the semantic regime in which mathematicians understood the results. An extensible approximation became a limit. An incommensurable magnitude became a real number. An unsolved construction became an object within a stronger theory.
+            The oldest mathematical progress shows this pattern. Incommensurable magnitudes, exhaustion of the circle, the continuum, and the solution of equations repeatedly exceeded the available operations, as extensible approximation became a limit, such that incommensurable magnitudes became reals, something became an object within a stronger theory.
           </p>
           <p>
-            The intellectual and scientific culture of the mid-2020s shows expanding realist local control without corresponding global closure. The web is denser, its strands are stronger, and researchers map its local regions with unprecedented precision. At the same time, the number of openings has increased. This pattern is not a delay before a final theory. Instead, it shows the form of reflective inquiry. When a problem includes its own standards of closure, each successful closure becomes another object within the problem.
+            The intellectual and scientific culture of the mid-2020s shows expanding realist local control without corresponding global closure. The web is denser, its strands are stronger, and researchers map its local regions with unprecedented precision. At the same time, the number of openings has increased. When a problem includes its own standards of closure, each successful closure becomes another object within the problem.
           </p>
-          <h3 id="the-talking-machine">3.7 The Talking Machine</h3>
           <p>
             When the web supports almost every available operation, it becomes difficult to distinguish the web from a surface. This distinction is the missing center of the argument. However, a dense web does not become a surface:
           </p>
@@ -723,7 +731,7 @@ og_description: "An introduction and program of formal logic."
             $$
           </div>
           <p>
-            Classical mathematics performs the middle transition on a large scale. It compresses operationally different conditions into stable extensional objects and propositions. For an unresolved proposition $P$, <span class="sc">Excluded Middle</span> supplies $P\lor\neg P$ before a procedure determines the applicable branch. The proposition closes the partition semantically, but invoking excluded middle does not itself supply an operational selector.
+            Classical mathematics performs the middle transition on a large scale. It compresses operationally different conditions into stable extensional objects and propositions. For an unresolved proposition $P$, <span class="sc">Excluded Middle</span> supplies $P\lor\neg P$ before a procedure determines the applicable branch. The proposition closes the partition semantically, but invoking <span class="sc">Excluded Middle</span> does not itself supply an operational selector.
           </p>
           <div class="mathjaxwrap">
             $$
@@ -750,23 +758,7 @@ og_description: "An introduction and program of formal logic."
             </p>
           </div>
           <p>
-            The thesis applies to rules that mathematicians and machines can use effectively. A rule can cover an infinite domain, while each available application has a recursive presentation. Proof checking, evaluation, normalization, and witness extraction recover the local operations under the classical form. These processes expose the finite inscriptions and transitions that make the form productive.
-          </p>
-          <p>
-            Kolmogorov’s earlier <span class="sc">Calculus of Problems</span> gave intuitionistic propositional logic an operational interpretation <a href="#reference-kolmogorov-intuitionistic-logic">[Kolmogorov, 1932]</a> <a href="#reference-rodin-calculus-problems">[Rodin, 2023]</a>. The calculus interprets each formula as a problem. A disjunction requires a solution to one component problem. An implication requires a method that transforms each solution of the antecedent problem into a solution of the consequent problem. The calculus does not start with an independently settled domain of propositional facts. It starts with possible operations.
-          </p>
-          <div class="mathjaxwrap">
-            $$
-              \text{classical semantic form}
-              \longrightarrow
-              \text{effective local realization}.
-            $$
-          </div>
-          <p>
-            The machine uses the compressed form. It applies effective rules to inscriptions and restores operational data when execution requires the data. It does not need the completed domain as an internal object. Successful operation within the compressed form does not give the machine a standpoint over the completed domain. Recursive realization explains how the practice functions without deciding the ontological status of the compressed form.
-          </p>
-          <p>
-            A completed object is fictional to the extent that its completed existence exceeds the construction that makes it operationally available:
+            The thesis applies to rules that mathematicians and machines can use effectively, but it is painfully close to saying that a completed object is fictional to the extent that its completed existence exceeds the construction that makes it operationally available:
           </p>
           <div class="mathjaxwrap">
             $$
@@ -793,7 +785,7 @@ og_description: "An introduction and program of formal logic."
             </p>
           </div>
           <p>
-             The premise establishes platonic ideals within a successful representation. The conclusion treats this role as evidence for the ontology that the representation describes. Productivity then becomes authority.
+            The premise establishes Platonic ideals within a successful representation. The conclusion treats this role as evidence for the ontology that the representation describes. Productivity then becomes authority.
           </p>
           <div class="mathjaxwrap">
             $$
@@ -803,6 +795,7 @@ og_description: "An introduction and program of formal logic."
               \end{aligned}
             $$
           </div>
+          <h3 id="the-talking-machine">3.6 The Talking Machine</h3>
           <p>
             The trained machine intensifies this separation. An effective process implements a language model. During training, finite operations change finitely represented parameters. During inference, finite operations transform a finite input into a finite output <a href="#reference-brown-language-models">[Brown et al., 2020]</a>. Scale, stochasticity, and interaction complicate the process but do not place it outside recursive realization.
           </p>
@@ -841,7 +834,7 @@ og_description: "An introduction and program of formal logic."
             $$
           </div>
           <p>
-            An algorithmically random string is incompressible. No substantially shorter program produces it under the selected description method. This account makes randomness a relation among an object, a program, and a reference machine. It does not treat randomness as an independent stochastic source. The invariance theorem controls a change of reference machine only up to an additive machine-dependent constant. Exact Kolmogorov complexity is not computable, so the constructive reformulation exposes its boundary instead of removing it.
+            An algorithmically random string is incompressible. No substantially shorter program produces it under the selected description method. This account makes randomness a relation among an object, a program, and a reference machine. It does not treat randomness as an independent stochastic source. The <span class="sc">Invariance Theorem</span> controls a change of reference machine only up to an additive machine-dependent constant. Exact <span class="sc">Kolmogorov Complexity</span> is not computable, so the constructive reformulation exposes its boundary instead of removing it.
           </p>
           <div class="mathjaxwrap">
             $$
@@ -925,7 +918,7 @@ og_description: "An introduction and program of formal logic."
             The machine’s discourse does not witness a standpoint over the semantic totalities that it invokes. Instead, the discourse shows that recursive compression can produce the appearance and practical effects of such a standpoint. The machine uses finite inscriptions and effective transitions. Its output still presents stable objects, meanings, and perspectives as if their semantic field were already complete.
           </p>
           <p>
-              A recursively realized machine can show semantic productivity without a witness of total semantic authority.
+            A recursively realized machine can show semantic productivity without a witness of total semantic authority.
           </p>
           <div class="mathjaxwrap">
             $$
@@ -976,10 +969,10 @@ og_description: "An introduction and program of formal logic."
             $$
           </div>
           <p>
-            No independent semantic source enters the sequence. The successful operations produce the appearance of such a source. This effect explains why semantic promotion is difficult to resist. The <span class="sc">Intuitionistic Razor</span> restricts this promotion:
+            No independent semantic source enters the sequence. The successful operations produce the appearance of such a source. This effect explains why semantic promotion is difficult to resist. The following restricts this promotion:
           </p>
           <div class="mathjaxlike">
-            <p style="text-align: center;">INTUITIONISTIC RAZOR II.</p>
+            <p style="text-align: center;">Razor:</p>
             <p>
               A semantic interpretation gains no authority by being compressed into a classical proposition, assigned a probability, or redescribed as randomness. Where its effect is recursively realized, infer the realized operation. Any further semantic authority requires a witness not already contained in the totalization.
             </p>
@@ -987,8 +980,9 @@ og_description: "An introduction and program of formal logic."
           <p>
             The principle is intuitionistic because it binds the claim’s licensed semantic content to the construction that witnesses it. It is a razor because it cuts the surplus passage from a productive representation rule to a completed structure. The principle does not refute the structure. It denies that productivity supplies a witness for the structure.
           </p>
+          <h3 id="recurrence-not-identity">3.7 Recurrence Is Not Identity</h3>
           <p>
-            The <span class="sc">Razor</span> applies to <span class="sc">Reflexica</span>. The same diagnosis recurs across mathematics, computation, ethics, and self-modeling. This recurrence gives the compression operational and explanatory force. However, this success does not establish <span class="sc">Reflexica</span> as the completed structure of every case:
+            The razor applies also to <span class="sc">Reflexica</span>. The same diagnosis recurs across mathematics, computation, ethics, and self-modeling. This recurrence gives the compression operational and explanatory force. However, this success does not establish <span class="sc">Reflexica</span> as the completed structure of every case:
           </p>
           <div class="mathjaxwrap">
             $$
@@ -1004,9 +998,59 @@ og_description: "An introduction and program of formal logic."
           </p>
           <h3 id="program">4 The Program</h3>
           <p>
-            For this reason, <span class="sc">Reflexica</span> is not an ultrafinitist program. It asks when a local procedure licenses such objects without witnessing the relevant closure. The Program applies this diagnosis beyond formal mathematics, but it does not assume that the extension is valid. Before the extension supports a general limitative conclusion, the Program must satisfy its central proof obligation.
+            <span class="sc">Reflexica</span> is not an ultrafinitist restriction on formal mathematics. It concerns the further assumptions by which formal or procedural success acquires semantic authority. Before this diagnosis supports a general limitative conclusion, the Program must specify its proposed structure and satisfy its central proof obligation.
           </p>
-          <h3 id="internal-problem">4.1 The Internal Problem</h3>
+          <h3 id="reflexica-schema">4.1 The <span class="sc">Reflexica</span> Schema</h3>
+          <p>
+            The proposed structure is local cognition $\longrightarrow$ projected totality $\longrightarrow$ reflexive instability. More explicitly, $P(x)$ is locally performable $\rightsquigarrow$ $T(P)$ is globally assertible $\rightsquigarrow$ $P$ becomes entangled with its own totalization.
+          </p>
+          <div class="mathjaxlike" style="text-align: center;">
+            <p>REFLEXICA SCHEMA</p>
+            <p>
+              Let $D$ be a projected domain with locally witnessed subdomain $D_{\mathrm{loc}} \subseteq D$, let $\mathcal{W}$ be a witness space with adequacy relation $W(x,w)$, and let $\Delta \colon (D \to \mathcal{W}) \to D$ be a constructor. Write $x_F := \Delta(F)$ for the case generated relative to a proposed total witness-assignment $F$.
+            </p>
+            <div class="mathjaxwrap">
+              $$
+                \underbrace{ \forall x \in D_{\mathrm{loc}}\; \exists w \in \mathcal{W}\; W(x,w)}_{\\[0.1em]\mathrm{local\ witnessability}}
+                \quad \rightsquigarrow \quad
+                \underbrace{\exists F \colon D \to \mathcal{W}\; \forall x \in D\; W\!\left(x,F(x)\right)}_{\\[0.1em]\mathrm{projected\ totality}}
+              $$
+            </div>
+            <p>
+              Suppose, additionally, that the constructor defeats every proposed total witness-assignment at the case it generates:
+            </p>
+            <div class="mathjaxwrap">
+              $$
+                \underbrace{\forall F \colon D \to \mathcal{W}\;\neg W\!\left(\Delta(F),F\!\left(\Delta(F)\right)\right)}_{\\[0.1em]\mathrm{reflexive\ instability}}
+              $$
+            </div>
+            <p>
+              Hence,
+            </p>
+            <div class="mathjaxwrap">
+              $$
+                \forall x \in D_{\mathrm{loc}}\; \exists w \in \mathcal{W}\; W(x,w) \quad \cancel\implies \quad \exists F \colon D \to \mathcal{W}\; \forall x \in D\; W\!\left(x,F(x)\right)
+              $$
+            </div>
+          </div>
+          <p>
+            The schema does not infer failure from the absence of a known witness. Each application must specify its domain, witness relation, and class of assignments, then establish the failure condition for its constructor. The cases examined here motivate this structure; their resemblance does not prove that they instantiate it identically.
+          </p>
+          <p>
+            The schema should be distinguished from <span class="sc">Lawvere’s Fixed-Point Theorem</span> <a href="#reference-lawvere-diagonal">[Lawvere, 1969]</a>. There, reflexivity is a hypothesis:
+          </p>
+          <div class="mathjaxlike">
+            <p style="text-align: center;">
+              LAWVERE'S FIXED-POINT THEOREM
+            </p>
+            <p>
+              Given a point-surjective map $A \to B^A$, every endomap of $B$ has a fixed point.
+            </p>
+          </div>
+          <p>
+            The <span class="sc">Reflexica</span> Schema does not assume it. It asks whether a system can witness its own reflexivity, or whether reflexivity is always supplied by the metatheory that interprets the system.
+          </p>
+          <h3 id="internal-problem">4.2 The Internal Problem</h3>
           <p>
             The proposed falsifier, the <span class="sc">Queer Object</span>, must transmit truth without becoming constructive warrant. It also must not assume the realist semantics that it aims to establish. A constructive bridge transmits warrant by application. A purely semantic bridge appears to assume the disputed account of truth. The conceptual partition might exclude the falsifier by definition. After a bridge succeeds, the partition could classify it as another warrant or an assumption of realism.
           </p>
@@ -1015,7 +1059,7 @@ og_description: "An introduction and program of formal logic."
             Is the warrant/semantic-presupposition dilemma derived, or stipulated?
           </div>
           <p>
-            The constructive meaning of implication gives one branch. Let $S_x$ state that a proposed problem $x$ has a verified solution. Let $A$ be the target assertion. Let $\mathsf{CW}(P)$ mean that $P$ has constructive warrant in the relevant open-ended sense. Closure under application gives:
+            The constructive meaning of implication gives one branch. Let $S_x$ state that a proposed problem $x$ has a verified solution. Let $A$ be the target assertion. Let $\mathsf{CW}(P)$ mean that $P$ has constructive warrant in the relevant open-ended sense. Epistemic closure, as assumed in Section 2.3, gives closure under application:
           </p>
           <div class="mathjaxwrap">
             $$
@@ -1058,149 +1102,88 @@ og_description: "An introduction and program of formal logic."
             </li>
           </ul>
           <p>
-            If the Program derives the exhaustiveness claim from sufficiently weak and explicit assumptions, the claim gives <span class="sc">Reflexica</span> a strong core. If the claim depends on a prior verificationist account of assertion, <span class="sc">Reflexica</span> remains a development of that account. In that case, <span class="sc">Reflexica</span> can draw its limitative conclusions only under that account. The <a href="#falsifiability-as-stated-problem">Appendix</a> states the detailed falsifiability problem.
+            If the Program derives the exhaustiveness claim from sufficiently weak and explicit assumptions, the claim gives <span class="sc">Reflexica</span> a strong core. If the claim depends on a prior verificationist account of assertion, <span class="sc">Reflexica</span> remains a development of that account. In that case, <span class="sc">Reflexica</span> can draw its limitative conclusions only under that account. The <a href="#metalogical-falsifiability">Appendix</a> states the detailed falsifiability problem.
           </p>
           <p>
-            After the Program isolates this internal problem, it can examine cross-domain empirical cases. The task is to identify disciplined analogues of classical undecidability, witness failure, and closure obstruction. This task leads to the following question:
+            A second obligation concerns transfer across domains: under what conditions is the reflective structure preserved when its substrate changes? An advance claim of identity would turn bounded correspondences into an unwitnessed total unity. The Program must instead determine when the structure is inherited and whether its diagnosis produces results beyond redescribing familiar limits.
           </p>
-          <div class="mathjaxlike" style="text-align: center;">
-            Under what conditions is the reflective structure preserved across two or more domains?
-          </div>
-          <p>
-            An advance claim of identity would convert bounded correspondences into an unwitnessed claim of total unity. <span class="sc">Reflexica</span> aims to mark this passage. Instead, the Program can identify a frontier where formal logic, metamathematics, and self-modeling systems meet a common obstruction. No field can independently show that this obstruction is globally identical across all its cases.
-          </p>
-          <p>
-            This leaves two final questions:
-          </p>
-          <div class="mathjaxlike" style="text-align: center;">
-            Is <span class="sc">Reflexica</span> inherited?
-          </div>
-          <p>
-            The second question is:
-          </p>
-          <div class="mathjaxlike" style="text-align: center;">
-            Can <span class="sc">Reflexica</span> be productive?
-          </div>
 
-          <h3 id="purpose">5 Philosophy and Purpose</h3>
+          <h3 id="prediction-or-falsification">5 Adequacy and Falsification</h3>
           <p>
-            The preceding argument updates <span class="sc">Intuitionism</span>’s complaint. <span class="sc">Classical Realism</span> adds an attitude to <span class="sc">Classical Logic</span> that the logic does not entail. This attitude has no internal concept of an inquiry that has stalled rather than concluded.
-          </p>
-          <div class="mathjaxlike" style="text-align: center;">
-            local cognition $\longrightarrow$ projected totality $\longrightarrow$ reflexive instability
-          </div>
-          <p>
-            The sequence has this explicit form:
-          </p>
-          <div class="mathjaxlike" style="text-align: center;">
-            $P(x)$ is locally performable $\rightsquigarrow$ $T(P)$ is globally assertible $\rightsquigarrow$ $P$ becomes entangled with its own totalization.
-          </div>
-          <p>
-            The schema makes the sequence more explicit:
-          </p>
-          <div class="mathjaxlike" style="text-align: center;">
-            <p>REFLEXICA SCHEMA</p>
-            <p>
-              Let $D$ be a projected domain with locally witnessed subdomain $D_{\mathrm{loc}} \subseteq D$, let $\mathcal{W}$ be a witness space with adequacy relation $W(x,w)$, and let $\Delta \colon (D \to \mathcal{W}) \to D$ be a constructor.
-            </p>
-            <p>
-              Write $x_F := \Delta(F)$ for the case generated relative to a proposed total witness-assignment $F$.
-            </p>
-            <div class="mathjaxwrap">
-              $$
-                \underbrace{ \forall x \in D_{\mathrm{loc}}\; \exists w \in \mathcal{W}\; W(x,w)}_{\\[0.1em]\mathrm{local\ witnessability}}
-                \quad \rightsquigarrow \quad
-                \underbrace{\exists F \colon D \to \mathcal{W}\; \forall x \in D\; W\!\left(x,F(x)\right)}_{\\[0.1em]\mathrm{projected\ totality}}
-              $$
-            </div>
-            <p>
-              Suppose, additionally, that the constructor defeats every proposed total witness-assignment at the case it generates:
-            </p>
-            <div class="mathjaxwrap">
-              $$
-                \underbrace{\forall F \colon D \to \mathcal{W}\;\neg W\!\left(\Delta(F),F\!\left(\Delta(F)\right)\right)}_{\\[0.1em]\mathrm{reflexive\ instability}}
-              $$
-            </div>
-            <p>
-              Each application of the schema must establish this failure condition for its specified domain, witness relation, and class of assignments.
-            </p>
-            <p>
-              Hence,
-            </p>
-            <div class="mathjaxwrap">
-              $$
-                \forall x \in D_{\mathrm{loc}}\; \exists w \in \mathcal{W}\; W(x,w) \quad \cancel\implies \quad \exists F \colon D \to \mathcal{W}\; \forall x \in D\; W\!\left(x,F(x)\right)
-              $$
-            </div>
-          </div>
-          <p>
-            We give one name to a pattern that can almost have no name. A locally witnessed procedure quietly becomes a claim about a completed domain. An obstruction appears long after this promotion. Self-modeling systems show versions of this pattern. Examples include a proof system that reflects on its consistency and a moral theory that cannot instantiate its diagnosed error. A predictor also forms a totality over agents whose choices depend on its prediction.
+            A question can be valid within a formal system without being an adequate formulation of what an inquiry seeks to settle. Validity fixes the consequences of stipulated rules. Adequacy requires a further argument: that the distinctions drawn by those rules capture the relevant possibilities, and that their formal closure deserves the semantic authority assigned to it. <span class="sc">Reflexica</span> concerns this second passage.
           </p>
           <p>
-            Without shared vocabulary, these cases appear as unrelated local problems instead of instances of one structure. <span class="sc">Reflexica</span> supplies that vocabulary and a compromise. A claim of completed closure is admissible only when its procedure witnesses that closure. A convenient assumption that the domain is settled does not supply this witness.
+            This changes the burden of proof. <span class="sc">Reflexica</span> need not establish that a valid question is meaningless, permanently insoluble, or based on a nonexistent object. Any such verdict would claim the external standpoint that the Program rejects. Instead, a proposed application must identify the local procedure, the totality projected from it, the act of semantic promotion, and the reflexive mechanism that defeats closure. The stronger interpretation remains responsible for showing why the formal division is adequate and why local success warrants authority over the completed domain.
           </p>
           <p>
-            The target is <span class="sc">Realism</span>, not a particular calculus. As Dummett describes it, <span class="sc">Realism</span> treats an unresolved case as a temporary gap over an existing fact <a href="#reference-dummett-truth">[Dummett, 2001]</a> <a href="#reference-dummett-philosophical-basis">[Dummett, 1975]</a>. This attitude licenses the promotion that <span class="sc">Reflexica</span> tracks. It converts a local absence of a witness into the global presence of a fact. This promotion occurs in logic, ethics, and claims about a machine’s self-understanding. <span class="sc">Reflexica</span> asks us to expose this promotion, not abandon <span class="sc">Classical Logic</span> or <span class="sc">Excluded Middle</span>.
+            Assume that a consistent human is a <span class="sc">Turing machine</span>. The assumption appears to dissolve the distinction between human and mechanical cognition by identifying both with recursive operation. Yet the identification changes nothing operationally. The human continues to produce judgments, descriptions, and questions about the nature of the machine.
           </p>
           <p>
-            Mathematics usually permits this promotion, except at its limits.
-          </p>
-          <p>
-            Heidegger’s claim that the sciences cannot use the <i>Nichts</i> as their object marks this boundary <a href="#reference-heidegger-what-is-metaphysics">[Heidegger, 1929]</a>. Here, logic resists the demand for closure. <span class="sc">Reflexica</span> appears as a reflection, not as an object within a domain. A system encounters this reflection when its demand for closure exceeds every witness that it can produce. Thus, a shared substrate cannot unify the cases. No system can internalize its own substrate.
-          </p>
-          <p>
-            Human intuition and construction form the only common denominator across these cases. Every human construction inherits the seam between its finite procedure and the totality that it projects. If the construction is effective, it reduces to propositional content about that procedure. A finite description or model can encode this content. This effective form makes the model susceptible to diagonalization when its domain supports self-application.
-          </p>
-          <p>
-            Here, <span class="sc">Reflexica</span> connects most directly with <span class="sc">Intuitionism</span>. No description escapes the finite thought that constructs it. <span class="sc">Reflexica</span> names this recurrence from within the same constructive limit. It does not claim an external standpoint. If it did, it would repeat the error that it identifies.
-          </p>
-          <h3 id="prediction-or-falsification">6 Prediction or Falsification</h3>
-          <p>
-            If a recursively realized AI system provided closure on reflexive semantic problems, the constructivist or antirealist restriction would probably fail. A neutral procedure would then decide these semantic totalities from within computation. <span class="sc">Constructive Logic</span> omits closure for these totalities.
-          </p>
-          <p>
-            The resulting prediction is conditional. Assume the Program derives the exhaustiveness claim and a recursive system remains within the resulting class of constructively realized bridges. That system cannot close reflexive semantic problems without producing a <span class="sc">Queer Object</span>. An independently specified neutral bridge would falsify the central claim if it met three conditions. It must transmit truth without transmitting constructive warrant or assuming realist semantics. Until the Program classifies the bridge space, this remains a research prediction under stated assumptions, not an unconditional impossibility theorem.
-          </p>
-          <p>
-            Recall <span class="sc">Rice’s Theorem</span> <a href="#reference-rice">[Rice, 1953]</a>.
+            The apparent resolution thus reconstructs the original problem. What counts as a machine? What establishes that the active procedure is identical with the formal object used to describe it? The computational assumption permits an answer within a selected formal interpretation, but does not independently certify the interpretation's authority. This is the question the <span class="sc">Turing Zombie</span> of Section 3.4 isolates; here it serves as a test of adequacy rather than as a further case.
           </p>
           <div class="mathjaxlike">
-            <p style="text-align: center;">RICE’S THEOREM</p>
             <p style="text-align: center;">
-              Let $\mathcal{PC}$ denote the class of partial computable functions.
+              SEMANTIC DISSOCIATION
             </p>
-          <div class="mathjaxwrap">
-              $$
-                \varnothing \subsetneq S \subsetneq \mathcal{PC}\quad\Longrightarrow\quad\{e : \varphi_e \in S\}
-              $$
-            </div>
-            <p style="text-align: center;">
-             is undecidable.
+            <p>
+              A sufficient structural condition for dissociation obtains when an identifying operation is itself included within the domain of its identification, while the identification preserves the relevant operations without independently establishing the semantic authority of their description. The more completely the identification incorporates the operations that evaluate its adequacy, the less its completeness can serve as independent evidence of that adequacy.
             </p>
           </div>
           <p>
-            <span class="sc">Rice’s Theorem</span> alone does not prove the <span class="sc">Reflexica</span> prediction. The demand on AI is not only a question about the extension of a partial computable function. To apply the theorem to a proposed AI task, the task must be connected to deciding a nontrivial extensional property of arbitrary partial computable functions. The description “semantic adjudication” does not by itself establish this connection.
+            The result is not a contradiction between the propositions that the human is and is not a machine. It is a failure of the inference from operational preservation to semantic exhaustion. What appeared to eliminate the distinction has instead displaced it into the relation between the operation and its description.
           </p>
           <p>
-            Consider a user who asks an AI system to find the paper that matters for a project. At first, this request appears to be an ordinary search problem. However, “matters” does not identify a fixed object in the database. Its meaning depends on the project’s changing self-interpretation. It also depends on the future direction that the inquiry should take.
+            Mere difficulty is therefore not sufficient for <span class="sc">Reflexica</span>. A genuine case must show that the demand for closure depends on a totality that includes, revises, or otherwise entangles the means by which closure is judged. This criterion separates a reflexive obstruction from an ordinary unsolved problem without pretending to decide the case in advance.
           </p>
           <p>
-            As an AI becomes more capable, it can expand this field of possible relevance. However, this expansion intensifies the problem instead of closing it. Each improvement creates a richer semantic field that requires another act of reflection. If the AI settled the question procedurally, it would decide a nontrivial semantic property of a reflexive domain. It would no longer supply only local witnesses. It would act as an oracle over the inquiry’s total semantic field.
+            We just assume by abduction, not by deduction, that a third-person system could make the missing theorem.
+          </p>
+          <div class="mathjaxlike">
+            <p style="text-align: center;">
+            Prediction:
+          </p>
+            <p>
+              As recursively implemented systems improve, they should extend mathematical competence on problems with fixed statements and independently checkable solutions. In cases designated as reflexive in advance, further competence should instead yield stronger local theorems, conditional results, barriers, and reformulations while exposing the dependence of the original criterion of closure.
+            </p>
+          </div>
+          <p>
+            The Program as a whole faces the stronger falsifier developed above: an independently specified <span class="sc">Queer Object</span> that transmits truth without transmitting constructive warrant and without assuming the realist semantics at issue.
           </p>
           <p>
-            <i>Oraclehood</i> requires a different type of capacity, not a larger value on an ordinary progress curve. A system that produces a new construction within a fixed mathematical problem still uses given standards of success. The construction can surprise us and outperform human methods, but it remains locally checkable. It does not decide the semantic totality that defines the problem, its relevance, and its closure conditions. A new matrix multiplication algorithm <a href="#reference-fawzi-alphatensor">[Fawzi et al., 2022]</a>, or an Erdős-style proof <a href="#reference-tsoukalas-ai-formal-proof-search">[Tsoukalas et al., 2026]</a>, can be an important data point. If these results only extend local competence, they follow the same axis and do not threaten the thesis.
+            These criteria preserve the distinction between a productive diagnosis and a verdict imposed in advance. Formal validity does not settle adequacy, and the failure of one route to closure does not establish that closure is impossible.
+          </p>
+
+          <h3 id="purpose">6 Philosophy and Purpose</h3>
+          <p>
+            The preceding argument updates an intuitionist complaint. Realism adds to classical logic an attitude that the logic does not entail: an unresolved case is treated as a temporary gap over an existing fact rather than as an inquiry that has stalled. <span class="sc">Reflexica</span> examines the promotion of that attitude into semantic authority; it does not reject the calculus that permits it.
           </p>
           <p>
-            <span class="sc">Reflexica</span> proposes an empirical hypothesis: where the criteria of success remain under interpretation, increases in capability tend to multiply plausible answers and revisions of those criteria, with diminishing gains in settling the original question. Testing this hypothesis requires a specified task, a measure of progress, and observations that would count against it. The formal obstruction alone does not establish this pattern.
+            The name supplies a common vocabulary for cases that would otherwise appear unrelated: a reflective proof system, a moral theory unable to instantiate its diagnosed error, or a predictor ranging over agents whose choices depend on its verdict. This vocabulary is diagnostic, not a proof of cross-domain identity. A claim of completed closure requires justification beyond the local success of the practice from which it is projected.
           </p>
           <p>
-            The <span class="sc">Reflexica</span> constraint denies this closure. A <span class="sc">Turing Machine</span> can implement a Realizer that operates recursively over articulated inputs or patterns. However, the Realizer should not possess both consistency and oraclehood over a reflexive semantic totality. The predicted stall is therefore not a halt in technical capability.
+            As Dummett describes it, realism treats an unresolved case as a gap in knowledge about a determinate fact <a href="#reference-dummett-truth">[Dummett, 2001]</a> <a href="#reference-dummett-philosophical-basis">[Dummett, 1975]</a>. The philosophical concern is not that such an interpretation is meaningless, but that formal validity or explanatory productivity does not by itself warrant it. <span class="sc">Reflexica</span> asks that this additional commitment remain visible.
           </p>
           <p>
-            Future data should show more than whether our capability increases. They should reveal whether returns flatten, alternatives multiply, or proposed answers change the closure question and fail to resolve it. If this occurs, even extraordinary mathematical discoveries will not refute the thesis. Instead, they will show that intelligence can extend inquiry with increasing force. They will also show that intelligence can still fail to close the gap between reflexivity and what lies beyond it.
+            Heidegger’s claim that the sciences cannot use the <i>Nichts</i> as their object offers one interpretation of this boundary <a href="#reference-heidegger-what-is-metaphysics">[Heidegger, 1929]</a>. On the constructive interpretation proposed here, a system encounters the boundary when its demand for closure exceeds the witnesses it can produce. Where an effective description supports self-application, diagonalization may turn that demand against a proposed total evaluator. This is a condition to establish in each case, not a universal consequence of description as such.
           </p>
           <p>
-            <span class="sc">Reflexica</span> is therefore a limitative idea.
+            <span class="sc">Reflexica</span> therefore speaks from within the constructive standpoint it employs. It does not claim that every possible description must exhibit the same limit, nor does it infer the nonexistence of semantic objects from the failure of a procedure intended to decide them, either inference would repeat the promotion under examination. Instead, <span class="sc">Reflexica</span> looks inward and finds the culprit of commonality there. This is why it is inherently <i>intuitionistic</i>.
+          </p>
+          <h3 id="conclusion">7 Conclusion</h3>
+          <p>
+            <span class="sc">Reflexica</span> investigates a recurring difficulty in the relation between effective procedures and the semantic domains they are taken to describe. A procedure may produce verifiable results within an open-ended practice without establishing the completeness of the domain over which those results are interpreted. The distinction becomes consequential when a claim of closure includes the procedures, observers, or criteria by which closure is to be established.
+          </p>
+          <p>
+            The cases examined here approach this difficulty from different directions. <span class="sc">Rice’s Theorem</span> leaves nontrivial extensional properties well defined while excluding a uniform decider for their index sets. <span class="sc">Newcomb’s Problem</span> tests prediction when an agent’s procedure may depend on the predictor’s verdict. Diagonal constructions generate cases relative to proposed total evaluators, while the <span class="sc">Turing Zombie</span> isolates the further warrant required to identify a represented procedure with a system’s active operation. These cases do not establish a common theorem. They show where a passage from local competence to global semantic authority requires independent justification.
+          </p>
+          <p>
+            The <span class="sc">Reflexica</span> schema expresses this passage through local witnessability, projected totality, and reflexive instability. Its use requires an appropriate domain, witness relation, and constructor in each application. The absence of a known witness is not sufficient: the obstruction must be established under the assumptions of the case. <span class="sc">Problem Critique</span> reconstructs those assumptions, while limitative abduction allows the diagnosis to guide inquiry without treating it as established across domains.
+          </p>
+          <p>
+            A general limitative conclusion remains conditional on the Program’s central metalogical obligation. The division between bridges that transmit constructive warrant and bridges that presuppose realist semantics has not been shown to exhaust the admissible possibilities. The <span class="sc">Queer Object</span> names the required counterinstance: a bridge independently specified as belonging to neither class. Until the bridge space is characterized and the division proved exhaustive or defeated, the schema remains a proposal whose applications must be assessed separately.
+          </p>
+          <p>
+            <span class="sc">Reflexica</span> therefore neither replaces classical reasoning with a universal constructive criterion nor infers the nonexistence of semantic objects from the failure of procedures intended to decide them. It makes explicit the additional commitments involved when effective operations are taken as evidence for completed semantic authority. Its value as a research program lies in preserving the distinction between what a practice witnesses, what its interpretation projects, and what further inquiry must establish.
           </p>
         </div>
       </div>
@@ -1284,9 +1267,6 @@ og_description: "An introduction and program of formal logic."
             <li id="reference-tarski-truth">
               M. Gruber. <i>Alfred Tarski and the "Concept of Truth in Formalized Languages": A Running Commentary with Consideration of the Polish Original and the German Translation</i>. Logic, Epistemology, and the Unity of Science. Springer, 2016. <a href="https://doi.org/10.1007/978-3-319-32616-0" target="_blank" rel="noopener noreferrer">DOI</a>.
             </li>
-            <li id="reference-bekic">
-              H. Bekić. "Definable Operations in General Algebras, and the Theory of Automata and Flowcharts." In C. B. Jones, ed., <i>Programming Languages and Their Definition: H. Bekić (1936–1982)</i>, Lecture Notes in Computer Science 177. Springer, 1984.
-            </li>
             <li id="reference-rado">
               T. Radó. "On Non-Computable Functions." <i>The Bell System Technical Journal</i> 41, no. 3 (1962): 877–884. <a href="https://doi.org/10.1002/j.1538-7305.1962.tb00480.x" target="_blank" rel="noopener noreferrer">DOI</a>.
             </li>
@@ -1296,23 +1276,17 @@ og_description: "An introduction and program of formal logic."
             <li id="reference-turing">
               A. M. Turing. "On Computable Numbers, with an Application to the Entscheidungsproblem." <i>Proceedings of the London Mathematical Society</i>, Series 2, 42 (1937): 230–265. <a href="https://doi.org/10.1112/plms/s2-42.1.230" target="_blank" rel="noopener noreferrer">DOI</a>.
             </li>
-            <li id="reference-yedidia-aaronson">
-              A. Yedidia and S. Aaronson. "A Relatively Small Turing Machine Whose Behavior Is Independent of Set Theory." arXiv:1605.04343, 2016. <a href="https://doi.org/10.48550/arXiv.1605.04343" target="_blank" rel="noopener noreferrer">DOI</a>.
-            </li>
-            <li id="reference-goldbach-tm25">
-              Y. Leng. "goldbach_tm: Goldbach Conjecture = 25-State Turing Machine." GitHub repository, 2025. <a href="https://github.com/lengyijun/goldbach_tm" target="_blank" rel="noopener noreferrer">[GitHub]</a>.
-            </li>
             <li id="reference-turing-ordinal-logics">
               A. M. Turing. "Systems of Logic Based on Ordinals." <i>Proceedings of the London Mathematical Society</i>, Series 2, 45, no. 1 (1939): 161–228.
             </li>
             <li id="reference-beklemishev-provability-algebras">
               L. D. Beklemishev. "Provability Algebras and Proof-Theoretic Ordinals, I." <i>Annals of Pure and Applied Logic</i> 128, nos. 1–3 (2004): 103–123. <a href="https://doi.org/10.1016/s0168-0072(03)00132-5" target="_blank" rel="noopener noreferrer">DOI</a>.
             </li>
+            <li id="reference-lob-henkin">
+              M. H. Löb. "Solution of a Problem of Leon Henkin." <i>The Journal of Symbolic Logic</i> 20, no. 2 (1955): 115–118. <a href="https://doi.org/10.2307/2266895" target="_blank" rel="noopener noreferrer">DOI</a>.
+            </li>
             <li id="reference-martin-lof">
               P. Martin-Löf. <i>Intuitionistic Type Theory</i>. Notes by G. Sambin of lectures given in Padua, June 1980. Studies in Proof Theory. Bibliopolis, Naples, 1984. ISBN 9788870881059. <a href="https://archive-pml.github.io/martin-lof/pdfs/Bibliopolis-Book-retypeset-1984.pdf" target="_blank" rel="noopener noreferrer">.pdf</a>.
-            </li>
-            <li id="reference-rocq-cic">
-              The Rocq Development Team. <i>The Rocq Prover Reference Manual</i>, version 9.0.1, "Typing Rules." 2025. <a href="https://rocq-prover.org/doc/v9.0/refman/language/cic.html" target="_blank" rel="noopener noreferrer">[Rocq documentation]</a>.
             </li>
             <li id="reference-beeson-informal-foundations">
               M. J. Beeson. "Informal Foundations of Constructive Mathematics." In <i>Foundations of Constructive Mathematics</i>, Ergebnisse der Mathematik und ihrer Grenzgebiete, vol. 6. Springer, Berlin, Heidelberg, 1985. <a href="https://doi.org/10.1007/978-3-642-68952-9_2" target="_blank" rel="noopener noreferrer">DOI</a>.
@@ -1344,11 +1318,8 @@ og_description: "An introduction and program of formal logic."
             <li id="reference-quine-logical-point-view">
               W. V. O. Quine. <i>From a Logical Point of View: Nine Logico-Philosophical Essays</i>. 2nd rev. ed. Harvard University Press, Cambridge, MA, 1980. <a href="https://doi.org/10.2307/j.ctv1c5cx5c" target="_blank" rel="noopener noreferrer">DOI</a>.
             </li>
-            <li id="reference-fawzi-alphatensor">
-              A. Fawzi, M. Balog, A. Huang, T. Hubert, B. Romera-Paredes, M. Barekatain, A. Novikov, F. J. R. Ruiz, J. Schrittwieser, G. Swirszcz, D. Silver, D. Hassabis, and P. Kohli. "Discovering Faster Matrix Multiplication Algorithms with Reinforcement Learning." <i>Nature</i> 610 (2022): 47–53. <a href="https://doi.org/10.1038/s41586-022-05172-4" target="_blank" rel="noopener noreferrer">DOI</a>.
-            </li>
-            <li id="reference-tsoukalas-ai-formal-proof-search">
-              G. Tsoukalas, A. Kovsharov, S. Shirobokov, A. Surina, M. Firsching, G. Bérczi, F. J. R. Ruiz, A. Suggala, A. Z. Wagner, E. Wieser, L. Yu, A. Huang, M. Z. Horváth, A. Ferraiuolo, H. Michalewski, E. Lockhart, C. Grosu, T. Hubert, M. Balog, P. Kohli, and S. Chaudhuri. "Advancing Mathematics Research with AI-Driven Formal Proof Search." arXiv:2605.22763, 2026. <a href="https://doi.org/10.48550/arXiv.2605.22763" target="_blank" rel="noopener noreferrer">DOI</a>.
+            <li id="reference-lawvere-diagonal">
+              F. W. Lawvere. "Diagonal Arguments and Cartesian Closed Categories." In <i>Category Theory, Homology Theory and their Applications II</i>, Lecture Notes in Mathematics 92, 134–145. Springer, Berlin, Heidelberg, 1969. <a href="https://doi.org/10.1007/BFb0080769" target="_blank" rel="noopener noreferrer">DOI</a>.
             </li>
           </ul>
         </div>
@@ -1358,116 +1329,88 @@ og_description: "An introduction and program of formal logic."
     <div class="grid-item d-w-9 m-w-9"><span class="nr"></span>
       <div class="grid-item-content">
         <div class="box contentbox">
-          <h2 id="metalogical-falsifiability">Appendix</h2>
-          <h3 id="falsifiability-as-stated-problem">Falsifiability as a stated problem</h3>
+          <h2 id="metalogical-falsifiability">Appendix: The Problem of Metalogical Falsifiability</h2>
           <p>
-            The <span class="sc">Problem of Metalogical Falsifiability</span> asks whether a valid falsifier can meet two conditions. It must establish its force without providing constructive warrant for its conclusion. It must not assume the realist semantics that it seeks to establish.
+            The <span class="sc">Problem of Metalogical Falsifiability</span> concerns the possibility of a result that distinguishes truth from possible constructive warrant without presupposing the semantic distinction it is intended to establish.
           </p>
           <p>
-            In simple terms, it asks what one falsifier must do to refute <span class="sc">Reflexica</span>.
+            Consider an open-ended, warrant-based antirealist position according to which an assertion of mathematical truth requires an admissible construction or other constructive warrant. A proposed refutation must establish more than the independence of a proposition from a particular formal system. It must establish that a proposition is true although no possible constructive warrant can establish it.
           </p>
-          <div class="mathjaxlike">
-            <p style="text-align: center;">METALOGICAL FALSIFIABILITY PROBLEM (DRAFT)</p>
-            <p>
-              Consider the three layers of our problem.
-            </p>
-            <ol>
-              <li>
-                <span class="uppercase">Reflexive layer.</span> If open-ended, warrant-based antirealism is correct, no result can refute it from a neutral standpoint. A constructive refutation becomes further warrant. A merely semantic refutation assumes realism.
-              </li>
-              <li>
-                <span class="uppercase">Hardness layer.</span> Choose an independently specified hard problem $x$. Ask whether a verified solution $S_x$ could force assent to a fixed arithmetical truth $A$ that has no possible constructive warrant. Such a result would falsify the antirealist thesis.
-              </li>
-              <li>
-                <span class="uppercase">Metalogical layer.</span> Could any result have this force? Its bridge from $S_x$ to $A$ must transmit truth without becoming a warrant and without presupposing the realist semantics under dispute.
-              </li>
-            </ol>
-            <p>
-              Let $\mathsf{CW}(P)$ mean that $P$ has constructive warrant in the open-ended sense at issue, rather than merely that $P$ is provable in one fixed constructive system. A candidate falsifier has the schematic form
-              $$
-                \begin{aligned}
-                  \mathsf{QO}(x,A):={}&amp;\mathsf{CW}(S_x)\wedge\mathsf{NeutralBridge}(S_x,A)\\[2ex]
-                  &amp;{}\wedge\mathbb{N}\models A\wedge\neg\mathsf{CW}(A).
-                \end{aligned}
-              $$
-              Here $\mathsf{NeutralBridge}(S_x,A)$ must license the passage from a verified solution of $x$ to the singular truth of $A$ without already assuming a realist semantics for $\mathbb{N}$ and without itself supplying a constructive warrant for $A$. The last conjunct therefore demands more than $C\nvdash A$ for some fixed system $C$: the truth of $A$ must genuinely exceed, rather than merely outrun, the procedure used to establish it.
-            </p>
-            <p>
-              The immediate obstruction is closure under application. If the solution and the bridge are constructively warranted, then
-              $$
-                \mathsf{CW}(S_x),\quad\mathsf{CW}(S_x\to A)\quad\Longrightarrow\quad\mathsf{CW}(A).
-              $$
-              Consequently,
-              $$
-                \neg\Bigl(
-                  \mathsf{CW}(S_x)\wedge\mathsf{CW}(S_x\to A)\wedge\neg\mathsf{CW}(A)
-                \Bigr).
-              $$
-              This obstruction is prior to arithmetic, <span class="uppercase">Incompleteness</span> and <span class="sc">Truth Undefinability</span>. It follows from the constructive meaning of implication as a method which transforms a warrant for its antecedent into a warrant for its consequent.
-            </p>
-            <p>
-              The bridge may instead be merely semantic:
-              $$
-                S_x\Longrightarrow\mathbb{N}\models A.
-              $$
-              It then need not transform a solution into constructive evidence for $A$. But its authority now depends upon the standard-model conception of truth whose independence from warrant is under dispute. The proposed falsifier therefore faces the dilemma<br>
-            </p>
-            <p style="text-align: center;">
-              The bridge is constructive $\Longrightarrow$ $A$ acquires constructive warrant,<br>
-              The bridge is merely semantic $\Longrightarrow$ realism is presupposed.
-            </p>
-            <p>
-              The missing <span class="uppercase">Queer Object</span> is thus not principally an unusual sentence. It is a neutral, non-warranting truth-transmitter: a bridge which escapes both branches.
-              Relative separation is coherent but insufficient. For a fixed constructive theory $C$, one may have
-              $$
-                \mathbb{N}\models A\;\land\;C\nvdash A.
-              $$
-              Diagonal sentences supply cases of this kind under the appropriate assumptions, but a constructive metatheory which establishes the two claims thereby supplies a stronger warrant. It refutes only the identification of truth with provability in $C$, not the identification of truth with possible warrant.
-            </p>
-            <p>
-              For a constructive kernel $\mathrm{T}$ interpreted in a constructive metatheory $\mathrm{M}$, let $\mathsf{norm}_{\mathrm{T}}$ be its internal global-normalization proposition and let $\mathsf{IntInh}_{\mathrm{T}}(P)$ be the type of coded $\mathrm{T}$-derivations of $P$. The relevant obligations would establish, in $\mathrm{M}$,
-              $$
-                [\![\mathsf{norm}_{\mathrm{T}}]\!]_{\mathrm{M}}\;\land\;\mathsf{IntInh}_{\mathrm{T}}(\mathsf{norm}_{\mathrm{T}})\to\bot_{\mathrm{M}},
-              $$
-              together with the adequacy of the normalization proposition. These obligations would show that $\mathrm{M}$ closes an operational question which $\mathrm{T}$ cannot close internally.
-            </p>
-            <p style="text-align: center;">
-              The question is therefore:
-            </p>
-            <div class="mathjaxwrap">
-              $$
-                  \begin{array}{c}
-                  \exists x\,\Bigl[
-                    \underbrace{\mathsf{CW}(S_x)}_{\\[0.1em]\text{verified solution}}
-                    \wedge
-                    \underbrace{\mathsf{NeutralBridge}(S_x,A)}_{\\[0.1em]\substack{\text{neither constructive warrant}\\[0.25em]\text{nor realist presupposition}}}
-                    \wedge
-                    \underbrace{\mathbb{N}\models A\wedge\neg\mathsf{CW}(A)}_{\\[0.1em]\text{truth beyond}\\[0.25em]\text{possible warrant}}
-                  \Bigr]\;?
-                  \\
-                  \end{array}
-              $$
-            </div>
+          <p>
+            Let $\mathsf{CW}(P)$ denote the existence of constructive warrant for a proposition $P$, understood in this open-ended sense rather than as provability within a fixed calculus. The intended counterexample would satisfy
+          </p>
+          <div class="mathjaxwrap">
+            $$
+              \mathbb{N}\models A\ \wedge\ \neg\mathsf{CW}(A).
+            $$
           </div>
           <p>
-            The closure argument does not prove that no such case exists. It excludes only the two familiar forms of truth transmission. The main problem asks whether one can present a neutral third form. This form must not become another warrant or assume the conclusion.
+            The difficulty concerns how such a conjunction could be established without already assuming that arithmetic truth is independent of possible warrant.
           </p>
           <p>
-            This preliminary draft states the problem. It might not solve the problem or suit its intended purpose.
+            Suppose a constructively verified result $S$ is proposed as evidence for $A$. A bridge from $S$ to $A$ must license the conclusion without either supplying constructive warrant for $A$ or presupposing the realist semantics under dispute. If the bridge is constructively warranted, closure under constructive implication gives
           </p>
-          <h3 id="reflexica-matters-for-ai">Why <span class="sc">Reflexica</span> Matters for AI</h3>
+          <div class="mathjaxwrap">
+            $$
+              \mathsf{CW}(S),\quad
+              \mathsf{CW}(S\to A)
+              \quad\Longrightarrow\quad
+              \mathsf{CW}(A).
+            $$
+          </div>
           <p>
-            The formal basis of <span class="sc">Reflexica</span> includes established limits on self-prediction. <span class="sc">Reflexica</span> extends these results to artificial intelligence and cognition. Dominant models in these fields do not systematically include these results.
+            The result therefore cannot establish the absence of possible constructive warrant for $A$.
           </p>
           <p>
-            Current AI research often treats limitations as temporary deficits. Researchers then project local improvements toward global competence. This projection treats broader task performance as general intelligence. It treats more accurate evaluation as reliable self-assessment. It also treats recursive improvement as eventual self-mastery.
+            Alternatively, the bridge may assert a semantic consequence,
+          </p>
+          <div class="mathjaxwrap">
+            $$
+              S\Longrightarrow\mathbb{N}\models A,
+            $$
+          </div>
+          <p>
+            without providing a construction of $A$. Its force then depends upon the interpretation of truth in the standard model. If that interpretation already assumes the independence of truth from constructive warrant, the bridge presupposes what the proposed refutation must establish.
           </p>
           <p>
-            <span class="sc">Reflexica</span> challenges this projection. A system can model more of its own behavior and correct more of its own errors. However, it cannot form a closed semantic model of itself. The impossibility applies not to self-modeling alone, but to a specified combination of correctness and adequacy. Logical limitative results therefore take priority over technological progress while their assumptions remain valid. A demonstrated <span class="sc">Queer Object</span> would challenge this priority.
+            These alternatives motivate the search for a third possibility. Let $\mathsf{NeutralBridge}(S,A)$ schematically denote a relation that licenses the passage from a verified result $S$ to the truth of $A$, without providing constructive warrant for $A$ or relying on the realist semantics at issue. A candidate <span class="sc">Queer Object</span> would then satisfy
           </p>
-          <h3 id="expository-compression">Note on Expository Compression</h3>
+          <div class="mathjaxwrap">
+            $$
+              \begin{aligned}
+                \mathsf{QO}(S,A):={}&amp;
+                \mathsf{CW}(S)\\
+                &amp;\wedge\mathsf{NeutralBridge}(S,A)\\
+                &amp;\wedge\mathbb{N}\models A\\
+                &amp;\wedge\neg\mathsf{CW}(A).
+              \end{aligned}
+            $$
+          </div>
           <p>
-            The article briefly examines logic, computation, epistemology, decision theory, and philosophy of mind. Juxtaposition makes the recurring structure visible. A full treatment of each case would hide the pattern that the Program seeks to isolate.
+            This expression specifies the intended conditions rather than defining an independently established class of objects. Because constructive warrant is deliberately open-ended, $\mathsf{CW}$ is not yet a predicate of a fixed formal language. Both it and $\mathsf{NeutralBridge}$ require precise interpretations before their conjunction can be evaluated within a formal theory. Likewise, $\mathbb{N}\models A$ states the target claim under examination; it is not introduced here as a neutral definition of truth.
+          </p>
+          <p>
+            The distinction between relative unprovability and absence of possible warrant is essential. For a fixed formal system $C$, the conjunction
+          </p>
+          <div class="mathjaxwrap">
+            $$
+              \mathbb{N}\models A\ \land\ C\nvdash A
+            $$
+          </div>
+          <p>
+            may hold under appropriate metatheoretic assumptions. Such a result distinguishes truth from provability in $C$. It does not establish that $A$ exceeds every possible constructive warrant. A stronger metatheory may itself provide a warrant for the claims that $C$ cannot establish.
+          </p>
+          <p>
+            The central open problem is therefore whether the distinction between constructive truth transmission and realist semantic presupposition exhausts the admissible bridges from verified results to mathematical truth.
+          </p>
+          <p>
+            An affirmative answer would require an independently specified domain of admissible bridges and a proof that every such bridge falls under one of these alternatives. A negative answer would require a counterexample whose authority does not depend on either alternative.
+          </p>
+          <p>
+            The closure argument above establishes neither result. It identifies the obstruction faced by the familiar forms of truth transmission and specifies what a proposed alternative must overcome. The existence or impossibility of such an alternative remains an open obligation of the <span class="sc">Reflexica</span> Program.
+          </p>
+          <p>
+            A minimal instance of the epistemic closure assumed in Section 2.3 is mechanized as M001 of <a href="https://github.com/Milan-Rosko/Proofcase/tree/main/theories/" target="_blank" rel="noopener noreferrer"><i>Proofcase</i></a>: the closed implication–falsity fragment, with finite proof scripts accepted by a total checker and closed under modus ponens, deduction, and constructive negation introduction. The instance makes the point of departure exact; it does not identify the domain of <span class="sc">Reflexica</span> with that fragment.
           </p>
         </div>
       </div>

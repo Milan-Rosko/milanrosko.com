@@ -9,3 +9,6 @@ og_image_width: "512"
 og_image_height: "512"
 og_image_type: "image/png"
 twitter_card: "summary"
+
+# Local builds go to a folder iCloud does not sync (".nosync" suffix).
+destination: _site.nosync
