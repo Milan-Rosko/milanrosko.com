@@ -53,7 +53,7 @@ og_description: "An introduction and program of formal logic."
       <a class="toc-item" href="#illustration"><span class="toc-key">3</span><span class="toc-text">Illustration</span></a>
       <a class="toc-item" href="#reflexica"><span class="toc-key">4</span><span class="toc-text">What is <span class="sc">Reflexica</span>?</span></a>
       <a class="toc-item" href="#prediction-or-falsification"><span class="toc-key">5</span><span class="toc-text">Adequacy and Falsification</span></a>
-      <a class="toc-item" href="#purpose"><span class="toc-key">6</span><span class="toc-text">Purpose</span></a>
+      <a class="toc-item" href="#purpose"><span class="toc-key">6</span><span class="toc-text">Philosophy and Purpose</span></a>
       <a class="toc-item" href="#conclusion"><span class="toc-key">7</span><span class="toc-text">Conclusion</span></a>
       <a class="toc-item" href="#future-references"><span class="toc-key">8</span><span class="toc-text">References</span></a>
       <a class="toc-item" href="#appendix"><span class="toc-key">9</span><span class="toc-text">Appendix</span></a>
@@ -76,6 +76,9 @@ og_description: "An introduction and program of formal logic."
             On this page:
           </p>
           <ul>
+            <li>
+              Overview <a href="#abstract">#</a>
+            </li>
             <li>
               Contents <a href="#contents">#</a>
             </li>
@@ -100,7 +103,7 @@ og_description: "An introduction and program of formal logic."
             Overview
           </h2>
           <p>
-            <span class="sc">Reflexica</span> is a program in the philosophy of logic and mathematics, written from the intuitionistic standpoint of constructive logic and proof-theoretic semantics, with epistemic closure as its point of departure. Its formal material comes from proof theory and computability theory (diagonalization, incompleteness, undecidability, and reflection principles), and it applies the questions they raise to decision theory, metaethics, and machine cognition.
+            <span class="sc">Reflexica</span> is a program in the philosophy of logic and mathematics, written from the intuitionistic standpoint of constructive logic and proof-theoretic semantics, with <span class="sc">Intuitionistic Epistemic Closure</span> as its point of departure. Its formal material comes from proof theory and computability theory (diagonalization, incompleteness, undecidability, and reflection principles), and it applies the questions they raise to decision theory, metaethics, and machine cognition.
           </p>
           <p>
             A procedure that yields witnesses within an open-ended practice is often taken to certify a completed domain, and the productivity of a representation is taken as evidence for the object it represents. <span class="sc">Reflexica</span> examines this passage from local success to global closure in reflexive cases, where the domain contains the procedure that claims closure over it and each attempt at certification reproduces the obstruction.
@@ -203,19 +206,11 @@ og_description: "An introduction and program of formal logic."
           <div class="mathjaxlike">
             <p style="text-align: center;">Observation:</p>
             <p>
-              Fix an explicit criterion $F$ of life, say metabolism together with reproduction, and let $J$ be our standing judgment of paradigm cases. A case $\Delta(F)$ is constructed from $F$ itself: remove its deciding feature from something judged alive, as in the sterile mule or the dormant spore, or confer that feature on something judged lifeless, as with <i>fire</i>, which consumes, grows, and propagates. The criterion's verdict on the constructed case opposes our judgment of it:
-            </p>
-            <div class="mathjaxwrap">
-              $$
-                \forall F\in\mathcal{F}_{\mathrm{life}}\;\; F\bigl(\Delta(F)\bigr)\neq J\bigl(\Delta(F)\bigr).
-              $$
-            </div>
-            <p>
-              Repairing $F$ to $F'$ only supplies the next construction, $\Delta(F')$.
+              Every explicit criterion of life supplies its own counterexample. Take metabolism together with reproduction: the sterile mule and the dormant spore fail it, yet we judge them alive; <i>fire</i>, which consumes, grows, and propagates, nearly meets it, yet we judge it lifeless. Each repair of the criterion supplies the material for the next case, and each case is settled not by the criterion but by our judgment of it.
             </p>
           </div>
           <p>
-            The argument is diagonal but conditional: it succeeds only while $J$ differs from every explicit criterion. Nor is it yet reflexive, since $J$ drives each step without becoming its object; diagonalizing against $J$ would require identifying it with some $F$, which nothing in the construction warrants (Section 3.5).
+            The argument is diagonal but conditional: it succeeds only while our judgment differs from every explicit criterion. Nor is it yet reflexive, since the judgment drives each step without becoming its object; diagonalizing against the judgment itself would require identifying it with some criterion, which nothing in the construction warrants (Section 3.5).
           </p>
           <p>
             In light of these examples, we reopen the question of the epistemic status of the completeness that classical semantics permits us to assume. The point is not that <i>fire</i> must somehow be both alive and not alive, or that a mathematical proposition must inhabit a third truth value, but that <i>intuition</i> can function with remarkable success long before we have established what, if anything, guarantees its unrestricted application. A completed classification may afford useful compression, yet that usefulness may be mistaken for evidence that the concept has captured an independently completed domain.
@@ -394,20 +389,39 @@ og_description: "An introduction and program of formal logic."
             </p>
           </div>
           <p>
-            Our intentionality has limited access to global operational and semantic structure. Naturally, we overestimate the authority of the sources that organize our local experience, so we might mistake effectivity success for truth. <span class="sc">Reflexica</span> begins from here, not from the claim that the mistake is unavoidable.
+            Our intentionality has limited access to global operational and semantic structure. Naturally, we overestimate the authority of the sources that organize our local experience, so we might mistake operational success for truth. <span class="sc">Reflexica</span> begins from here, not from the claim that the mistake is unavoidable.
           </p>
           <h3 id="methodology">2.3 Methodology: <span class="sc">Reflexica</span> as a Working Hypothesis</h3>
           <p>
             <span class="sc">Reflexica</span> is methodologically useful before it is established as a general theory. We provisionally assume that an apparent semantic ground may be the stabilized effect of a locally successful practice. This assumption earns its place only if it exposes otherwise hidden commitments, distinguishes cases that a stronger semantics conflates, or supports predictions that could fail. We call this use of a suspected limit <i>limitative abduction</i>.
           </p>
           <div class="mathjaxlike">
-            <p style="text-align: center;">Assumption (Epistemic Closure):</p>
+            <p style="text-align: center;">INTUITIONISTIC EPISTEMIC CLOSURE</p>
             <p>
-              REFLEXICA privileges EPISTEMIC CLOSURE (EC) as its point of departure: a fragment of intuitionistic propositions whose acceptance is a finite, checkable construction, closed under constructive consequence. Whatever exceeds this fragment, such as a completed domain, a classical partition, or a realist semantics, must be admitted afterward and warranted from it. The assumption fixes where REFLEXICA stands, not how far its diagnosis extends; whether REFLEXICA is larger or smaller than this fragment remains open.
+              REFLEXICA takes INTUITIONISTIC EPISTEMIC CLOSURE as its point of departure: an epistemic discipline that admits propositions through finite, checkable constructions and preserves their warrant under admissible intuitionistic inference, without presupposing a completed semantic domain or unrestricted reflection into truth. Writing $\mathsf{CW}(P)$ for admissible constructive warrant, its central closure condition is
+            </p>
+            <div class="mathjaxwrap">
+              $$
+                \frac{\mathsf{CW}(P)\qquad\mathsf{CW}(P\to Q)}{\mathsf{CW}(Q)},
+              $$
+            </div>
+            <p>
+              where a witness for the conclusion must be effectively obtainable from the witnesses for the premises. Its limit is stated as explicitly:
+            </p>
+            <div class="mathjaxwrap">
+              $$
+                \text{inferential closure}\quad\cancel\Longrightarrow\quad\text{semantic completion}.
+              $$
+            </div>
+            <p>
+              IEC describes a discipline, not an ontology. It fixes how REFLEXICA admits and transmits epistemic commitments; it does not declare that whatever exceeds constructive warrant is nonexistent, meaningless, or false.
             </p>
           </div>
           <p>
-            Closure here is closure of a fragment under consequence, not closure of a domain. <span class="sc">Reflexica</span> accepts the first and examines the second. EC is also not meant in the modal sense of epistemic logic, where a knowledge operator is closed under known entailment and whatever an agent knows to follow is thereby known. It is meant in a limitative, proof-theoretic sense: a proposition belongs to EC only when an accepted finite construction exhibits it. A semantic proposition does not enter EC by being true, and a valid argument does not enter it by being valid; either enters only as a checked derivation. EC is fixed by what can be checked, not by what follows semantically.
+            IEC is the familiar closure principle of epistemology, if an agent knows $p$ and knows that $p$ entails $q$, then the agent knows $q$, read intuitionistically. Two things change. First, the premises are warrants rather than states of knowledge, and the entailment is itself a construction: $Q$ is warranted because a witness for it is computed, not because it follows semantically. A semantic consequence does not acquire warrant by being true, and a valid argument does not acquire it by being valid; either acquires it only as a checked derivation. Second, the principle is read from its boundary. Closure states not only what warrant reaches but also what it does not: whatever no admissible inference reaches remains outside, however determinate a classical semantics takes it to be. This is the standpoint of proof-theoretic semantics <a href="#reference-gentzen-logical-deduction">[Gentzen, 1935]</a> <a href="#reference-dummett-philosophical-basis">[Dummett, 1975]</a> applied to epistemic commitment: what an assertion commits us to is fixed by the rules that warrant it, not by a model given in advance.
+          </p>
+          <p>
+            Closure here is closure of a discipline under inference, not closure of a domain. <span class="sc">Reflexica</span> accepts the first and examines the second. The closure condition is used in Section 4.2; its limit is what the following sections test. The assumption fixes where <span class="sc">Reflexica</span> stands, not how far its diagnosis extends.
           </p>
           <p>
             The inquiry begins with the operations actually available. For each problem, we identify the witnesses, decisions, or predictions that those operations produce; the domain over which they remain effective; and the point at which their local success is promoted into a claim of closure. <span class="sc">Problem Critique</span> names this reconstruction of a problem’s substrate and commitments.
@@ -433,7 +447,6 @@ og_description: "An introduction and program of formal logic."
             Consider a simple structure in which this can be checked:
           </p>
           <div class="mathjaxlike">
-            <p style="text-align: center;">CONSTRUCTION WITHOUT DETERMINATION</p>
             <p>
               Let $G=C_2\oplus C_2=\{0,a,b,c\}$. The sum of any two distinct nonzero elements is the third, so every permutation of $a$, $b$, $c$ is an automorphism. A nonzero element exists, yet none is fixed by every automorphism:
             </p>
@@ -448,12 +461,12 @@ og_description: "An introduction and program of formal logic."
             The contribution of a presentation also appears in a familiar explanation of vision. The eye projects an inverted image onto the retina, so, the explanation goes, the brain must flip it back. “Back” makes the explanation seem complete: the brain restores the world to its proper orientation. But why must vision perform this restoration?
           </p>
           <div class="mathjaxlike">
-            <p style="text-align: center;">Observation:</p>
+            <p style="text-align: center;">BORROWED FRAME FALLACY</p>
             <p>
-              A familiar folk diagram shows an upright tree, an eye, and an inverted retinal image. We see the discrepancy and assign the brain a task: turn the image back to match the world. The upright tree becomes the standard for an internal picture, as though the brain had to reconstruct the picture that we see from outside it.
+              A familiar folk diagram shows an upright tree, an eye, and an inverted retinal image. We see the discrepancy and assign the brain a task: turn the image back to match the world. Drawn in the same frame, the upright tree becomes the standard against which the retinal image counts as wrong.
             </p>
             <p>
-              The brain receives no such diagram. Its visual operations relate retinal positions to the body, its movements, and its surroundings. The folk explanation adds a further demand: these relations must culminate in a picture whose orientation matches the world’s.
+              Inversion is a relation: the image is inverted relative to the tree, in the frame that the diagram supplies to both. Nothing in the visual system holds both relata. Turn a running computer upside down: its interface now appears inverted to us, yet nothing in the machine has changed and nothing needs correcting. Its coordinates were never oriented relative to the room; only an observer in the room compares them. The folk explanation borrows that observer’s frame and charges the brain with a correction that exists only within it.
             </p>
             <div class="mathjaxwrap">
               $$
@@ -464,7 +477,7 @@ og_description: "An introduction and program of formal logic."
             </div>
           </div>
           <p>
-            The additional demand is the point at issue. The illustration supplies a requirement for pictorial agreement, then makes that agreement appear necessary for vision. The tree is still seen upright; what disappears is the task of turning it.
+            The fallacy credits a relation that holds within the frame of a depiction to the depicted system as an intrinsic property, and derives a task from it. The tree is still seen upright; what disappears is the task of turning it.
           </p>
           <p>
             The mathematical case exposes a choice supplied by a representation; the visual case exposes a requirement supplied by an explanatory picture. Each invites a question about what we attribute to the object and what its presentation contributes. This gives a doubt about reification an initial, limited form: how much of an object's apparent independence comes from keeping its conditions of presentation fixed?
@@ -633,9 +646,6 @@ og_description: "An introduction and program of formal logic."
           </p>
           <p>
             The promotion is hard to detect because reflection has a second face, already marked in Section 3.2 as part of the <span class="sc">Reflexica</span> moment.
-          </p>
-          <p>
-            Reflection and the absence of semantic implication behave strikingly alike:
           </p>
           <div class="mathjaxlike">
             <p style="text-align: center;">REFLECTION AND ABSENT IMPLICATION</p>
@@ -1176,7 +1186,7 @@ og_description: "An introduction and program of formal logic."
             Is the warrant/semantic-presupposition dilemma derived, or stipulated?
           </div>
           <p>
-            The constructive meaning of implication gives one branch. Let $S_x$ state that a proposed problem $x$ has a verified solution. Let $A$ be the target assertion. Let $\mathsf{CW}(P)$ mean that $P$ has constructive warrant in the relevant open-ended sense. Epistemic closure, as assumed in Section 2.3, gives closure under application:
+            The constructive meaning of implication gives one branch. Let $S_x$ state that a proposed problem $x$ has a verified solution. Let $A$ be the target assertion. As in Section 2.3, $\mathsf{CW}(P)$ means that $P$ has constructive warrant in the relevant open-ended sense. The closure condition of IEC gives closure under application:
           </p>
           <div class="mathjaxwrap">
             $$
@@ -1563,7 +1573,7 @@ og_description: "An introduction and program of formal logic."
           </p>
           <h4>M001: Epistemic Closure</h4>
           <p>
-            <a href="https://github.com/Milan-Rosko/Proofcase/tree/main/theories/M001" target="_blank" rel="noopener noreferrer">M001</a> gives a minimal instance of the epistemic closure assumed in Section 2.3. Its formulas use implication and falsity, and its finite proof scripts are accepted by a total Boolean checker. The development supplies checked proof transformations for modus ponens, deduction, and constructive negation introduction. Acceptance thus has an explicit witness: a finite script that passes the checker under the specified rules and assumptions.
+            <a href="https://github.com/Milan-Rosko/Proofcase/tree/main/theories/M001" target="_blank" rel="noopener noreferrer">M001</a> gives a minimal instance of the <span class="sc">Intuitionistic Epistemic Closure</span> (IEC) assumed in Section 2.3. Its formulas use implication and falsity, and its finite proof scripts are accepted by a total Boolean checker. The development supplies checked proof transformations for modus ponens, deduction, and constructive negation introduction. Acceptance thus has an explicit witness: a finite script that passes the checker under the specified rules and assumptions.
           </p>
           <h4>L001: The Aporetic Lemma</h4>
           <p>
@@ -1595,7 +1605,7 @@ og_description: "An introduction and program of formal logic."
             L002 names this non-refutability condition $\mathsf{AsIF}$. It permits explicit reasoning under the additional assumption $A$, while keeping that assumption distinct from acceptance in the original context. The defined recognition mechanism would supply the missing fixed-point direction, so consistency excludes its acceptance at the mirror position. The <span class="sc">Recursive Mirror Lemma</span> carries the obstruction through finite iterations when the mirror step preserves the required adequacy.
           </p>
           <p>
-            These results give the distinction between unavailable warrant and warranted negation a precise setting. Their scope is checked derivability under explicit premises. For an intended application, deriving the mirror condition from an independently justified construction, rather than stipulating it, remains an open obligation. Connecting them to the open-ended $\mathsf{CW}$ of the preceding chapter requires a further interpretation, and the exhaustiveness of the warrant/semantic-presupposition dilemma remains an obligation of the Program.
+            These results give the distinction between unavailable warrant and warranted negation a precise setting. Their scope is checked derivability under explicit premises. For an intended application, deriving the mirror condition from an independently justified construction, rather than stipulating it, remains an open obligation. Connecting them to the open-ended $\mathsf{CW}$ of the preceding section requires a further interpretation, and the exhaustiveness of the warrant/semantic-presupposition dilemma remains an obligation of the Program.
           </p>
         </div>
       </div>
