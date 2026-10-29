@@ -406,7 +406,15 @@ og_description: "An introduction and program of formal logic."
               $$
             </div>
             <p>
-              where a witness for the conclusion must be effectively obtainable from the witnesses for the premises. Its limit is stated as explicitly:
+              where a witness for the conclusion must be effectively obtainable from the witnesses for the premises. Its consistency condition is
+            </p>
+            <div class="mathjaxwrap">
+              $$
+                \neg\bigl(\mathsf{CW}(P)\wedge\mathsf{CW}(\neg P)\bigr),
+              $$
+            </div>
+            <p>
+              assumed, not derived: the discipline cannot certify its own consistency. Its limit is stated as explicitly:
             </p>
             <div class="mathjaxwrap">
               $$
@@ -421,7 +429,7 @@ og_description: "An introduction and program of formal logic."
             IEC is the familiar closure principle of epistemology, if an agent knows $p$ and knows that $p$ entails $q$, then the agent knows $q$, read intuitionistically. Two things change. First, the premises are warrants rather than states of knowledge, and the entailment is itself a construction: $Q$ is warranted because a witness for it is computed, not because it follows semantically. A semantic consequence does not acquire warrant by being true, and a valid argument does not acquire it by being valid; either acquires it only as a checked derivation. Second, the principle is read from its boundary. Closure states not only what warrant reaches but also what it does not: whatever no admissible inference reaches remains outside, however determinate a classical semantics takes it to be. This is the standpoint of proof-theoretic semantics <a href="#reference-gentzen-logical-deduction">[Gentzen, 1935]</a> <a href="#reference-dummett-philosophical-basis">[Dummett, 1975]</a> applied to epistemic commitment: what an assertion commits us to is fixed by the rules that warrant it, not by a model given in advance.
           </p>
           <p>
-            Closure here is closure of a discipline under inference, not closure of a domain. <span class="sc">Reflexica</span> accepts the first and examines the second. The closure condition is used in Section 4.2; its limit is what the following sections test. The assumption fixes where <span class="sc">Reflexica</span> stands, not how far its diagnosis extends.
+            Closure here is closure of a discipline under inference, not closure of a domain. <span class="sc">Reflexica</span> accepts the first and examines the second. Without excluded middle but with non-contradiction, IEC admits gaps but not gluts: $\neg\mathsf{CW}(P)\wedge\neg\mathsf{CW}(\neg P)$ is a possible state, $\mathsf{CW}(P)\wedge\mathsf{CW}(\neg P)$ is not. The closure condition is used in Section 4.2, the consistency condition by the modules of the Appendix; the limit is what the following sections test. The assumption fixes where <span class="sc">Reflexica</span> stands, not how far its diagnosis extends.
           </p>
           <p>
             The inquiry begins with the operations actually available. For each problem, we identify the witnesses, decisions, or predictions that those operations produce; the domain over which they remain effective; and the point at which their local success is promoted into a claim of closure. <span class="sc">Problem Critique</span> names this reconstruction of a problem’s substrate and commitments.
