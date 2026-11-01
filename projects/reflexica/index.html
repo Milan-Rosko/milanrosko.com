@@ -103,13 +103,10 @@ og_description: "An introduction and program of formal logic."
             Overview
           </h2>
           <p>
-            <span class="sc">Reflexica</span> is a program in the philosophy of logic and mathematics, written from the intuitionistic standpoint of constructive logic and proof-theoretic semantics, with <span class="sc">Intuitionistic Epistemic Closure</span> as its point of departure. Its formal material comes from proof theory and computability theory (diagonalization, incompleteness, undecidability, and reflection principles), and it applies the questions they raise to decision theory, metaethics, and machine cognition.
+            <span class="sc">Reflexica</span> is a program in the philosophy of logic and mathematics, developed from an intuitionistic standpoint. It examines a familiar inference: a procedure that succeeds case by case is taken to certify a completed domain, and the productivity of a representation is taken as evidence for what it represents. The inference becomes unstable in reflexive cases, where the domain contains the procedure that claims closure over it. There, each attempt at certification reproduces the obstruction it was meant to remove.
           </p>
           <p>
-            A procedure that yields witnesses within an open-ended practice is often taken to certify a completed domain, and the productivity of a representation is taken as evidence for the object it represents. <span class="sc">Reflexica</span> examines this passage from local success to global closure in reflexive cases, where the domain contains the procedure that claims closure over it and each attempt at certification reproduces the obstruction.
-          </p>
-          <p>
-            In each case, the question is whether the passage is warranted or whether the problem already presupposes the closure its procedure was meant to establish. The same question applies to <span class="sc">Reflexica</span>: must every bridge from a verified result to a truth claim either transmit constructive warrant or presuppose the realist semantics at issue? A bridge that does neither, a <span class="sc">Queer Proof</span>, would refute the account.
+            The manuscript traces this pattern through diagonalization, incompleteness, and undecidability, and through cases in decision theory, metaethics, and machine cognition. It applies the same question to itself and states what would refute it: a <span class="sc">Queer Proof</span>, a passage from a verified result to a truth claim that neither transmits constructive warrant nor presupposes the realist semantics at issue.
           </p>
           <p>
             Preliminary version, revised October 2026. Licensed <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY</a>.
@@ -210,10 +207,7 @@ og_description: "An introduction and program of formal logic."
             </p>
           </div>
           <p>
-            The argument is diagonal but conditional: it succeeds only while our judgment differs from every explicit criterion. Nor is it yet reflexive, since the judgment drives each step without becoming its object; diagonalizing against the judgment itself would require identifying it with some criterion, which nothing in the construction warrants (Section 3.5).
-          </p>
-          <p>
-            In light of these examples, we reopen the question of the epistemic status of the completeness that classical semantics permits us to assume. The point is not that <i>fire</i> must somehow be both alive and not alive, or that a mathematical proposition must inhabit a third truth value, but that <i>intuition</i> can function with remarkable success long before we have established what, if anything, guarantees its unrestricted application. A completed classification may afford useful compression, yet that usefulness may be mistaken for evidence that the concept has captured an independently completed domain.
+            In light of these examples, we reopen the question of the epistemic status of the projected completeness that classical semantics permits us to assume. We observe that <i>intuition</i> can function with remarkable success long before we have established what, if anything, guarantees its unrestricted application.
           </p>
           <p>
             <span class="sc">Reflexica</span> concerns limits that cannot be certified without reproducing the conditions under which they arise. If the mind is assumed to be finite and computational, the paradigm case is the <span class="sc">Halting Problem</span> viewed from within such a mind. The object of scrutiny is a specific passage from formal success to semantic authority: the inference that, because a framework can consistently describe a completed totality, that totality has acquired independent epistemic warrant.
@@ -237,10 +231,10 @@ og_description: "An introduction and program of formal logic."
             We suspend judgment on whether a procedural reading accepts only the results reached by the construction. Thus, given any finite collection of primes, the procedure constructs a number that is coprime to each member and can be iterated without end.
           </p>
           <p>
-            By contrast, Platonic reasoning treats existential quantification over a completed domain as cost-free, preserving the theorem while obscuring the difference between a domain-level proposition and a witness produced by a construction. Proof-theoretic semantics makes this difference explicit <a href="#reference-gentzen-logical-deduction">[Gentzen, 1935]</a>. A classical proof admits the existential claim $\exists x:A\,P(x)$; its constructive interpretation supplies data: an object $a:A$ together with evidence for $P(a)$. Under <span class="sc">Propositions-as-Types</span>, an inhabitant of $\Sigma_{x:A} P(x)$ represents this information <a href="#reference-howard-formulae-types">[Howard, 1980]</a>.
+            By contrast, Platonic reasoning treats existential quantification over a completed domain as cost-free, preserving the theorem while obscuring the difference between a domain-level proposition and a witness. Proof-theoretic semantics makes this difference explicit <a href="#reference-gentzen-logical-deduction">[Gentzen, 1935]</a>. A classical proof admits the existential claim $\exists x:A\,P(x)$; its constructive interpretation supplies data: an object $a:A$ together with evidence for $P(a)$. Under <span class="sc">Propositions-as-Types</span>, an inhabitant of $\Sigma_{x:A} P(x)$ represents this information <a href="#reference-howard-formulae-types">[Howard, 1980]</a>.
           </p>
           <p>
-            This distinction places primality in proximity to a negation: a proof that a number is <i>composite</i> provides a finite, extractable, and <i>a priori</i> witness, not merely a certificate. For <span class="sc">Compositeness</span>, the factor pair $(a,b)$ supplies the proof’s computational content <a href="#reference-kleene-realizability">[Kleene, 1945]</a>. Hence:
+            This distinction places primality in proximity to a negation: a proof that a number is <i>composite</i> provides a finite, extractable, and <i>a priori</i> geometric witness, not merely a certificate. For <span class="sc">Compositeness</span>, the factor pair $(a,b)$ supplies the proof’s computational content <a href="#reference-kleene-realizability">[Kleene, 1945]</a>. Hence:
           </p>
           <div class="mathjaxlike">
             Like <span class="uppercase">Halting</span>, where a finished run is its own certificate, <span class="uppercase">Compositeness</span> is directly witnessable: a rectangular arrangement exhibits the factorization. <span class="uppercase">Primality</span>, by contrast, is not known to expose a witness of the same kind. Its defining feature is the exclusion of every such configuration. This exclusion may itself admit a finite positive proof object, but that object certifies the exclusion by quantifying over a finite search rather than by presenting a constituent whose presence makes the number <i>prime</i>.
@@ -1264,7 +1258,7 @@ og_description: "An introduction and program of formal logic."
               SEMANTIC DISSOCIATION
             </p>
             <p>
-              A sufficient structural condition for dissociation obtains when an identifying operation is itself included within the domain of its identification, while the identification preserves the relevant operations without independently establishing the semantic authority of their description. The more completely the identification incorporates the operations that evaluate its adequacy, the less its completeness can serve as independent evidence of that adequacy.
+              SEMANTIC DISSOCIATION occurs when a system identifies itself and preserves every operation the identification describes. The question then shifts from what the system can derive to whether the description is adequate, which the system cannot settle from inside. What an external standpoint reads as truth beyond proof appears internally as a gap between operation and description, and each internal attempt to close it adds another layer to be described.
             </p>
           </div>
           <p>
