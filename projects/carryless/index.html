@@ -193,7 +193,7 @@
                         <div id="steps" class="output">Waiting for command.</div>
                     </div>
                     <p>
-                          <span class="u">Step 3.</span> Use this correspondence to build an injective $\Delta_0$ pairing function that takes any two natural numbers and returns a single one.
+                          <span class="u">Step 3.</span> Use this correspondence to build an injective pairing function that takes any two natural numbers and returns a single one.
                     </p>
                     <div class="align-center">
                         <p class="mt-2em">
@@ -227,6 +227,9 @@
                     </div>
                     <p>
                           Remark. The pairing $\pi_{\mathrm{CL}}^\tau$ is finitary: each step uses a finite, explicitly bounded amount of arithmetic. Its correctness depends on the fact that every natural number has exactly one Zeckendorf decomposition, and that this decomposition is preserved under the standard order on $\mathbb{N}$. What looks like division is modular arithmetic, in fact a bounded $\mathcal{O}(\log n)$ search. These guarantees, however, presuppose that the underlying number model is faithful to $\{\,\mathbb{N},\, +,\, \le\,\}$; IEEE-754 floating point past $2^{53}$ is a familiar case where this assumption breaks down. We note a recurring theme in computation: exact arithmetical structure is routinely simulated inside hardware that is only approximate.
+                    </p>
+                    <p>
+                          Correction. An earlier version of this page treated $\Delta_0$-definability as what sets this construction apart. It doesn't: the next-prime function is also $\Delta_0$, since Bertrand's postulate bounds its search. The real difference is how each one is justified. Fibonacci numbers come from a direct recurrence, while next-prime needs a bounded search whose bound rests on a theorem of number theory.
                     </p>
                     <p>
                           Acknowledgment. Thanks to Albert Visser <a href="https://www.uu.nl/staff/AVisser" target="_blank" rel="noopener noreferrer">Utrecht University</a> for timely criticism and guidance.
